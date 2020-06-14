@@ -1,0 +1,75 @@
+.featured-projects{
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include media-breakpoint-down(md){
+    margin-bottom: $global-margin-md;
+    img{
+      margin-bottom: $global-margin-sm;
+    }
+  }
+  @include media-breakpoint-up(md){
+    .row{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+.featured-projects .col-md-7 a{
+  position: relative;
+  display: block;
+  &:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 20px 20px -15px rgba(0,0,0,0.5);
+  }
+}
+
+.featured-projects-homepage-item{
+  .article-title{
+    @extend %heading-font;
+    color: $white;
+
+  }
+  .thumbnail{
+    //border: solid thick $primary;
+    //max-width: 640px;
+    display: block;
+    margin: 20px auto;
+  }
+  .has-text{
+    color: white;
+  }
+}
+
+.featured-projects-homepage-wrapper {
+  background-color: #fff;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-image: url(/wp-content/themes/ftf-altitude-pro/dist/images/bg-3.jpg);
+  @include media-breakpoint-up(md) {
+    background-attachment: fixed;
+  }
+}
+
+.featured-projects-inner-wrapper{
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.8) 80%,rgba(0,0,0,0.9) 100%);
+  display: table;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.page-template-featured-projects-page{
+  .entry-header,
+  .content-sidebar-wrap{
+    @include animation('fadein 1s');
+  }
+}

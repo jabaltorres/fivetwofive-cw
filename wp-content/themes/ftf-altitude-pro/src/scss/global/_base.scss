@@ -1,0 +1,39 @@
+.nav-primary .genesis-nav-menu{
+  text-align: left;
+}
+
+$placeholder-color: #666;
+::-webkit-input-placeholder {
+   color: $placeholder-color;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $placeholder-color;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $placeholder-color;  
+}
+
+:-ms-input-placeholder {  
+   color: $placeholder-color; 
+}
+
+
+main article{
+  header p.entry-meta{
+    display: none;
+  }
+}
+
+
+a{
+  color: map-get($theme-colors, secondary);
+}
+
+pre{
+  padding: 10px 20px;
+  margin-top: 0;
+  background-color: #eeeeee;
+  border-radius: 4px;
+}

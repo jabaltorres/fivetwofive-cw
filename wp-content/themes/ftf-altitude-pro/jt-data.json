@@ -1,0 +1,68 @@
+{
+  "thumbnails": [
+    { "client" : "Digital Meaning",
+      "description" : "Digital Meaning",
+      "role": "UI Design, Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/Digital-Meaning-thumbnail.png",
+      "linkHref" : "https://www.jabaltorres.com/digital-meaning/",
+      "extLink" : false
+
+    },
+    { "client" : "CoroStuff",
+      "description" : "CoroStuff",
+      "role": "UI Design, Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/CoroStuff-thumbnail.png",
+      "linkHref" : "https://www.jabaltorres.com/corostuff/",
+      "extLink" : false
+
+    },
+    { "client" : "Better World Advertising",
+      "description" : "INPUD Redesign",
+      "role": "UI Design, UX Design",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/INPUD-thumbnail.jpg",
+      "linkHref" : "https://jabaltorres.com/inpud-wireframes/",
+      "extLink" : false
+
+    },
+    { "client" : "Al Jazeera",
+      "description" : "Al Jazeera Design Language System",
+      "role": "UI / UX Design, Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/AJ-DLS-Home.jpg",
+      "linkHref" : "https://jabaltorres.com/al-jazeera-design-language-system/",
+      "extLink" : false
+
+    },
+    { "client" : "Al Jazeera",
+      "description" : "Al Jazeera Training Center",
+      "role": "Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/AJTC-thumbnail.png",
+      "linkHref" : "https://www.jabaltorres.com/al-jazeera-training-center/",
+      "extLink" : false
+
+    },
+    { "client" : "Systematic",
+      "description" : "The Other Woman",
+      "role": "Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/the-other-woman.png",
+      "linkHref" : "https://jabaltorres.com/the-other-woman/",
+      "extLink" : false
+
+    },
+    { "client" : "The Refinery",
+      "description" : "The Red Road",
+      "role": "UI Design, UX Design",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/the-red-road.png",
+      "linkHref" : "https://www.jabaltorres.com/the-red-road-digital-campaign/",
+      "extLink" : false
+
+    },
+    { "client" : "The Refinery",
+      "description" : "Mad Men Season 7 DPK",
+      "role": "Web Design, Web Development",
+      "imgSrc" : "https://jabaltorres.com/assets/img/thumbnails/mms7-dpk.png",
+      "linkHref" : "https://jabaltorres.com/mad-men-season-7-dpk/",
+      "extLink" : false
+
+    }
+  ]
+}

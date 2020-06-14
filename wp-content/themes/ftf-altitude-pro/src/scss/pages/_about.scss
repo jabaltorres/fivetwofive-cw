@@ -1,0 +1,76 @@
+.page-id-278,
+.page-id-923,
+.page-id-2{
+  .site-inner{
+    max-width: 100%;
+  }
+}
+
+.page-id-278.full-width-content,
+.page-id-923.full-width-content,
+.page-id-2.full-width-content{
+  .content{
+    padding: 0;
+  }
+
+  span.line {
+    width: 70px;
+    height: 5px;
+    transition: $global-ease;
+  }
+
+  .col-12:hover{
+    span.line{
+      width: 125px;
+    }
+  }
+
+  .about{
+    img.rounded-circle.p-4{
+      transition: all 300ms ease-in-out;
+      border: solid 4px $white;
+    }
+    &:hover{
+      img.rounded-circle.p-4{
+        border-color: $light;
+        box-shadow: inset 0 0 0 25px $light;
+      }
+    }
+    @include max-800{
+      img{
+        max-width: 75% !important;
+      }
+    }
+  }
+  .person-info{
+    span.line{
+      background-color: $dark;
+    }
+  }
+  .my-journey{
+    span.line{
+      background-color: $primary;
+    }
+  }
+  .person-info h3,
+  .my-journey h3{
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  // adding a bit of animation
+  .entry-header,
+  .about,
+  .person-info,
+  .my-journey,
+  .cta{
+    @include animation('fadein 1s');
+  }
+}
+
+.post-278.entry,
+.post-923.entry,
+.post-2.entry{
+  margin-bottom: 0;
+}

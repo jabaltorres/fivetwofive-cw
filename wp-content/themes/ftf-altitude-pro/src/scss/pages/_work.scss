@@ -1,0 +1,93 @@
+.page-template-work-page{
+	.entry{
+		margin-bottom: 40px;
+	}
+	.sub-head{
+		text-align: center;
+		font-size: 1.4em;
+		font-weight: bold;
+	}
+}
+
+
+.work-list{
+	li{
+	  max-width: 45em;
+	  background-color: rgba(255,255,255,0.1);
+	  margin: 0 auto 2.25em;
+	  padding: 0.5em;
+	  list-style-type: none;
+	  &:hover{
+	    max-width: 45.125em;
+	    img{
+	      @include box-shadow($horizontal: 2px, $vertical: 4px, $blur: 1em, $color: rgba(0,0,0,0.7));
+	    }
+	    a{
+	      color: white; 
+	    }
+	    h3{
+	      visibility: visible;
+	    }
+	    .overlay{
+	      background-color: rgba(0,0,0,0.1);
+	    }
+	  }
+	}
+	a{
+	  background-color: rgba(255,255,255,0.2);
+	  position: relative;
+	  display: block;
+	  line-height: 0;
+	  color: #eee;
+	}
+	img{
+	  display: inherit;
+	}
+	.text{
+	  // border: solid thin red;
+	  padding: 1em 0.5em;
+	  position: absolute;
+	  z-index: 999;
+	  width: 100%;
+	  text-align: center;
+	  // background-color: pink;
+	  background-color: rgba(0,0,0,0.7);
+	  border-top: solid thin rgba(255,255,255,0.1);
+	  border-bottom: solid thin rgba(255,255,255,0.1);
+	  top: 25%;
+	  h3{
+	    margin: 0 0 0.6em;
+	    font-size: $h5-font-size;
+	    
+	    // background-color: yellow;
+	    // padding: 1em;
+	    // z-index: 999;
+	    // width: 100%;
+	    // top: 42%;
+	    // visibility: hidden;
+	    // opacity: 0;
+	    @include transition(top 0.3s ease-in-out, opacity 0.3s ease-in-out);
+	  }
+	  span{
+	    display: block;
+	    padding-bottom: 0.7em;
+	  }
+	}
+	.overlay{
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+	  bottom: 0;
+	  left: 0;
+	  background-color: rgba(0,0,0,0.8);
+	  @include transition(background-color 0.3s ease-in-out);
+	}
+	@include medium-screen{
+	  .text{
+	    top: 37%;
+	    h3{
+	      font-size: $h4-font-size;
+	    }
+	  }
+	}
+}

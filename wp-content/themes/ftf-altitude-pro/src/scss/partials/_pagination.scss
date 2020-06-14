@@ -1,0 +1,8 @@
+.archive-pagination.pagination{
+	// background-color: pink;
+}
+
+.archive-pagination li a:hover, 
+.archive-pagination .active a{
+	background-color: map-get($theme-colors, primary);
+}

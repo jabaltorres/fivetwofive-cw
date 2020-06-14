@@ -1,0 +1,45 @@
+/*
+Site Footer
+---------------------------------------------------------------------------------------------------- */
+
+.site-footer {
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+.site-footer,
+.site-footer a,
+.site-footer p {
+  color: #fff;
+}
+
+.site-footer a:hover {
+  color: $primary;
+}
+
+.site-footer p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.site-footer{
+  background-color: $black;
+  text-align: left;
+  font-family: $font-body;
+  p{
+    text-transform: none;
+    color:#999;
+  }
+  .genesis-nav-menu{
+    margin-top: 0;
+  }
+  @include max-800{
+    .wrap{
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+}

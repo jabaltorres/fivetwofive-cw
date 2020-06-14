@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "ajmn-icons";
+  src:url("../fonts/ajmn-icons.eot");
+  src:url("../fonts/ajmn-icons.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ajmn-icons.woff") format("woff"),
+    url("../fonts/ajmn-icons.ttf") format("truetype"),
+    url("../fonts/ajmn-icons.svg#ajmn-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "ajmn-icons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "ajmn-icons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ajmn-accessible:before {
+  content: "a";
+}
+.icon-ajmn-alert:before {
+  content: "b";
+}
+.icon-ajmn-arrow:before {
+  content: "c";
+}
+.icon-ajmn-arrow-circle:before {
+  content: "d";
+}
+.icon-ajmn-bookmark:before {
+  content: "e";
+}
+.icon-ajmn-calendar:before {
+  content: "f";
+}
+.icon-ajmn-caret:before {
+  content: "g";
+}
+.icon-ajmn-cart:before {
+  content: "h";
+}
+.icon-ajmn-chat:before {
+  content: "i";
+}
+.icon-ajmn-check:before {
+  content: "j";
+}
+.icon-ajmn-chevron-dbl-left:before {
+  content: "k";
+}
+.icon-ajmn-chevron-dbl-right:before {
+  content: "l";
+}
+.icon-ajmn-chevron-left:before {
+  content: "m";
+}
+.icon-ajmn-chevron-right:before {
+  content: "n";
+}
+.icon-ajmn-clock:before {
+  content: "o";
+}
+.icon-ajmn-close:before {
+  content: "p";
+}
+.icon-ajmn-close-circle:before {
+  content: "q";
+}
+.icon-ajmn-complete:before {
+  content: "r";
+}
+.icon-ajmn-contacts:before {
+  content: "s";
+}
+.icon-ajmn-document-stack:before {
+  content: "u";
+}
+.icon-ajmn-download:before {
+  content: "v";
+}
+.icon-ajmn-edit:before {
+  content: "w";
+}
+.icon-ajmn-embed:before {
+  content: "x";
+}
+.icon-ajmn-expand:before {
+  content: "y";
+}
+.icon-ajmn-facebook:before {
+  content: "z";
+}
+.icon-ajmn-fast-forward:before {
+  content: "A";
+}
+.icon-ajmn-flag:before {
+  content: "B";
+}
+.icon-ajmn-forward:before {
+  content: "C";
+}
+.icon-ajmn-globe:before {
+  content: "D";
+}
+.icon-ajmn-google-plus:before {
+  content: "E";
+}
+.icon-ajmn-grid:before {
+  content: "F";
+}
+.icon-ajmn-heart:before {
+  content: "G";
+}
+.icon-ajmn-history:before {
+  content: "H";
+}
+.icon-ajmn-info:before {
+  content: "I";
+}
+.icon-ajmn-instagram:before {
+  content: "J";
+}
+.icon-ajmn-linkedin:before {
+  content: "K";
+}
+.icon-ajmn-list:before {
+  content: "L";
+}
+.icon-ajmn-live-stream:before {
+  content: "M";
+}
+.icon-ajmn-loading:before {
+  content: "N";
+}
+.icon-ajmn-location:before {
+  content: "O";
+}
+.icon-ajmn-mail:before {
+  content: "P";
+}
+.icon-ajmn-menu:before {
+  content: "Q";
+}
+.icon-ajmn-more:before {
+  content: "R";
+}
+.icon-ajmn-notification:before {
+  content: "S";
+}
+.icon-ajmn-pause:before {
+  content: "T";
+}
+.icon-ajmn-phone:before {
+  content: "U";
+}
+.icon-ajmn-photo:before {
+  content: "V";
+}
+.icon-ajmn-photo-gallery:before {
+  content: "W";
+}
+.icon-ajmn-play:before {
+  content: "X";
+}
+.icon-ajmn-plus:before {
+  content: "Y";
+}
+.icon-ajmn-print:before {
+  content: "Z";
+}
+.icon-ajmn-profile:before {
+  content: "0";
+}
+.icon-ajmn-question:before {
+  content: "1";
+}
+.icon-ajmn-quote-closed:before {
+  content: "2";
+}
+.icon-ajmn-quote-open:before {
+  content: "3";
+}
+.icon-ajmn-record:before {
+  content: "4";
+}
+.icon-ajmn-reddit:before {
+  content: "5";
+}
+.icon-ajmn-refresh:before {
+  content: "6";
+}
+.icon-ajmn-rewind:before {
+  content: "7";
+}
+.icon-ajmn-rss:before {
+  content: "8";
+}
+.icon-ajmn-search:before {
+  content: "9";
+}
+.icon-ajmn-setttings:before {
+  content: "!";
+}
+.icon-ajmn-share:before {
+  content: "\"";
+}
+.icon-ajmn-soundcoud:before {
+  content: "#";
+}
+.icon-ajmn-star:before {
+  content: "$";
+}
+.icon-ajmn-stop:before {
+  content: "%";
+}
+.icon-ajmn-trash:before {
+  content: "&";
+}
+.icon-ajmn-tumblr:before {
+  content: "'";
+}
+.icon-ajmn-twitter:before {
+  content: "(";
+}
+.icon-ajmn-video:before {
+  content: ")";
+}
+.icon-ajmn-video-gallery:before {
+  content: "*";
+}
+.icon-ajmn-vol-decrease:before {
+  content: "+";
+}
+.icon-ajmn-vol-increase:before {
+  content: ",";
+}
+.icon-ajmn-vol-off:before {
+  content: "-";
+}
+.icon-ajmn-youtube:before {
+  content: ".";
+}
+.icon-ajmn-document:before {
+  content: "t";
+}

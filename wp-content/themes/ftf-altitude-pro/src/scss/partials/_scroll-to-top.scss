@@ -1,0 +1,51 @@
+.scroll-to-top{
+  position: fixed;
+  right:10px;
+  width:40px;
+  height:40px;
+  line-height: 40px;
+  background-color: $light;
+  border: solid thin $gray-400;
+  z-index:9999;
+  border-radius: $border-radius;
+  text-align: center;
+  display: none;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    background-color: #ccc;
+    cursor:pointer;
+  }
+  &:after{
+    content:"↑";
+    color: map-get($theme-colors, secondary);
+  }
+}
+
+@keyframes scroll-to-top-show {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 12px;
+  }
+}
+@keyframes scroll-to-top-hide {
+  0% {
+    bottom: -10px;
+  }
+  100% {
+    bottom: -100px;
+  }
+}
+.scroll-to-top-show{
+  animation-name: scroll-to-top-show;
+  animation-duration: 0.7s; 
+  animation-fill-mode: both; 
+  animation-iteration-count:1;
+}
+.scroll-to-top-hide{
+  animation-name: scroll-to-top-hide;
+  animation-duration: 0.7s; 
+  animation-fill-mode: both; 
+  animation-iteration-count:1;
+}

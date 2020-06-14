@@ -1,0 +1,113 @@
+.footer-widgets{
+  background-color: $light-grey;
+  .wrap{
+    padding-top:20px;
+    padding-bottom:20px;
+    a{
+      color: #000;
+      &:hover{
+        color: #444; 
+      }
+    }
+  }
+  .widget{
+    text-align: left;
+    float: left;
+    padding:20px 20px 20px 0px;
+    margin-bottom: 0px;
+    border-bottom: solid thin #444;
+    color:#000;
+    &:last-of-type{
+      border-bottom:none;
+    }
+    .entry{
+      margin-bottom: 10px;
+    }
+    .widget-title{
+      color: $color-primary;
+    }
+    ul li{
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  .featuredpost, .widget_nav_menu, .widget_text{
+    width:100%;
+  }
+  .featuredpost{
+    a.alignleft{
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+    img.entry-image.attachment-post{ // thumbnail
+      width:100px;
+    }
+    .entry-header{
+      text-align: left;  
+    }
+    .entry-title{
+      margin-bottom: 0;
+      font-family:'Dapifer Book';
+      font-size: 18px;
+      a:hover{
+        color:#000;
+      }
+    }
+    .entry-meta{
+      font-size: 14px;
+    }
+    p.entry-meta{
+      text-transform: none;
+      font-style: italic;
+      margin-top: 0;
+    }
+    .entry-time{
+      // background-color:pink;
+    }
+  }
+  .contact{
+    margin-bottom: 20px;
+  }
+  @include medium-screen{
+    .widget{
+      border-bottom:none;
+    }
+    .featuredpost{
+      width:50%;
+    }
+    .widget_nav_menu, .widget_text{
+      width:25%;
+    }
+  } 
+}
+.entry-content .address, .address{
+  margin-bottom: 10px;
+  margin-left: 0;
+  li{
+    list-style-type: none;
+  }
+}
+.social{
+  display: block;
+  height:40px;
+  li{
+    display: inline-block;
+    height: 35px;
+  }
+  a{
+    background-color: $color-primary;
+    margin-right:10px;
+    padding:8px 12px;
+    border-radius:$border-radius;
+    float: left;
+    color:white;
+    &:hover{
+      span:before{
+        color: #f7f7f7;
+      }
+    }
+  }
+  span:before{
+    color: $olive-yellow;
+  }
+}

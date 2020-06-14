@@ -1,0 +1,67 @@
+// http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// Usage
+@include keyframes(fadein) {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@include keyframes(borderWidth) {
+  from { width: 120px; }
+  to { width: 200px; }
+}
+
+
+
+
+// TODO: Make transitions mixin
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+// Transition Usage
+//a {
+//  color: gray;
+//  @include transition(color .3s ease);
+//  &:hover {
+//    color: black;
+//  }
+//}
+
+.jt-text-link{
+  box-shadow: inset 0 -0px 0 0 $yellow;
+  display: inline-block;
+  &:hover{
+    box-shadow: inset 0 -40px 0 0 $yellow;
+  }
+}

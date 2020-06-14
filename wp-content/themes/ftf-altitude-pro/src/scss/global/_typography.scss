@@ -1,0 +1,221 @@
+//$h1-font-size: 60px;
+$h1-font-size: 2.5rem;
+//$h2-font-size: 50px;
+$h2-font-size: 2rem;
+//$h3-font-size: 40px;
+$h3-font-size: 1.75rem;
+//$h4-font-size: 34px;
+$h4-font-size: 1.5rem;
+//$h5-font-size: 24px;
+$h5-font-size: 1.25rem;
+//$h6-font-size: 18px;
+$h6-font-size: 1rem;
+//$body-font-size: 16px;
+$body-font-size: 1rem;
+$small-font-size: 12px;
+
+
+$font-heading: 'Montserrat', sans-serif;
+$font-body: 'Lato', sans-serif;
+
+%h1-font-size{
+  font-size: $h1-font-size;
+  color: $secondary;
+}
+%h2-font-size{
+  font-size: $h2-font-size;
+  //color: map-get($theme-colors, primary);
+}
+%h3-font-size{
+  font-size: $h3-font-size;
+  //color: $dark-grey;
+}
+%h4-font-size{
+  font-size: $h4-font-size;
+}
+%h5-font-size{
+  font-size: $h5-font-size;
+}
+%h6-font-size{
+  font-size: $h6-font-size;
+}
+%small-font-size{
+  font-size: $small-font-size;
+}
+
+
+%heading-font{
+  font-family: $font-heading;
+  //font-weight: bold;
+}
+
+%base-font{
+  font-size: $body-font-size;
+  line-height: 1.5em;
+}
+
+%subhead-1-font-size{
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #222;
+}
+
+%subhead-2-font-size{
+  font-size: 21px;
+  line-height: 30px;
+  color: #222;
+}
+
+body {
+  font-family: $font-body;
+  @extend %base-font;
+}
+
+h1,h2, h3, h4, h5, h6{
+  @extend %heading-font;
+}
+
+blockquote{
+  color:map-get($theme-colors, dark);
+  //font-weight: bold;
+  border: solid thin #eee;
+  margin-left:0;
+  margin-right:0;
+}
+
+//.genesis-nav-menu > .menu-item > a {
+//  text-transform: lowercase;
+//}
+
+.site-header{
+  &.dark{
+    background-color: $white;
+    .title-area{
+      padding-top:5px;
+      padding-bottom:3px;
+    }
+    .site-title a{
+      color: map-get($theme-colors, secondary) !important;
+    }
+    .genesis-nav-menu{
+      margin-top: 0;
+      a {
+        color: $black;
+        &:hover{
+          border-color: $primary;
+        }
+      }
+      .sub-menu a {
+        color: $white;
+        padding: 10px;
+      }
+    } 
+  }
+}
+
+.site-title{
+  @extend %heading-font;
+  @extend %h1-font-size;
+  text-align: left;
+  display: inline-block;
+  @include media-breakpoint-down(md){
+    font-size: $h4-font-size;
+  }
+}
+
+.section-title{
+  color: $secondary;
+  @extend %heading-font;
+  @extend %h3-font-size;
+}
+
+.post-type-archive-people{
+  h1.entry-title{
+    color: $secondary;
+  }
+}
+
+
+.site-description{
+  color:white;
+}
+
+// Page titles - removes a border-bottom
+.entry-header::after{
+  display: none;
+}
+
+.page-description{
+  @extend %subhead-1-font-size;
+  display: block;
+  &:after{
+    border-bottom: 1px solid $secondary;
+    content: "";
+    display: block;
+    margin: 0 auto 60px;
+    padding-bottom: 20px;
+    width: 25%;
+  }
+}
+
+//Page titles
+.page,
+.single-people .header-wrap,
+.single-featured-projects,
+.post-type-archive-people .header-wrap{
+  .entry-title{
+    color: $secondary;
+    font-size: 36px;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include media-breakpoint-up(md){
+      font-size: $h2-font-size;
+    }
+    @include media-breakpoint-up(lg){
+      font-size: $h1-font-size;
+    }
+
+  }
+}
+
+.text-link{
+  color: #444;
+  text-decoration: none;
+  border-bottom: solid 1px map-get($theme-colors, primary);
+  padding-bottom: 2px;
+  font-weight: $font-weight-bold;
+  &:hover{
+    color: map-get($theme-colors, primary);
+    transition: $global-ease;
+  }
+}
+
+
+/* Titles - Pasted from Styles.css
+--------------------------------------------- */
+
+.archive-title {
+  font-size: 24px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.sidebar .entry-title {
+  font-size: 24px;
+  text-align: left;
+}
+
+.entry-title a {
+  color: $secondary;
+}
+
+.entry-title a:hover {
+  color: $primary;
+}
+
+.widget-full .widget-title {
+  margin-bottom: 40px;
+}

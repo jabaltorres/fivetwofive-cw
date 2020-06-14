@@ -1,0 +1,43 @@
+<p>Composer is a dependency manager for PHP. Composer will manage the dependencies you require on a project by project basis. This means that Composer will pull in all the required libraries, dependencies and manage them all in one place.</p>
+<!--more-->
+<p>This kind of management for dependencies in a project is not a new concept, and in fact, much of Composer is actually inspired from npm from Node.js and Bundler from Ruby.</p>
+<h3>Why should you care?</h3>
+<p>If you’re working in Drupal 8, Drupal core uses Composer to manage core dependencies like Symfony components and Guzzle. Composer allows you to systematically manage a sprawling list of dependencies (and their subsidiary dependencies). It assists with locating, downloading, validating, and loading said packages, all while ensuring that exactly the right versions for each package are used. It can be a pain, but it's far better than using either nothing or developing a home-brewed solution.</p>
+
+<h3>Here’s some tips on how to start working with Composer:</h3>
+<p>System requirements</p>
+<p>Composer requires PHP 5.3.2+ to run. A few sensitive php settings and compile flags are also required, but when using the installer you will be warned about any incompatibilities.</p>
+
+<h3>How to install composer</h3>
+<p>Linux and Mac</p>
+
+<pre>curl -sS [https://getcomposer.org/installer](https://getcomposer.org/installer) | php</pre>
+
+<p>How to find where composer is installed</p>
+<pre>`which composer`</pre>
+
+<p>This should return:</p>
+<pre>`/usr/local/bin/composer`</pre>
+
+<p>How to update composer:</p>
+<pre>`sudo /usr/local/bin/composer self-up`</pre>
+
+<p>How to install composer dependencies:</p>
+<pre>`composer install`</pre>
+
+<p>How to update composer dependencies:</p>
+<pre>`composer update`</pre>
+
+<ul>
+    Composer resources that I’ve found to be helpful:
+    <li><a href="https://www.codementor.io/jadjoubran/php-tutorial-getting-started-with-composer-8sbn6fb6t" target="_blank">https://www.codementor.io/jadjoubran/php-tutorial-getting-started-with-composer-8sbn6fb6t</a></li>
+    <li><a href="https://stackoverflow.com/questions/35578902/where-does-composer-install-files-to" target="_blank">https://stackoverflow.com/questions/35578902/where-does-composer-install-files-to</a></li>
+    <li><a href="https://getcomposer.org/doc/01-basic-usage.md" target="_blank">https://getcomposer.org/doc/01-basic-usage.md</a></li>
+
+</ul>
+
+<ul>
+    Using Composer with Acquia:
+    <li><a href="https://docs.acquia.com/resource/composer" target="_blank">https://docs.acquia.com/resource/composer</a></li>
+    <li><a href="https://docs.acquia.com/article/drupal-8-using-composer-acquia-cloud" target="_blank">https://docs.acquia.com/article/drupal-8-using-composer-acquia-cloud</a></li>
+</ul>
