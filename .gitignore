@@ -24,5 +24,6 @@ wp-content/plugins/*
 
 wp-content/themes/*
 # !wp-content/themes/my-theme
+!wp-content/themes/twentytwenty
 
 .sass-cache
