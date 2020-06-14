@@ -1,0 +1,28 @@
+# .gitignore file for WordPress that ignores everything except:
+#
+# - .gitignore
+# - favicon.ico
+# - wp-config.php
+# - everything in mu-plugins
+# - my-plugin
+# - my-theme (except for .sass-cache)
+#
+# based on https://gist.github.com/jdbartlett/444295
+/*
+!.gitignore
+# !favicon.ico
+# !wp-config.php
+!wp-content
+
+wp-content/*
+!wp-content/mu-plugins
+!wp-content/plugins
+!wp-content/themes
+
+wp-content/plugins/*
+# !wp-content/plugins/my-plugin
+
+wp-content/themes/*
+# !wp-content/themes/my-theme
+
+.sass-cache
