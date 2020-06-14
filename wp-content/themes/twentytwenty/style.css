@@ -6469,7 +6469,3 @@ a.to-the-top > * {
 		top: 0;
 	}
 }
-
-body p {
-	color: red !important;
-}
