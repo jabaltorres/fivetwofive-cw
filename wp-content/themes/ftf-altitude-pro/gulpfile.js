@@ -143,7 +143,7 @@ function scripts() {
 // It's currently only useful in other functions
 function watch() {
     browserSync.init({
-        proxy: "http://fivetwofive.test/"
+        proxy: "http://fivetwofive-cw.test/"
     });
     gulp.watch(paths.styles.src, style);
     gulp.watch(paths.scripts.src, series(lint, scripts));
