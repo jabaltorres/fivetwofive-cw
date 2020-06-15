@@ -21,7 +21,8 @@ wp-content/*
 !wp-content/themes
 
 wp-content/plugins/*
-# !wp-content/plugins/my-plugin
+!wp-content/plugins/jt-featured-projects
+!wp-content/plugins/fivetwofive-cta-shortcode-plugin
 
 wp-content/themes/*
 !wp-content/themes/twentytwenty

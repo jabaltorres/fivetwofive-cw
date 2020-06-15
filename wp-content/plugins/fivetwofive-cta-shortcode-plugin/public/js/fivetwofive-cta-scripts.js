@@ -1,0 +1,1 @@
+console.log("CTA plugin is correctly working");
