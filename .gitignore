@@ -12,6 +12,7 @@
 !.gitignore
 # !favicon.ico
 # !wp-config.php
+!assets
 !wp-content
 
 wp-content/*
