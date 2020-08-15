@@ -19,6 +19,8 @@ define( 'CHILD_THEME_NAME', 'Altitude Pro Theme' );
 define( 'CHILD_THEME_URL', 'http://my.studiopress.com/themes/altitude/' );
 define( 'CHILD_THEME_VERSION', '1.0.2' );
 
+// TODO: Add cache-busting variable here
+
 //* Enqueue scripts and styles
 add_action( 'wp_enqueue_scripts', 'altitude_enqueue_scripts_styles' );
 function altitude_enqueue_scripts_styles() {
@@ -39,7 +41,7 @@ function jt_add_custom_fa_css() {
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
 	wp_enqueue_script( 'bootstrap-scripts', get_bloginfo( 'stylesheet_directory' ) . '/dist/js/vendor/bootstrap.min.js', array( 'jquery' ), '1.0.0' );
-	wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/dist/css/jt-styles.css', array());
+	wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/dist/css/main.css', array());
 }
 
 
@@ -375,7 +377,7 @@ function custom_dashboard_help() {
     echo '<p>Welcome to my custom genesis theme! Need help? Contact the developer <a href="mailto:info@jabaltorres.com">here</a>.</p>';
 }
 
-
+// Include Google Tag Manager
 include_once get_stylesheet_directory() . '/jt_functions/jt_google_tag_manager.php';
 
 
