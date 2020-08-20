@@ -77,7 +77,6 @@ function jt_reviews_widget() {
 				echo '<div class="col-12 py-5">';
 					echo '<div class="form mx-auto">';
 						echo '<h4 class="text-center text-uppercase">Let\'s Work Together</h4>';
-						echo '<p class="text-center">I can help you with UX design, WordPress development, web&nbsp;production, and <b>everything in between</b>.</p>';
 							if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
 								// code for localhost here
 								// echo do_shortcode("[contact-form-7 id=\"648\" title=\"Contact form 1\"]");
