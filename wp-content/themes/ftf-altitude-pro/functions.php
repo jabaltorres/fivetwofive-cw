@@ -32,10 +32,10 @@ function altitude_enqueue_scripts_styles() {
 
 // https://www.tipsandtricks-hq.com/a-simple-guide-to-adding-font-awesome-icons-to-your-wordpress-site-9617
 add_action( 'wp_enqueue_scripts', 'jt_add_custom_fa_css' );
-
 function jt_add_custom_fa_css() {
-    wp_enqueue_style( 'custom-fa', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
+	wp_enqueue_style( 'custom-fa', 'https://use.fontawesome.com/releases/v5.8.1/css/all.css' );
 }
+
 
 //* Load custom stylesheet
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
@@ -97,7 +97,7 @@ function altitude_footer_menu() {
 		'container'      => false,
 		'depth'          => 1,
 		'fallback_cb'    => false,
-		'menu_class'     => 'genesis-nav-menu',	
+		'menu_class'     => 'genesis-nav-menu',
 	) );
 
 }
@@ -113,9 +113,9 @@ add_action( 'genesis_after_footer', 'jtModal' );
 
 // My custom footer
 function jtCustomFooter(){
-    if( ! is_front_page() && is_singular() ){
-	    locate_template( array( 'includes/jt-footer.php' ), true, true );
-    }
+	if( ! is_front_page() && is_singular() ){
+		locate_template( array( 'includes/jt-footer.php' ), true, true );
+	}
 }
 add_action( 'genesis_before_footer', 'jtCustomFooter' );
 
@@ -128,7 +128,7 @@ function sp_footer_creds_filter( $creds ) {
 }
 
 //* Add Attributes for Footer Navigation
-add_filter( 'genesis_attr_nav-footer', 'genesis_attributes_nav' ); 
+add_filter( 'genesis_attr_nav-footer', 'genesis_attributes_nav' );
 
 //* Unregister layout settings
 genesis_unregister_layout( 'content-sidebar-sidebar' );
@@ -206,7 +206,7 @@ function altitude_widget_area_class( $id ) {
 	$count = altitude_count_widgets( $id );
 
 	$class = '';
-	
+
 	if( $count == 1 ) {
 		$class .= ' widget-full';
 	} elseif( $count % 3 == 1 ) {
@@ -215,11 +215,11 @@ function altitude_widget_area_class( $id ) {
 		$class .= ' widget-fourths';
 	} elseif( $count % 2 == 0 ) {
 		$class .= ' widget-halves uneven';
-	} else {	
+	} else {
 		$class .= ' widget-halves';
 	}
 	return $class;
-	
+
 }
 
 //* Relocate the post info
@@ -230,9 +230,9 @@ add_action( 'genesis_entry_header', 'genesis_post_info', 5 );
 add_filter( 'genesis_post_info', 'altitude_post_info_filter' );
 function altitude_post_info_filter( $post_info ) {
 
-    $post_info = '[post_date format="M d Y"] [post_edit]';
+	$post_info = '[post_date format="M d Y"] [post_edit]';
 
-    return $post_info;
+	return $post_info;
 
 }
 
@@ -243,7 +243,7 @@ function altitude_post_meta_filter( $post_meta ) {
 	$post_meta = 'Written by [post_author_posts_link] [post_categories before=" &middot; Categorized Under: "]  [post_tags before=" &middot; Tagged: "]';
 
 	return $post_meta;
-	
+
 }
 
 //* Register widget areas
@@ -272,12 +272,12 @@ genesis_register_sidebar( array(
 // Change favicon location and add touch icons
 add_filter( 'genesis_pre_load_favicon', 'gregr_favicon_filter' );
 function gregr_favicon_filter( $favicon ) {
-  echo '<link rel="Shortcut Icon" href="'. CHILD_URL .'/dist/images/favicon.ico" type="image/x-icon" />' . "\n";
-  echo '<link rel="Shortcut Icon" type="image/png" href="'. CHILD_URL .'/dist/images/favicon.png" type="image/x-icon" sizes="50x50"/>' . "\n";
-  echo '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="'. CHILD_URL .'/dist/images/apple-touch-icon-144x144-precomposed.png" />'."\n";
-  echo '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="'. CHILD_URL .'/dist/images/apple-touch-icon-114x114-precomposed.png" />'."\n";
-  echo '<link rel="apple-touch-icon-precomposed" sizes="72x72" href="'. CHILD_URL .'/dist/images/apple-touch-icon-72x72-precomposed.png" />'."\n";
-  echo '<link rel="apple-touch-icon-precomposed" href="'. CHILD_URL .'/dist/images/apple-touch-icon-precomposed.png" />'."\n";
+	echo '<link rel="Shortcut Icon" href="'. CHILD_URL .'/dist/images/favicon.ico" type="image/x-icon" />' . "\n";
+	echo '<link rel="Shortcut Icon" type="image/png" href="'. CHILD_URL .'/dist/images/favicon.png" type="image/x-icon" sizes="50x50"/>' . "\n";
+	echo '<link rel="apple-touch-icon-precomposed" sizes="144x144" href="'. CHILD_URL .'/dist/images/apple-touch-icon-144x144-precomposed.png" />'."\n";
+	echo '<link rel="apple-touch-icon-precomposed" sizes="114x114" href="'. CHILD_URL .'/dist/images/apple-touch-icon-114x114-precomposed.png" />'."\n";
+	echo '<link rel="apple-touch-icon-precomposed" sizes="72x72" href="'. CHILD_URL .'/dist/images/apple-touch-icon-72x72-precomposed.png" />'."\n";
+	echo '<link rel="apple-touch-icon-precomposed" href="'. CHILD_URL .'/dist/images/apple-touch-icon-precomposed.png" />'."\n";
 }
 
 /*This is for the social icons*/
@@ -324,15 +324,13 @@ add_action( 'wp_head', 'remove_p_on_pages' );
  * Snippet Name: Remove wpautop only for custom post types
  * Snippet URL: http://www.wpcustoms.net/snippets/remove-wpautop-custom-post-types/
  */
- function wpc_remove_autop_for_posttype( $content )
- {
-	 // edit the post type here
-	 'featured-projects' === get_post_type() && remove_filter( 'the_content', 'wpautop' );
-	 return $content;
- }
+function wpc_remove_autop_for_posttype( $content )
+{
+	// edit the post type here
+	'featured-projects' === get_post_type() && remove_filter( 'the_content', 'wpautop' );
+	return $content;
+}
 add_filter( 'the_content', 'wpc_remove_autop_for_posttype', 0 );
-
-
 
 
 // Add widget before blog roll
@@ -356,12 +354,12 @@ function wpsites_before_blog_widget() {
 // featured image link to post
 // http://www.wpbeginner.com/wp-themes/how-to-automatically-link-featured-images-to-posts-in-wordpress/
 function wpb_autolink_featured_images( $html, $post_id, $post_image_id ) {
-    if (! is_singular()) {
-        $html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '">' . $html . '</a>';
-        return $html;
-    } else {
-        return $html;
-    }
+	if (! is_singular()) {
+		$html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '">' . $html . '</a>';
+		return $html;
+	} else {
+		return $html;
+	}
 }
 add_filter( 'post_thumbnail_html', 'wpb_autolink_featured_images', 10, 3 );
 
@@ -369,16 +367,13 @@ add_filter( 'post_thumbnail_html', 'wpb_autolink_featured_images', 10, 3 );
 // Custom Dashboard Widget
 add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
 function my_custom_dashboard_widgets() {
-    global $wp_meta_boxes;
-    wp_add_dashboard_widget('custom_help_widget', 'Theme Support', 'custom_dashboard_help');
+	global $wp_meta_boxes;
+	wp_add_dashboard_widget('custom_help_widget', 'Theme Support', 'custom_dashboard_help');
 }
 
 function custom_dashboard_help() {
-    echo '<p>Welcome to my custom genesis theme! Need help? Contact the developer <a href="mailto:info@jabaltorres.com">here</a>.</p>';
+	echo '<p>Welcome to my custom genesis theme! Need help? Contact the developer <a href="mailto:info@jabaltorres.com">here</a>.</p>';
 }
-
-// Include Google Tag Manager
-include_once get_stylesheet_directory() . '/jt_functions/jt_google_tag_manager.php';
 
 
 /* Add next/previous post links on single posts
@@ -390,13 +385,12 @@ function eo_prev_next_post_nav() {
 	if ( is_single() ) {
 
 		echo '<div class="prev-next-navigation py-4 mb-4">';
-		    previous_post_link( '<div class="previous">Previous article: %link</div>', '%title' );
-		    next_post_link( '<div class="next">Next article: %link</div>', '%title' );
+		previous_post_link( '<div class="previous">Previous article: %link</div>', '%title' );
+		next_post_link( '<div class="next">Next article: %link</div>', '%title' );
 		echo '</div><!-- .prev-next-navigation -->';
 
 	}
 }
-
 
 
 add_action( 'genesis_entry_footer', 'wpsites_single_cpt_navigation' );
@@ -422,6 +416,8 @@ function wpsites_single_cpt_navigation() {
 	echo '</div>';
 
 }
+
+
 /* Customizing the Login Form
 * https://codex.wordpress.org/Customizing_the_Login_Form#Styling_Your_Login
 ----------------------------------------------------------------------------------------*/
@@ -440,19 +436,19 @@ add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 
 function my_login_logo_url() {
-    return home_url();
+	return home_url();
 }
 add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 function my_login_logo_url_title() {
-    return 'Jabal Torres MuthaFucka!!!';
+	return '525 FTW!!!';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
 
 function my_login_stylesheet() {
-    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-login.css' );
-    wp_enqueue_script( 'custom-login', get_stylesheet_directory_uri() . '/style-login.js' );
+	wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/style-login.css' );
+	wp_enqueue_script( 'custom-login', get_stylesheet_directory_uri() . '/style-login.js' );
 }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 
@@ -460,12 +456,35 @@ add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 // Add custom post type to main query
 add_action('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
-    if($query->is_main_query()
-       && ( is_category() || is_tag() )) {
-        $query->set( 'post_type', array('post','featured-projects') );
-    }
+	if($query->is_main_query()
+	   && ( is_category() || is_tag() )) {
+		$query->set( 'post_type', array('post','featured-projects') );
+	}
 }
 
 
-
 include_once get_stylesheet_directory() . '/jt_functions/jt_shortcodes.php';
+
+
+// Add Google Tag Manager code in <head>
+add_action( 'wp_head', 'google_tag_manager_head' );
+function google_tag_manager_head() { ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WV9BWXZ');</script>
+    <!-- End Google Tag Manager -->
+<?php }
+
+
+// Add Google Tag Manager code immediately below opening <body> tag
+add_action( 'genesis_before', 'google_tag_manager_body' );
+function google_tag_manager_body() { ?>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WV9BWXZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+<?php }
