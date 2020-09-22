@@ -8,10 +8,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.border.p-4.has-hover.project-card{
   border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   &:before{
     content: '';
     position: absolute;
@@ -47,8 +48,9 @@ a.article-title-wrapper{
   display: flex;
   min-height: 130px;
   align-items: center;
+  justify-content: center;
   bottom: -20px;
-  transition: bottom 0.3s ease-in-out;
+  transition: bottom $global-speed $global-ease;
   position: relative;
   z-index: 10;
 }
