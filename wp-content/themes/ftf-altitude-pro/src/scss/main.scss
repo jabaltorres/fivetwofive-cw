@@ -101,7 +101,6 @@ $font-weight-bold: bold;
 @import "global/typography";
 @import "icon-font";
 
-
 @import "components/inputs";
 @import "components/ctas";
 
@@ -145,10 +144,6 @@ $font-weight-bold: bold;
   @include max-1023{
     margin-top: 30px;
   }
-}
-
-.title-area{
-  //width: 250px;
 }
 
 @include medium-screen{
