@@ -15,7 +15,7 @@ get_header(); ?>
 				?>
 			</h1>
 
-			<?php while( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part( '/includes/featured_projects_cpt' ); ?>
 			<?php endwhile; ?>
 
