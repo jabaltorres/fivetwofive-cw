@@ -157,7 +157,7 @@ class Genesis_Featured_Post extends WP_Widget {
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaping breaks output here
 						$role,
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaping breaks output here
-						wp_make_content_images_responsive( $image )
+						$image
 					);
 				}
 

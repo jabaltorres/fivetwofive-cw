@@ -5,16 +5,16 @@ Loaded on all admin pages */
 ----------- */
 
 @font-face {
-	font-family: "genesis-icon";
-	font-weight: normal;
+	font-family: genesis-icon;
+	font-weight: 400;
 	font-style: normal;
 
-	src: url("fonts/genesis-icon.eot");
+	src: url(fonts/genesis-icon.eot);
 	src:
-		url("fonts/genesis-icon.eot?#iefix") format("embedded-opentype"),
-		url("fonts/genesis-icon.woff") format("woff"),
-		url("fonts/genesis-icon.ttf") format("truetype"),
-		url("fonts/genesis-icon.svg#genesis-icon") format("svg");
+		url(fonts/genesis-icon.eot?#iefix) format("embedded-opentype"),
+		url(fonts/genesis-icon.woff) format("woff"),
+		url(fonts/genesis-icon.ttf) format("truetype"),
+		url(fonts/genesis-icon.svg#genesis-icon) format("svg");
 }
 
 
@@ -33,16 +33,11 @@ hr.div {
 ----------- */
 
 #adminmenu .toplevel_page_genesis .wp-menu-image img {
-	width: 16px;
-	height: 16px;
-}
-
-#adminmenu .toplevel_page_genesis .wp-menu-image img {
 	display: none;
 }
 
 #adminmenu .toplevel_page_genesis .wp-menu-image::before {
-	font-family: "genesis-icon" !important;
+	font-family: genesis-icon !important; /* stylelint-disable-line font-family-no-missing-generic-family-keyword */
 	content: "\e600";
 }
 
@@ -107,7 +102,7 @@ hr.div {
 }
 
 .genesis-metaboxes legend {
-	line-height: 140%;
+	line-height: 1.4;
 }
 
 
@@ -286,7 +281,7 @@ h1.genesis-onboarding-page-title {
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 700;
 	padding: 18px 20px;
 	transition: 0.3s ease;
 	text-align: center;
@@ -348,7 +343,7 @@ h1.genesis-onboarding-page-title {
 	position: relative;
 }
 
-.genesis-onboarding-list > li:first-of-type:before {
+.genesis-onboarding-list > li:first-of-type::before {
 	display: block;
 	position: absolute;
 	top: -30px;
@@ -360,10 +355,6 @@ h1.genesis-onboarding-page-title {
 
 .genesis-onboarding-list p {
 	margin-top: 10px;
-}
-
-.genesis-onboarding-list h3 {
-	margin-bottom: 10px;
 }
 
 .genesis-onboarding-list > li:not(:last-child) {
@@ -413,7 +404,7 @@ li.genesis-onboarding-list-done {
 	text-align: center;
 	line-height: 42px;
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: 700;
 	color: #6c8196;
 }
 
@@ -486,6 +477,7 @@ li.genesis-onboarding-list-done {
 .genesis-onboarding-list h3 {
 	font-size: 20px;
 	font-weight: 500;
+	margin-bottom: 10px;
 }
 
 .genesis-onboarding-list .genesis-onboarding-button {
@@ -535,7 +527,7 @@ li.genesis-onboarding-list-done {
 
 .genesis-onboarding-sidebar-link {
 	text-transform: uppercase;
-	font-weight: bold;
+	font-weight: 700;
 	color: #0067cc;
 	text-decoration: none;
 }
@@ -677,8 +669,10 @@ li.genesis-onboarding-list-done {
 
 .pack-info-details ul {
 	list-style: disc;
+	margin: 0 0 30px 0;
 	padding-left: 16px;
 }
+
 .pack-info-screenshot img {
 	border: 1px solid #ddd;
 	margin-bottom: 20px;
@@ -694,10 +688,6 @@ li.genesis-onboarding-list-done {
 	font-weight: 400;
 	line-height: 1.2;
 	margin: 0 0 0.5em 0;
-}
-
-.pack-info-details ul {
-	margin: 0 0 30px 0;
 }
 
 @media (min-width: 900px) {
@@ -729,7 +719,7 @@ li.genesis-onboarding-list-done {
 		max-width: 60%;
 	}
 
-	.genesis-onboarding-list > li:first-of-type:before {
+	.genesis-onboarding-list > li:first-of-type::before {
 		top: -40px;
 	}
 

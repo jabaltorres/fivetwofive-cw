@@ -387,7 +387,7 @@ function genesis_do_post_image() {
 				[
 					'open'    => '<a %s>',
 					'close'   => '</a>',
-					'content' => wp_make_content_images_responsive( $img ),
+					'content' => $img,
 					'context' => 'entry-image-link',
 				]
 			);
@@ -459,7 +459,7 @@ function genesis_do_singular_image() {
 	if ( ! empty( $img ) ) {
 		genesis_markup(
 			[
-				'content' => wp_make_content_images_responsive( $img ),
+				'content' => $img,
 				'context' => 'singular-entry-image',
 			]
 		);

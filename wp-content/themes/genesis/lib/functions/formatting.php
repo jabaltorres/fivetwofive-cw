@@ -65,6 +65,9 @@ function get_the_content_limit( $max_characters, $more_link_text = '(more...)', 
 
 	$content = get_the_content( '', $stripteaser );
 
+	// Strip disallowed block content.
+	$content = excerpt_remove_blocks( $content );
+
 	// Strip tags and shortcodes so the content truncation count is done correctly.
 	$content = strip_tags( strip_shortcodes( $content ), apply_filters( 'get_the_content_limit_allowedtags', '<script>,<style>' ) );
 
