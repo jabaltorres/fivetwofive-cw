@@ -6,6 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 Up until release 2.7.0, this project did _not_ follow semantic versioning. It followed the WordPress policy where updates of x and y in an x.y.z version number means a major release, and updates to z means a patch release.
 
+## [3.3.3] - 2020-08-10
+
+### Added
+* Accessibility: Added title as `aria-label` to `<article>` element to improve screen reader UX when using the rotor to view all articles on the page.
+
+### Fixed
+* Add missing `permission_callback` to public Genesis REST routes to prevent a notice under WordPress 5.5.
+
+### Changed
+* Use `excerpt_remove_blocks` to remove block content such as image captions and embed URLs from `get_the_content_limit`.
+* Change "Enable auto-updates" in WordPress 5.5 to text that describes where to enable Genesis update checks.
+* Improved standards for admin CSS.
+* Disable `genesis-lazy-load-images` theme support under WordPress 5.5. WordPress 5.5 adds image lazy loading by default.
+
+### Removed
+* Use of `wp_make_content_images_responsive` in archive, singular, and featured widget images; `srcset` is applied via `wp_calculate_image_srcset` in `wp_get_attachment_image` used by `genesis_get_image`.
+
 ## [3.3.2] - 2020-04-22
 
 Adds support for Gutenberg 7.9 and future block editor adjustments.
@@ -1377,6 +1394,7 @@ _Requires WordPress 3.1.0._
 
 First public release.
 
+[3.3.3]: https://github.com/studiopress/genesis/compare/3.3.2...3.3.3
 [3.3.2]: https://github.com/studiopress/genesis/compare/3.3.1...3.3.2
 [3.3.1]: https://github.com/studiopress/genesis/compare/3.3.0...3.3.1
 [3.3.0]: https://github.com/studiopress/genesis/compare/3.2.1...3.3.0

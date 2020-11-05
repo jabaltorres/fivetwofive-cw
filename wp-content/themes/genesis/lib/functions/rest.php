@@ -31,14 +31,15 @@ function layouts() {
 		'genesis/v1',
 		'/layouts/(?P<type>[a-z0-9,_-]+)',
 		[
-			'methods'  => 'GET',
-			'callback' => function( $params ) {
+			'methods'             => 'GET',
+			'callback'            => function( $params ) {
 				$type = $params['type'];
 				if ( strpos( $type, ',' ) !== false ) {
 					$type = explode( ',', $type );
 				}
 				return \genesis_get_layouts( $type );
 			},
+			'permission_callback' => '__return_true',
 		]
 	);
 }
@@ -66,8 +67,9 @@ function get_singular_images() {
 		'genesis/v1',
 		'/singular-images',
 		[
-			'methods'  => 'GET',
-			'callback' => '\genesis_post_types_with_singular_images_enabled',
+			'methods'             => 'GET',
+			'callback'            => '\genesis_post_types_with_singular_images_enabled',
+			'permission_callback' => '__return_true',
 		]
 	);
 }
@@ -136,8 +138,9 @@ function get_breadcrumbs() {
 		'genesis/v1',
 		'/breadcrumbs',
 		[
-			'methods'  => 'GET',
-			'callback' => '\genesis_breadcrumb_options_enabled',
+			'methods'             => 'GET',
+			'callback'            => '\genesis_breadcrumb_options_enabled',
+			'permission_callback' => '__return_true',
 		]
 	);
 }
@@ -215,14 +218,15 @@ function get_reading_settings() {
 		'genesis/v1',
 		'/reading-settings',
 		[
-			'methods'  => 'GET',
-			'callback' => function() {
+			'methods'             => 'GET',
+			'callback'            => function() {
 				return [
 					'show_on_front'  => \get_option( 'show_on_front' ),
 					'page_on_front'  => (int) \get_option( 'page_on_front' ),
 					'page_for_posts' => (int) \get_option( 'page_for_posts' ),
 				];
 			},
+			'permission_callback' => '__return_true',
 		]
 	);
 }

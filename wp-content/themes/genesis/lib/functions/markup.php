@@ -753,7 +753,12 @@ add_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
  */
 function genesis_attributes_entry( $attributes ) {
 
-	$attributes['class'] = implode( ' ', get_post_class() );
+	$attributes['class']      = implode( ' ', get_post_class() );
+	$attributes['aria-label'] = the_title_attribute(
+		[
+			'echo' => false,
+		]
+	);
 
 	return $attributes;
 

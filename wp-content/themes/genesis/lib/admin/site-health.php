@@ -84,6 +84,10 @@ function genesis_get_child_theme_recommendations() {
 
 	$recommendations = [];
 
+	if ( get_theme_support( 'genesis-lazy-load-images' ) && function_exists( 'wp_lazy_loading_enabled' ) ) {
+		$recommendations[] = '"genesis-lazy-load-images" theme support can be removed';
+	}
+
 	if ( get_theme_support( 'genesis-responsive-viewport' ) ) {
 		$recommendations[] = '"genesis-responsive-viewport" theme support can be removed';
 	}
@@ -95,7 +99,7 @@ function genesis_get_child_theme_recommendations() {
 	}
 
 	if ( $recommendations ) {
-		$message = __( 'This theme uses theme supports that are no longer required in Genesis 3.0+: ', 'genesis' );
+		$message = __( 'This theme uses theme supports that are no longer required in Genesis: ', 'genesis' );
 		return $message . implode( ', ', $recommendations );
 	}
 }

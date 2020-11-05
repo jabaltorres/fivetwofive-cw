@@ -298,7 +298,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'genesis_image_loading', 10, 3
  * @return array The filtered $attr array.
  */
 function genesis_image_loading( $attr ) {
-	if ( ! current_theme_supports( 'genesis-lazy-load-images' ) ) {
+	if ( ! current_theme_supports( 'genesis-lazy-load-images' ) || function_exists( 'wp_lazy_loading_enabled' ) ) {
 		return $attr;
 	}
 
