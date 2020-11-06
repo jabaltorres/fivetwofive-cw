@@ -1,0 +1,81 @@
+/* Homepage Spotlight News */
+.section-news-home {
+  padding: 100px 0 120px 0;
+  text-align: center;
+  background: black;
+  color: white;
+}
+
+//.section-news-home .news-spotlight {
+//  margin-top: 45px;
+//}
+
+.section-news-home .news-spotlight #news-1-spotlight {
+  /*background: url(/wp-content/uploads/2018/08/CGIC-webinar.jpg);*/
+  background: url(/wp-content/uploads/2018/08/noble-technology-award.jpg);
+  background-size: cover;
+}
+
+.section-news-home .news-spotlight #news-2-spotlight {
+  background: url(/system/content-uploads/cincinati-shootings-down-50-percent.jpg);
+  background-size: cover;
+}
+
+.section-news-home .news-spotlight #news-3-spotlight {
+  background: url(/system/content-uploads/shotspotter-first-quarter-2018-financial-results.jpg);
+  background-size: cover;
+}
+
+.section-news-home .news-spotlight .shotspotter_works {
+  padding: 60px 40px 45px 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  width: calc(33% - 30px);
+  position: relative;
+}
+
+.section-news-home .news-spotlight .shotspotter_works::before {
+  content: '';
+  position: absolute;
+  background: rgba(30, 30, 30, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.section-news-home .news-spotlight .shotspotter_works h4 {
+  text-transform: none;
+  color: #fff;
+  font-size: 24px;
+  min-height: 100px;
+  position: relative;
+  z-index: 10;
+  font-weight: 400;
+}
+
+.section-news-home .news-spotlight a {
+  color: #fff;
+}
+
+@media screen and (max-width: 812px) {
+  .section-news-home .news-spotlight .shotspotter_works h4 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* homepage spotlight news */
+  .section-news-home .news-spotlight .shotspotter_works {
+    padding: 30px 20px 35px;
+    h4{
+      font-size: 20px;
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  .section-news-home .news-spotlight .shotspotter_works h4 {
+    font-size: 22px;
+  }
+}

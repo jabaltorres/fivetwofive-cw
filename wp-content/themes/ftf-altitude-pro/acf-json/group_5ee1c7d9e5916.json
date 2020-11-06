@@ -1,0 +1,386 @@
+{
+    "key": "group_5ee1c7d9e5916",
+    "title": "Resources",
+    "fields": [
+        {
+            "key": "field_5ee1c7e6ca29f",
+            "label": "Resource Type",
+            "name": "resource_type",
+            "type": "select",
+            "instructions": "Select the type of resource. This value gets passed to Active Campaign hidden field",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "White Paper": "White Paper",
+                "Demo": "Demo",
+                "Pre-Recorded Webinar": "Pre-Recorded Webinar",
+                "Research Paper": "Research Paper",
+                "Datasheet": "Datasheet",
+                "Case Study": "Case Study",
+                "Product Video": "Product Video",
+                "eBook": "eBook",
+                "Interactive Tool": "Interactive Tool"
+            },
+            "default_value": false,
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5f3eab508cfff",
+            "label": "White Paper Options",
+            "name": "resource_white_paper_options",
+            "type": "button_group",
+            "instructions": "Choose if white paper should present as a downloadable PDF or WYSIWYG content",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "White Paper"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "PDF": "PDF",
+                "WYSIWYG": "WYSIWYG"
+            },
+            "allow_null": 0,
+            "default_value": "wysiwyg",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5f3eb4ed6b28f",
+            "label": "White Paper WYSIWYG",
+            "name": "resource_white_paper_wysiwyg",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "White Paper"
+                    },
+                    {
+                        "field": "field_5f3eab508cfff",
+                        "operator": "==",
+                        "value": "WYSIWYG"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5ee3d680a65ac",
+            "label": "Resource File",
+            "name": "resource_file",
+            "type": "file",
+            "instructions": "Upload a file here",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Research Paper"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Datasheet"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "White Paper"
+                    },
+                    {
+                        "field": "field_5f3eab508cfff",
+                        "operator": "==",
+                        "value": "PDF"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Case Study"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "eBook"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ee3d6f2a65ad",
+            "label": "Vimeo Video Name",
+            "name": "vimeo_video_name",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Pre-Recorded Webinar"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Demo"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ee3d726a65ae",
+            "label": "Vimeo Video ID",
+            "name": "vimeo_video_id",
+            "type": "text",
+            "instructions": "Enter Vimeo video ID",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Pre-Recorded Webinar"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "Demo"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ee3d74ea65af",
+            "label": "Resource Thumbnail",
+            "name": "resource_thumbnail",
+            "type": "image",
+            "instructions": "Upload thumbnail image",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "==",
+                        "value": "eBook"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5ee3d7bca65b0",
+            "label": "Ungated form heading",
+            "name": "ungated_form_heading",
+            "type": "text",
+            "instructions": "Heading after form is ungated",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ee3d7dea65b1",
+            "label": "Ungated form message",
+            "name": "ungated_form_message",
+            "type": "textarea",
+            "instructions": "Message for ungated forms",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 6,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5ee3d80da65b2",
+            "label": "Gated asset button text",
+            "name": "gated_asset_button_text",
+            "type": "text",
+            "instructions": "Button text",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5ee1c7e6ca29f",
+                        "operator": "!=",
+                        "value": "Pre-Recorded Webinar"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5ee3caa77d98d",
+            "label": "Active Campaign Form ID",
+            "name": "active_campaign_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5ee3f9f07b154",
+            "label": "Share this post",
+            "name": "share_this_post",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes",
+                "No": "No"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "cribl-resource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1604681761
+}
