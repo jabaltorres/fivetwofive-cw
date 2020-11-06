@@ -1,0 +1,157 @@
+.hero-section {
+  background: url(/system/content-uploads/shotspotter-homepage-banner.jpg) no-repeat top center transparent;
+  background-size: cover;
+  .copy,
+  .img-wrap {
+    width: 100%;
+    float: left;
+    position: relative;
+  }
+
+  .img-wrap{
+    video {
+      position: absolute;
+      top: 38px;
+      left: 45px;
+      width: 100%;
+      max-width: 480px;
+    }
+  }
+
+  img.screen {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-label {
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $gray-300;
+    color: $gray-300;
+    width: 100%;
+  }
+  .hero-module-title {
+    font-weight: 500;
+    font-size: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    //line-height: 90%;
+  }
+  .hero-module-subtitle {
+    font-weight: bold;
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+
+  h4 {
+    text-align: center;
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  a.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  a.button{
+    margin-top: 10px;
+    color: white;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+  }
+
+  a.video-play-button:before,
+  a.video-play-button:after {
+    background: none;
+  }
+  a.button:before {
+    position: absolute;
+    content: '';
+    background: url(/system/content-uploads/bracket-mid-left.png) no-repeat center left transparent;
+    background-size: 11px;
+    width: 11px;
+    height: 38px;
+    top: 0;
+    left: 0;
+  }
+
+  a.button:after {
+    position: absolute;
+    content: '';
+    background: url(/system/content-uploads/bracket-mid-right.png) no-repeat center right transparent;
+    background-size: 11px;
+    width: 11px;
+    height: 38px;
+    top: 0;
+    right: 0;
+  }
+  @media screen and (min-width: 768px){
+    .copy{
+      width: 60%;
+    }
+    .img-wrap{
+      margin-top: 30px;
+      width: 40%;
+    }
+  }
+}
+
+
+.hero-section.without-video .copy {
+  width: 100%;
+}
+
+.hero-section .video-play-button img {
+  width: 100%;
+  max-width: 100px;
+}
+
+.hero-module-inner-wrapper{
+  max-width: 1170px;
+  width: 100%;
+  overflow: auto;
+  //overflow: hidden;
+  //color: white;
+}
+
+.hero-section.with-video{
+  .copy{
+    padding-right: $global-padding;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section .video-play-button img {
+    width: 80%;
+    margin-top: 40px;
+  }
+
+  .hero-section {
+    height: auto;
+    background-position: center top;
+  }
+
+  .hero-section .copy,
+  .hero-section .img-wrap,
+  .hero-section.without-video .copy {
+    width: 100%;
+    float: left;
+    padding: 0;
+    position: relative;
+  }
+
+  .hero-section .hero-module-title {
+    font-size: 36px;
+    padding-top: 20px;
+  }
+}

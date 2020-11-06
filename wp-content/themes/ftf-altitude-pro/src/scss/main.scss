@@ -91,9 +91,20 @@ $global-speed: 0.3s;
 $global-ease: all 0.3s ease-in-out;
 $global-box-shadow: 0 8px 8px -6px rgba(0,0,1,0.45);
 
+$global-padding: 20px;
+
 $font-weight-bold: bold;
 
 @import "global/base";
+
+@mixin global-hover-interaction {
+  transition: all $global-speed $global-ease;
+  &:hover {
+    transform: translateY(-5px);
+    transition: all $global-ease $global-ease;
+    box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.20);
+  }
+}
 
 @import "mixins/media-queries";
 @import "mixins/animations";
@@ -103,6 +114,20 @@ $font-weight-bold: bold;
 
 @import "components/inputs";
 @import "components/ctas";
+
+@import "modules/module-announcement";
+@import "modules/module-carousel-testimonials";
+@import "modules/module-case-study";
+@import "modules/module-content-block-section";
+@import "modules/module-cta";
+@import "modules/module-featured-image";
+@import "modules/module-hero";
+@import "modules/module-image-overlay";
+@import "modules/module-multi-column";
+@import "modules/module-multi-column-video-module";
+@import "modules/module-resources";
+@import "modules/module-results";
+@import "modules/spotlight-news";
 
 // @import "partials/footer-widgets";
 @import "layout/navigation";
