@@ -77,7 +77,7 @@ function jt_featured_projects() {
 		"capability_type" => "post",
 		"map_meta_cap" => true,
 		"hierarchical" => false,
-		"rewrite" => array( "slug" => "projects", "with_front" => true ),
+		"rewrite" => array( "slug" => "work", "with_front" => true ),
 		"query_var" => true,
 		"supports" => array( "title", "editor", "author", "thumbnail", "excerpt", "page-attributes" ),
 		"taxonomies" => array( "category", "post_tag" ),
