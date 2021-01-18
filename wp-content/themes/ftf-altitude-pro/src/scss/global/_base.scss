@@ -26,7 +26,6 @@ main article{
   }
 }
 
-
 a{
   color: map-get($theme-colors, secondary);
 }
@@ -36,4 +35,25 @@ pre{
   margin-top: 0;
   background-color: #eeeeee;
   border-radius: 4px;
+}
+
+
+
+
+
+
+// Lato
+@font-face {
+  font-family: 'Lato';
+  src: url('../../src/fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Montserrat
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../src/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
