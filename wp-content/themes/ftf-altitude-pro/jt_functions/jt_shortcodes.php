@@ -16,7 +16,6 @@ function jt_cta_shortcode( $atts ) {
 add_shortcode( 'button', 'jt_cta_shortcode' );
 
 
-
 /*
  * Featured Project CTA Shortcode
  * Shortcode: [featured_project_CTAshortcode]
@@ -36,10 +35,6 @@ function featured_project_CTA_shortcode() {
 	return $cta_download_html;
 }
 add_shortcode('featured_project_CTAshortcode', 'featured_project_CTA_shortcode');
-
-
-
-
 
 
 
