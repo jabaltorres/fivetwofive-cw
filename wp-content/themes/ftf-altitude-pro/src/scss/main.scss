@@ -1,115 +1,17 @@
-$global-margin-sm: 1rem;
-$global-margin-md: 2rem;
+@import "global/font-family";
 
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
-
-$grays: () !default;
-$grays: map-merge((
-        "100": $gray-100,
-        "200": $gray-200,
-        "300": $gray-300,
-        "400": $gray-400,
-        "500": $gray-500,
-        "600": $gray-600,
-        "700": $gray-700,
-        "800": $gray-800,
-        "900": $gray-900
-), $grays);
-
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #E24D25 !default;
-$yellow:  #FFC422;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
-
-$colors: () !default;
-$colors: map-merge((
-        "blue":       $blue,
-        "indigo":     $indigo,
-        "purple":     $purple,
-        "pink":       $pink,
-        "red":        $red,
-        "orange":     $orange,
-        "yellow":     $yellow,
-        "green":      $green,
-        "teal":       $teal,
-        "cyan":       $cyan,
-        "white":      $white,
-        "gray":       $gray-600,
-        "gray-dark":  $gray-800
-), $colors);
-
-$primary:       $yellow !default;
-//$primary:       $teal !default;
-$secondary:     $gray-800 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
-
-$theme-colors: () !default;
-$theme-colors: map-merge((
-        "primary":    $primary,
-        "secondary":  $secondary,
-        "success":    $success,
-        "info":       $info,
-        "warning":    $warning,
-        "danger":     $danger,
-        "light":      $light,
-        "dark":       $dark
-), $theme-colors);
-
+@import "global/variables";
 
 @import "vendor/bootstrap";
 
-
-// My Variables
-
-$color-grey: #666666;
-$light-grey: #A1A0A1;
-$dark-grey: #666666;
-$border-radius: 4px;
-
-$global-speed: 0.3s;
-$global-ease: all 0.3s ease-in-out;
-$global-box-shadow: 0 8px 8px -6px rgba(0,0,1,0.45);
-
-$global-padding: 20px;
-
-$font-weight-bold: bold;
-
 @import "global/base";
-
-@mixin global-hover-interaction {
-  transition: all $global-speed $global-ease;
-  &:hover {
-    transform: translateY(-5px);
-    transition: all $global-ease $global-ease;
-    box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.20);
-  }
-}
+@import "global/utility-classes";
+@import "global/typography";
 
 @import "mixins/media-queries";
 @import "mixins/animations";
+@import "mixins/transitions-and-interactions";
 
-@import "global/typography";
 @import "icon-font";
 
 @import "components/inputs";
@@ -152,8 +54,6 @@ $font-weight-bold: bold;
 @import "pages/contact";
 @import "pages/process";
 @import "pages/projects";
-
-
 
 .site-header{
   &.dark{
@@ -305,7 +205,7 @@ img:focus {
     h1{
       font-size: $h3-font-size;
     }
-    project-title.h4{
+    .project-title.h4{
       font-size: $h4-font-size;
     }
   }
