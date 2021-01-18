@@ -24,11 +24,9 @@ $font-body: 'Lato', sans-serif;
 }
 %h2-font-size{
   font-size: $h2-font-size;
-  //color: map-get($theme-colors, primary);
 }
 %h3-font-size{
   font-size: $h3-font-size;
-  //color: $dark-grey;
 }
 %h4-font-size{
   font-size: $h4-font-size;
@@ -46,6 +44,7 @@ $font-body: 'Lato', sans-serif;
 
 %heading-font{
   font-family: $font-heading;
+  //color: map-get($theme-colors, primary);
   //font-weight: bold;
 }
 
