@@ -4,22 +4,24 @@ Site Navigation
 
 .genesis-nav-menu {
   line-height: 1;
+  .menu-item {
+    display: block;
+    text-align: left;
+  }
+  .li li {
+    margin-left: 0;
+  }
 }
 
-.genesis-nav-menu .menu-item {
-  display: block;
-  text-align: left;
-}
 
-.genesis-nav-menu li li {
-  margin-left: 0;
-}
+//.genesis-nav-menu > .menu-item > a {
+//  text-transform: uppercase;
+//}
 
 .genesis-nav-menu a {
-  color: #fff;
+  color: $white;
   display: block;
   font-size: 14px;
-  font-weight: 200;
   letter-spacing: 1px;
   padding: 30px 15px;
   //text-transform: uppercase;
@@ -47,10 +49,6 @@ Site Navigation
 .genesis-nav-menu > li > a:hover {
   border-color: $primary;
   text-decoration: none;
-}
-
-.genesis-nav-menu > .menu-item > a {
-  //text-transform: uppercase;
 }
 
 .genesis-nav-menu .sub-menu {
@@ -258,7 +256,6 @@ Site Navigation
 }
 
 @media only screen and (max-width: 1023px) {
-
   .nav-secondary,
   .site-header.dark .nav-secondary {
     border-bottom: none;
