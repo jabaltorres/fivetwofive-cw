@@ -121,7 +121,7 @@ function featured_projects_loop_homepage(){
 					get_template_part( '/includes/featured_projects_homepage_items');
 				endwhile;
 
-				echo '<a class="btn btn-primary mx-auto my-4" href="' . get_permalink( get_page_by_path( 'projects' ) ) . '">View All Projects</a>';
+				echo '<a class="btn btn-primary mx-auto my-4" href="' . get_permalink( get_page_by_path( 'work' ) ) . '">View All Projects</a>';
 			echo '</div>'; // end featured-projects-inner-wrapper
 		echo '</div>'; // end featured-projects-homepage-wrapper
 	}
