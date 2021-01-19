@@ -10,8 +10,8 @@
 add_filter( 'body_class', 'custom_class' );
 
 function custom_class( $classes ) {
-	if ( is_singular( 'cribl-lp' ) ) {
-		$classes[] = 'cribl-lp-template';
+	if ( is_singular( 'fivetwofive-lp' ) ) {
+		$classes[] = 'fivetwofive-lp-template';
 	}
 	return $classes;
 }

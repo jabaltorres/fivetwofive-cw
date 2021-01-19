@@ -21,7 +21,8 @@
             <div class="container_inner clearfix header-wrapper">
                 <div id="header-image">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-                        <img src="/wp-content/uploads/2019/06/logo-black.png" alt="Logo" />
+<!--                        <img src="/wp-content/uploads/2019/06/logo-black.png" alt="Logo" />-->
+                        <h1>525 Creative</h1>
                     </a>
                 </div>
                 <div class="button-wrapper">
@@ -34,3 +35,4 @@
 	<div class="wrapper">
 		<div class="wrapper_inner">
 
+            <?php //echoHello(); ?>
