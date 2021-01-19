@@ -1,4 +1,6 @@
 
+            <?php // echoHello(); ?>
+
             <div class="lp-footer p-y-md">
                 <div class="container">
                     <div class="container_inner text-center">

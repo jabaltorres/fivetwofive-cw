@@ -1,4 +1,6 @@
 <?php
+
+
 //* Start the engine
 include_once( get_template_directory() . '/lib/init.php' );
 
@@ -19,7 +21,14 @@ define( 'CHILD_THEME_NAME', 'Altitude Pro Theme' );
 define( 'CHILD_THEME_URL', 'http://my.studiopress.com/themes/altitude/' );
 define( 'CHILD_THEME_VERSION', '1.0.2' );
 
-// TODO: Add cache-busting variable here
+
+
+/**
+ * Helper functions
+ */
+define( 'FIVETWOFIVE_THEME_DIR', get_stylesheet_directory() );
+
+require_once( FIVETWOFIVE_THEME_DIR . '/lib/Theme/ftf_helpers.php');
 
 //* Enqueue scripts and styles
 add_action( 'wp_enqueue_scripts', 'altitude_enqueue_scripts_styles' );
