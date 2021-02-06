@@ -19,7 +19,7 @@
 <div class="sst-module cta-module-section" style="background:<?php echo $background; ?>;background-size:cover;">
     <div class="container p-y-lg">
         <div class="row">
-            <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="col-xs-12 col-md-10 offset-md-1">
                 <?php if ($cta_show_logo): ?>
                     <img class="cta-img-logo d-block m-x-auto m-b-md" src="/wp-content/uploads/2019/09/shotspotter_logo.png" alt="ShotSpotter Logo" width="80" height="80" />
                 <?php endif;?>
