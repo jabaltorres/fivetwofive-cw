@@ -3234,6 +3234,13 @@
                 "operator": "==",
                 "value": "templates\/template-modules.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "fivetwofive-lp"
+            }
         ]
     ],
     "menu_order": 0,
@@ -3246,5 +3253,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611013930
+    "modified": 1611038153
 }

@@ -16,7 +16,7 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXPPRXM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <header>
+    <header class="lp-header">
         <div class="container">
             <div class="container_inner clearfix header-wrapper">
                 <div id="header-image">
@@ -35,4 +35,4 @@
 	<div class="wrapper">
 		<div class="wrapper_inner">
 
-            <?php //echoHello(); ?>
+            <?php echoHello(); ?>
