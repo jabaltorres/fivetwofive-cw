@@ -15,7 +15,7 @@
                                 <a href="/license/">Terms & Conditions</a>
                             </li>
                         </ul>
-                        <span>Copyright &copy; <?php echo date("Y"); ?> Cribl, Inc. All Rights Reserved.</span>
+                        <span>Copyright &copy; <?php echo date("Y"); ?> FiveTwoFive Creative. All Rights Reserved.</span>
                     </div>
                 </div>
             </div>

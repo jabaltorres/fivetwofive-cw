@@ -15,7 +15,8 @@ get_header(); ?>
 				<div class="content-container m-b-lg">
 					<?php while ( have_posts() ) : the_post();
 
-                        get_template_part( '/includes/single_cribl_event' );
+                        get_template_part( '/includes/single_fivetwofive_event' );
+//                        get_template_part( '/includes/ftf_events_cpt' );
 
 					endwhile; ?>
 				</div>
@@ -23,6 +24,6 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php include_once get_stylesheet_directory() . '/rs_templates/blog/cribl-sandbox-cta.php'; ?>
+<?php // include_once get_stylesheet_directory() . '/jt_templates/ftf-sandbox-cta.php'; ?>
 
 <?php get_footer(); ?>

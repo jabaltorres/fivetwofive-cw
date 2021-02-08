@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Resources
+* Template Name: Events Archive
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *
@@ -9,8 +9,8 @@
 
 add_filter( 'body_class', 'custom_class' );
 function custom_class( $classes ) {
-	if ( is_page_template( 'archive-resources.php' ) ) {
-		$classes[] = 'ftf-resources-template';
+	if ( is_page_template( 'archive-events.php' ) ) {
+		$classes[] = 'ftf-events-template';
 	}
 	return $classes;
 }
@@ -37,8 +37,8 @@ get_header(); ?>
 					<?php
 					$todaysDate = current_time('Ymd');
 
-					$ftf_resource_args = array(
-						'post_type'  => 'resources',
+					$ftf_events_args = array(
+						'post_type'  => 'fivetwofive-events',
 						'posts_per_page' => '-1',
 //						'meta_key' => 'event_date',
 //						'orderby' => 'meta_value_num',
@@ -52,11 +52,11 @@ get_header(); ?>
 //						),
 					);
 
-					$ftf_resources = new WP_Query($ftf_resource_args);
+					$ftf_events = new WP_Query($ftf_events_args);
 
-					if ($ftf_resources -> have_posts()) {
+					if ($ftf_events -> have_posts()) {
 
-						while($ftf_resources -> have_posts()): $ftf_resources ->the_post();
+						while($ftf_events -> have_posts()): $ftf_events ->the_post();
 							get_template_part( '/includes/ftf_events_cpt' );
 						endwhile;
 						wp_reset_postdata();

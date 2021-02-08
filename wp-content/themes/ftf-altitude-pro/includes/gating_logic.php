@@ -64,7 +64,7 @@
 
 
 	// Pantheon requires this prefixed naming convention (STYXKEY) for setting cookies
-	$cribl_cookie_name = "STYXKEY-cribl";
+	$cribl_cookie_name = "STYXKEY-fivetwofive";
 	$criblCookieSet = "";
 	if ( isset( $_COOKIE[ $cribl_cookie_name ] ) ) {
 		$criblCookieSet = true;

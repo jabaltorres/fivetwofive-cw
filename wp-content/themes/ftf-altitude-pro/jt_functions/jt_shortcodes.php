@@ -166,7 +166,7 @@ function cta_contact_form($atts){
 	if($cta_class !== '' && $cta_link !== '') {
 		$cta_contact_form .= "<div class=\"$cta_class\"></div><script src=\"$cta_link\" type=\"text/javascript\" charset=\"utf-8\"></script>";
 	} else {
-		$cta_contact_form .= "<div class=\"_form_5\"></div><script src=\"https://cribl.activehosted.com/f/embed.php?id=5\" type=\"text/javascript\" charset=\"utf-8\"></script>";
+		$cta_contact_form .= "<div class=\"_form_5\"></div><script src=\"https://jabaltorres.activehosted.com/f/embed.php?id=5\" type=\"text/javascript\" charset=\"utf-8\"></script>";
 	}
 	$cta_contact_form .= "</div>";
 	$cta_contact_form .= "</div>";
@@ -175,78 +175,5 @@ function cta_contact_form($atts){
 }
 
 add_shortcode('cta-contact-form', 'cta_contact_form');
-
-/*
- * Community CTA
- * shortcode: [cta-community cta_heading="" cta_text="" cta_link=""]
- */
-function cta_community($atts){
-
-	extract(
-		shortcode_atts(
-			array(
-				'cta_heading' => '',
-				'cta_text' => '',
-				'cta_link' => ''
-			), $atts
-		)
-	);
-
-	$cta_community_html = "<div class='cta cta-community text-center'>";
-
-	if($cta_heading !== '') {
-		$cta_community_html .= "<h3 class='cta-title'>$cta_heading</h3>";
-	} else {
-		$cta_community_html .= "<h3 class='cta-title'>Join the Community!</h3>";
-	}
-
-	if($cta_text !== '') {
-		$cta_community_html .= "<p class='cta-paragraph'>$cta_text</p>";
-	} else {
-		$cta_community_html .= "<p class='cta-paragraph'>The Cribl community on Slack is a great place to get real time answers! Our co-founders, employees, partners and other users are here for you.</p>";
-	}
-
-	if($cta_link !== '') {
-		$cta_community_html .= "<a class='cta-button' href='$cta_link'>Join the Community</a>";
-	} else {
-		$cta_community_html .= "<a class='button cta-button-1' href='/community/'>Join the Community</a>";
-	}
-
-	$cta_community_html .= "</div>";
-
-	return $cta_community_html;
-}
-
-add_shortcode('cta-community', 'cta_community');
-
-/*
- * Clibl U CTA
- * shortcode: [cta-criblu cta_class="" cta_link=""]
- */
-function cta_criblu($atts){
-
-	extract(
-		shortcode_atts(
-			array(
-				'cta_class' => '',
-				'cta_link' => ''
-			), $atts
-		)
-	);
-
-	$cta_criblu_html = "<div class='cta cta-criblu'>";
-	$cta_criblu_html.= "<div id='cta-criblu-content-wrapper' class='cta-criblu-wrapper'>";
-	if($cta_class !== '' && $cta_link !== '') {
-		$cta_criblu_html .= "<div class=\"$cta_class\"></div><script src=\"$cta_link\" type=\"text/javascript\" charset=\"utf-8\"></script>";
-	} else {
-		$cta_criblu_html .= "<div class=\"_form_3\"></div><script src=\"https://cribl.activehosted.com/f/embed.php?id=3\" type=\"text/javascript\" charset=\"utf-8\"></script>";
-	}
-	$cta_criblu_html .= "</div>";
-	$cta_criblu_html .= "</div>";
-
-	return $cta_criblu_html;
-}
-
-add_shortcode('cta-criblu', 'cta_criblu');
 
 /* END CTA SHORTCODES */
