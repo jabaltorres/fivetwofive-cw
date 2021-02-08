@@ -50,7 +50,7 @@
 	<?php endif; ?>
 
     <div class="d-none">
-	    <?php the_tags( '<div class="tags">Tagged With: ', ', ', '</div>' ); ?>
+	    <?php //the_tags( '<div class="tags">Tagged With: ', ', ', '</div>' ); ?>
     </div>
 
     <?php the_content(); ?>
@@ -60,7 +60,7 @@
     <div class="ac-form-container d-none">
 		<?php /* Start -  modification of Active Campaign's Simple Embed  */?>
         <div class="form <?php echo $event_registration_form_class; ?>"></div>
-        <script src="https://cribl.activehosted.com/f/embed.php?id=<?php echo $event_registration_form_id; ?>" type="text/javascript" charset="utf-8"></script>
+        <script src="https://jabaltorres.activehosted.com/f/embed.php?id=<?php echo $event_registration_form_id; ?>" type="text/javascript" charset="utf-8"></script>
 		<?php /* End -  modification of Active Campaign's Simple Embed  */?>
     </div>
 <?php endif; ?>
@@ -68,8 +68,8 @@
 <div class="single-event-details">
 
 	<?php
-        $terms = get_the_term_list( get_the_ID(), 'cribl-events-custom-tag', '<strong>Tags:</strong> ', ', ' );
-        if ($terms){ echo "<div class=\"event-detail terms d-none\">{$terms}</div>"; }
+//        $terms = get_the_term_list( get_the_ID(), 'cribl-events-custom-tag', '<strong>Tags:</strong> ', ', ' );
+//        if ($terms){ echo "<div class=\"event-detail terms d-none\">{$terms}</div>"; }
 	?>
 
 	<?php if ($event_abstract_wysiwyg): ?>
@@ -94,7 +94,7 @@
 
 	            <div class="event-speaker">
 	                <div class="event-speaker-img-wrapper">
-						<?php echo wp_get_attachment_image( $event_speaker_image['ID'], 'full' ); ?>
+						<?php  echo wp_get_attachment_image( $event_speaker_image['ID'], 'full' ); ?>
 	                </div>
 
 	                <h4 class="event-speaker-name"><?php the_sub_field('event_speaker_name'); ?></h4>
@@ -108,9 +108,9 @@
 
 	<?php else : ?>
 
-<!--        <div class="nothing-found">-->
-<!--            <h3>No Speakers for this event.</h3>-->
-<!--        </div>-->
+        <div class="nothing-found">
+            <h3>No Speakers for this event.</h3>
+        </div>
 
 	<?php endif; ?>
 

@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Single Cribl LP
+* Template Name: Single FiveTwoFive LP
 *
 * @link https://codex.wordpress.org/Template_Hierarchy
 *

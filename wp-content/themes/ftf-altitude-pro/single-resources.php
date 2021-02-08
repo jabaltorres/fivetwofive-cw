@@ -15,9 +15,7 @@ get_header(); ?>
 	<div id="primary" class="mb-4">
 		<main id="main" class="site-main" role="main">
             <?php while ( have_posts() ) : the_post();
-
                 get_template_part( '/includes/single_fivetwofive_resource' );
-
             endwhile; ?>
 		</main><!-- #main -->
 
@@ -52,7 +50,7 @@ get_header(); ?>
 		<div style="clear: both;"></div>
 
 		<script>
-            function criblSetCookie(name, value, days) {
+            function ftfSetCookie(name, value, days) {
                 var expires = "";
                 if (days) {
                     var date = new Date();
@@ -62,7 +60,7 @@ get_header(); ?>
                 document.cookie = name + "=" + (value || "") + expires + "; path=/";
             }
 
-            function criblGetCookie(name) {
+            function ftfGetCookie(name) {
                 var nameEQ = name + "=";
                 var ca = document.cookie.split(';');
                 for (var i = 0; i < ca.length; i++) {
@@ -77,12 +75,12 @@ get_header(); ?>
                 return null;
             }
 
-            function criblEraseCookie(name) {
+            function ftfEraseCookie(name) {
                 document.cookie = name + '=; Max-Age=-99999999;';
             }
 
             // https://stackoverflow.com/questions/486896/adding-a-parameter-to-the-url-with-javascript
-            function criblInsertParam(key, value) {
+            function ftfInsertParam(key, value) {
                 key = encodeURI(key);
                 value = encodeURI(value);
 
@@ -143,23 +141,23 @@ get_header(); ?>
                     checkboxField.checked = true;
                 }
 
-                var criblUtmSourceField = document.querySelector("[data-name='utm_source_hidden']");
-                var criblUtmCampaignField = document.querySelector("[data-name='utm_campaign_hidden']");
-                var criblUtmMediumField = document.querySelector("[data-name='utm_medium_hidden']");
+                var ftfUtmSourceField = document.querySelector("[data-name='utm_source_hidden']");
+                var ftfUtmCampaignField = document.querySelector("[data-name='utm_campaign_hidden']");
+                var ftfUtmMediumField = document.querySelector("[data-name='utm_medium_hidden']");
 
                 // Check keys for UTM parameters
                 var query_params = getQueryParams(document.location.search);
                 // console.log(query_params);
                 for (let [key, value] of Object.entries(query_params)) {
                     // console.log(`${key}: ${value}`);
-                    if ( (key === "utm_source") && (criblUtmSourceField !== null) ){
-                        criblUtmSourceField.value = value;
+                    if ( (key === "utm_source") && (ftfUtmSourceField !== null) ){
+                        ftfUtmSourceField.value = value;
                     }
-                    if ( (key === "utm_campaign") && (criblUtmCampaignField !== null) ){
-                        criblUtmCampaignField.value = value;
+                    if ( (key === "utm_campaign") && (ftfUtmCampaignField !== null) ){
+                        ftfUtmCampaignField.value = value;
                     }
-                    if ( (key === "utm_medium") && (criblUtmMediumField !== null) ){
-                        criblUtmMediumField.value = value;
+                    if ( (key === "utm_medium") && (ftfUtmMediumField !== null) ){
+                        ftfUtmMediumField.value = value;
                     }
                 }
             });
@@ -170,7 +168,7 @@ get_header(); ?>
             } else {
                 console.log("form exists");
                 document.querySelector(".<?php echo $active_campaign_form_class; ?>").addEventListener("submit", function (e) {
-                    criblSetCookie('STYXKEY-cribl', '<?php echo $resource_type_cookie_name; ?>', 7);
+                    ftfSetCookie('STYXKEY-fivetwofive', '<?php echo $resource_type_cookie_name; ?>', 7);
 
                     // friendly message
                     console.log("Thanks for submitting the form");
@@ -179,12 +177,12 @@ get_header(); ?>
                     window.scrollTo(0, 0);
 
                     // this will reload the page,
-                    criblInsertParam("actn", "sbmtd");
+                    ftfInsertParam("actn", "sbmtd");
 
                     // check if newsletter subscription checkbox is checked
                     if (document.querySelector("input[type=checkbox][data-name='subscribe_to_newsletter']").checked) {
                         // alert("checked") ;
-                        criblSetCookie('STYXKEY-cribl-subscribed', 'newsletter', 7);
+                        ftfSetCookie('STYXKEY-fivetwofive-subscribed', 'newsletter', 7);
                     }
                 });
             }

@@ -10,7 +10,7 @@
 add_filter( 'body_class', 'custom_class' );
 function custom_class( $classes ) {
 	if ( is_page_template( 'template-landing.php' ) ) {
-		$classes[] = 'cribl-lp-template';
+		$classes[] = 'ftf-lp-template';
 	}
 	return $classes;
 }

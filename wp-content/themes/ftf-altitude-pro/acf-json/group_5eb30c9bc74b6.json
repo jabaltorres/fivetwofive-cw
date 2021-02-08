@@ -308,7 +308,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "cribl-events"
+                "value": "fivetwofive-events"
             }
         ]
     ],
@@ -320,5 +320,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1612749074
+    "modified": 1612760361
 }
