@@ -39,6 +39,9 @@
             }
         ?>
 
+        <?php echo $resource_white_paper_options; ?>
+        <?php echo $resource_white_paper_wysiwyg ; ?>
+
         <?php the_content(); ?>
 
 	    <?php if ($share_this_post === "Yes") { include( 'cribl_share_this_post.php' ); } ?>

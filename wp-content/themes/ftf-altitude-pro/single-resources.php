@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="">
+	<div id="primary" class="mb-4">
 		<main id="main" class="site-main" role="main">
             <?php while ( have_posts() ) : the_post();
 

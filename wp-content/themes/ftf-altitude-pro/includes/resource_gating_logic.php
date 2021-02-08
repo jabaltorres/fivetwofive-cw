@@ -82,6 +82,8 @@
 
 	$resource_type           = get_field('resource_type');
 	$resource_file           = get_field( 'resource_file' );
+    $resource_white_paper_options           = get_field( 'resource_white_paper_options' );
+    $resource_white_paper_wysiwyg           = get_field( 'resource_white_paper_wysiwyg' );
 	$vimeo_video_id          = get_field( 'vimeo_video_id' );
 	$vimeo_video_name        = get_field( 'vimeo_video_name' );
 	$resource_thumbnail      = get_field( 'resource_thumbnails' );
