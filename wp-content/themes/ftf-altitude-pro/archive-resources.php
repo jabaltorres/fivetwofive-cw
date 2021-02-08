@@ -10,7 +10,7 @@
 add_filter( 'body_class', 'custom_class' );
 function custom_class( $classes ) {
 	if ( is_page_template( 'archive-resources.php' ) ) {
-		$classes[] = 'cribl-resources-template';
+		$classes[] = 'ftf-resources-template';
 	}
 	return $classes;
 }
@@ -20,7 +20,7 @@ get_header(); ?>
 
 <div id="primary" class="content-area-full">
 	<main id="main" class="site-main" role="main">
-        <div class="content-wrapper m-b-lg">
+        <div class="content-wrapper mb-3">
             <div class="content-container">
 		        <?php while ( have_posts() ) : the_post(); ?>
                     <h1><?php the_title(); ?></h1>
@@ -30,7 +30,7 @@ get_header(); ?>
             </div>
         </div>
 
-        <div class="events-wrapper">
+        <div class="events-wrapper mb-3">
             <div class="events-container">
                 <div id="future-events" class="future-events">
                     <?php // <h2 class="section-heading">Future Events:</h2> ?>
@@ -38,7 +38,7 @@ get_header(); ?>
 					$todaysDate = current_time('Ymd');
 
 					$cribl_resource_args = array(
-						'post_type'  => 'cribl-resource',
+						'post_type'  => 'resources',
 						'posts_per_page' => '-1',
 //						'meta_key' => 'event_date',
 //						'orderby' => 'meta_value_num',
@@ -57,7 +57,7 @@ get_header(); ?>
 					if ($cribl_resources -> have_posts()) {
 
 						while($cribl_resources -> have_posts()): $cribl_resources ->the_post();
-							get_template_part( '/includes/cribl_events_cpt' );
+							get_template_part( '/includes/ftf_events_cpt' );
 						endwhile;
 						wp_reset_postdata();
 					}
@@ -70,6 +70,6 @@ get_header(); ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
-<?php include_once get_stylesheet_directory() . '/rs_templates/blog/cribl-sandbox-cta.php'; ?>
+<?php include_once get_stylesheet_directory() . '/jt_templates/ftf-sandbox-cta.php'; ?>
 
 <?php get_footer(); ?>

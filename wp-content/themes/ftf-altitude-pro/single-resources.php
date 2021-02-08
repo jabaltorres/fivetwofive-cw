@@ -16,7 +16,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
             <?php while ( have_posts() ) : the_post();
 
-                get_template_part( '/includes/single_cribl_resource' );
+                get_template_part( '/includes/single_fivetwofive_resource' );
 
             endwhile; ?>
 		</main><!-- #main -->
@@ -43,7 +43,7 @@ get_header(); ?>
 				<div class="ac-form-container">
 					<?php /* Start -  modification of Active Campaign's Simple Embed  */?>
 					<div class="<?php echo $active_campaign_form_class; ?>"></div>
-					<script src="https://cribl.activehosted.com/f/embed.php?id=<?php echo $active_campaign_form_id; ?>" type="text/javascript" charset="utf-8"></script>
+					<script src="https://jabaltorres.activehosted.com/f/embed.php?id=<?php echo $active_campaign_form_id; ?>" type="text/javascript" charset="utf-8"></script>
 					<?php /* End -  modification of Active Campaign's Simple Embed  */?>
 				</div><!-- end .ac-form-container -->
 			</div>
@@ -165,28 +165,34 @@ get_header(); ?>
             });
 
             // Run functions on form submit
-            document.querySelector(".<?php echo $active_campaign_form_class; ?>").addEventListener("submit", function (e) {
-                criblSetCookie('STYXKEY-cribl', '<?php echo $resource_type_cookie_name;?>', 7);
+            if (!document.querySelector(".<?php echo $active_campaign_form_class; ?>")){
+                console.log("form doesn't exist");
+            } else {
+                console.log("form exists");
+                document.querySelector(".<?php echo $active_campaign_form_class; ?>").addEventListener("submit", function (e) {
+                    criblSetCookie('STYXKEY-cribl', '<?php echo $resource_type_cookie_name; ?>', 7);
 
-                // friendly message
-                console.log("Thanks for submitting the form");
+                    // friendly message
+                    console.log("Thanks for submitting the form");
 
-                // scroll to top of page
-                window.scrollTo(0, 0);
+                    // scroll to top of page
+                    window.scrollTo(0, 0);
 
-                // this will reload the page,
-                criblInsertParam("actn", "sbmtd");
+                    // this will reload the page,
+                    criblInsertParam("actn", "sbmtd");
 
-                // check if newsletter subscription checkbox is checked
-                if (document.querySelector("input[type=checkbox][data-name='subscribe_to_newsletter']").checked) {
-                    // alert("checked") ;
-                    criblSetCookie('STYXKEY-cribl-subscribed', 'newsletter', 7);
-                }
-            });
+                    // check if newsletter subscription checkbox is checked
+                    if (document.querySelector("input[type=checkbox][data-name='subscribe_to_newsletter']").checked) {
+                        // alert("checked") ;
+                        criblSetCookie('STYXKEY-cribl-subscribed', 'newsletter', 7);
+                    }
+                });
+            }
+
 		</script>
 	</div><!-- #primary -->
 
-<?php // include_once get_stylesheet_directory() . '/rs_templates/blog/cribl-sandbox-cta.php'; ?>
+<?php include_once get_stylesheet_directory() . '/jt_templates/ftf-sandbox-cta.php'; ?>
 <?php include_once get_stylesheet_directory() . '/includes/lp_three_col_cta_section.php'; ?>
 
 <?php get_footer(); ?>
