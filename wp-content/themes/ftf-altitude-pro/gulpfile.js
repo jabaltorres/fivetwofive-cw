@@ -1,35 +1,21 @@
-var gulp         = require("gulp"),
-    sass         = require("gulp-sass"),
-    postcss      = require("gulp-postcss"),
-    autoprefixer = require("autoprefixer"),
-    cssnano      = require("cssnano"),
-    log          = require('fancy-log'),
-    concat       = require('gulp-concat'),
-    rename       = require('gulp-rename'),
-    uglify       = require('gulp-uglify'),
-    jshint       = require("gulp-jshint"),
-    sourcemaps   = require("gulp-sourcemaps"),
-    imagemin     = require('gulp-imagemin'),
-    browserSync  = require("browser-sync").create();
+const { src, dest, watch, series } = require('gulp'),
+    sass                           = require('gulp-sass'),
+    Fiber                          = require('fibers'),
+    postcss                        = require('gulp-postcss'),
+    autoprefixer                   = require('autoprefixer'),
+    cssnano                        = require('cssnano'),
+    sourcemaps                     = require('gulp-sourcemaps'),
+    jshint                         = require('gulp-jshint'),
+    rename                         = require('gulp-rename'),
+    uglify                         = require('gulp-uglify'),
+    concat                         = require('gulp-concat'),
+    imagemin                       = require('gulp-imagemin'),
+    log                            = require('fancy-log'),
+    browserSync                    = require("browser-sync").create();
 
+sass.compiler = require('sass');
 
-const { series, parallel } = require('gulp');
-
-
-function defaultTask(cb) {
-    // place code for your default task here
-    cb();
-    log('Hello world!');
-    watch();
-}
-
-/**
- * Default test task, running just `gulp` will
- * compile Sass files, launch Browsersync & watch files.
- */
-exports.default = defaultTask;
-
-var paths = {
+const paths = {
     styles: {
         // By using styles/**/*.sass we're telling gulp to check all folders for any sass file
         src: "src/scss/**/*.scss",
@@ -48,105 +34,73 @@ var paths = {
         src: "src/images/*",
         dest: "dist/images"
     }
-
-    // Easily add additional paths
-    // ,html: {
-    //  src: '...',
-    //  dest: '...'
-    // }
 };
 
-
 /**
- * @task style
+ * @task styles
  * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
  */
-function style() {
-    return (
-        gulp
-            .src(paths.styles.src)
-            .pipe(sourcemaps.init())
-            .pipe(sass())
-            .on("error", sass.logError)
-            .pipe(postcss([autoprefixer(), cssnano()]))
-            .pipe(sourcemaps.write(paths.maps.dest))
-            .pipe(gulp.dest(paths.styles.dest))
-            // Add browsersync stream pipe after compilation
-            .pipe(browserSync.stream())
-    );
-}
-
-
-/**
- * @task minify
- * Minify PNG, JPEG, GIF and SVG images with imagemin
- */
-function imageminify() {
-    return (
-        gulp
-            .src(paths.images.src)
-            .pipe(imagemin([
-                imagemin.gifsicle({interlaced: true}),
-                imagemin.jpegtran({progressive: true}),
-                imagemin.optipng({optimizationLevel: 5}),
-                imagemin.svgo({
-                    plugins: [
-                        {removeViewBox: true},
-                        {cleanupIDs: false}
-                    ]
-                })
-            ]))
-            .pipe(gulp.dest(paths.images.dest))
-    );
-}
-
+const styles = () => src(paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass({fiber: Fiber})
+    .on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write(paths.maps.dest))
+    .pipe(dest(paths.styles.dest))
+    .pipe(browserSync.stream());
 
 /**
  * @task lint
  * Detects errors and potential problems in JavaScript code
  */
-function lint() {
-    return (
-        gulp.src(paths.scripts.src)
-            .pipe(jshint(paths.scripts.hintfile))
-            .pipe(jshint.reporter("jshint-stylish"))
-    );
-
-}
-
+const lint = () => src(paths.scripts.src)
+    .pipe(jshint(paths.scripts.hintfile))
+    .pipe(jshint.reporter('jshint-stylish'));
 
 /**
  * @task scripts
  * Concatenate, minify, and send scripts
  * `scripts` depends on `lint`
  */
-function scripts() {
-    return (
-        gulp.src(paths.scripts.src)
-            .pipe(sourcemaps.init())
-            .pipe(concat('scripts.js'))
-            .pipe(gulp.dest(paths.scripts.dest))
-            .pipe(rename('scripts.min.js'))
-            .pipe(uglify().on('error', function(e){
-                console.log(e);
-            }))
-            .pipe(sourcemaps.write(paths.maps.dest))
-            .pipe(gulp.dest(paths.scripts.dest))
-            .pipe(browserSync.stream())
-            .on('end', function(){ log('Scripts Done!'); })
-    );
-}
+const scripts = () => src(paths.scripts.src)
+    .pipe(sourcemaps.init())
+    .pipe(concat('scripts.js'))
+    .pipe(dest(paths.scripts.dest))
+    .pipe(rename('scripts.min.js'))
+    .pipe(uglify().on('error', (e) => { log(e); }))
+    .pipe(sourcemaps.write(paths.maps.dest))
+    .pipe(dest(paths.scripts.dest))
+    .pipe(browserSync.stream())
+    .on('end', () => { log('Scripts Done!'); });
 
+/**
+ * @task minify
+ * Minify PNG, JPEG, GIF and SVG images with imagemin
+ */
+const imageminify = () => src(paths.images.src)
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.jpegtran({progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(gulp.dest(paths.images.dest));
 
 // Add browsersync initialization at the start of the watch task
 // We don't have to expose the reload function
 // It's currently only useful in other functions
-function watch() {
+const serve = () => {
     browserSync.init({
         proxy: "http://fivetwofive-cw.test/"
     });
-    gulp.watch(paths.styles.src, style);
-    gulp.watch(paths.scripts.src, series(lint, scripts));
+
+    watch(paths.styles.src, styles);
+    watch(paths.scripts.src, series(lint, scripts));
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
     // Note -- you can obviously add the path to the Paths object
@@ -154,8 +108,17 @@ function watch() {
     log('Watch function completed');
 }
 
+/**
+ * Default test task, running just `gulp` will
+ * compile Sass files, launch Browsersync & watch files.
+ */
+exports.default = (cb) => {
+    cb();
+    serve();
+};
 
 // Function are exported to be public and can be run with the `gulp` command.
-exports.watch = watch;
+exports.serve       = serve;
 exports.imageminify = imageminify;
-exports.scripts = series(lint, scripts);
+exports.styles      = styles;
+exports.scripts     = series(lint, scripts);
