@@ -58,7 +58,7 @@ function cta_download($atts){
 		)
 	);
 
-	$cta_download_html = "<div class='cta cta-download'>";
+	$cta_download_html = "<div class='cta cta-download mb-4'>";
 	$cta_download_html .= "<div class='cta-download-inner'>";
 	$cta_download_html .= "<div class='ftf-col-1'>";
 	if($cta_title !== '') {

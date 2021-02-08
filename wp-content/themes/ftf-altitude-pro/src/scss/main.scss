@@ -8,6 +8,7 @@
 @import "global/utility-classes";
 @import "global/typography";
 
+@import "mixins/mixins";
 @import "mixins/media-queries";
 @import "mixins/animations";
 @import "mixins/transitions-and-interactions";
@@ -16,6 +17,7 @@
 
 @import "components/inputs";
 @import "components/ctas";
+@import "components/lp-ctas";
 
 @import "modules/module-announcement";
 @import "modules/module-carousel-testimonials";
@@ -47,6 +49,7 @@
 @import "templates/template-work";
 @import "templates/template-gated-page";
 @import "templates/template-landing-pages";
+@import "templates/template-resources";
 
 @import "pages/home-page";
 @import "pages/case-studies";

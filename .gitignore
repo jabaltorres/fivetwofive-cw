@@ -24,8 +24,8 @@ wp-content/plugins/*
 !wp-content/plugins/jt-featured-projects
 !wp-content/plugins/fivetwofive-cta-shortcode-plugin
 !wp-content/plugins/fivetwofive-lp-post-type
+!wp-content/plugins/fivetwofive-resources-post-type
 !wp-content/plugins/cribl-events-post-type
-!wp-content/plugins/cribl-resource-post-type
 
 wp-content/themes/*
 !wp-content/themes/twentytwenty

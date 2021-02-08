@@ -10,9 +10,11 @@
         <h3 class="article-title m-b-sm"><?php echo the_title();?></h3>
     </a>
 
-    <div class="d-block m-b-sm">
-        <strong><?php echo $event_type; ?></strong>  |  <strong><?php echo $event_date; ?></strong>  |  <strong><?php echo $event_start_time; ?> PT</strong>
-    </div>
+    <?php if ($event_type): ?>
+        <div class="d-block m-b-sm">
+            <strong><?php echo $event_type; ?></strong>  |  <strong><?php echo $event_date; ?></strong>  |  <strong><?php echo $event_start_time; ?> PT</strong>
+        </div>
+    <?php endif; ?>
 
 	<?php if ( has_post_thumbnail() ) : ?>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="thumbnail m-b d-none">

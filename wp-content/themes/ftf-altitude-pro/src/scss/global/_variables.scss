@@ -92,6 +92,8 @@ $global-speed: 0.3s;
 $global-ease: all 0.3s ease-in-out;
 $global-box-shadow: 0 8px 8px -6px rgba(0,0,1,0.45);
 
+$global-border-radius-cards: 4px;
+
 $font-weight-bold: bold;
 
 
@@ -122,3 +124,14 @@ $small-font-size: 12px;
 $font-heading: 'DM_Serif_Display', sans-serif;
 //$font-body: 'Lato', sans-serif;
 $font-body: 'Roboto', sans-serif;
+
+
+
+// media queries resource: http://stephen.io/mediaqueries/
+$sm-phone-width: 420px;
+$md-phone-width: 480px;
+$phablet-width: 520px;
+$tablet-width: 768px;
+$medium-width: 992px;
+$desktop-width: 1024px;
+$large-width: 1200px;

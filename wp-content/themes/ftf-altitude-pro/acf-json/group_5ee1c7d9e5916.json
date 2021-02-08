@@ -370,7 +370,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "cribl-resource"
+                "value": "resources"
             }
         ]
     ],
@@ -382,5 +382,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1604681761
+    "modified": 1612747191
 }

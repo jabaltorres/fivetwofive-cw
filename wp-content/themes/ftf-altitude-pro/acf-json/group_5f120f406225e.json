@@ -295,21 +295,14 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "cribl-lp"
+                "value": "resources"
             }
         ],
         [
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "template-contact-thank-you.php"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "cribl-resource"
+                "value": "default"
             }
         ]
     ],
@@ -328,5 +321,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1604681760
+    "modified": 1612750672
 }

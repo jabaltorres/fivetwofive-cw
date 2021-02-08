@@ -1,6 +1,6 @@
 {
     "key": "group_5eb30c9bc74b6",
-    "title": "Cribl Events",
+    "title": "Events",
     "fields": [
         {
             "key": "field_5eb30ca8b54a1",
@@ -320,5 +320,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1604681760
+    "modified": 1612749074
 }
