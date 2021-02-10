@@ -504,22 +504,57 @@ function google_tag_manager_body() { ?>
  * Custom Column with Currently Active Page Template - JT
  * https://www.isitwp.com/custom-column-with-currently-active-page-template/
  */
-add_filter( 'manage_pages_columns', 'page_column_views' );
-add_action( 'manage_pages_custom_column', 'page_custom_column_views', 5, 2 );
 function page_column_views( $defaults ) {
     $defaults['page-layout'] = __('Template');
     return $defaults;
 }
+add_filter( 'manage_pages_columns', 'page_column_views' );
+
 function page_custom_column_views( $column_name, $id ) {
     if ( $column_name === 'page-layout' ) {
-        $set_template = get_post_meta( get_the_ID(), '_wp_page_template', true );
-        if ( $set_template == 'default' ) {
+		$set_template = get_post_meta( $id, '_wp_page_template', true );
+        if ( 'default' === $set_template ) {
             echo 'Default';
         }
-        $templates = get_page_templates();
+		$templates = get_page_templates();
         ksort( $templates );
         foreach ( array_keys( $templates ) as $template ) :
             if ( $set_template == $templates[$template] ) echo $template;
         endforeach;
     }
 }
+add_action( 'manage_pages_custom_column', 'page_custom_column_views', 5, 2 );
+
+/**
+ * Make the page-layout column sortable in admin pages table.
+ *
+ * @author Danilo Parra Jr. <danilo@ripplepop.com>
+ * @param array $columns array of columns.
+ * @return array $columns updated columns with page-layout set as sortable.
+ */
+function ftf_make_page_template_column_sortable( $columns ) {
+    $columns['page-layout'] = 'page-layout';
+    return $columns;
+}
+add_filter( 'manage_edit-page_sortable_columns', 'ftf_make_page_template_column_sortable' );
+
+/**
+ * Sort the pages table by page template.
+ *
+ * @author Danilo Parra Jr. <danilo@ripplepop.com>
+ * @param object $query instance of WP_Query class.
+ * @return void
+ */
+function ftf_sort_page_template_column_query( $query ) {
+	global $pagenow;
+
+	if ( is_admin() && 'edit.php' === $pagenow && 'page' === $_GET['post_type'] ) {
+		$orderby = $query->get( 'orderby' );
+
+		if ( 'page-layout' === $orderby ) {
+			$query->set( 'meta_key', '_wp_page_template' );
+			$query->set( 'orderby', 'meta_value' );
+		}
+	}
+}
+add_action( 'pre_get_posts', 'ftf_sort_page_template_column_query' );
