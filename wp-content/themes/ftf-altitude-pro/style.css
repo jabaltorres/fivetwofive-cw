@@ -1,19 +1,16 @@
 /*
-	Theme Name: Altitude Pro Theme
-	Theme URI: http://my.studiopress.com/themes/altitude/
+	Theme Name: FiveTwoFive heme
+	Theme URI: https://fivetwofive.com/
 	Description: Make a stunning first impression, grab attention, and dynamically tell your story with beautiful images and clean typography.
 	Author: StudioPress
-	Author URI: http://www.studiopress.com/
-
-	Version: 1.0.2
-
+	Author URI: https://fivetwofive.com/
+	Version: 1.0.3
 	Tags: black, white, blue, green, orange, pink, one-column, two-columns, responsive-layout, custom-header, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
-
 	Template: genesis
 	Template Version: 2.1
-
 	License: GPL-2.0+
 	License URI: http://www.opensource.org/licenses/gpl-license.php 
+	Text Domain: fivetwofive
 */
 
 
@@ -1143,8 +1140,15 @@ Content Area
 }
 
 .flexible-widgets .widget {
-	float: left;
 	margin: 0 0 40px 2.564102564102564%;
+}
+
+.front-page-3 .flexible-widgets {
+	padding: 0;
+}
+
+.front-page-3  .flexible-widgets .widget {
+	margin: 0;
 }
 
 .flexible-widgets.widget-full .widget,
