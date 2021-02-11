@@ -165,7 +165,8 @@ add_action( 'init', 'jt_custom_taxonomies' );
 /**
  * Add featured project section in the homepage.
  */
-function fivetwofive_featured_projects_section() {
+function fivetwofive_featured_projects_shortcode() {
+	$projects = '';
 	global $post;
 
 	if ( ! is_front_page() ) {
@@ -198,7 +199,7 @@ function fivetwofive_featured_projects_section() {
 	if  ( $featured_projects ) {
 		ob_start();
 		?>
-		<div id="front-page-featured-projects" class="front-page-featured-projects featured-projects-homepage-wrapper d-block clearboth text-center">
+		<div id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper d-block clearboth text-center">
 			<div class="featured-projects-inner-wrapper py-5">
 				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
 				<?php
@@ -212,7 +213,8 @@ function fivetwofive_featured_projects_section() {
 			</div>
 		</div>
 		<?php
-		echo ob_get_clean();
+		$projects = ob_get_clean();
 	}
+	return $projects;
 }
-add_action( 'fivetwofive_front_page_before_widget_4', 'fivetwofive_featured_projects_section' );
+add_shortcode( 'fivetwofive_featured_projects', 'fivetwofive_featured_projects_shortcode' );
