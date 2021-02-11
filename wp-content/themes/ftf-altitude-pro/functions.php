@@ -202,8 +202,15 @@ add_theme_support( 'genesis-after-entry-widget-area' );
 remove_action( 'genesis_after_entry', 'genesis_after_entry_widget_area' );
 add_action( 'genesis_after_entry', 'genesis_after_entry_widget_area', 5 );
 
-//* Setup widget counts
-function altitude_count_widgets( $id ) {
+/**
+ * Counts widgets in given sidebar.
+ *
+ * @since 1.0.0
+ *
+ * @param string $id The id of the widget area.
+ * @return void|int The number of widgets, or nothing.
+ */
+function fivetwofive_count_widgets( $id ) {
 	global $sidebars_widgets;
 
 	if ( isset( $sidebars_widgets[ $id ] ) ) {
@@ -212,22 +219,32 @@ function altitude_count_widgets( $id ) {
 
 }
 
-function altitude_widget_area_class( $id ) {
-	$count = altitude_count_widgets( $id );
-
+/**
+ * Gets class name for widget areas based on widget count.
+ *
+ * Used by front-page.php.
+ *
+ * @since 1.0.0
+ *
+ * @param string $id The ID of the widget area.
+ * @return string The class name to use based on the widget count.
+ */
+function fivetwofive_widget_area_class( $id ) {
+	$count = fivetwofive_count_widgets( $id );
 	$class = '';
 
-	if( $count == 1 ) {
+	if ( $count == 1 ) {
 		$class .= ' widget-full';
-	} elseif( $count % 3 == 1 ) {
+	} elseif ( $count % 3 == 1 ) {
 		$class .= ' widget-thirds';
-	} elseif( $count % 4 == 1 ) {
+	} elseif ( $count % 4 == 1 ) {
 		$class .= ' widget-fourths';
-	} elseif( $count % 2 == 0 ) {
+	} elseif ( $count % 2 == 0 ) {
 		$class .= ' widget-halves uneven';
 	} else {
 		$class .= ' widget-halves';
 	}
+
 	return $class;
 
 }
