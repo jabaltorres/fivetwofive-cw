@@ -85,14 +85,13 @@ function ftf_resource_cpt() {
 		'hierarchical'        => false,
 		'rewrite'             => array( 'slug' => 'resources', 'with_front' => false ),
 		'query_var'           => true,
-		'supports'            => array( "title", "editor", "author", "thumbnail", "excerpt", "page-attributes" ),
-		'taxonomies'          => array( "category", "post_tag" ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
 	register_post_type( 'resources', $args );
 }
 add_action( 'init', 'ftf_resource_cpt' );
-
 
 /**
  * Register custom post type on plugin activation.
