@@ -5,6 +5,7 @@
  * Version: 0.1
  * Author:  Jabal Torres
  * License: GPL2
+ * Text Domain: ftf-lps
  */
 
 /*
@@ -24,6 +25,11 @@
 	along with this program. If not, see someone who cares.
 */
 
+/**
+ * Register FiveTwoFive LP custom post type.
+ *
+ * @return void
+ */
 function fivetwofive_lp_cpt() {
 
 	/**
@@ -31,69 +37,83 @@ function fivetwofive_lp_cpt() {
 	 */
 
 	$labels = array(
-		"name" => __( "FiveTwoFive LPs", "" ),
-		"singular_name" => __( "FiveTwoFive LP", "" ),
-		"menu_name" => __( "FiveTwoFive LPs", "" ),
-		"all_items" => __( "All FiveTwoFive LPs", "" ),
-		"add_new" => __( "Add New FiveTwoFive LP", "" ),
-		"add_new_item" => __( "Add New FiveTwoFive LP", "" ),
-		"edit_item" => __( "Edit FiveTwoFive LP", "" ),
-		"new_item" => __( "New FiveTwoFive LP", "" ),
-		"view_item" => __( "View FiveTwoFive LP", "" ),
-		"view_items" => __( "View FiveTwoFive LPs", "" ),
-		"search_items" => __( "Search FiveTwoFive LP", "" ),
-		"not_found" => __( "FiveTwoFive LP Not Found", "" ),
-		"not_found_in_trash" => __( "No FiveTwoFive LPs found in trash", "" ),
-		"parent_item_colon" => __( "Parent FiveTwoFive LP", "" ),
-		"featured_image" => __( "Featured image for this FiveTwoFive LP", "" ),
-		"set_featured_image" => __( "Set featured image for this FiveTwoFive LP", "" ),
-		"remove_featured_image" => __( "Remove featured image for this FiveTwoFive LP", "" ),
-		"use_featured_image" => __( "Use featured image for this FiveTwoFive LP", "" ),
-		"archives" => __( "FiveTwoFive LP archives", "" ),
-		"insert_into_item" => __( "Insert into FiveTwoFive LP", "" ),
-		"uploaded_to_this_item" => __( "Uploaded to this FiveTwoFive LP", "" ),
-		"filter_items_list" => __( "Filter FiveTwoFive LPs list", "" ),
-		"items_list_navigation" => __( "FiveTwoFive LPs list navigation", "" ),
-		"items_list" => __( "FiveTwoFive LPs list", "" ),
-		"attributes" => __( "FiveTwoFive LPs Attributes", "" ),
-		"parent_item_colon" => __( "Parent FiveTwoFive LP", "" ),
+		'name'                  => __( 'FiveTwoFive LPs', 'ftf-lps' ),
+		'singular_name'         => __( 'FiveTwoFive LP', 'ftf-lps' ),
+		'menu_name'             => __( 'FiveTwoFive LPs', 'ftf-lps' ),
+		'all_items'             => __( 'All FiveTwoFive LPs', 'ftf-lps' ),
+		'add_new'               => __( 'Add New FiveTwoFive LP', 'ftf-lps' ),
+		'add_new_item'          => __( 'Add New FiveTwoFive LP', 'ftf-lps' ),
+		'edit_item'             => __( 'Edit FiveTwoFive LP', 'ftf-lps' ),
+		'new_item'              => __( 'New FiveTwoFive LP', 'ftf-lps' ),
+		'view_item'             => __( 'View FiveTwoFive LP', 'ftf-lps' ),
+		'view_items'            => __( 'View FiveTwoFive LPs', 'ftf-lps' ),
+		'search_items'          => __( 'Search FiveTwoFive LP', 'ftf-lps' ),
+		'not_found'             => __( 'FiveTwoFive LP Not Found', 'ftf-lps' ),
+		'not_found_in_trash'    => __( 'No FiveTwoFive LPs found in trash', 'ftf-lps' ),
+		'parent_item_colon'     => __( 'Parent FiveTwoFive LP', 'ftf-lps' ),
+		'featured_image'        => __( 'Featured image for this FiveTwoFive LP', 'ftf-lps' ),
+		'set_featured_image'    => __( 'Set featured image for this FiveTwoFive LP', 'ftf-lps' ),
+		'remove_featured_image' => __( 'Remove featured image for this FiveTwoFive LP', 'ftf-lps' ),
+		'use_featured_image'    => __( 'Use featured image for this FiveTwoFive LP', 'ftf-lps' ),
+		'archives'              => __( 'FiveTwoFive LP archives', 'ftf-lps' ),
+		'insert_into_item'      => __( 'Insert into FiveTwoFive LP', 'ftf-lps' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this FiveTwoFive LP', 'ftf-lps' ),
+		'filter_items_list'     => __( 'Filter FiveTwoFive LPs list', 'ftf-lps' ),
+		'items_list_navigation' => __( 'FiveTwoFive LPs list navigation', 'ftf-lps' ),
+		'items_list'            => __( 'FiveTwoFive LPs list', 'ftf-lps' ),
+		'attributes'            => __( 'FiveTwoFive LPs Attributes', 'ftf-lps' ),
+		'parent_item_colon'     => __( 'Parent FiveTwoFive LP', 'ftf-lps' ),
 	);
 
 	$args = array(
-		"label" => __( "FiveTwoFive LPs", "" ),
-		"labels" => $labels,
-		"description" => "FiveTwoFive LP Description",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => false,
-		"rest_base" => "",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"menu_position" => '5',
-		"menu_icon" => 'dashicons-pressthis',
-		"show_in_nav_menus" => true,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => false,
-		"rewrite" => array( "slug" => "lp", "with_front" => false ),
-		"query_var" => true,
-		"supports" => array( "title", "editor", "author", "thumbnail", "excerpt", "page-attributes" ),
-		"taxonomies" => array( "category", "post_tag" ),
+		'label'               => __( 'FiveTwoFive LPs', 'ftf-lps' ),
+		'labels'              => $labels,
+		'description'         => __( 'FiveTwoFive LP Description', 'ftf-lps' ),
+		'public'              => true,
+		'publicly_queryable'  => true,
+		'show_ui'             => true,
+		'show_in_rest'        => false,
+		'rest_base'           => '',
+		'has_archive'         => false,
+		'show_in_menu'        => true,
+		'menu_position'       => '5',
+		'menu_icon'           => 'dashicons-pressthis',
+		'show_in_nav_menus'   => true,
+		'exclude_from_search' => false,
+		'capability_type'     => "post",
+		'map_meta_cap'        => true,
+		'hierarchical'        => false,
+		'rewrite'             => array( 'slug' => 'lp', 'with_front' => false ),
+		'query_var'           => true,
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
-	register_post_type( "fivetwofive-lp", $args );
+	register_post_type( 'fivetwofive-lp', $args );
 }
 
 add_action( 'init', 'fivetwofive_lp_cpt' );
 
 
-//* Flush everything
-register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
-register_activation_hook( __FILE__, 'fivetwofive_lp_flush_rewrites' );
-function fivetwofive_lp_flush_rewrites() {
-	// call your CPT registration function here (it should also be hooked into 'init')
-    fivetwofive_lp_cpt();
+/**
+ * Register custom post type on plugin activation.
+ *
+ * @return void
+ */
+function ftf_setup_fivetwofive_lp_custom_post_type() {
+	fivetwofive_lp_cpt();
 	flush_rewrite_rules();
 }
+register_activation_hook( __FILE__, 'ftf_setup_fivetwofive_lp_custom_post_type' );
+
+/**
+ * Unregister custom post type on plugin deactivation.
+ *
+ * @link https://core.trac.wordpress.org/ticket/42563
+ * @return void
+ */
+function ftf_unregister_fivetwofive_lp_custom_post_type() {
+    unregister_post_type( 'fivetwofive-lp' );
+    flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'ftf_unregister_fivetwofive_lp_custom_post_type' );
