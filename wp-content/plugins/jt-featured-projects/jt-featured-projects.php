@@ -160,46 +160,6 @@ function jtfp_featured_projects_taxonomies() {
 }
 add_action( 'init', 'jtfp_featured_projects_taxonomies' );
 
-
-//* Add Featured Projects to home page
-add_action('genesis_after_content', 'featured_projects_loop_homepage');
-
-function featured_projects_loop_homepage(){
-	/* START - Featured Projects */
-	$featured_projects_args = array(
-		'post_type'  => 'featured-projects',
-		'posts_per_page' => 3,
-		'orderby' => 'menu_order',
-		'order' => 'DESC',
-		'meta_query'	=> array(
-			array(
-				'key'	  	=> 'project_is_featured',
-				'value'	  	=> '1',
-				'compare' 	=> '=',
-			),
-		),
-	);
-
-	$featured_projects = new WP_Query($featured_projects_args);
-
-	$featured_projects_title = "Recent Projects";
-
-	if  ( ($featured_projects -> have_posts()) && is_front_page()) {
-		echo '<div class="featured-projects-homepage-wrapper d-block clearboth text-center">';
-			echo '<div class="featured-projects-inner-wrapper py-5">';
-				echo '<h4 class="title text-white">' . $featured_projects_title .'</h4>';
-
-				while ($featured_projects -> have_posts()) : $featured_projects ->the_post();
-					get_template_part( '/includes/featured_projects_homepage_items');
-				endwhile;
-
-				echo '<a class="btn btn-primary mx-auto my-4" href="' . get_permalink( get_page_by_path( 'work' ) ) . '">View All Projects</a>';
-			echo '</div>'; // end featured-projects-inner-wrapper
-		echo '</div>'; // end featured-projects-homepage-wrapper
-	}
-	/* END - Featured Projects */
-}
-
 /**
  * Register custom post type and custom taxonomy on plugin activation.
  *
@@ -225,3 +185,56 @@ function jtfp_unregister_custom_post_type() {
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'jtfp_unregister_custom_post_type' );
+
+/**
+ * Add featured project shortcode.
+ */
+function fivetwofive_featured_projects_shortcode() {
+	$projects = '';
+	global $post;
+
+	// Check for transient. If none, then execute WP_Query
+	if ( false === ( $featured_projects = get_transient( 'fivetwofive_featured_projects' ) ) ) {
+
+		$featured_projects_args = array(
+			'post_type'      => 'featured-projects',
+			'posts_per_page' => 3,
+			'orderby'        => 'menu_order',
+			'order'          => 'DESC',
+			'meta_query'	 => array(
+				array(
+					'key'	  	=> 'project_is_featured',
+					'value'	  	=> '1',
+					'compare' 	=> '=',
+				),
+			),
+		);
+
+		$featured_projects = get_posts( $featured_projects_args );
+
+		// Put the results in a transient. Expire after 12 hours.
+		set_transient( 'fivetwofive_featured_projects', $featured_projects, 12 * HOUR_IN_SECONDS );
+	}
+
+	if  ( $featured_projects ) {
+		ob_start();
+		?>
+		<div id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper d-block clearboth text-center">
+			<div class="featured-projects-inner-wrapper py-5">
+				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
+				<?php
+					foreach ( $featured_projects as $post ) :
+						setup_postdata( $post );
+						get_template_part( '/includes/featured_projects_homepage_items' );
+					endforeach;
+					wp_reset_postdata();
+				?>
+				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url(  get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+			</div>
+		</div>
+		<?php
+		$projects = ob_get_clean();
+	}
+	return $projects;
+}
+add_shortcode( 'fivetwofive_featured_projects', 'fivetwofive_featured_projects_shortcode' );
