@@ -5,6 +5,7 @@
  * Version: 0.1
  * Author:  Jabal Torres
  * License: GPL2
+ * Text Domain: ftf-resources
  */
 
 /*
@@ -24,6 +25,11 @@
 	along with this program. If not, see someone who cares.
 */
 
+/**
+ * Register resource custom post type.
+ *
+ * @return void
+ */
 function ftf_resource_cpt() {
 
 	/**
@@ -31,69 +37,81 @@ function ftf_resource_cpt() {
 	 */
 
 	$labels = array(
-		"name" => __( "Resources", "" ),
-		"singular_name" => __( "Resource", "" ),
-		"menu_name" => __( "Resources", "" ),
-		"all_items" => __( "All Resources", "" ),
-		"add_new" => __( "Add New Resource", "" ),
-		"add_new_item" => __( "Add New Resource", "" ),
-		"edit_item" => __( "Edit Resource", "" ),
-		"new_item" => __( "New Resource", "" ),
-		"view_item" => __( "View Resource", "" ),
-		"view_items" => __( "View Resources", "" ),
-		"search_items" => __( "Search Resource", "" ),
-		"not_found" => __( "Resource Not Found", "" ),
-		"not_found_in_trash" => __( "No Resources found in trash", "" ),
-		"parent_item_colon" => __( "Parent Resource", "" ),
-		"featured_image" => __( "Featured image for this Resource", "" ),
-		"set_featured_image" => __( "Set featured image for this Resource", "" ),
-		"remove_featured_image" => __( "Remove featured image for this Resource", "" ),
-		"use_featured_image" => __( "Use featured image for this Resource", "" ),
-		"archives" => __( "Resource archives", "" ),
-		"insert_into_item" => __( "Insert into Resource", "" ),
-		"uploaded_to_this_item" => __( "Uploaded to this Resource", "" ),
-		"filter_items_list" => __( "Filter Resources list", "" ),
-		"items_list_navigation" => __( "Resources list navigation", "" ),
-		"items_list" => __( "Resources list", "" ),
-		"attributes" => __( "Resources Attributes", "" ),
-		"parent_item_colon" => __( "Parent Resource", "" ),
+		'name'                  => __( 'Resources', 'ftf-resources' ),
+		'singular_name'         => __( 'Resource', 'ftf-resources' ),
+		'menu_name'             => __( 'Resources', 'ftf-resources' ),
+		'all_items'             => __( 'All Resources', 'ftf-resources' ),
+		'add_new'               => __( 'Add New Resource', 'ftf-resources' ),
+		'add_new_item'          => __( 'Add New Resource', 'ftf-resources' ),
+		'edit_item'             => __( 'Edit Resource', 'ftf-resources' ),
+		'new_item'              => __( 'New Resource', 'ftf-resources' ),
+		'view_item'             => __( 'View Resource', 'ftf-resources' ),
+		'view_items'            => __( 'View Resources', 'ftf-resources' ),
+		'search_items'          => __( 'Search Resource', 'ftf-resources' ),
+		'not_found'             => __( 'Resource Not Found', 'ftf-resources' ),
+		'not_found_in_trash'    => __( 'No Resources found in trash', 'ftf-resources' ),
+		'parent_item_colon'     => __( 'Parent Resource', 'ftf-resources' ),
+		'featured_image'        => __( 'Featured image for this Resource', 'ftf-resources' ),
+		'set_featured_image'    => __( 'Set featured image for this Resource', 'ftf-resources' ),
+		'remove_featured_image' => __( 'Remove featured image for this Resource', 'ftf-resources' ),
+		'use_featured_image'    => __( 'Use featured image for this Resource', 'ftf-resources' ),
+		'archives'              => __( 'Resource archives', 'ftf-resources' ),
+		'insert_into_item'      => __( 'Insert into Resource', 'ftf-resources' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Resource', 'ftf-resources' ),
+		'filter_items_list'     => __( 'Filter Resources list', 'ftf-resources' ),
+		'items_list_navigation' => __( 'Resources list navigation', 'ftf-resources' ),
+		'items_list'            => __( 'Resources list', 'ftf-resources' ),
+		'attributes'            => __( 'Resources Attributes', 'ftf-resources' ),
+		'parent_item_colon'     => __( 'Parent Resource', 'ftf-resources' ),
 	);
 
 	$args = array(
-		"label" => __( "Resources", "" ),
-		"labels" => $labels,
-		"description" => "Resource Description",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => false,
-		"rest_base" => "",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"menu_position" => '5',
-		"menu_icon" => 'dashicons-pressthis',
-		"show_in_nav_menus" => true,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => false,
-		"rewrite" => array( "slug" => "resources", "with_front" => false ),
-		"query_var" => true,
-		"supports" => array( "title", "editor", "author", "thumbnail", "excerpt", "page-attributes" ),
-		"taxonomies" => array( "category", "post_tag" ),
+		'label'               => __( 'Resources', 'ftf-resources' ),
+		'labels'              => $labels,
+		'description'         => __( 'Resource Description', 'ftf-resources' ),
+		'public'              => true,
+		'publicly_queryable'  => true,
+		'show_ui'             => true,
+		'show_in_rest'        => false,
+		'rest_base'           => '',
+		'has_archive'         => false,
+		'show_in_menu'        => true,
+		'menu_position'       => '5',
+		'menu_icon'           => 'dashicons-pressthis',
+		'show_in_nav_menus'   => true,
+		'exclude_from_search' => false,
+		'capability_type'     => "post",
+		'map_meta_cap'        => true,
+		'hierarchical'        => false,
+		'rewrite'             => array( 'slug' => 'resources', 'with_front' => false ),
+		'query_var'           => true,
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
-	register_post_type( "resources", $args );
+	register_post_type( 'resources', $args );
 }
-
 add_action( 'init', 'ftf_resource_cpt' );
 
-
-//* Flush everything
-register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
-register_activation_hook( __FILE__, 'ftf_resource_flush_rewrites' );
-function ftf_resource_flush_rewrites() {
-	// call your CPT registration function here (it should also be hooked into 'init')
+/**
+ * Register custom post type on plugin activation.
+ *
+ * @return void
+ */
+function ftf_setup_resources_custom_post_type() {
 	ftf_resource_cpt();
 	flush_rewrite_rules();
 }
+register_activation_hook( __FILE__, 'ftf_setup_resources_custom_post_type' );
+
+/**
+ * Unregister custom post type on plugin deactivation.
+ *
+ * @link https://core.trac.wordpress.org/ticket/42563
+ * @return void
+ */
+function ftf_unregister_resources_custom_post_type() {
+    unregister_post_type( 'resources' );
+    flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'ftf_unregister_resources_custom_post_type' );

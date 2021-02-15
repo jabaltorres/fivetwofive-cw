@@ -5,6 +5,7 @@
  * Version: 0.1
  * Author:  Jabal Torres
  * License: GPL2
+ * Text Domain: ftf-events
  */
 
 /*
@@ -24,83 +25,79 @@
 	along with this program. If not, see someone who cares.
 */
 
+/**
+ * Register events custom post type.
+ *
+ * @return void
+ */
 function fivetwofive_events_cpt() {
 
 	/**
 	 * Post Type: FiveTwoFive Events.
 	 */
-
 	$labels = array(
-		"name" => __( "FiveTwoFive Events", "" ),
-		"singular_name" => __( "FiveTwoFive Event", "" ),
-		"menu_name" => __( "FiveTwoFive Events", "" ),
-		"all_items" => __( "All FiveTwoFive Events", "" ),
-		"add_new" => __( "Add New FiveTwoFive Event", "" ),
-		"add_new_item" => __( "Add New FiveTwoFive Event", "" ),
-		"edit_item" => __( "Edit FiveTwoFive Event", "" ),
-		"new_item" => __( "New FiveTwoFive Event", "" ),
-		"view_item" => __( "View FiveTwoFive Event", "" ),
-		"view_items" => __( "View FiveTwoFive Events", "" ),
-		"search_items" => __( "Search FiveTwoFive Event", "" ),
-		"not_found" => __( "FiveTwoFive Event Not Found", "" ),
-		"not_found_in_trash" => __( "No FiveTwoFive Events found in trash", "" ),
-		"parent_item_colon" => __( "Parent FiveTwoFive Event", "" ),
-		"featured_image" => __( "Featured image for this FiveTwoFive Event", "" ),
-		"set_featured_image" => __( "Set featured image for this FiveTwoFive Event", "" ),
-		"remove_featured_image" => __( "Remove featured image for this FiveTwoFive Event", "" ),
-		"use_featured_image" => __( "Use featured image for this FiveTwoFive Event", "" ),
-		"archives" => __( "FiveTwoFive Event archives", "" ),
-		"insert_into_item" => __( "Insert into FiveTwoFive Event", "" ),
-		"uploaded_to_this_item" => __( "Uploaded to this FiveTwoFive Event", "" ),
-		"filter_items_list" => __( "Filter FiveTwoFive Events list", "" ),
-		"items_list_navigation" => __( "FiveTwoFive Events list navigation", "" ),
-		"items_list" => __( "FiveTwoFive Events list", "" ),
-		"attributes" => __( "FiveTwoFive Events Attributes", "" ),
-		"parent_item_colon" => __( "Parent FiveTwoFive Event", "" ),
+		'name'                  => __( 'FiveTwoFive Events', 'ftf-events' ),
+		'singular_name'         => __( 'FiveTwoFive Event', 'ftf-events' ),
+		'menu_name'             => __( 'FiveTwoFive Events', 'ftf-events' ),
+		'all_items'             => __( 'All FiveTwoFive Events', 'ftf-events' ),
+		'add_new'               => __( 'Add New FiveTwoFive Event', 'ftf-events' ),
+		'add_new_item'          => __( 'Add New FiveTwoFive Event', 'ftf-events' ),
+		'edit_item'             => __( 'Edit FiveTwoFive Event', 'ftf-events' ),
+		'new_item'              => __( 'New FiveTwoFive Event', 'ftf-events' ),
+		'view_item'             => __( 'View FiveTwoFive Event', 'ftf-events' ),
+		'view_items'            => __( 'View FiveTwoFive Events', 'ftf-events' ),
+		'search_items'          => __( 'Search FiveTwoFive Event', 'ftf-events' ),
+		'not_found'             => __( 'FiveTwoFive Event Not Found', 'ftf-events' ),
+		'not_found_in_trash'    => __( 'No FiveTwoFive Events found in trash', 'ftf-events' ),
+		'parent_item_colon'     => __( 'Parent FiveTwoFive Event', 'ftf-events' ),
+		'featured_image'        => __( 'Featured image for this FiveTwoFive Event', 'ftf-events' ),
+		'set_featured_image'    => __( 'Set featured image for this FiveTwoFive Event', 'ftf-events' ),
+		'remove_featured_image' => __( 'Remove featured image for this FiveTwoFive Event', 'ftf-events' ),
+		'use_featured_image'    => __( 'Use featured image for this FiveTwoFive Event', 'ftf-events' ),
+		'archives'              => __( 'FiveTwoFive Event archives', 'ftf-events' ),
+		'insert_into_item'      => __( 'Insert into FiveTwoFive Event', 'ftf-events' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this FiveTwoFive Event', 'ftf-events' ),
+		'filter_items_list'     => __( 'Filter FiveTwoFive Events list', 'ftf-events' ),
+		'items_list_navigation' => __( 'FiveTwoFive Events list navigation', 'ftf-events' ),
+		'items_list'            => __( 'FiveTwoFive Events list', 'ftf-events' ),
+		'attributes'            => __( 'FiveTwoFive Events Attributes', 'ftf-events' ),
+		'parent_item_colon'     => __( 'Parent FiveTwoFive Event', 'ftf-events' ),
 	);
 
 	$args = array(
-		"label" => __( "FiveTwoFive Events", "" ),
-		"labels" => $labels,
-		"description" => "FiveTwoFive Event Description",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => false,
-		"rest_base" => "",
-		"has_archive" => false,
-		"show_in_menu" => true,
-		"menu_position" => '5',
-		"menu_icon" => 'dashicons-megaphone',
-		"show_in_nav_menus" => true,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => false,
-		"rewrite" => array( "slug" => "events", "with_front" => false ),
-		"query_var" => true,
-		"supports" => array( "title", "editor", "author", "thumbnail", "excerpt", "page-attributes" ),
-		"taxonomies" => array( "category", "post_tag" ),
+		'label'               => __( 'FiveTwoFive Events', 'ftf-events' ),
+		'labels'              => $labels,
+		'description'         => __( 'FiveTwoFive Event Description', 'ftf-events' ),
+		'public'              => true,
+		'publicly_queryable'  => true,
+		'show_ui'             => true,
+		'show_in_rest'        => false,
+		'rest_base'           => '',
+		'has_archive'         => false,
+		'show_in_menu'        => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-megaphone',
+		'show_in_nav_menus'   => true,
+		'exclude_from_search' => false,
+		'capability_type'     => 'post',
+		'map_meta_cap'        => true,
+		'hierarchical'        => false,
+		'rewrite'             => array( 'slug' => 'events', 'with_front' => false ),
+		'query_var'           => true,
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
-	register_post_type( "fivetwofive-events", $args );
+	register_post_type( 'fivetwofive-events', $args );
 }
-
 add_action( 'init', 'fivetwofive_events_cpt' );
 
-
-//* Flush everything
-register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
-register_activation_hook( __FILE__, 'FiveTwoFive_events_flush_rewrites' );
-function FiveTwoFive_events_flush_rewrites() {
-	// call your CPT registration function here (it should also be hooked into 'init')
-	FiveTwoFive_events_cpt();
-	flush_rewrite_rules();
-}
-
-
-// Custom Taxonomies
-function FiveTwoFive_events_custom_taxonomies() {
+/**
+ * Register events custom taxonomies
+ *
+ * @return void
+ */
+function fivetwofive_events_custom_taxonomies() {
 
 	// Mood taxonomy (non-hierarchical)
 	$labels = array(
@@ -132,7 +129,32 @@ function FiveTwoFive_events_custom_taxonomies() {
 		'rewrite'               => array( 'slug' => 'events-tags', 'with_front' => false ),
 	);
 
-	register_taxonomy( 'FiveTwoFive-events-custom-tag', array( 'FiveTwoFive-events', 'post' ), $args );
+	register_taxonomy( 'fivetwofive-events-custom-tag', array( 'fivetwofive-events', 'post' ), $args );
 }
 
-add_action( 'init', 'FiveTwoFive_events_custom_taxonomies' );
+add_action( 'init', 'fivetwofive_events_custom_taxonomies' );
+
+/**
+ * Register custom post type on plugin activation.
+ *
+ * @return void
+ */
+function ftf_setup_events_custom_post_type() {
+	fivetwofive_events_cpt();
+	fivetwofive_events_custom_taxonomies();
+	flush_rewrite_rules();
+}
+register_activation_hook( __FILE__, 'ftf_setup_events_custom_post_type' );
+
+/**
+ * Unregister custom post type on plugin deactivation.
+ *
+ * @link https://core.trac.wordpress.org/ticket/42563
+ * @return void
+ */
+function ftf_unregister_events_custom_post_type() {
+    unregister_post_type( 'fivetwofive-events' );
+	unregister_taxonomy( 'fivetwofive-events-custom-tag' );
+    flush_rewrite_rules();
+}
+register_deactivation_hook( __FILE__, 'ftf_unregister_events_custom_post_type' );
