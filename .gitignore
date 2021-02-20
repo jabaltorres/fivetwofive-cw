@@ -32,6 +32,7 @@ wp-content/themes/*
 !wp-content/themes/genesis
 !wp-content/themes/altitude-pro
 !wp-content/themes/ftf-altitude-pro
+!wp-content/themes/genesis-fivetwofive
 
 # always ignore node_modules folders
 **/node_modules
