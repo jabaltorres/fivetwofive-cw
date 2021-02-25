@@ -27,7 +27,7 @@ function genesis_fivetwofive_css() {
 
 	if ( $logo ) {
 		$logo_height           = absint( $logo[2] );
-		$logo_max_width        = get_theme_mod( 'genesis_fivetwofive_logo_width', 350 );
+		$logo_max_width        = get_theme_mod( 'genesis_fivetwofive_logo_width', 50 );
 		$logo_width            = absint( $logo[1] );
 		$logo_ratio            = $logo_width / max( $logo_height, 1 );
 		$logo_effective_height = min( $logo_width, $logo_max_width ) / max( $logo_ratio, 1 );
@@ -103,15 +103,6 @@ function genesis_fivetwofive_css() {
 		}
 		'
 	: '';
-
-	$css .= ( has_custom_logo() && ( 350 !== $logo_max_width ) ) ? sprintf(
-		'
-		.wp-custom-logo .site-container .title-area {
-			max-width: %spx;
-		}
-		',
-		$logo_max_width
-	) : '';
 
 	// Place menu below logo and center logo once it gets big.
 	$css .= ( has_custom_logo() && ( 600 <= $logo_max_width ) ) ?

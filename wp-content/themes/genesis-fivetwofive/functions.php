@@ -16,6 +16,9 @@ require_once get_template_directory() . '/lib/init.php';
 // Sets up the Theme.
 require_once get_stylesheet_directory() . '/lib/theme-defaults.php';
 
+// Sets up the Theme overrides.
+require_once get_stylesheet_directory() . '/lib/init.php';
+
 add_action( 'after_setup_theme', 'genesis_fivetwofive_localization_setup' );
 /**
  * Sets localization (do not remove).

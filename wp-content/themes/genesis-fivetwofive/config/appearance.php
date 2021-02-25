@@ -27,8 +27,8 @@ $genesis_fivetwofive_link_color_contrast   = genesis_fivetwofive_color_contrast(
 $genesis_fivetwofive_link_color_brightness = genesis_fivetwofive_color_brightness( $genesis_fivetwofive_link_color, 35 );
 
 return [
-	'fonts-url'            => 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,700&display=swap',
-	'content-width'        => 1062,
+	'fonts-url'            => 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Roboto:ital@0;1&display=swap',
+	'content-width'        => 1200,
 	'button-bg'            => $genesis_fivetwofive_link_color,
 	'button-color'         => $genesis_fivetwofive_link_color_contrast,
 	'button-outline-hover' => $genesis_fivetwofive_link_color_brightness,
@@ -54,7 +54,7 @@ return [
 		],
 		[
 			'name' => __( 'Normal', 'genesis-fivetwofive' ),
-			'size' => 18,
+			'size' => 16,
 			'slug' => 'normal',
 		],
 		[

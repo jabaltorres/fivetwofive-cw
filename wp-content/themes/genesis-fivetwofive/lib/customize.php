@@ -67,7 +67,7 @@ function genesis_fivetwofive_customizer_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'genesis_fivetwofive_logo_width',
 		[
-			'default'           => 350,
+			'default'           => 50,
 			'sanitize_callback' => 'absint',
 			'validate_callback' => 'genesis_fivetwofive_validate_logo_width',
 		]
@@ -84,9 +84,8 @@ function genesis_fivetwofive_customizer_register( $wp_customize ) {
 			'settings'    => 'genesis_fivetwofive_logo_width',
 			'type'        => 'number',
 			'input_attrs' => [
-				'min' => 100,
+				'min' => 50,
 			],
-
 		]
 	);
 
@@ -103,8 +102,8 @@ function genesis_fivetwofive_validate_logo_width( $validity, $width ) {
 
 	if ( empty( $width ) || ! is_numeric( $width ) ) {
 		$validity->add( 'required', __( 'You must supply a valid number.', 'genesis-fivetwofive' ) );
-	} elseif ( $width < 100 ) {
-		$validity->add( 'logo_too_small', __( 'The logo width cannot be less than 100.', 'genesis-fivetwofive' ) );
+	} elseif ( $width < 50 ) {
+		$validity->add( 'logo_too_small', __( 'The logo width cannot be less than 50.', 'genesis-fivetwofive' ) );
 	}
 
 	return $validity;
