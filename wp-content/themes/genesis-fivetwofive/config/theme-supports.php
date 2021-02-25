@@ -12,8 +12,8 @@
 
 return [
 	'genesis-custom-logo'             => [
-		'height'      => 120,
-		'width'       => 700,
+		'height'      => 50,
+		'width'       => 50,
 		'flex-height' => true,
 		'flex-width'  => true,
 	],
@@ -34,7 +34,7 @@ return [
 		'skip-links',
 	],
 	'genesis-after-entry-widget-area' => '',
-	'genesis-footer-widgets'          => 3,
+	'genesis-footer-widgets'          => 2,
 	'genesis-menus'                   => [
 		'primary'   => __( 'Header Menu', 'genesis-fivetwofive' ),
 		'secondary' => __( 'Footer Menu', 'genesis-fivetwofive' ),
