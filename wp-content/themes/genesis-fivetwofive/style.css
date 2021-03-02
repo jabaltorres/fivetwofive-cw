@@ -245,7 +245,7 @@ h6 {
 	font-family: 'DM Sans', sans-serif;
 	font-weight: 700;
 	line-height: 1.2;
-	margin: 0 0 20px;
+	margin: 0 0 1em;
 }
 
 h1 {
@@ -596,7 +596,7 @@ th {
 .site-inner {
 	clear: both;
 	margin: 0 auto;
-	padding: 60px 30px 0;
+	padding: 60px 15px 0;
 }
 
 
@@ -1006,6 +1006,7 @@ figcaption,
 .site-header .wrap {
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 15px;
 }
 
 /* Title Area
@@ -1498,6 +1499,7 @@ p.entry-meta {
 .site-footer > .wrap {
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 15px;
 	position: relative;
 	z-index: 2;
 }
@@ -1629,7 +1631,7 @@ p.entry-meta {
 	--------------------------------------------- */
 
 	.site-inner {
-		max-width: 1140px;
+		max-width: 1200px;
 	}
 
 	/* Content
@@ -1648,6 +1650,7 @@ p.entry-meta {
 		float: none;
 		margin-left: auto;
 		margin-right: auto;
+		width: 100%;
 	}
 
 	/* Sidebar

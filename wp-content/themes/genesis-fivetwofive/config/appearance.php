@@ -45,6 +45,36 @@ return [
 			'slug'  => 'theme-secondary',
 			'color' => $genesis_fivetwofive_accent_color,
 		],
+		[
+			'name'  => __( 'Mirage', 'genesis-fivetwofive' ),
+			'slug'  => 'mirage',
+			'color' => '#1A2238',
+		],
+		[
+			'name'  => __( 'Supernova', 'genesis-fivetwofive' ),
+			'slug'  => 'supernova',
+			'color' => '#FFCB05',
+		],
+		[
+			'name'  => __( 'Radical Red', 'genesis-fivetwofive' ),
+			'slug'  => 'radical-red',
+			'color' => '#F53868',
+		],
+		[
+			'name'  => __( 'Caribbean Green', 'genesis-fivetwofive' ),
+			'slug'  => 'caribbean-green',
+			'color' => '#00C483',
+		],
+		[
+			'name'  => __( 'Downriver', 'genesis-fivetwofive' ),
+			'slug'  => 'downriver',
+			'color' => '#082C4E',
+		],
+		[
+			'name'  => __( 'Azure Radiance', 'genesis-fivetwofive' ),
+			'slug'  => 'azure-radiance',
+			'color' => '#0088FE',
+		],
 	],
 	'editor-font-sizes'    => [
 		[
@@ -66,6 +96,11 @@ return [
 			'name' => __( 'Larger', 'genesis-fivetwofive' ),
 			'size' => 24,
 			'slug' => 'larger',
+		],
+		[
+			'name' => __( 'Extra Large', 'genesis-fivetwofive' ),
+			'size' => 48,
+			'slug' => 'extra-large',
 		],
 	],
 ];

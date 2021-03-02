@@ -88,6 +88,11 @@
 	margin-bottom: 30px;
 }
 
+.alignfull .alignwide,
+.alignwide .alignwide {
+	padding: 0 15px;
+}
+
 .full-width-content .entry-content > .alignfull {
 	margin-left: calc(-100vw / 2 + 100% / 2);
 	margin-right: calc(-100vw / 2 + 100% / 2);
@@ -98,6 +103,14 @@
 .sidebar-content .site-container .alignfull {
 	margin: 0 0 2em;
 	width: 100%;
+}
+
+/* Groups
+---------------------------------------------------------------------------- */
+.wp-block-group {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @media only screen and (max-width: 600px) {
@@ -132,7 +145,7 @@
 ---------------------------------------------------------------------------- */
 
 .gb-block-cta .gb-button {
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 }
 
@@ -141,7 +154,7 @@
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 	padding: 15px 30px;
 	text-align: center;
@@ -182,7 +195,7 @@
 
 .site-container .wp-block-pullquote p,
 .site-container .wp-block-quote p {
-	font-family: "Source Sans Pro", serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 21px;
 	font-style: italic;
 	line-height: 1.8;
@@ -219,7 +232,7 @@
 .site-container .wp-block-quote cite {
 	color: #666;
 	display: block;
-	font-family: "Source Sans Pro", serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-style: italic;
 	margin-top: -25px;
@@ -398,7 +411,7 @@ hr.wp-block-separator {
 
 	.alignfull .alignwide,
 	.alignwide .alignwide {
-		max-width: 1062px;
+		max-width: 1560px;
 		margin: 0 auto;
 	}
 
