@@ -1,6 +1,6 @@
 body {
-	color: #333;
-	font-family: "Source Sans Pro", sans-serif;
+	color: #1A2238;
+	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 1.625;
@@ -16,24 +16,21 @@ dl {
 
 /* Regular content width.
 ---------------------------------------------------------------------------- */
-
 .wp-block {
-	max-width: 702px;
+	max-width: 1200px;
 }
 
 /* Width of "wide" blocks
-/* 1062px = default column width of 702px + .alignwide negative margin of 360px
+/* 1560 = default column width of 1200px + .alignwide negative margin of 360px
 ---------------------------------------------------------------------------- */
 
 .wp-block[data-align="full"] .wp-block[data-align="wide"],
 .wp-block[data-align="wide"] .wp-block[data-align="wide"],
 .wp-block[data-align="wide"] {
-	max-width: 1062px;
+	max-width: 1560px;
 }
 
-.wp-block[data-align="full"],
-.wp-block[data-align="wide"] .wp-block,
-.wp-block[data-align="full"] .wp-block {
+.wp-block[data-align="full"] {
 	max-width: none;
 }
 
@@ -71,8 +68,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Source Sans Pro", sans-serif;
-	font-weight: 400;
+	font-family: 'DM Sans', sans-serif;
+	font-weight: 700;
 	line-height: 1.2;
 	margin: 0 0 20px;
 }
@@ -105,9 +102,9 @@ h6 {
 }
 
 .editor-post-title__block .editor-post-title__input {
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: 'DM Sans', sans-serif;
 	font-size: 30px;
-	font-weight: 400;
+	font-weight: 700;
 	line-height: 1.2;
 	margin: 0 0 20px;
 }
@@ -179,7 +176,7 @@ p.has-background.light-text a:hover {
 
 .wp-block-pullquote p,
 .wp-block-quote p {
-	font-family: "Source Sans Pro", serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 21px !important;
 	font-style: italic;
 	line-height: 1.8;
@@ -216,7 +213,7 @@ p.has-background.light-text a:hover {
 .wp-block-quote .wp-block-quote__citation {
 	color: #666;
 	display: block;
-	font-family: "Source Sans Pro", serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	font-style: italic;
 	margin-top: -25px;
@@ -338,7 +335,7 @@ table {
 ---------------------------------------------------------------------------- */
 
 .gb-block-cta .gb-button {
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 }
 
@@ -347,7 +344,7 @@ table {
 	border-radius: 5px;
 	cursor: pointer;
 	font-size: 16px;
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 600;
 	line-height: 24px;
 	padding: 15px 30px;

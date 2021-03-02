@@ -92,6 +92,15 @@ function genesis_fivetwofive_enqueue_scripts_styles() {
 		);
 	}
 
+	if ( is_front_page() ) {
+		wp_enqueue_style(
+			genesis_get_theme_handle() . '-front-page',
+			get_stylesheet_directory_uri() . '/dist/css/front-page.css',
+			[ genesis_get_theme_handle() ],
+			genesis_get_theme_version()
+		);
+	}
+
 }
 
 add_action( 'after_setup_theme', 'genesis_fivetwofive_theme_support', 9 );
