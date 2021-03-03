@@ -26,6 +26,10 @@ function genesis_fivetwofive_register_acf_blocks() {
             'render_template'   => 'lib/acf/blocks/testimonial/testimonial.php',
 			'enqueue_style'     => get_stylesheet_directory_uri() . '/lib/acf/blocks/testimonial/testimonial.css',
             'category'          => 'formatting',
+            'supports'          => array(
+                'align'      => false,
+                'align_text' => true
+            )
         ));
     }
 
