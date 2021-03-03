@@ -1050,6 +1050,7 @@ figcaption,
 	text-decoration: none;
 }
 
+.site-title,
 .site-description {
 	border: 0;
 	clip: rect(0, 0, 0, 0);
@@ -1094,6 +1095,22 @@ figcaption,
 .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
 	color: #0073e5;
 	text-decoration: none;
+}
+
+.genesis-nav-menu .is-button > a {
+	border: 1px solid #FFCB05;
+    background-color: #FFCB05;
+    border-radius: 2em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.genesis-nav-menu .is-button > a:focus,
+.genesis-nav-menu .is-button > a:hover,
+.genesis-nav-menu .current-menu-item.is-button > a,
+.genesis-nav-menu .sub-menu .current-menu-item.is-button > a:focus,
+.genesis-nav-menu .sub-menu .current-menu-item.is-button > a:hover {
+	background-color: transparent;
 }
 
 .genesis-nav-menu .sub-menu,
