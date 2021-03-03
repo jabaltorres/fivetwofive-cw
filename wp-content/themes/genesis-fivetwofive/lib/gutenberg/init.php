@@ -129,3 +129,20 @@ function genesis_fivetwofive_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'genesis_fivetwofive_content_width', $appearance['content-width'] );
 
 }
+
+add_action( 'enqueue_block_editor_assets', 'genesis_fivetwofive_gutenberg_scripts' );
+/**
+ * Gutenberg scripts and styles
+ * @link https://www.billerickson.net/block-styles-in-gutenberg/
+ */
+function genesis_fivetwofive_gutenberg_scripts() {
+
+	wp_enqueue_script(
+		genesis_get_theme_handle() . '-gutenberg-styles', 
+		get_stylesheet_directory_uri() . '/lib/gutenberg/gutenberg-styles.js', 
+		array( 'wp-blocks', 'wp-dom' ), 
+		genesis_get_theme_version(),
+		true
+	);
+
+}

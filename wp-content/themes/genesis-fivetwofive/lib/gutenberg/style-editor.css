@@ -14,6 +14,26 @@ dl {
 	line-height: 1.625;
 }
 
+/* Custom styles - Heading
+---------------------------------------------------------------------------- */
+.is-style-dotted:after {
+	content: '.';
+	font-size: inherit;
+	display: inline;
+	color: #FACC0A;
+	position: static;
+}
+
+/* Icons
+---------------------------------------------------------------------------- */
+.fivetwofive-icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	position: relative;
+	top: -2px;
+}
+
 /* Regular content width.
 ---------------------------------------------------------------------------- */
 .wp-block {
