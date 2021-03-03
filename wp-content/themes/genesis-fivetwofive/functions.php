@@ -59,6 +59,9 @@ function genesis_fivetwofive_gutenberg_support() { // phpcs:ignore WordPress.Nam
 	require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
 }
 
+// Adds the ACF blocks.
+require_once get_stylesheet_directory() . '/lib/acf/init.php';
+
 // Registers the responsive menus.
 if ( function_exists( 'genesis_register_responsive_menus' ) ) {
 	genesis_register_responsive_menus( genesis_get_config( 'responsive-menus' ) );

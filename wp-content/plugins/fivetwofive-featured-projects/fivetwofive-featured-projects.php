@@ -249,7 +249,7 @@ function ftf_featured_projects_register_acf_blocks() {
     // Check function exists.
     if ( function_exists('acf_register_block_type') ) {
 
-        // Register a testimonial block.
+        // Register a Featured Project block.
         acf_register_block_type(array(
             'name'              => 'featured-projects',
             'title'             => __('Featured Projects'),
