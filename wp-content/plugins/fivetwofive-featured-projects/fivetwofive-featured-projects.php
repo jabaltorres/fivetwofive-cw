@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: JT's Featured Projects Custom Post Type
+ * Plugin Name: FiveTwoFive Featured Projects Custom Post Type
  * Description: A simple plug in that adds a featured project custom post type
  * Version: 0.1
  * Author:  Jabal Torres
  * License: GPL2
- * Text Domain: jt-featured-projects
+ * Text Domain: fivetwofive-featured-projects
  */
 
 /*
@@ -30,7 +30,7 @@
  *
  * @return void
  */
-function jtfp_featured_projects() {
+function ftf_featured_projects_register_cpt() {
 
 	/**
 	 * Post Type: Featured Projects.
@@ -91,14 +91,14 @@ function jtfp_featured_projects() {
 
 	register_post_type( 'featured-projects', $args );
 }
-add_action( 'init', 'jtfp_featured_projects' );
+add_action( 'init', 'ftf_featured_projects_register_cpt' );
 
 /**
  * Register custom taxonomies for featured projects custom post type.
  *
  * @return void
  */
-function jtfp_featured_projects_taxonomies() {
+function ftf_featured_projects_register_custom_taxonomies() {
 
 	// Type of Product/Service taxonomy
 	$labels = array(
@@ -158,19 +158,19 @@ function jtfp_featured_projects_taxonomies() {
 
 	register_taxonomy( 'jt-custom-tag', array( 'featured-projects', 'post' ), $args );
 }
-add_action( 'init', 'jtfp_featured_projects_taxonomies' );
+add_action( 'init', 'ftf_featured_projects_register_custom_taxonomies' );
 
 /**
  * Register custom post type and custom taxonomy on plugin activation.
  *
  * @return void
  */
-function jtfp_setup_custom_post_type() {
-	jtfp_featured_projects();
-	jtfp_featured_projects_taxonomies();
+function ftf_featured_projects_setup_custom_post_type() {
+	ftf_featured_projects_register_cpt();
+	ftf_featured_projects_register_custom_taxonomies();
 	flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'jtfp_setup_custom_post_type' );
+register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_type' );
 
 /**
  * Unregister custom post type and custom taxonomy on plugin deactivation.
@@ -178,18 +178,18 @@ register_activation_hook( __FILE__, 'jtfp_setup_custom_post_type' );
  * @link https://core.trac.wordpress.org/ticket/42563
  * @return void
  */
-function jtfp_unregister_custom_post_type() {
+function ftf_featured_projects_unregister_cpt() {
     unregister_post_type( 'featured-projects' );
 	unregister_taxonomy( 'product-type' );
 	unregister_taxonomy( 'jt-custom-tag' );
     flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'jtfp_unregister_custom_post_type' );
+register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
 
 /**
  * Add featured project shortcode.
  */
-function fivetwofive_featured_projects_shortcode() {
+function ftf_featured_projects_shortcode() {
 	$projects = '';
 	global $post;
 
@@ -237,4 +237,38 @@ function fivetwofive_featured_projects_shortcode() {
 	}
 	return $projects;
 }
-add_shortcode( 'fivetwofive_featured_projects', 'fivetwofive_featured_projects_shortcode' );
+add_shortcode( 'fivetwofive_featured_projects', 'ftf_featured_projects_shortcode' );
+
+/**
+ * Register ACF blocks.
+ *
+ * @return void
+ */
+function ftf_featured_projects_register_acf_blocks() {
+
+    // Check function exists.
+    if ( function_exists('acf_register_block_type') ) {
+
+        // Register a testimonial block.
+        acf_register_block_type(array(
+            'name'              => 'featured-projects',
+            'title'             => __('Featured Projects'),
+            'description'       => __('Display Featured Projects'),
+            'render_template'   => plugin_dir_path( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.php',
+			'enqueue_style'     => plugin_dir_url( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.css',
+            'category'          => 'formatting',
+        ));
+
+    }
+}
+add_action('acf/init', 'ftf_featured_projects_register_acf_blocks');
+
+/**
+ * Register Featured Projects image sizes
+ *
+ * @return void
+ */
+function ftf_featured_projects_theme_setup() {
+    add_image_size( 'fivetwofive-featured-project', 600, 450, true );
+}
+add_action( 'after_setup_theme', 'ftf_featured_projects_theme_setup' );

@@ -32,6 +32,7 @@ Requires PHP: 5.6
 	- Forms
 	- Tables
 	- Screen Reader Text
+	- Icons
 - Structure and Layout
 	- Site Container
 	- Site Inner
@@ -279,13 +280,6 @@ h5 {
 
 h6 {
 	font-size: 16px;
-}
-
-.genesis-fivetwofive-has-dot:after {
-	content: '.';
-	font-size: inherit;
-	display: inline;
-	color: #FACC0A;
 }
 
 /* Objects
@@ -566,6 +560,15 @@ th {
 	margin-bottom: 30px;
 }
 
+/* Icons
+--------------------------------------------- */
+.fivetwofive-icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	position: relative;
+	top: -2px;
+}
 
 /* Structure and Layout
 ---------------------------------------------------------------------------- */
@@ -1751,6 +1754,10 @@ p.entry-meta {
 	.entry-comments,
 	.entry-pings {
 		margin-bottom: 60px;
+	}
+
+	.home .entry {
+		margin-bottom: 0;
 	}
 
 	/* Footer Widgets

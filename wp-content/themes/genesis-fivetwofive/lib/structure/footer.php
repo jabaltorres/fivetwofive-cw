@@ -28,7 +28,7 @@ add_action( 'genesis_footer', 'genesis_fivetwofive_footer_copyright_wrap_close',
 function genesis_fivetwofive_footer_title( $heading, $id ) {
     if ( 'Footer' !== $id ) return;
 
-    $heading = '<h2 class="genesis-sidebar-title genesis-fivetwofive-has-dot">' . __( 'Let\'s Work Together', 'genesis-fivetwofive' ) . '</h2>';
+    $heading = '<h2 class="genesis-sidebar-title is-style-dotted">' . __( 'Let\'s Work Together', 'genesis-fivetwofive' ) . '</h2>';
 
     return $heading;
 }
