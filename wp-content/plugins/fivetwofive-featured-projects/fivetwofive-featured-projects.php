@@ -260,6 +260,54 @@ function ftf_featured_projects_register_acf_blocks() {
         ));
 
     }
+
+	acf_add_local_field_group(
+		array(
+			'key'                   => 'group_603ed99cda827',
+			'title'                 => 'Block: Featured Projects',
+			'fields'                => array(
+				array(
+					'key'               => 'field_603ed9be8fe98',
+					'label'             => 'Number of Projects to show',
+					'name'              => 'number_of_projects_to_show',
+					'type'              => 'number',
+					'instructions'      => '',
+					'required'          => 0,
+					'conditional_logic' => 0,
+					'wrapper'           => array(
+						'width' => '',
+						'class' => '',
+						'id'    => '',
+					),
+					'default_value'     => '',
+					'placeholder'       => '',
+					'prepend'           => '',
+					'append'            => '',
+					'min'               => '',
+					'max'               => '',
+					'step'              => '',
+				),
+			),
+			'location'              => array(
+				array(
+					array(
+						'param'    => 'block',
+						'operator' => '==',
+						'value'    => 'acf/featured-projects',
+					),
+				),
+			),
+			'menu_order'            => 0,
+			'position'              => 'normal',
+			'style'                 => 'default',
+			'label_placement'       => 'top',
+			'instruction_placement' => 'label',
+			'hide_on_screen'        => '',
+			'active'                => true,
+			'description'           => '',
+		)
+	);
+
 }
 add_action('acf/init', 'ftf_featured_projects_register_acf_blocks');
 
