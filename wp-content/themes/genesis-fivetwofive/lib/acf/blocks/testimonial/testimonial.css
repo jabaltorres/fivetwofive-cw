@@ -2,6 +2,10 @@
     margin-bottom: 3.125rem;
 }
 
+.ftf-testimonial:hover .ftf-testimonial__message-icon {
+    transform: scale(0.9) rotate(-10deg);
+}
+
 .ftf-testimonial.has-text-align-right .ftf-testimonial__author {
     justify-content: flex-end;
 }
@@ -32,6 +36,7 @@
     margin-left: -3.125em;
     z-index: 1;
     display: block;
+    transition: all 300ms ease-in-out;
 }
 
 .ftf-testimonial__author {
