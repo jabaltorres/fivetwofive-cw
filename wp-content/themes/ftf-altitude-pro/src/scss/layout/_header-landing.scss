@@ -1,0 +1,14 @@
+.lp-header{
+  .button-wrapper{
+    text-align: center;
+    //a{
+    //  text-align: center;
+    //}
+  }
+  @include medium-screen{
+    .button-wrapper a{
+      margin-top: 8px;
+      float: right;
+    }
+  }
+}

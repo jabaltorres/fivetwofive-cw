@@ -1,6 +1,7 @@
 .hero-section {
-  background: url(/system/content-uploads/shotspotter-homepage-banner.jpg) no-repeat top center transparent;
-  background-size: cover;
+  //background: url(/assets/img/shotspotter-homepage-banner.jpg) no-repeat top center transparent;
+  //background-size: cover;
+
   .copy,
   .img-wrap {
     width: 100%;
@@ -77,7 +78,7 @@
   a.button:before {
     position: absolute;
     content: '';
-    background: url(/system/content-uploads/bracket-mid-left.png) no-repeat center left transparent;
+    background: url(/assets/img/bracket-mid-left.png) no-repeat center left transparent;
     background-size: 11px;
     width: 11px;
     height: 38px;
@@ -88,7 +89,7 @@
   a.button:after {
     position: absolute;
     content: '';
-    background: url(/system/content-uploads/bracket-mid-right.png) no-repeat center right transparent;
+    background: url(/assets/img/bracket-mid-right.png) no-repeat center right transparent;
     background-size: 11px;
     width: 11px;
     height: 38px;

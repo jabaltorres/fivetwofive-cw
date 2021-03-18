@@ -18,15 +18,19 @@
     <!-- End Google Tag Manager (noscript) -->
     <header class="lp-header">
         <div class="container">
-            <div class="container_inner clearfix header-wrapper">
-                <div id="header-image">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-<!--                        <img src="/wp-content/uploads/2019/06/logo-black.png" alt="Logo" />-->
-                        <h1>525 Creative</h1>
-                    </a>
+            <div class="row header-wrapper">
+                <div class="col-md-8">
+                    <div id="header-image">
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                            <!--                        <img src="/wp-content/uploads/2019/06/logo-black.png" alt="Logo" />-->
+                            <h1>525 Creative</h1>
+                        </a>
+                    </div>
                 </div>
-                <div class="button-wrapper">
-                    <a href="/download/" class="button">Download</a>
+                <div class="col-md-4">
+                    <div class="button-wrapper">
+                        <a href="/contact-us/" class="button btn btn-primary">Contact Us</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,4 +39,4 @@
 	<div class="wrapper">
 		<div class="wrapper_inner">
 
-            <?php echoHello(); ?>
+            <?php // echoHello(); ?>
