@@ -19,30 +19,31 @@
 	$video_thumbnail = get_sub_field('video_thumbnail'); 
 	$video_caption = get_sub_field('video_caption'); 	
 ?>
-<div class="sst-module module-hero hero-section <?php echo ($video) ? 'with-video' : 'without-video'; ?>" style="background:url('<?php echo $background_image['sizes']['large']; ?>') center center no-repeat; background-size:cover;">
-	<div class="hero-module-inner-wrapper p-y-lg p-x m-x-auto">
-		<div class="copy">
-			<?php if ($product_title) : ?><h5 class="hero-label product-name"><?php echo $product_title; ?></h5><?php endif; ?>
-			<?php if ($title) : ?><h1 class="hero-module-title"><?php echo $title; ?></h1><?php endif; ?>
-			<?php if ($subtitle) : ?><h3 class="hero-module-subtitle"><?php echo $subtitle; ?></h3><?php endif; ?>
-			<?php if ($button_link) : ?>
-				<a class="button" href="<?php echo $button_link; ?>"><?php echo $button; ?></a>
-			<?php endif; ?>
-		</div>
+<div class="ftf-module module-hero hero-section <?php echo ($video) ? 'with-video' : 'without-video'; ?>" style="background:url('<?php echo $background_image['sizes']['large']; ?>') center center no-repeat; background-size:cover;">
+	<div class="container">
+        <div class="hero-module-inner-wrapper p-y-lg p-x m-x-auto">
+            <div class="copy">
+                <?php if ($product_title) : ?><h5 class="hero-label product-name"><?php echo $product_title; ?></h5><?php endif; ?>
+                <?php if ($title) : ?><h1 class="hero-module-title"><?php echo $title; ?></h1><?php endif; ?>
+                <?php if ($subtitle) : ?><h3 class="hero-module-subtitle"><?php echo $subtitle; ?></h3><?php endif; ?>
+                <?php if ($button_link) : ?>
+                    <a class="button btn btn-primary" href="<?php echo $button_link; ?>"><?php echo $button; ?></a>
+                <?php endif; ?>
+            </div>
 
-		<?php if ($video) : ?>
-        <div class="img-wrap">
+            <?php if ($video) : ?>
+                <div class="img-wrap">
+                    <img class="screen d-block" src="<?php echo $video_thumbnail['sizes']['medium']; ?>" />
 
-            <img class="screen d-block" src="<?php echo $video_thumbnail['sizes']['medium']; ?>" />
+                    <a class="video-play-button various fancybox.iframe" href="<?php echo $video; ?>">
+                        <img src="<?php echo bloginfo('url'); ?>/assets/img/play_button.png" />
+                    </a>
 
-            <a class="video-play-button various fancybox.iframe" href="<?php echo $video; ?>">
-                <img src="<?php echo bloginfo('url'); ?>/system/content-uploads/play_button.png" />
-            </a>
-
-            <?php if($video_caption) : ?>
-                <h4><?php echo $video_caption; ?></h4>
+                    <?php if($video_caption) : ?>
+                        <h4><?php echo $video_caption; ?></h4>
+                    <?php endif; ?>
+                </div>
             <?php endif; ?>
         </div>
-		<?php endif; ?>
-	</div>
+    </div>
 </div>

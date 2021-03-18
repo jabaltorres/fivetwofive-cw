@@ -30,10 +30,9 @@ get_header('landing'); ?>
 </div>
 
 <div class="content">
-	<div class="container">
-		<div class="container_inner">
+
 			<div id="primary" class="content-area-full">
-				<main id="main" class="site-main m-b-md" role="main">
+				<main id="main" class="site-main m-b-md d-none" role="main">
 					<div class="content-wrapper m-b-lg">
 						<div class="content-container">
 							<?php while ( have_posts() ) : the_post(); ?>
@@ -114,8 +113,7 @@ get_header('landing'); ?>
                     </aside>
 				<?php } ?>
 			</div><!-- #primary -->
-		</div>
-	</div>
+
 </div>
 
 <?php include_once get_stylesheet_directory() . '/includes/lp_three_col_cta_section.php'; ?>
