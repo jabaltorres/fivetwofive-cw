@@ -1,5 +1,5 @@
 /*
-	Theme Name: FiveTwoFive heme
+	Theme Name: FiveTwoFive Theme
 	Theme URI: https://fivetwofive.com/
 	Description: Make a stunning first impression, grab attention, and dynamically tell your story with beautiful images and clean typography.
 	Author: StudioPress
@@ -580,7 +580,7 @@ Structure and Layout
 .site-inner {
 	background-color: #fff;
 	clear: both;
-	margin-top: 90px;
+	margin-top: 65px;
 	position: relative;
 	z-index: 9;
 	word-wrap: break-word;

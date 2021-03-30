@@ -19,7 +19,7 @@ include_once( get_stylesheet_directory() . '/lib/output.php' );
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Altitude Pro Theme' );
 define( 'CHILD_THEME_URL', 'http://my.studiopress.com/themes/altitude/' );
-define( 'CHILD_THEME_VERSION', '1.0.2' );
+define( 'CHILD_THEME_VERSION', '1.0.3' );
 
 
 
@@ -55,7 +55,7 @@ function jt_add_custom_fa_css() {
 //* Load custom stylesheet
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
-    $cssVersion = "2021.01.18";
+    $cssVersion = "2021.03.28";
 	wp_enqueue_script( 'bootstrap-scripts', get_bloginfo( 'stylesheet_directory' ) . '/dist/js/vendor/bootstrap.min.js', array( 'jquery' ), '1.0.0' );
 	wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/dist/css/main.css', array(), ''.$cssVersion.'');
 }

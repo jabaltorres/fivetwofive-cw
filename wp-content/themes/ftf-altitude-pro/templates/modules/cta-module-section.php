@@ -16,7 +16,7 @@
         $background = $cta_bg_color;
     }
 ?>
-<div class="sst-module cta-module-section" style="background:<?php echo $background; ?>;background-size:cover;">
+<div class="ftf-module cta-module-section" style="background:<?php echo $background; ?>;background-size:cover;">
     <div class="container p-y-lg">
         <div class="row">
             <div class="col-xs-12 col-md-10 offset-md-1">
