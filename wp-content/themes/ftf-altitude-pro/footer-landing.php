@@ -23,25 +23,5 @@
 		</div><!-- end .wrapper_inner -->
 	</div><!-- end .wrapper -->
 
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-
-            $(".various").fancybox({
-
-                afterShow: function(){
-                    if( ($( window ).width()) > 800 ){  $('#main video').css('display','none'); }
-                },
-                afterClose: function(){
-                    if( ($( window ).width()) > 800 ){ $('#main video').css('display','block'); }
-                },
-                helpers: {
-                    overlay: {
-                        locked: false
-                    }
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>

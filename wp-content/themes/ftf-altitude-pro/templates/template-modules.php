@@ -16,7 +16,7 @@
 		<?php while ( have_rows('modules') ) : the_row();
 			switch (get_row_layout()) {
 				case 'hero_section':
-					get_template_part('templates/modules/hero-section'); 
+					get_template_part('templates/modules/module-hero');
 					break;
 				case 'announcement_section':
 					get_template_part('templates/modules/announcement-section'); 
@@ -49,7 +49,7 @@
 					get_template_part('templates/modules/news-item-section'); 
 					break;
 				case 'raw_code':
-					get_template_part('templates/modules/raw-code-section'); 
+					get_template_part('templates/modules/module-raw-code');
 					break;
 				case 'resources_section':
 					get_template_part('templates/modules/resources-section'); 
@@ -99,6 +99,26 @@
 			});
 		});
 	});
+</script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        $(".various").fancybox({
+
+            afterShow: function(){
+                if( ($( window ).width()) > 800 ){  $('#main video').css('display','none'); }
+            },
+            afterClose: function(){
+                if( ($( window ).width()) > 800 ){ $('#main video').css('display','block'); }
+            },
+            helpers: {
+                overlay: {
+                    locked: false
+                }
+            }
+        });
+    });
 </script>
 
 <?php get_footer(); ?>

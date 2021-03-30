@@ -1,4 +1,4 @@
-.hero-section {
+.module-hero {
   //background: url(/assets/img/shotspotter-homepage-banner.jpg) no-repeat top center transparent;
   //background-size: cover;
 
@@ -60,17 +60,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  a.button{
-    margin-top: 10px;
-    color: white;
-    padding: 7px 15px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 20px;
-    display: inline-block;
-    position: relative;
-  }
-
   a.video-play-button:before,
   a.video-play-button:after {
     background: none;
@@ -108,11 +97,11 @@
 }
 
 
-.hero-section.without-video .copy {
+.module-hero.without-video .copy {
   width: 100%;
 }
 
-.hero-section .video-play-button img {
+.module-hero .video-play-button img {
   width: 100%;
   max-width: 100px;
 }
@@ -125,33 +114,33 @@
   //color: white;
 }
 
-.hero-section.with-video{
+.module-hero.with-video{
   .copy{
     padding-right: $global-padding;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .hero-section .video-play-button img {
+  .module-hero .video-play-button img {
     width: 80%;
     margin-top: 40px;
   }
 
-  .hero-section {
+  .module-hero {
     height: auto;
     background-position: center top;
   }
 
-  .hero-section .copy,
-  .hero-section .img-wrap,
-  .hero-section.without-video .copy {
+  .module-hero .copy,
+  .module-hero .img-wrap,
+  .module-hero.without-video .copy {
     width: 100%;
     float: left;
     padding: 0;
     position: relative;
   }
 
-  .hero-section .hero-module-title {
+  .module-hero .hero-module-title {
     font-size: 36px;
     padding-top: 20px;
   }
