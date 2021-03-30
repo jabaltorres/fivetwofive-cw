@@ -75,7 +75,7 @@ class Shortcode {
 		$cta_link        = '';
 		$cta_button_text = '';
 		$cta_target      = '';
-		$cta_link_target = '_self';
+		$cta_link_target = '';
 
 		if ( ! empty( $options['custom_url'] ) ) {
 			$cta_link = esc_url( $options['custom_url'] );
@@ -91,6 +91,8 @@ class Shortcode {
 
 		if ( 'blank' === $cta_target ) {
 			$cta_link_target = '_blank';
+		} else {
+			$cta_link_target = '_self';
 		}
 
 		ob_start();
