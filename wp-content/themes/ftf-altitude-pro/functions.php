@@ -127,7 +127,7 @@ function jtModal() {
 add_action( 'genesis_after_footer', 'jtModal' );
 
 
-// My custom footer
+// My custom footer - Example on single blog posts
 function jtCustomFooter(){
 	if( ! is_front_page() && is_singular() ){
 		locate_template( array( 'includes/jt-footer.php' ), true, true );

@@ -1,17 +1,17 @@
 
             <?php // echoHello(); ?>
 
-            <div class="lp-footer p-y-md">
+            <div class="lp-footer py-3">
                 <div class="container">
                     <div class="container_inner text-center">
-                        <ul>
-                            <li>
+                        <ul class="px-0 mx-0">
+                            <li class="d-inline-block mx-2">
                                 <a href="/privacy-policy/">Privacy Policy</a>
                             </li>
-                            <li>
+                            <li class="d-inline-block mx-2">
                                 <a href="/contact/">Contact Us</a>
                             </li>
-                            <li>
+                            <li class="d-inline-block mx-2">
                                 <a href="/license/">Terms & Conditions</a>
                             </li>
                         </ul>

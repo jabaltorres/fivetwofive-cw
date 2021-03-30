@@ -191,6 +191,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php include_once get_stylesheet_directory() . '/jt_templates/ftf-sandbox-cta.php'; ?>
-<?php include_once get_stylesheet_directory() . '/includes/lp_three_col_cta_section.php'; ?>
 
 <?php get_footer(); ?>
