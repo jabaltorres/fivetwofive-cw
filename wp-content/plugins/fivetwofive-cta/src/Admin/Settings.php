@@ -139,7 +139,7 @@ class Settings {
 		add_settings_field(
 			'cta_message',
 			__( 'CTA Message', 'fivetwofive-cta' ),
-			array( $this, 'field_textarea' ),
+			array( $this, 'field_wysiwyg' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
@@ -241,6 +241,24 @@ class Settings {
 
 		echo '<input id="fivetwofive_cta_options_' . esc_attr( $id ) . '" name="fivetwofive_cta_options[' . esc_attr( $id ) . ']" type="text" size="40" value="' . esc_attr( $value ) . '"><br />';
 		echo '<label for="fivetwofive_cta_options_' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label>';
+	}
+
+	/**
+	 * Settings API wysiwyg field.
+	 *
+	 * Generate the wysiwyg field needed for the settings api.
+	 *
+	 * @param array $args Fields arguments.
+	 * @return void
+	 */
+	public function field_wysiwyg( $args ) {
+		$options = get_option( 'fivetwofive_cta_options', $this->default_settings() );
+
+		$id    = isset( $args['id'] ) ? $args['id'] : '';
+		$label = isset( $args['label'] ) ? $args['label'] : '';
+		$value = isset( $options[ $id ] ) ? wp_kses_post( $options[ $id ] ) : '';
+
+		wp_editor( $value, $id, array( 'textarea_name' => 'fivetwofive_cta_options[' . $id . ']' ) );
 	}
 
 	/**
