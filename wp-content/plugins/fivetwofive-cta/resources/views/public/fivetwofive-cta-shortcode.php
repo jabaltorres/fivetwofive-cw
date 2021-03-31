@@ -18,14 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="ftf-cta__inner">
 		<div class="ftf-cta__column-1">
 
-			<?php if ( ! empty( $options['custom_title'] ) ) : ?>
-				<h2 class="fta-cta__title"><?php echo esc_html( $options['custom_title'] ); ?></h2>
+			<?php if ( ! empty( $cta_title ) ) : ?>
+				<h2 class="fta-cta__title"><?php echo esc_html( $cta_title ); ?></h2>
 			<?php endif; ?>
 
 			<div class="fta-cta__content">
 				<?php
-				if ( ! empty( $options['custom_message'] ) ) :
-					echo wp_kses_post( $options['custom_message'] );
+				if ( ! empty( $cta_message ) ) :
+					echo wp_kses_post( $cta_message );
 				endif;
 				?>
 			</div><!-- end .cta-content -->
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( ! empty( $cta_button_text ) ) : ?>
 			<div class="ftf-cta__column-2">
-				<a class="ftf-cta__btn" href="<?php echo esc_url( $cta_link ); ?>" target="<?php echo esc_attr( $cta_target ); ?>"><?php echo wp_kses_post( $cta_button_text ); ?></a>
+				<a class="ftf-cta__btn" href="<?php echo esc_url( $cta_button_link ); ?>" target="<?php echo esc_attr( $cta_button_target ); ?>"><?php echo wp_kses_post( $cta_button_text ); ?></a>
 			</div><!-- end .cta-column-2 -->
 		<?php endif; ?>
 

@@ -65,34 +65,70 @@ class Shortcode {
 	/**
 	 * Get the call to action options and create the shortcode structure.
 	 *
+	 * @param array $atts shortcode arguments meant to override the global settings.
 	 * @return string shortcode content.
 	 */
-	public function shortcode() {
+	public function shortcode( $atts ) {
+		$a = shortcode_atts(
+			array(
+				'title'         => '',
+				'message'       => '',
+				'button_text'   => '',
+				'button_link'   => '',
+				'button_target' => '',
+			),
+			$atts
+		);
+
+		$cta_title         = '';
+		$cta_message       = '';
+		$cta_button_text   = '';
+		$cta_button_link   = '';
+		$cta_button_target = '';
+
 		wp_enqueue_style( $this->plugin_name ); // Only enqueue the shortcode styles when the shortcode is called.
 
 		$options = get_option( $this->plugin_name . '_options' );
 
-		$cta_link        = '';
-		$cta_button_text = '';
-		$cta_target      = '';
-		$cta_link_target = '';
-
-		if ( ! empty( $options['custom_url'] ) ) {
-			$cta_link = esc_url( $options['custom_url'] );
+		if ( ! empty( $options['cta_title'] ) ) {
+			$cta_title = sanitize_text_field( $options['cta_title'] );
 		}
 
-		if ( ! empty( $options['custom_button_text'] ) ) {
-			$cta_button_text = sanitize_text_field( $options['custom_button_text'] );
+		if ( ! empty( $options['cta_message'] ) ) {
+			$cta_message = wp_kses_post( $options['cta_message'] );
 		}
 
-		if ( ! empty( $options['custom_target'] ) ) {
-			$cta_target = sanitize_text_field( $options['custom_target'] );
+		if ( ! empty( $options['cta_button_link'] ) ) {
+			$cta_button_link = esc_url( $options['cta_button_link'] );
 		}
 
-		if ( 'blank' === $cta_target ) {
-			$cta_link_target = '_blank';
-		} else {
-			$cta_link_target = '_self';
+		if ( ! empty( $options['cta_button_text'] ) ) {
+			$cta_button_text = sanitize_text_field( $options['cta_button_text'] );
+		}
+
+		if ( ! empty( $options['cta_button_target'] ) ) {
+			$cta_button_target = sanitize_text_field( $options['cta_button_target'] );
+		}
+
+		// Let the shortcode override the global settings.
+		if ( ! empty( $a['title'] ) ) {
+			$cta_title = sanitize_text_field( $a['title'] );
+		}
+
+		if ( ! empty( $a['message'] ) ) {
+			$cta_message = wp_kses_post( $a['message'] );
+		}
+
+		if ( ! empty( $a['button_link'] ) ) {
+			$cta_button_link = esc_url( $a['button_link'] );
+		}
+
+		if ( ! empty( $a['button_text'] ) ) {
+			$cta_button_text = sanitize_text_field( $a['button_text'] );
+		}
+
+		if ( ! empty( $a['button_target'] ) ) {
+			$cta_button_target = sanitize_text_field( $a['button_target'] );
 		}
 
 		ob_start();
