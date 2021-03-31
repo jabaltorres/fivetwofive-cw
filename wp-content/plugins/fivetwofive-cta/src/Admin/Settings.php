@@ -59,11 +59,11 @@ class Settings {
 	 */
 	protected function default_settings() {
 		return array(
-			'custom_title'       => __( 'Powered by FiveTwoFive.', 'fivetwofive-cta' ),
-			'custom_message'     => '<p class="custom-message">' . __( 'My custom message.', 'fivetwofive-cta' ) . '</p>',
-			'custom_url'         => 'https://fivetwofive.com',
-			'custom_button_text' => 'Learn More',
-			'custom_target'      => 'self',
+			'cta_title'         => __( 'Powered by FiveTwoFive.', 'fivetwofive-cta' ),
+			'cta_message'       => '<p class="custom-message">' . __( 'My custom message.', 'fivetwofive-cta' ) . '</p>',
+			'cta_button_link'   => 'https://fivetwofive.com',
+			'cta_button_text'   => 'Learn More',
+			'cta_button_target' => '_self',
 		);
 	}
 
@@ -74,8 +74,8 @@ class Settings {
 	 */
 	protected function options_radio() {
 		return array(
-			'self'  => __( 'Open the anchor in the SAME tab: target=self', 'fivetwofive-cta' ),
-			'blank' => __( 'Open the anchor in a NEW tab: target=blank', 'fivetwofive-cta' ),
+			'_self'  => __( 'Open the anchor in the SAME tab: target=self', 'fivetwofive-cta' ),
+			'_blank' => __( 'Open the anchor in a NEW tab: target=blank', 'fivetwofive-cta' ),
 		);
 	}
 
@@ -125,61 +125,61 @@ class Settings {
 		);
 
 		add_settings_field(
-			'custom_title',
+			'cta_title',
 			__( 'CTA Title', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
-				'id'    => 'custom_title',
+				'id'    => 'cta_title',
 				'label' => __( 'Custom title attribute for the CTA', 'fivetwofive-cta' ),
 			)
 		);
 
 		add_settings_field(
-			'custom_message',
+			'cta_message',
 			__( 'CTA Message', 'fivetwofive-cta' ),
 			array( $this, 'field_textarea' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
-				'id'    => 'custom_message',
+				'id'    => 'cta_message',
 				'label' => __( 'Custom text and/or markup', 'fivetwofive-cta' ),
 			)
 		);
 
 		add_settings_field(
-			'custom_button_text',
+			'cta_button_text',
 			__( 'CTA Button Text', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
-				'id'    => 'custom_button_text',
+				'id'    => 'cta_button_text',
 				'label' => __( 'Custom button text for the CTA', 'fivetwofive-cta' ),
 			)
 		);
 
 		add_settings_field(
-			'custom_url',
+			'cta_button_link',
 			__( 'CTA URL', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
-				'id'    => 'custom_url',
+				'id'    => 'cta_button_link',
 				'label' => __( 'Custom URL for the CTA link', 'fivetwofive-cta' ),
 			)
 		);
 
 		add_settings_field(
-			'custom_target',
+			'cta_button_target',
 			__( 'CTA Target', 'fivetwofive-cta' ),
 			array( $this, 'field_radio' ),
 			$this->plugin_name,
 			$this->plugin_name . 'section',
 			array(
-				'id'    => 'custom_target',
+				'id'    => 'cta_button_target',
 				'label' => __( 'Custom target for the CTA', 'fivetwofive-cta' ),
 			)
 		);
@@ -193,25 +193,23 @@ class Settings {
 	 */
 	public function sanitize_fields( $input ) {
 
-		if ( isset( $input['custom_title'] ) ) {
-			$input['custom_title'] = sanitize_text_field( $input['custom_title'] );
+		if ( isset( $input['cta_title'] ) ) {
+			$input['cta_title'] = sanitize_text_field( $input['cta_title'] );
 		}
 
-		if ( isset( $input['custom_message'] ) ) {
-			$input['custom_message'] = wp_kses_post( $input['custom_message'] );
+		if ( isset( $input['cta_message'] ) ) {
+			$input['cta_message'] = wp_kses_post( $input['cta_message'] );
 		}
 
-		if ( isset( $input['custom_url'] ) ) {
-			$input['custom_url'] = esc_url( $input['custom_url'] );
-		}
-
-		if ( ! isset( $input['custom_target'] ) ) {
-			$input['custom_target'] = null;
+		if ( isset( $input['cta_button_link'] ) ) {
+			$input['cta_button_link'] = esc_url( $input['cta_button_link'] );
 		}
 
 		$radio_options = $this->options_radio();
-		if ( ! array_key_exists( $input['custom_target'], $radio_options ) ) {
-			$input['custom_target'] = null;
+		if ( ! array_key_exists( $input['cta_button_target'], $radio_options ) || ! isset( $input['cta_button_target'] ) ) {
+			$input['cta_button_target'] = null;
+		} else {
+			$input['cta_button_target'] = sanitize_text_field( $input['cta_button_target'] );
 		}
 
 		return $input;
