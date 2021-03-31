@@ -295,14 +295,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "resources"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "==",
-                "value": "default"
+                "value": "fivetwofive-lp"
             }
         ]
     ],
@@ -321,5 +314,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1612750672
+    "modified": 1617149618
 }
