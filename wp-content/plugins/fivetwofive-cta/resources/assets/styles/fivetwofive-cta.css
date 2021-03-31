@@ -6,7 +6,7 @@
     background: #FDC830;
     background: linear-gradient(to bottom, #F37335, #FDC830);
     color: #000000;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 .ftf-cta__inner {
@@ -20,6 +20,10 @@
     margin: 0 0 15px 0;
 }
 
+.ftf-cta__column-1{
+    text-align: center;
+}
+
 .ftf-cta__btn {
     min-width: 150px;
     color: #ffffff;
@@ -28,21 +32,23 @@
     font-size: 16px;
     line-height: 16px;
     font-weight: bold;
-    padding: 10px 24px 14px;
+    padding: 12px 24px;
     transition: all 300ms ease-in-out;
     text-decoration: none;
     background-color: #000000;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
 .ftf-cta__btn:hover {
     background-color: #f37335;
     color: #000000;
+    text-decoration: none;
 }
 
 @media screen and (min-width: 639px) {
     .ftf-cta {
-        padding: 60px 40px 50px;
+        padding: 50px 40px 50px;
     }
 
     .ftf-cta__inner {
@@ -50,13 +56,9 @@
         align-items: center;
     }
 
-    .ftf-cta__title,
-    .ftf-cta__content {
-        text-align: left;
-    }
-
     .ftf-cta__column-1 {
         width: 75%;
+        text-align: left;
     }
 
     .ftf-cta__column-2 {
