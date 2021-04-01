@@ -52,7 +52,7 @@ get_header('landing'); ?>
                     get_template_part('templates/modules/announcement-section');
                     break;
                 case 'multi_column_section':
-                    get_template_part('templates/modules/multi-column-section');
+                    get_template_part('templates/modules/module-multi-column');
                     break;
                 case 'carousel_section':
                     get_template_part('templates/modules/carousel-section');
