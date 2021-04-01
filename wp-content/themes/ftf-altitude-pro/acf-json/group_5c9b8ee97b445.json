@@ -865,109 +865,6 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5d2cf3e3ef530": {
-                    "key": "layout_5d2cf3e3ef530",
-                    "name": "featured_video_module",
-                    "label": "Featured Video Module",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5d2cf3fdef531",
-                            "label": "Title",
-                            "name": "title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5d2cf405ef532",
-                            "label": "Caption",
-                            "name": "caption",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5d2cf417ef533",
-                            "label": "Image",
-                            "name": "image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5d2cf433ef534",
-                            "label": "Video",
-                            "name": "video",
-                            "type": "oembed",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "width": 360,
-                            "height": 180
-                        },
-                        {
-                            "key": "field_5d2cf44eef535",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "layout_5c9b90c26695d": {
                     "key": "layout_5c9b90c26695d",
                     "name": "hero_section",
@@ -2980,5 +2877,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617316566
+    "modified": 1617320677
 }

@@ -42,9 +42,6 @@
 				case 'featured_image_module':
 					get_template_part('templates/modules/featured-image-section'); 
 					break;
-				case 'featured_video_module':
-					get_template_part('templates/modules/featured-video-section'); 
-					break;
 				case 'news_highlight_module':
 					get_template_part('templates/modules/news-item-section'); 
 					break;

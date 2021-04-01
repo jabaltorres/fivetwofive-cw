@@ -142,7 +142,6 @@ aside{
   }
 }
 
-
 .entry-content ul{
   margin-left: 0;
 }
@@ -216,11 +215,7 @@ img:focus {
   }
 }
 .featured-project-list-item a{
-  //@extend .jt-text-link;
   color: $primary;
-  //&:hover{
-  //  color: $primary;
-  //}
 }
 
 .nav-link.active{
@@ -239,6 +234,6 @@ img:focus {
   margin-bottom: 0;
 }
 
- //body p {
- // color: red !important;
- //}
+//body p {
+//color: red !important;
+//}
