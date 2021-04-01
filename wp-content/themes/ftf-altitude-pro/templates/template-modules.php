@@ -63,9 +63,6 @@
                 case 'multi_column_video_quotes':
                     get_template_part('templates/modules/multi-column-video-quotes');
                     break;
-                case 'results_module':
-                    get_template_part('templates/modules/module_results');
-                    break;
                 case 'news_slider_module':
                     get_template_part('templates/modules/module_news_slider');
                     break;

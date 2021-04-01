@@ -2947,115 +2947,6 @@
                     ],
                     "min": "",
                     "max": ""
-                },
-                "layout_5f92975feb234": {
-                    "key": "layout_5f92975feb234",
-                    "name": "results_module",
-                    "label": "Results Module",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5fa05021842fb",
-                            "label": "Results Module Background Color",
-                            "name": "results_module_background_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": ""
-                        },
-                        {
-                            "key": "field_5f9f3235b05ac",
-                            "label": "Results Module Heading",
-                            "name": "results_module_heading",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5f9f325fb05ad",
-                            "label": "Results Module Sub Heading",
-                            "name": "results_module_sub_heading",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5f9f328fb05ae",
-                            "label": "Result Module Body Copy",
-                            "name": "result_module_body_copy",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_5f92977ceb235",
-                            "label": "Result Items",
-                            "name": "result_items",
-                            "type": "relationship",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "results"
-                            ],
-                            "taxonomy": "",
-                            "filters": [
-                                "search",
-                                "post_type",
-                                "taxonomy"
-                            ],
-                            "elements": "",
-                            "min": "",
-                            "max": "",
-                            "return_format": "object"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
                 }
             },
             "button_label": "Add Module",
@@ -3089,5 +2980,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617316166
+    "modified": 1617316566
 }
