@@ -26,7 +26,7 @@
 	$button = get_sub_field('button');
 	$button_link = get_sub_field('button_link');
 ?>
-<div class="sst-module multi-column-module my-5" style="background-color:<?php echo $background_color; ?>;">
+<div class="ftf-module multi-column-module my-5" style="background-color:<?php echo $background_color; ?>;">
     <?php if ($title || $subtitle) : ?>
     <div class="container text-center mb-5">
         <div class="row">
