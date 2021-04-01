@@ -124,21 +124,6 @@ get_header('landing'); ?>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script type="text/javascript">
-    jQuery(window).load(function($){
-        var cats = jQuery('.graphic-wrap').find('.circle');
-        cats.each(function() {
-            var tooltip = '#tooltip-'+this.id;
-
-            Tipped.create('#'+this.id, jQuery(tooltip).html(), {
-                skin : 'custom',
-                position: 'top',
-                hideOnClickOutside: true
-            });
-        });
-    });
-</script>
-
-<script type="text/javascript">
     jQuery(document).ready(function($) {
 
         $(".various").fancybox({

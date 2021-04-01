@@ -4,8 +4,8 @@
 
   .copy,
   .img-wrap {
-    width: 100%;
-    float: left;
+    //width: 100%;
+    //float: left;
     position: relative;
   }
 
@@ -23,33 +23,19 @@
     width: 100%;
     height: auto;
   }
-
-  .hero-label {
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid $gray-300;
-    color: $gray-300;
-    width: 100%;
-  }
   .hero-module-title {
-    font-weight: 500;
     font-size: 60px;
     margin-top: 15px;
     margin-bottom: 15px;
-    //line-height: 90%;
   }
-  .hero-module-subtitle {
-    font-weight: bold;
+  .hero-module-copy {
     margin-bottom: 24px;
-    font-size: 30px;
+    font-size: 18px;
   }
 
-  h4 {
+  .hero-video-caption {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
     font-size: 16px;
     font-weight: bold;
   }
@@ -85,21 +71,20 @@
     top: 0;
     right: 0;
   }
-  @media screen and (min-width: 768px){
-    .copy{
-      width: 60%;
-    }
-    .img-wrap{
-      margin-top: 30px;
-      width: 40%;
-    }
-  }
+  //@media screen and (min-width: 768px){
+  //  .copy{
+  //    width: 60%;
+  //  }
+  //  .img-wrap{
+  //    width: 40%;
+  //  }
+  //}
 }
 
 
-.module-hero.without-video .copy {
-  width: 100%;
-}
+//.module-hero.without-video .copy {
+//  width: 100%;
+//}
 
 .module-hero .video-play-button img {
   width: 100%;
@@ -110,8 +95,6 @@
   max-width: 1170px;
   width: 100%;
   overflow: auto;
-  //overflow: hidden;
-  //color: white;
 }
 
 .module-hero.with-video{
@@ -123,7 +106,6 @@
 @media screen and (max-width: 768px) {
   .module-hero .video-play-button img {
     width: 80%;
-    margin-top: 40px;
   }
 
   .module-hero {
