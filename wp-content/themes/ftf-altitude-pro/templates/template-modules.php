@@ -76,30 +76,13 @@
 					echo 'no match';
 			}
 		endwhile; ?>
-		<div class="clearfix"></div>
 	</div>
 </div>
-<div class="clearfix"></div>
 <?php endwhile; endif; ?>	
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-<script type="text/javascript">	
-	jQuery(window).load(function($){
-		var cats = jQuery('.graphic-wrap').find('.circle');
-		cats.each(function() {
-			var tooltip = '#tooltip-'+this.id;
-
-			Tipped.create('#'+this.id, jQuery(tooltip).html(), {
-				skin : 'custom',
-				position: 'top',
-				hideOnClickOutside: true
-			});
-		});
-	});
-</script>
 
 <script type="text/javascript">
     jQuery(document).ready(function($) {

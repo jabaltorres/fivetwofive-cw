@@ -16,8 +16,8 @@
         $background = $cta_bg_color;
     }
 ?>
-<div class="ftf-module cta-module-section" style="background:<?php echo $background; ?>;background-size:cover;">
-    <div class="container p-y-lg">
+<div class="ftf-module module-cta" style="background:<?php echo $background; ?>;background-size:cover;">
+    <div class="container py-4">
         <div class="row">
             <div class="col-xs-12 col-md-10 offset-md-1">
                 <?php if ($cta_show_logo): ?>
@@ -38,7 +38,7 @@
 
                 <?php if ($cta_button_link): ?>
                     <p class="text-center m-b-0">
-                        <a href="<?php echo $cta_button_link; ?>" class="button cta-button text-red"><?php echo $cta_button_text; ?></a>
+                        <a href="<?php echo $cta_button_link; ?>" class="btn btn-primary"><?php echo $cta_button_text; ?></a>
                     </p>
                 <?php endif; ?>
             </div>

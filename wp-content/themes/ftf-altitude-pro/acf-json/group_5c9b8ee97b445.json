@@ -1103,25 +1103,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5d2cf0b76e58f",
-                            "label": "Product Title",
-                            "name": "product_title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5c9b9152e68ce",
                             "label": "Title",
                             "name": "title",
@@ -1142,9 +1123,9 @@
                         },
                         {
                             "key": "field_5c9b91a4e68cf",
-                            "label": "Sub Title",
-                            "name": "sub_title",
-                            "type": "text",
+                            "label": "Hero Copy",
+                            "name": "module_hero_copy",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1155,47 +1136,30 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "maxlength": "",
+                            "rows": "",
+                            "new_lines": ""
                         },
                         {
-                            "key": "field_5c9b91ade68d0",
-                            "label": "Button",
-                            "name": "button",
-                            "type": "text",
+                            "key": "field_60652e2554816",
+                            "label": "Hero Button",
+                            "name": "module_hero_button",
+                            "type": "clone",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_5c9b91bbe68d1",
-                            "label": "Button Link",
-                            "name": "button_link",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "clone": [
+                                "group_60652a186d819"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_5c9b9127e68cd",
@@ -3253,5 +3217,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1611038153
+    "modified": 1617243912
 }
