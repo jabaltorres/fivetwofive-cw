@@ -89,9 +89,6 @@
         case 'cta_module':
             get_template_part('templates/modules/cta-module-section');
             break;
-        case 'multi_column_video_quotes':
-            get_template_part('templates/modules/multi-column-video-quotes');
-            break;
         case 'news_slider_module':
             get_template_part('templates/modules/module_news_slider');
             break;
