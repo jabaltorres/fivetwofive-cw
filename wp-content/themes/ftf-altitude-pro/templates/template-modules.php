@@ -34,7 +34,7 @@
 					get_template_part('templates/modules/multi-column-video-section'); 
 					break;
 				case 'image_mosaic_section':
-					get_template_part('templates/modules/image-mosaic-section'); 
+					get_template_part('templates/modules/module-image-mosaic');
 					break;
 				case 'content_block_module':
 					get_template_part('templates/modules/content-block-section'); 
