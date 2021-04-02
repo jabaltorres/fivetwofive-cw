@@ -84,10 +84,7 @@
             get_template_part('templates/modules/resources-section');
             break;
         case 'cta_module':
-            get_template_part('templates/modules/cta-module-section');
-            break;
-        case 'news_slider_module':
-            get_template_part('templates/modules/module_news_slider');
+            get_template_part('templates/modules/module-cta');
             break;
         default:
             echo 'no match';
