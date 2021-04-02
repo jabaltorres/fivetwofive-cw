@@ -36,9 +36,6 @@
 				case 'image_mosaic_section':
 					get_template_part('templates/modules/module-image-mosaic');
 					break;
-				case 'content_block_module':
-					get_template_part('templates/modules/content-block-section'); 
-					break;
 				case 'featured_image_module':
 					get_template_part('templates/modules/module-featured-image');
 					break;
