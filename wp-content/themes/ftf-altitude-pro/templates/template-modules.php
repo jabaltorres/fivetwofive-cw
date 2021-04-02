@@ -28,7 +28,7 @@
 					get_template_part('templates/modules/carousel-section'); 
 					break;
 				case 'image_with_overlay_section':
-					get_template_part('templates/modules/image-overlay-section'); 
+					get_template_part('templates/modules/module-image-overlay');
 					break;
 				case 'multi_column_video_section':
 					get_template_part('templates/modules/multi-column-video-section'); 
