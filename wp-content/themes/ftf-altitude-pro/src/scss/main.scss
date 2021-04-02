@@ -229,3 +229,17 @@ img:focus {
 //body p {
 //color: red !important;
 //}
+
+.hubspot-form-wrapper{
+  .hbspt-form{
+    padding: 20px;
+    background-color: #e9ecef;
+    margin-bottom: 20px;
+    .hs-form{
+      .hs-input{
+        background-color: #fff;
+      }
+    }
+  }
+}
+

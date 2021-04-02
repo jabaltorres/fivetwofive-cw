@@ -7,6 +7,9 @@
     * @package The Authority
     */
 
+    $lp_hubspot_form_heading = get_field('lp_hubspot_form_heading');
+    $lp_hubspot_form_embed = get_field('lp_hubspot_form_embed');
+
     add_filter( 'body_class', 'custom_class' );
 
     function custom_class( $classes ) {
@@ -28,7 +31,7 @@
 </div>
 
 <div class="container">
-    <div id="primary" class="row">
+    <div class="row">
         <main id="main" class="site-main col-12 col-md-8" role="main">
             <div class="content-wrapper m-b-lg">
                 <div class="content-container">
@@ -39,12 +42,13 @@
             </div>
         </main><!-- #main -->
 
-        <?php if ( is_active_sidebar( 'custom-side-bar' ) ) : ?>
         <aside id="sidebar" class="col-12 col-md-4">
-            <?php dynamic_sidebar( 'custom-side-bar' ); ?>
+            <?php if ($lp_hubspot_form_heading): ?>
+                <h3 class="lp-hs-form-heading"><?= $lp_hubspot_form_heading ;?></h3>
+            <?php endif; ?>
+            <?php echo $lp_hubspot_form_embed; ?>
         </aside><!-- #sidebar -->
-        <?php endif; ?>
-    </div><!-- #primary -->
+    </div>
 </div>
 
 <?php while ( have_rows('modules') ) : the_row();
