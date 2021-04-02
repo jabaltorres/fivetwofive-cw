@@ -6,13 +6,13 @@
 	$order = get_sub_field('order');
 	$background = get_sub_field('background_color'); 
 ?>
-<div class="sst-module section content-block-section featured-image-section" style="background:<?php echo $background; ?>">
+<div class="ftf-module featured-image-section" style="background:<?php echo $background; ?>">
     <div class="container">
         <div class="row <?php echo $order; ?>">
-            <?php if($title || $subtitle) : ?>
-                <div class="col-md-12">
-                    <?php if($title) : ?><h1 class="title text-center"><?php echo $title; ?></h1><?php endif; ?>
-                    <?php if($subtitle) : ?><h3 class="title text-center"><?php echo $subtitle; ?></h3><?php endif; ?>
+            <?php if ($title || $subtitle) : ?>
+                <div class="col-12">
+                    <?php if ($title) : ?><h1 class="title text-center"><?php echo $title; ?></h1><?php endif; ?>
+                    <?php if ($subtitle) : ?><h3 class="title text-center"><?php echo $subtitle; ?></h3><?php endif; ?>
                 </div>
             <?php endif; ?>
 

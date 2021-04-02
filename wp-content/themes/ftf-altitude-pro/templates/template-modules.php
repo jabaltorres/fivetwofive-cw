@@ -40,7 +40,7 @@
 					get_template_part('templates/modules/content-block-section'); 
 					break;
 				case 'featured_image_module':
-					get_template_part('templates/modules/featured-image-section'); 
+					get_template_part('templates/modules/module-featured-image');
 					break;
 				case 'raw_code':
 					get_template_part('templates/modules/module-raw-code');
