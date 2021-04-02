@@ -1,9 +1,8 @@
 
-            <?php // echoHello(); ?>
-
-            <div class="lp-footer py-3">
-                <div class="container">
-                    <div class="container_inner text-center">
+        <div class="lp-footer py-3">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-12">
                         <ul class="px-0 mx-0">
                             <li class="d-inline-block mx-2">
                                 <a href="/privacy-policy/">Privacy Policy</a>
@@ -19,9 +18,7 @@
                     </div>
                 </div>
             </div>
-            <?php wp_footer(); ?>
-		</div><!-- end .wrapper_inner -->
-	</div><!-- end .wrapper -->
-
-</body>
+        </div>
+        <?php wp_footer(); ?>
+    </body>
 </html>

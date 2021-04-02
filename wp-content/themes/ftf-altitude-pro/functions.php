@@ -581,3 +581,20 @@ function ftf_sort_page_template_column_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'ftf_sort_page_template_column_query' );
+
+
+// Add custom sidebar for LPs
+function custom_landing_page_sidebar() {
+    register_sidebar(
+        array (
+            'name' => __( 'Landing Page Sidebar', 'ftf-altitude-pro' ),
+            'id' => 'custom-side-bar',
+            'description' => __( 'Custom Sidebar', 'ftf-altitude-pro' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'custom_landing_page_sidebar' );
