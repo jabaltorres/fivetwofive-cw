@@ -24,21 +24,21 @@
 		$border = 'none;';
 	}
 ?>
-<div class="section announcement-section sticky-<?php echo $sticky; ?>" style="<?php echo $bg; echo $border; ?>">
+<div class="ftf-module module-announcement sticky-<?php echo $sticky; ?>" style="<?php echo $bg; echo $border; ?>">
     <div class="container">
         <div class="row">
             <?php if (!$announcementButtonText || !$announcementButtonLink ): ?>
                 <?php /* Button text or button link is missing. Don't show button col */?>
-                <div class="col-xs-12 text-center">
+                <div class="col-12 text-center">
                     <h3 class="title" style="color:<?php echo $color; ?>;"><?php echo $title; ?></h3>
                     <p class="m-b-0" style="color:<?php echo $color; ?>;"><?= $announcement_body_copy; ?></p>
                 </div>
             <?php else: ?>
-                <div class="col-xs-12 col-sm-8">
+                <div class="col-12 col-sm-9">
                     <h3 class="title" style="color:<?php echo $color; ?>;"><?php echo $title; ?></h3>
-                    <p class="m-b-0" style="color:<?php echo $color; ?>;"><?= $announcement_body_copy; ?></p>
+                    <p class="mb-0" style="color:<?php echo $color; ?>;"><?= $announcement_body_copy; ?></p>
                 </div>
-                <div class="col-xs-12 col-sm-4">
+                <div class="col-12 col-sm-3 text-right">
                     <a class="btn btn-primary" href="<?php echo get_sub_field('button_link'); ?>" role="button" style="background:<?php echo $buttoncolor; ?>;color:<?php echo $buttontextcolor; ?>;"><?php echo get_sub_field('button_text'); ?></a>
                 </div>
             <?php endif;?>
@@ -50,16 +50,16 @@
 
 <script type="text/javascript">	
 	jQuery(document).ready(function($) {
-		if( $('.announcement-section').hasClass('sticky-yes') ) {
-			var height = $('.announcement-section').outerHeight(true);
+		if( $('.module-announcement').hasClass('sticky-yes') ) {
+			var height = $('.module-announcement').outerHeight(true);
 			console.log(height);
-			$('.announcement-section').wrap('<div class="sticky-announcement-spacer"></div>');
+			$('.module-announcement').wrap('<div class="sticky-announcement-spacer"></div>');
 			$('.sticky-announcement-spacer').css({ "height" : height });
 			$('body').prepend($('.sticky-announcement-spacer'));			
 		}
 		$('.close-announcement-bar').click(function(e) {
 			e.preventDefault();
-			$(this).parent('.announcement-section').slideUp(400);
+			$(this).parent('.module-announcement').slideUp(400);
 			if($('.sticky-announcement-spacer').length) { 
 				$('.sticky-announcement-spacer').slideUp(400);
 			}

@@ -19,7 +19,7 @@
 					get_template_part('templates/modules/module-hero');
 					break;
 				case 'announcement_section':
-					get_template_part('templates/modules/announcement-section'); 
+					get_template_part('templates/modules/module-announcement');
 					break;
 				case 'multi_column_section':
 					get_template_part('templates/modules/module-multi-column');
