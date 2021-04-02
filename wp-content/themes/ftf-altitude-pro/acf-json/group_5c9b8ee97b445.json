@@ -1366,6 +1366,25 @@
                             "default_value": "#000000"
                         },
                         {
+                            "key": "field_606789e6bc231",
+                            "label": "Column Classes",
+                            "name": "column_classes",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_5c9ba3ad6bd69",
                             "label": "Columns",
                             "name": "columns",
@@ -1431,20 +1450,41 @@
                                     "key": "field_5c9ba4576bd6b",
                                     "label": "Text",
                                     "name": "text",
-                                    "type": "text",
+                                    "type": "textarea",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "100",
+                                        "width": "85",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
                                     "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "maxlength": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_606788703c0c5",
+                                    "label": "CTA Button",
+                                    "name": "cta_button",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "group_60652a186d819"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
                                 }
                             ]
                         },
@@ -2353,5 +2393,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617385294
+    "modified": 1617398764
 }

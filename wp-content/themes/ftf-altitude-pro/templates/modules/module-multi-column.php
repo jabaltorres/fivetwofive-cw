@@ -4,6 +4,7 @@
 	$caption = get_sub_field('caption');
 	$background_color = get_sub_field('background_color');
 	$color = get_sub_field('text_color');
+	$column_classes = get_sub_field('column_classes');
 	$column_count = count(get_sub_field('columns'));
 
     switch ($column_count) {
@@ -26,9 +27,9 @@
 	$button = get_sub_field('button');
 	$button_link = get_sub_field('button_link');
 ?>
-<div class="ftf-module multi-column-module my-5" style="background-color:<?php echo $background_color; ?>;">
+<div class="ftf-module multi-column-module py-5" style="background-color:<?php echo $background_color; ?>;">
     <?php if ($title || $subtitle) : ?>
-    <div class="container text-center mb-5">
+    <div class="container text-center mb-4">
         <div class="row">
             <div class="col-12">
                 <?php if ($title) : ?><h2 style="color:<?php echo $color; ?>"><?php echo $title; ?></h2><?php endif; ?>
@@ -46,15 +47,19 @@
                 $title = get_sub_field('title');
                 ?>
                 <div class="col-12 mb-2 col-md-<?= $bootstrap_col_class_val; ?>">
-                    <div class="mb-3">
-                        <img src="<?php echo $icon['sizes']['thumbnail']; ?>" />
+                    <div class="<?= $column_classes ;?>">
+                        <div class="mb-3">
+                            <img src="<?php echo $icon['sizes']['thumbnail']; ?>" />
+                        </div>
+                        <?php if ($title) : ?>
+                            <h3 style="color:<?php echo $color; ?>"><?php echo $title; ?></h3>
+                            <p style="color:<?php echo $color; ?>"><?php echo $text; ?></p>
+                        <?php else : ?>
+                            <h4 style="color:<?php echo $color; ?>"><?php echo $text; ?></h4>
+                        <?php endif; ?>
+
+                        <?php get_template_part('template-parts/modules/ftfGlobalButton'); ?>
                     </div>
-                    <?php if ($title) : ?>
-                        <h3 style="color:<?php echo $color; ?>"><?php echo $title; ?></h3>
-                        <p style="color:<?php echo $color; ?>"><?php echo $text; ?></p>
-                    <?php else : ?>
-                        <h4 style="color:<?php echo $color; ?>"><?php echo $text; ?></h4>
-                    <?php endif; ?>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -64,7 +69,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <p class="footnote mt-2" style="color:<?php echo $color; ?>"><sup>*</sup> <?php echo $caption; ?></p>
+                <p class="footnote mt-3" style="color:<?php echo $color; ?>"><sup>*</sup> <?php echo $caption; ?></p>
             </div>
         </div>
     </div>
