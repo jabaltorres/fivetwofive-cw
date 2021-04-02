@@ -4,21 +4,21 @@
 	$navid = rand(100,200);
 	$forid = rand(200,300);
 ?>
-<div class="sst-module carousel-module">
-	<div class="container section_carousel">
 
-		<?php if($title) : ?>
+<div class="ftf-module module-carousel text-center py-5">
+	<div class="container">
+		<?php if ($title) : ?>
             <div class="row">
-                <div class="col-xs-12 text">
+                <div class="col-12 mb-4">
                     <h2><?php echo $title; ?></h2>
                 </div>
             </div>
 		<?php endif; ?>
 
-		<?php if(have_rows('slides')) : ?>
+		<?php if (have_rows('slides')) : ?>
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="carousel-testimonials carousel-testimonial-stage">
+                <div class="col-12">
+                    <div class="carousel-testimonials">
                         <div class="slider-for <?php if($show_hide == 'hide') echo 'single-slider'; ?>" id="carousel-<?php echo $forid; ?>">
                             <?php while(have_rows('slides')) : the_row();
                                 $image = get_sub_field('image');
@@ -29,43 +29,45 @@
                                 $caption = get_sub_field('caption');
                                 ?>
                                 <div class="testimonial">
-                                    <div class="testimonial-wrap">
-                                        <div class="img-wrap">
-                                            <img class="testimonial-img regular-img" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
+                                    <div class="testimonial-wrap row">
+                                        <div class="col-12 col-sm-4">
+                                            <img class="testimonial-img p-4" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
                                         </div>
-                                        <div class="text-wrap big-quote">
-                                            <?php if($cite) : ?>
+                                        <div class="col-12 col-sm-8">
+                                            <?php if ($cite) : ?>
                                                 <span class="quote">
-                                                <span class="visible-mobile-inline">"</span>
-                                                    <?php echo $text; ?>
-                                                <span class="visible-mobile-inline">"</span>
-                                            </span>
-                                                <span class="title"><?php echo $cite; ?></span><span class="location"> &nbsp; </span>
+                                                    <span class="visible-mobile-inline">"</span>
+                                                        <?php echo $text; ?>
+                                                    <span class="visible-mobile-inline">"</span>
+                                                </span>
+                                                <span class="title d-block my-3"><?php echo $cite; ?></span>
                                             <?php else : ?>
                                                 <span class="quote no-quotes">
-                                                <?php echo $text; ?>
-                                            </span>
+                                                    <?php echo $text; ?>
+                                                </span>
                                             <?php endif; ?>
-                                            <?php if($button_link) : ?>
-                                                <a href="<?php echo $button_link; ?>" class="cta-button"><?php echo $button; ?></a>
+
+                                            <?php if ($button_link) : ?>
+                                                <a href="<?php echo $button_link; ?>" class="btn btn-primary"><?php echo $button; ?></a>
                                             <?php endif; ?>
                                         </div>
                                     </div>
                                 </div>
                             <?php endwhile; ?>
                         </div>
-                        <?php if($show_hide == 'show') : ?>
-                            <div class="slider-nav multiple-nav"  id="carousel-<?php echo $navid; ?>">
-                                <?php while(have_rows('slides')) : the_row();
-                                    $image = get_sub_field('image');
-                                    $caption = get_sub_field('caption');
-                                    ?>
-                                    <div class="thumb">
-                                        <img class="testimonial-thumb" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
-                                        <div class="location"><?php echo $caption; ?></div>
-                                    </div>
-                                <?php endwhile; ?>
-                            </div>
+
+                        <?php if ($show_hide == 'show') : ?>
+                        <div class="slider-nav multiple-nav"  id="carousel-<?php echo $navid; ?>">
+                            <?php while(have_rows('slides')) : the_row();
+                                $image = get_sub_field('image');
+                                $caption = get_sub_field('caption');
+                                ?>
+                                <div class="thumb">
+                                    <img class="testimonial-thumb p-2" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
+                                    <div class="location"><?php echo $caption; ?></div>
+                                </div>
+                            <?php endwhile; ?>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </div>

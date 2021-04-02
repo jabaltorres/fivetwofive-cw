@@ -24,8 +24,8 @@
 				case 'multi_column_section':
 					get_template_part('templates/modules/module-multi-column');
 					break;
-				case 'carousel_section':
-					get_template_part('templates/modules/carousel-section'); 
+				case 'module_carousel_quote':
+					get_template_part('templates/modules/module-quote-carousel');
 					break;
 				case 'image_with_overlay_section':
 					get_template_part('templates/modules/module-image-overlay');

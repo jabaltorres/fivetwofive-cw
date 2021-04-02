@@ -227,8 +227,8 @@
                 },
                 "layout_5c9bad85212a2": {
                     "key": "layout_5c9bad85212a2",
-                    "name": "carousel_section",
-                    "label": "Carousel Module",
+                    "name": "module_carousel_quote",
+                    "label": "Quote Carousel Module",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -2353,5 +2353,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617322206
+    "modified": 1617385294
 }
