@@ -48,9 +48,6 @@
 				case 'resources_section':
 					get_template_part('templates/modules/resources-section'); 
 					break;
-				case 'resources_section_legacy':
-					get_template_part('templates/modules/resources-section-legacy'); 
-					break;
                 case 'cta_module':
                     get_template_part('templates/modules/cta-module-section');
                     break;
