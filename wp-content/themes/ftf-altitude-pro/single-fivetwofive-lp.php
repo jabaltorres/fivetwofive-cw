@@ -80,9 +80,6 @@
         case 'raw_code':
             get_template_part('templates/modules/raw-code-section');
             break;
-        case 'resources_section':
-            get_template_part('templates/modules/resources-section');
-            break;
         case 'cta_module':
             get_template_part('templates/modules/module-cta');
             break;
