@@ -69,7 +69,7 @@
             get_template_part('templates/modules/module-image-overlay');
             break;
         case 'multi_column_video_section':
-            get_template_part('templates/modules/multi-column-video-section');
+            get_template_part('templates/modules/module-multi-column-video');
             break;
         case 'image_mosaic_section':
             get_template_part('templates/modules/module-image-mosaic');

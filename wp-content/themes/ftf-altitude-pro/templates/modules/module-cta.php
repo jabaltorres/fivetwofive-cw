@@ -16,20 +16,20 @@
         $background = $cta_bg_color;
     }
 ?>
-<div class="ftf-module module-cta" style="background:<?php echo $background; ?>;background-size:cover;">
-    <div class="container py-4">
+<div class="ftf-module module-cta py-5" style="background:<?php echo $background; ?>;background-size:cover;">
+    <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-md-10 offset-md-1">
+            <div class="col-12 col-md-10 offset-md-1">
                 <?php if ($cta_show_logo): ?>
-                    <img class="cta-img-logo d-block m-x-auto m-b-md" src="/wp-content/uploads/2019/09/shotspotter_logo.png" alt="ShotSpotter Logo" width="80" height="80" />
+                    <img class="cta-img-logo d-block mx-auto mb-4" src="/wp-content/uploads/2020/12/525_Logo-300x300.png" alt="525 Logo" width="80" height="80" />
                 <?php endif;?>
 
                 <?php if ($cta_heading): ?>
-                    <h3 class="cta-heading h1 text-center m-b-sm"><?php echo $cta_heading; ?></h3>
+                    <h3 class="cta-heading h1 text-center mb-2"><?php echo $cta_heading; ?></h3>
                 <?php endif; ?>
 
                 <?php if ($cta_subheading): ?>
-                    <h4 class="cta-subheading h3 text-center m-b-sm"><?php echo $cta_subheading; ?></h4>
+                    <h4 class="cta-subheading h3 text-center mb-2"><?php echo $cta_subheading; ?></h4>
                 <?php endif; ?>
 
                 <?php if ($cta_body_copy): ?>
@@ -37,7 +37,7 @@
                 <?php endif; ?>
 
                 <?php if ($cta_button_link): ?>
-                    <p class="text-center m-b-0">
+                    <p class="text-center mb-0">
                         <a href="<?php echo $cta_button_link; ?>" class="btn btn-primary"><?php echo $cta_button_text; ?></a>
                     </p>
                 <?php endif; ?>

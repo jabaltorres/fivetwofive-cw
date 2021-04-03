@@ -1,4 +1,4 @@
-.sst-module.multi-column-video-module{
+.ftf-module.multi-column-video-module{
   .thumb-wrap a {
     position: relative;
     &:after{
@@ -9,7 +9,7 @@
       width: 80px;
       height: 80px;
       z-index: 1;
-      background: url('img/play_button.png') center center no-repeat;
+      background: url('/assets/img/play_button.png') center center no-repeat;
       background-size: 100% auto;
       transform: translate(-50%, -50%);
     }

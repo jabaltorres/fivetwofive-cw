@@ -438,9 +438,9 @@
                                 "id": ""
                             },
                             "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
+                            "tabs": "text",
                             "media_upload": 1,
+                            "toolbar": "full",
                             "delay": 0
                         }
                     ],
@@ -1639,5 +1639,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617430583
+    "modified": 1617432412
 }
