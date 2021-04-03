@@ -22,7 +22,7 @@ wp-content/*
 
 wp-content/plugins/*
 !wp-content/plugins/fivetwofive-featured-projects
-!wp-content/plugins/fivetwofive-cta-shortcode-plugin
+!wp-content/plugins/fivetwofive-cta
 !wp-content/plugins/fivetwofive-lp-post-type
 !wp-content/plugins/fivetwofive-resources-post-type
 !wp-content/plugins/fivetwofive-events-post-type

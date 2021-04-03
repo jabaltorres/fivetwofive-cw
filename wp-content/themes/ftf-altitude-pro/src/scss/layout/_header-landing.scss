@@ -1,14 +1,43 @@
 .lp-header{
+  .header-wrapper{
+    a{
+
+      .site-title{
+        font-family: $font-body !important;
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 2px;
+        line-height: 1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+    }
+
+  }
   .button-wrapper{
     text-align: center;
-    //a{
-    //  text-align: center;
-    //}
   }
-  @include medium-screen{
+  @include tablet-max{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    .site-title{
+      display: block;
+    }
+  }
+  @include tablet{
+
+    .header-wrapper a{
+      text-align: left;
+    }
     .button-wrapper a{
-      margin-top: 8px;
       float: right;
+      margin-top: 3px;
+    }
+  }
+  @include desktop{
+    .button-wrapper a{
+      margin-top: 10px;
     }
   }
 }

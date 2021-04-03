@@ -13,25 +13,18 @@
 @import "mixins/animations";
 @import "mixins/transitions-and-interactions";
 
-@import "icon-font";
-
 @import "components/inputs";
 @import "components/ctas";
-@import "components/lp-ctas";
 
 @import "modules/module-announcement";
 @import "modules/module-carousel-testimonials";
-@import "modules/module-case-study";
-@import "modules/module-content-block-section";
 @import "modules/module-cta";
 @import "modules/module-featured-image";
 @import "modules/module-hero";
 @import "modules/module-image-overlay";
 @import "modules/module-multi-column";
 @import "modules/module-multi-column-video-module";
-@import "modules/module-resources";
-@import "modules/module-results";
-@import "modules/spotlight-news";
+@import "modules/module-mosaic";
 
 // @import "partials/footer-widgets";
 @import "layout/navigation";
@@ -120,12 +113,6 @@ div#respond.comment-respond{
   padding: 7px;
 }
 
-
-aside{
-  padding-top: 10px;
-  position: relative;
-}
-
 .fixed-widget {
   position: fixed;
   top:60px;
@@ -143,7 +130,6 @@ aside{
     max-width: 100%;
   }
 }
-
 
 .entry-content ul{
   margin-left: 0;
@@ -218,11 +204,7 @@ img:focus {
   }
 }
 .featured-project-list-item a{
-  //@extend .jt-text-link;
   color: $primary;
-  //&:hover{
-  //  color: $primary;
-  //}
 }
 
 .nav-link.active{
@@ -241,6 +223,20 @@ img:focus {
   margin-bottom: 0;
 }
 
-// body p {
-//  color: red !important;
-// }
+//body p {
+//color: red !important;
+//}
+
+.hubspot-form-wrapper{
+  .hbspt-form{
+    padding: 20px;
+    background-color: #e9ecef;
+    margin-bottom: 20px;
+    .hs-form{
+      .hs-input{
+        background-color: #fff;
+      }
+    }
+  }
+}
+
