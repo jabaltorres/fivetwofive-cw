@@ -18,12 +18,10 @@
         <div class="container">
             <div class="row header-wrapper">
                 <div class="col-md-8">
-                    <div id="header-image">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 <!--                            <img src="/wp-content/uploads/2019/06/logo-black.png" alt="Logo" />-->
-                            <h1>525 Creative</h1>
-                        </a>
-                    </div>
+                        <div class="site-title">525 Creative</div>
+                    </a>
                 </div>
                 <div class="col-md-4">
                     <div class="button-wrapper">
