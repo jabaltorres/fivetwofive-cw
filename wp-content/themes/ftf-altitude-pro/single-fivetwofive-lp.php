@@ -20,9 +20,18 @@
     }
 
     get_header('landing');
+
+    $backgroundImg = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+
+    if ($backgroundImg){
+        $headerTextColorClass = 'text-white mb-4';
+    } else {
+        $headerTextColorClass = '';
+    }
+
 ?>
 
-<div class="hero py-5">
+<div class="hero py-5 <?= $headerTextColorClass; ?>" style="background: url('<?php echo $backgroundImg[0]; ?>') no-repeat; background-size: cover;">
 	<div class="container">
 		<div class="container_inner">
 			<h1 class="text-center"><?php the_title(); ?></h1>

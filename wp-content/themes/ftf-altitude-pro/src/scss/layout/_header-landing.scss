@@ -1,11 +1,19 @@
 .lp-header{
+  #header-image a{
+    text-align: center;
+  }
   .button-wrapper{
     text-align: center;
-    //a{
-    //  text-align: center;
-    //}
   }
-  @include medium-screen{
+  @include tablet-max{
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+  @include tablet{
+
+    #header-image a{
+      text-align: left;
+    }
     .button-wrapper a{
       margin-top: 8px;
       float: right;
