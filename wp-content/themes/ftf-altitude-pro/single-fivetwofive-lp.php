@@ -14,7 +14,7 @@
 
     function custom_class( $classes ) {
         if ( is_singular( 'fivetwofive-lp' ) ) {
-            $classes[] = 'fivetwofive-lp-template';
+            $classes[] = 'lp-template';
         }
         return $classes;
     }
@@ -31,10 +31,12 @@
 
 ?>
 
-<div class="hero py-5 <?= $headerTextColorClass; ?>" style="background: url('<?php echo $backgroundImg[0]; ?>') no-repeat; background-size: cover;">
+<div class="hero lp-hero py-5 <?= $headerTextColorClass; ?>" style="background: url('<?php echo $backgroundImg[0]; ?>') no-repeat; background-size: cover;">
 	<div class="container">
-		<div class="container_inner">
-			<h1 class="text-center"><?php the_title(); ?></h1>
+		<div class="row">
+            <div class="col-12">
+                <h1 class="text-center"><?php the_title(); ?></h1>
+            </div>
 		</div>
 	</div>
 </div><!-- .hero -->
