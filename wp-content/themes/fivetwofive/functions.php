@@ -23,11 +23,11 @@ if ( ! function_exists( 'fivetwofive_setup' ) ) :
 	function fivetwofive_setup() {
 		/*
 		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
+		 * Translations can be filed in the /lib/languages/ directory.
 		 * If you're building a theme based on FiveTwoFive, use a find and replace
 		 * to change 'fivetwofive' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'fivetwofive', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'fivetwofive', get_template_directory() . '/lib/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );

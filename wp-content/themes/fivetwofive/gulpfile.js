@@ -20,11 +20,11 @@ const paths = {
         // By using styles/**/*.sass we're telling gulp to check all folders for any sass file
         src: "src/scss/**/*.scss",
         // Compiled files will end up in whichever folder it's found in (partials are not compiled)
-        dest: "assets/css"
+        dest: "lib/assets/css"
     },
     scripts:{
         src: "src/js/*.js",
-        dest: "assets/js",
+        dest: "lib/assets/js",
         hintfile: "src/js/.jshintrc"
     },
     maps:{
@@ -32,7 +32,7 @@ const paths = {
     },
     images:{
         src: "src/images/*",
-        dest: "assets/images"
+        dest: "lib/assets/images"
     }
 };
 
