@@ -1,0 +1,9 @@
+@function stripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+// Convert Pixel value to Rem for ease of development.
+// https://medium.com/@bhargav3shah/scss-convert-pixel-values-to-rem-using-functions-f1cef575edfd
+@function rem($pxValue) {
+    @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
