@@ -1,16 +1,18 @@
 <?php
-/* 
+/**
  * Adds the required CSS to the front end.
+ *
+ * @package FiveTwoFive
  */
 
-add_action( 'wp_enqueue_scripts', 'altitude_css' );
 /**
-* Checks the settings for the images and background colors for each image
-* If any of these value are set the appropriate CSS is output
-*
-* @since 1.0
-*/
-function altitude_css() {
+ * Checks the settings for the images and background colors for each image
+ * If any of these value are set the appropriate CSS is output
+ *
+ * @since 1.0
+ * @return void
+ */
+function fivetwofive_css() {
 
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
@@ -20,8 +22,8 @@ function altitude_css() {
 
 	$settings = array();
 
-	foreach( $opts as $opt ){
-		$settings[$opt]['image'] = preg_replace( '/^https?:/', '', get_option( $opt .'-altitude-image', sprintf( '%s/dist/images/bg-%s.jpg', get_stylesheet_directory_uri(), $opt ) ) );
+	foreach ( $opts as $opt ) {
+		$settings[ $opt ]['image'] = preg_replace( '/^https?:/', '', get_option( $opt . '-altitude-image', sprintf( '%s/lib/dist/images/bg-%s.jpg', get_stylesheet_directory_uri(), $opt ) ) );
 	}
 
 	$css = '';
@@ -30,10 +32,9 @@ function altitude_css() {
 
 		$background = $value['image'] ? sprintf( 'background-image: url(%s);', $value['image'] ) : '';
 
-		if( is_front_page() ) {
+		if ( is_front_page() ) {
 			$css .= ( ! empty( $section ) && ! empty( $background ) ) ? sprintf( '.front-page-%s { %s }', $section, $background ) : '';
 		}
-
 	}
 
 	$css .= ( altitude_customizer_get_default_accent_color() !== $color ) ? sprintf( '
@@ -69,8 +70,9 @@ function altitude_css() {
 		}
 		', $color ) : '';
 
-	if( $css ){
+	if ( $css ) {
 		wp_add_inline_style( $handle, $css );
 	}
 
 }
+add_action( 'wp_enqueue_scripts', 'fivetwofive_css' );

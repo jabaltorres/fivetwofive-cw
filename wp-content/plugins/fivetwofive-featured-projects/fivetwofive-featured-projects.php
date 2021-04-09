@@ -225,7 +225,7 @@ function ftf_featured_projects_shortcode() {
 				<?php
 					foreach ( $featured_projects as $post ) :
 						setup_postdata( $post );
-						get_template_part( '/includes/featured_projects_homepage_items' );
+						get_template_part( 'lib/includes/featured_projects_homepage_items' );
 					endforeach;
 					wp_reset_postdata();
 				?>
