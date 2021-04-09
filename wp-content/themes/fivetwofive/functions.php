@@ -139,17 +139,15 @@ add_action( 'widgets_init', 'fivetwofive_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-function fivetwofive_scripts() {
-	wp_enqueue_style( 'fivetwofive-style', get_stylesheet_uri(), array(), FIVETWOFIVE_VERSION );
-	wp_style_add_data( 'fivetwofive-style', 'rtl', 'replace' );
-
+function fivetwofive_styles_and_scripts() {
+	wp_enqueue_style( 'fivetwofive-global-style', get_stylesheet_uri(), array(), FIVETWOFIVE_VERSION );
 	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/lib/assets/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'fivetwofive_scripts' );
+add_action( 'wp_enqueue_scripts', 'fivetwofive_styles_and_scripts' );
 
 /**
  * Implement the Custom Header feature.
@@ -177,3 +175,9 @@ require get_template_directory() . '/lib/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/lib/inc/jetpack.php';
 }
+
+/**
+ * Handle SVG icons.
+ */
+require get_template_directory() . '/lib/classes/class-fivetwofive-svg-icons.php';
+require get_template_directory() . '/lib/inc/svg-icons.php';
