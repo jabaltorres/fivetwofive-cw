@@ -16,6 +16,10 @@ const { src, dest, watch, series } = require('gulp'),
 sass.compiler = require('sass');
 
 const paths = {
+    style: {
+        src: "src/sass/**/style.scss",
+        dest: "./"
+    },
     styles: {
         // By using styles/**/*.sass we're telling gulp to check all folders for any sass file
         src: "src/sass/**/*.scss",
@@ -28,7 +32,7 @@ const paths = {
         hintfile: "src/js/.jshintrc"
     },
     maps:{
-        dest: "../../maps"
+        dest: "./lib/assets/maps"
     },
     images:{
         src: "src/images/*",
@@ -37,10 +41,23 @@ const paths = {
 };
 
 /**
- * @task styles
+ * @task style
  * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
  */
-const styles = () => src(paths.styles.src)
+const style = () => src(paths.style.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass({fiber: Fiber})
+    .on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write(paths.maps.dest))
+    .pipe(dest(paths.style.dest))
+    .pipe(browserSync.stream());
+
+/**
+ * @task style
+ * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
+ */
+ const styles = () => src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(sass({fiber: Fiber})
     .on('error', sass.logError))
@@ -99,7 +116,7 @@ const serve = () => {
         proxy: "http://fivetwofive-cw.test/"
     });
 
-    watch(paths.styles.src, styles);
+    watch(paths.styles.src, series(style, styles));
     watch(paths.scripts.src, series(lint, scripts));
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
@@ -121,4 +138,5 @@ exports.default = (cb) => {
 exports.serve       = serve;
 exports.imageminify = imageminify;
 exports.styles      = styles;
+exports.style       = style;
 exports.scripts     = series(lint, scripts);
