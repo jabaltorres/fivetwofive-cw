@@ -55,8 +55,8 @@ function fivetwofive_front_page_genesis_meta() {
  * @since 1.0.0
  */
 function fivetwofive_enqueue_front_page_script() {
-	wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/dist/js/vendor/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
-	wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/dist/js/vendor/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
+	wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/lib/assets/js/vendor/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
+	wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/lib/assets/js/vendor/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
 }
 
 /**

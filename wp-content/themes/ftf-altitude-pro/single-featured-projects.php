@@ -17,8 +17,8 @@ function singleFeaturedProject_loop() {
 
 	$featured_projects = new WP_Query($featured_projects_args);
 
-	if ($featured_projects -> have_posts()) {
-		get_template_part( '/includes/single_featured_projects_cpt' );
+	if ( $featured_projects -> have_posts() ) {
+		get_template_part( 'lib/includes/single_featured_projects_cpt' );
 	}
 }
 
