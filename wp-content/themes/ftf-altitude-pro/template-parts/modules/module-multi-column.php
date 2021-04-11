@@ -42,20 +42,23 @@
     <div class="container">
         <div class="row">
             <?php while (have_rows('columns')) : the_row();
-                $icon = get_sub_field('icon');
+                $image = get_sub_field('image');
                 $text = get_sub_field('text');
                 $title = get_sub_field('title');
                 ?>
                 <div class="col-12 mb-2 col-md-<?= $bootstrap_col_class_val; ?>">
                     <div class="<?= $column_classes ;?>">
-                        <div class="mb-3">
-                            <img src="<?php echo $icon['sizes']['thumbnail']; ?>" />
-                        </div>
+                        <?php if ($image) : ?>
+                            <div class="module-multi-col-img-wrapper mb-3">
+                                <img src="<?php echo $image['sizes']['thumbnail']; ?>" />
+                            </div>
+                        <?php endif; ?>
+
                         <?php if ($title) : ?>
                             <h3 style="color:<?php echo $color; ?>"><?php echo $title; ?></h3>
                             <p style="color:<?php echo $color; ?>"><?php echo $text; ?></p>
                         <?php else : ?>
-                            <h4 style="color:<?php echo $color; ?>"><?php echo $text; ?></h4>
+                            <div style="color:<?php echo $color; ?>"><?php echo $text; ?></div>
                         <?php endif; ?>
 
                         <?php get_template_part('template-parts/modules/ftfGlobalButton'); ?>
