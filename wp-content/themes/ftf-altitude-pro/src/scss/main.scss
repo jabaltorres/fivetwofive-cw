@@ -241,3 +241,8 @@ img:focus {
   }
 }
 
+.page:not(.home):not(.page-template-template-modules){
+  .site-inner{
+    padding-top: 40px;
+  }
+}
