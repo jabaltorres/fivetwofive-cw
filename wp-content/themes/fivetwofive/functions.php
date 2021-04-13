@@ -167,14 +167,8 @@ require get_template_directory() . '/lib/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/lib/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/lib/inc/jetpack.php';
-}
+require get_template_directory() . '/lib/classes/class-fivetwofive-customize.php';
+new FiveTwoFive_Customize();
 
 /**
  * Handle SVG icons.
