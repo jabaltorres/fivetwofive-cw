@@ -26,7 +26,6 @@
 @import "modules/module-multi-column-video-module";
 @import "modules/module-mosaic";
 
-// @import "partials/footer-widgets";
 @import "layout/navigation";
 @import "layout/site-footer";
 @import "layout/header-landing";
@@ -50,7 +49,6 @@
 
 @import "pages/home-page";
 @import "pages/case-studies";
-//@import "pages/work";
 @import "pages/about";
 @import "pages/contact";
 @import "pages/process";
@@ -180,8 +178,6 @@ img:focus {
   }
 }
 
-.prev-next-navigation{}
-
 .single-project-thumbnail img {
   width: 100%;
   height: auto;
@@ -228,6 +224,7 @@ img:focus {
 //color: red !important;
 //}
 
+// I think this is used on LP templates
 .hubspot-form-wrapper{
   .hbspt-form{
     padding: 20px;
@@ -241,7 +238,9 @@ img:focus {
   }
 }
 
-.page:not(.home):not(.page-template-template-modules){
+.page:not(.home):not(.page-template-template-modules),
+.blog.content-sidebar,
+.single-blog-post{
   .site-inner{
     padding-top: 40px;
   }

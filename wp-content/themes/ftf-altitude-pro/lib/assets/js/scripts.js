@@ -22,7 +22,9 @@ jQuery(function( $ ){
 		$( '.site-header' ).addClass( 'dark' );			
 	}
 
-	$(".site-container").append('<div class="scroll-to-top"></div>');
+	// temp disable Scroll to top functionality.
+	// Conflicts with HubSpot popup
+	// $(".site-container").append('<div class="scroll-to-top"></div>');
 
 	if ($(document).height() > $(window).height()) {
 		$('.scroll-to-top').addClass('d-block');
