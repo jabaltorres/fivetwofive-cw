@@ -93,55 +93,12 @@ function fivetwofive_events_cpt() {
 add_action( 'init', 'fivetwofive_events_cpt' );
 
 /**
- * Register events custom taxonomies
- *
- * @return void
- */
-function fivetwofive_events_custom_taxonomies() {
-
-	// Mood taxonomy (non-hierarchical)
-	$labels = array(
-		'name'                       => 'FiveTwoFive Event Custom Tags',
-		'singular_name'              => 'FiveTwoFive Event Custom Tag',
-		'search_items'               => 'Search FiveTwoFive Event Custom Tags',
-		'popular_items'              => 'Popular FiveTwoFive Event Custom Tags',
-		'all_items'                  => 'All FiveTwoFive Event Custom Tags',
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => 'Edit FiveTwoFive Event Custom Tag',
-		'update_item'                => 'Update FiveTwoFive Event Custom Tag',
-		'add_new_item'               => 'Add New FiveTwoFive Event Custom Tag',
-		'new_item_name'              => 'New FiveTwoFive Event Custom Tag Name',
-		'separate_items_with_commas' => 'Separate FiveTwoFive Event Custom Tags with commas',
-		'add_or_remove_items'        => 'Add or remove FiveTwoFive Event Custom Tags',
-		'choose_from_most_used'      => 'Choose from the most used FiveTwoFive Event Custom Tags',
-		'not_found'                  => 'No FiveTwoFive Event Custom Tags found.',
-		'menu_name'                  => 'FiveTwoFive Event Custom Tags',
-	);
-
-	$args = array(
-		'hierarchical'          => false,
-		'labels'                => $labels,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'events-tags', 'with_front' => false ),
-	);
-
-	register_taxonomy( 'fivetwofive-events-custom-tag', array( 'fivetwofive-events', 'post' ), $args );
-}
-
-add_action( 'init', 'fivetwofive_events_custom_taxonomies' );
-
-/**
  * Register custom post type on plugin activation.
  *
  * @return void
  */
 function ftf_setup_events_custom_post_type() {
 	fivetwofive_events_cpt();
-	fivetwofive_events_custom_taxonomies();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'ftf_setup_events_custom_post_type' );
@@ -154,7 +111,6 @@ register_activation_hook( __FILE__, 'ftf_setup_events_custom_post_type' );
  */
 function ftf_unregister_events_custom_post_type() {
     unregister_post_type( 'fivetwofive-events' );
-	unregister_taxonomy( 'fivetwofive-events-custom-tag' );
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'ftf_unregister_events_custom_post_type' );
