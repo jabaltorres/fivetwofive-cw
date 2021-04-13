@@ -24,6 +24,65 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 		public function __construct() {
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'customize_css' ) );
+		}
+
+		/**
+		 * Checks the settings for the colors and fonts of the theme.
+		 *
+		 * @since 1.0
+		 */
+		public function customize_css() {
+			$css        = '';
+			$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', array() );
+
+			if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
+				return;
+			}
+
+			if ( array_key_exists( 'primary_color', $theme_mods ) ) {
+				$css .= sprintf(
+					'
+						a,
+						a:focus,
+						a:hover {
+							color: %1$s;
+						}
+					',
+					$theme_mods['primary_color']
+				);
+			}
+
+			if ( array_key_exists( 'default_color', $theme_mods ) ) {
+				$css .= sprintf(
+					'
+						body {
+							color: %1$s;
+						}
+					',
+					$theme_mods['default_color']
+				);
+			}
+
+			if ( array_key_exists( 'heading_color', $theme_mods ) ) {
+				$css .= sprintf(
+					'
+						h1,
+						h2,
+						h3,
+						h4,
+						h5,
+						h6 {
+							color: %1$s;
+						}
+					',
+					$theme_mods['heading_color']
+				);
+			}
+
+			if ( $css ) {
+				wp_add_inline_style( 'fivetwofive-global-style', $css );
+			}
 		}
 
 		/**
@@ -32,8 +91,8 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
 		public function customize_register( $wp_customize ) {
-			$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
-			$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+			$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+			$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 			if ( isset( $wp_customize->selective_refresh ) ) {
 				$wp_customize->selective_refresh->add_partial(
@@ -52,6 +111,86 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 				);
 			}
 
+			$this->add_font_options( $wp_customize );
+			$this->add_color_options( $wp_customize );
+		}
+
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public function add_color_options( $wp_customize ) {
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[primary_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => '#FEC904',
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[primary_color]',
+					array(
+						'label'   => __( 'Primary Color', 'fivetwofive' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[default_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => '#000000',
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[default_color]',
+					array(
+						'label'   => __( 'Default Color', 'fivetwofive' ),
+						'section' => 'colors',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[heading_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => '#000000',
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[heading_color]',
+					array(
+						'label'   => __( 'Heading Color', 'fivetwofive' ),
+						'section' => 'colors',
+					)
+				)
+			);
+		}
+
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 */
+		public function add_font_options( $wp_customize ) {
 			$wp_customize->add_section(
 				'fivetwofive_fonts_section',
 				array(
@@ -65,7 +204,7 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			);
 
 			$wp_customize->add_setting(
-				'fivetwofive_options[primary_font]',
+				'fivetwofive_theme_mods[primary_font]',
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
@@ -75,7 +214,7 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			);
 
 			$wp_customize->add_setting(
-				'fivetwofive_options[heading_font]',
+				'fivetwofive_theme_mods[heading_font]',
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
@@ -90,7 +229,7 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			$wp_customize->add_control(
 				new FiveTwoFive_Customize_Select2_Control(
 					$wp_customize,
-					'fivetwofive_options[primary_font]',
+					'fivetwofive_theme_mods[primary_font]',
 					array(
 						'priority'    => 10,
 						'section'     => 'fivetwofive_fonts_section',
@@ -110,7 +249,7 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			$wp_customize->add_control(
 				new FiveTwoFive_Customize_Select2_Control(
 					$wp_customize,
-					'fivetwofive_options[heading_font]',
+					'fivetwofive_theme_mods[heading_font]',
 					array(
 						'priority'    => 15,
 						'section'     => 'fivetwofive_fonts_section',
@@ -126,17 +265,17 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 					)
 				)
 			);
-
 		}
 
 		/**
 		 * Undocumented function
 		 *
-		 * @param string $setting Font string from customizer.
-		 * @return string $setting Sanitized user Font string input.
+		 * @param string $option Font string from customizer.
+		 * @param string $settings WP_Customize_Setting object.
+		 * @return string $option Sanitized user Font string input.
 		 */
-		public function sanitize_font( $setting ) {
-			return sanitize_text_field( $setting );
+		public function sanitize_font( $option, $settings ) {
+			return sanitize_text_field( $option );
 		}
 
 		/**
