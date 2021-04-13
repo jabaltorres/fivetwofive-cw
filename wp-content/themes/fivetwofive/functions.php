@@ -150,6 +150,24 @@ function fivetwofive_styles_and_scripts() {
 add_action( 'wp_enqueue_scripts', 'fivetwofive_styles_and_scripts' );
 
 /**
+ * Add preconnect urls to the head.
+ *
+ * @return void
+ */
+function fivetwofive_preconnect() {
+	$preconnect_urls = apply_filters( 'fivetwofive_preconnect_urls', array( 'https://fonts.gstatic.com' ) );
+
+	if ( ! is_array( $preconnect_urls ) ) {
+		return;
+	}
+
+	foreach ( $preconnect_urls as $preconnect_url ) {
+		echo sprintf( '<link rel="preconnect" href="1$%s">', esc_url( $preconnect_url ) );
+	}
+}
+add_action( 'wp_head', 'fivetwofive_preconnect', 5 );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/lib/inc/custom-header.php';
