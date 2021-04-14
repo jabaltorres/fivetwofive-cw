@@ -6,3 +6,11 @@
 .lp-footer{
   background-color: $gray-200;
 }
+
+ul#menu-lp-footer{
+  li{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
