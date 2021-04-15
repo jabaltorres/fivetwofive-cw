@@ -176,7 +176,7 @@ function fivetwofive_default_theme_mods() {
 function fivetwofive_styles_and_scripts() {
 	wp_enqueue_style( 'fivetwofive-fonts', fivetwofive_fonts_url(), array(), FIVETWOFIVE_VERSION );
 	wp_enqueue_style( 'fivetwofive-global-style', get_stylesheet_uri(), array( 'fivetwofive-fonts' ), FIVETWOFIVE_VERSION );
-	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
+	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/assets/dist/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

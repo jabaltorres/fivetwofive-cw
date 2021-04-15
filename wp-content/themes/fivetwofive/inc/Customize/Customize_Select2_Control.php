@@ -69,14 +69,14 @@ class Customize_Select2_Control extends \WP_Customize_Control {
 	public function enqueue() {
 		wp_enqueue_style(
 			'fivetwofive-customize-select2',
-			get_theme_file_uri( 'assets/js/plugins/select2/select2.min.css' ),
+			get_theme_file_uri( 'assets/dist/js/plugins/select2/select2.min.css' ),
 			array(),
 			FIVETWOFIVE_VERSION
 		);
 
 		wp_enqueue_script(
 			'fivetwofive-customize-select2',
-			get_theme_file_uri( 'assets/js/plugins/select2/select2.min.js' ),
+			get_theme_file_uri( 'assets/dist/js/plugins/select2/select2.min.js' ),
 			array( 'customize-controls', 'jquery', 'customize-base', 'wp-color-picker' ),
 			FIVETWOFIVE_VERSION,
 			false
@@ -84,7 +84,7 @@ class Customize_Select2_Control extends \WP_Customize_Control {
 
 		wp_enqueue_script(
 			'fivetwofive-select2-control',
-			get_theme_file_uri( 'assets/js/customize-select2-control.js' ),
+			get_theme_file_uri( 'assets/dist/js/customize-select2-control.js' ),
 			array( 'customize-controls', 'jquery', 'customize-base', 'fivetwofive-customize-select2' ),
 			FIVETWOFIVE_VERSION,
 			false

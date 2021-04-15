@@ -17,26 +17,26 @@ sass.compiler = require('sass');
 
 const paths = {
     style: {
-        src: "src/sass/**/style.scss",
+        src: "assets/src/sass/**/style.scss",
         dest: "./"
     },
     styles: {
         // By using styles/**/*.sass we're telling gulp to check all folders for any sass file
-        src: "src/sass/**/*.scss",
+        src: "assets/src/sass/**/*.scss",
         // Compiled files will end up in whichever folder it's found in (partials are not compiled)
-        dest: "lib/assets/css"
+        dest: "assets/dist/assets/css"
     },
     scripts:{
-        src: "src/js/*.js",
-        dest: "lib/assets/js",
-        hintfile: "src/js/.jshintrc"
+        src: "assets/src/js/*.js",
+        dest: "assets/dist/assets/js",
+        hintfile: "assets/src/js/.jshintrc"
     },
     maps:{
-        dest: "./lib/assets/maps"
+        dest: "./assets/dist/assets/maps"
     },
     images:{
-        src: "src/images/*",
-        dest: "lib/assets/images"
+        src: "assets/src/images/*",
+        dest: "assets/dist/assets/images"
     }
 };
 
