@@ -40,7 +40,7 @@ if ( ! class_exists( 'FiveTwoFive_SVG_Icons' ) ) {
 			 *
 			 * @param array $arr Array of icons.
 			 */
-			$arr = apply_filters( "twentytwenty_svg_icons_{$group}", $arr );
+			$arr = apply_filters( "fivetwofive_svg_icons_{$group}", $arr );
 
 			/**
 			 * Filters an SVG icon's color.
@@ -51,7 +51,7 @@ if ( ! class_exists( 'FiveTwoFive_SVG_Icons' ) ) {
 			 * @param string $icon  The icon name.
 			 * @param string $group The icon group.
 			 */
-			$color = apply_filters( 'twentytwenty_svg_icon_color', $color, $icon, $group );
+			$color = apply_filters( 'fivetwofive_svg_icon_color', $color, $icon, $group );
 
 			if ( array_key_exists( $icon, $arr ) ) {
 				$repl = '<svg class="svg-icon" aria-hidden="true" role="img" focusable="false" ';
@@ -86,7 +86,7 @@ if ( ! class_exists( 'FiveTwoFive_SVG_Icons' ) ) {
 				 *
 				 * @param array $social_icons_map Array of default social icons.
 				 */
-				$map = apply_filters( 'twentytwenty_social_icons_map', self::$social_icons_map );
+				$map = apply_filters( 'fivetwofive_social_icons_map', self::$social_icons_map );
 
 				/**
 				 * Filters FiveTwoFive's array of social icons.
@@ -95,7 +95,7 @@ if ( ! class_exists( 'FiveTwoFive_SVG_Icons' ) ) {
 				 *
 				 * @param array $social_icons Array of default social icons.
 				 */
-				$social_icons = apply_filters( 'twentytwenty_svg_icons_social', self::$social_icons );
+				$social_icons = apply_filters( 'fivetwofive_svg_icons_social', self::$social_icons );
 
 				foreach ( array_keys( $social_icons ) as $icon ) {
 					$domains            = array_key_exists( $icon, $map ) ? $map[ $icon ] : array( sprintf( '%s.com', $icon ) );
@@ -106,7 +106,7 @@ if ( ! class_exists( 'FiveTwoFive_SVG_Icons' ) ) {
 			}
 			foreach ( $regex_map as $icon => $regex ) {
 				if ( preg_match( $regex, $uri ) ) {
-					return twentytwenty_get_theme_svg( $icon, 'social' );
+					return fivetwofive_get_theme_svg( $icon, 'social' );
 				}
 			}
 			return null;

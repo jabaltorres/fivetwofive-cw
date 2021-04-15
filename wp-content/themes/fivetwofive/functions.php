@@ -176,7 +176,7 @@ function fivetwofive_default_theme_mods() {
 function fivetwofive_styles_and_scripts() {
 	wp_enqueue_style( 'fivetwofive-fonts', fivetwofive_fonts_url(), array(), FIVETWOFIVE_VERSION );
 	wp_enqueue_style( 'fivetwofive-global-style', get_stylesheet_uri(), array( 'fivetwofive-fonts' ), FIVETWOFIVE_VERSION );
-	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/lib/assets/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
+	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -203,28 +203,34 @@ function fivetwofive_preconnect() {
 add_action( 'wp_head', 'fivetwofive_preconnect', 5 );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/lib/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/lib/inc/template-tags.php';
+require get_template_directory() . '/inc/Helpers/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/lib/inc/template-functions.php';
+require get_template_directory() . '/inc/Helpers/template-functions.php';
 
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/lib/classes/class-fivetwofive-customize.php';
-new FiveTwoFive_Customize();
 
-/**
- * Handle SVG icons.
- */
-require get_template_directory() . '/lib/classes/class-fivetwofive-svg-icons.php';
-require get_template_directory() . '/lib/inc/svg-icons.php';
+if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
+	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+endif;
+
+if ( class_exists( 'Fivetwofive\\Theme' ) ) :
+	/**
+	 * Provides access to all available template tags of the theme.
+	 *
+	 * When called for the first time, the function will initialize the theme.
+	 */
+	function fivetwofive() {
+		static $theme = null;
+
+		if ( null === $theme ) {
+			$theme = new Fivetwofive\Theme();
+			$theme->register();
+		}
+	}
+
+	fivetwofive();
+endif;
