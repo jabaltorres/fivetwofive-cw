@@ -137,10 +137,45 @@ function fivetwofive_widgets_init() {
 add_action( 'widgets_init', 'fivetwofive_widgets_init' );
 
 /**
+ * Undocumented function
+ *
+ * @param array $name_only
+ * @return void
+ */
+function fivetwofive_fonts_url( $name_only = array() ) {
+
+	$defaults = fivetwofive_default_theme_mods();
+
+	return $defaults['font_url'];
+}
+
+/**
+ * Define the default Theme mods.
+ *
+ * @return array default theme mods.
+ */
+function fivetwofive_default_theme_mods() {
+	return apply_filters(
+		'fivetwofive_default_theme_mods',
+		array(
+			'accent_color'          => 'yellow',
+			'default_color'         => '#000000',
+			'heading_color'         => '#000000',
+			'default_font'          => 'DM Sans',
+			'default_font_category' => 'sans-serif',
+			'heading_font'          => 'DM Sans',
+			'heading_font_category' => 'sans-serif',
+			'font_url'              => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,500&display=swap',
+		)
+	);
+}
+
+/**
  * Enqueue scripts and styles.
  */
 function fivetwofive_styles_and_scripts() {
-	wp_enqueue_style( 'fivetwofive-global-style', get_stylesheet_uri(), array(), FIVETWOFIVE_VERSION );
+	wp_enqueue_style( 'fivetwofive-fonts', fivetwofive_fonts_url(), array(), FIVETWOFIVE_VERSION );
+	wp_enqueue_style( 'fivetwofive-global-style', get_stylesheet_uri(), array( 'fivetwofive-fonts' ), FIVETWOFIVE_VERSION );
 	wp_enqueue_script( 'fivetwofive-navigation', get_template_directory_uri() . '/lib/assets/js/navigation.js', array(), FIVETWOFIVE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

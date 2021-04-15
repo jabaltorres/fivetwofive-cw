@@ -34,51 +34,51 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 		 */
 		public function customize_css() {
 			$css        = '';
-			$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', array() );
+			$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', fivetwofive_default_theme_mods() );
 
 			if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
 				return;
 			}
 
-			if ( array_key_exists( 'primary_color', $theme_mods ) ) {
-				$css .= sprintf(
-					'
-						a,
-						a:focus,
-						a:hover {
-							color: %1$s;
-						}
-					',
-					$theme_mods['primary_color']
-				);
-			}
+			$css .= sprintf(
+				'
+					a,
+					a:focus,
+					a:hover {
+						color: %1$s;
+					}
+				',
+				$theme_mods['accent_color']
+			);
 
-			if ( array_key_exists( 'default_color', $theme_mods ) ) {
-				$css .= sprintf(
-					'
-						body {
-							color: %1$s;
-						}
-					',
-					$theme_mods['default_color']
-				);
-			}
+			$css .= sprintf(
+				'
+					body {
+						color: %1$s;
+						font-family: \'%2$s\',%3$s;
+					}
+				',
+				$theme_mods['default_color'],
+				$theme_mods['default_font'],
+				$theme_mods['default_font_category']
+			);
 
-			if ( array_key_exists( 'heading_color', $theme_mods ) ) {
-				$css .= sprintf(
-					'
-						h1,
-						h2,
-						h3,
-						h4,
-						h5,
-						h6 {
-							color: %1$s;
-						}
-					',
-					$theme_mods['heading_color']
-				);
-			}
+			$css .= sprintf(
+				'
+					h1,
+					h2,
+					h3,
+					h4,
+					h5,
+					h6 {
+						color: %1$s;
+						font-family: \'%2$s\',%3$s;
+					}
+				',
+				$theme_mods['heading_color'],
+				$theme_mods['heading_font'],
+				$theme_mods['heading_font_category']
+			);
 
 			if ( $css ) {
 				wp_add_inline_style( 'fivetwofive-global-style', $css );
@@ -122,23 +122,12 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 		 */
 		public function add_color_options( $wp_customize ) {
 			$wp_customize->add_setting(
-				'fivetwofive_theme_mods[primary_color]',
+				'fivetwofive_theme_mods[accent_color]',
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
 					'default'           => '#FEC904',
 					'sanitize_callback' => 'sanitize_hex_color',
-				)
-			);
-
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'fivetwofive_theme_mods[primary_color]',
-					array(
-						'label'   => __( 'Primary Color', 'fivetwofive' ),
-						'section' => 'colors',
-					)
 				)
 			);
 
@@ -149,17 +138,6 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 					'capability'        => 'edit_theme_options',
 					'default'           => '#000000',
 					'sanitize_callback' => 'sanitize_hex_color',
-				)
-			);
-
-			$wp_customize->add_control(
-				new WP_Customize_Color_Control(
-					$wp_customize,
-					'fivetwofive_theme_mods[default_color]',
-					array(
-						'label'   => __( 'Default Color', 'fivetwofive' ),
-						'section' => 'colors',
-					)
 				)
 			);
 
@@ -176,10 +154,35 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			$wp_customize->add_control(
 				new WP_Customize_Color_Control(
 					$wp_customize,
+					'fivetwofive_theme_mods[accent_color]',
+					array(
+						'label'       => __( 'Accent Color', 'fivetwofive' ),
+						'description' => __( 'The color to for links and buttons.', 'fivetwofive' ),
+						'section'     => 'colors',
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[default_color]',
+					array(
+						'label'       => __( 'Default Color', 'fivetwofive' ),
+						'description' => __( 'The default color to use on all text elements on the site.', 'fivetwofive' ),
+						'section'     => 'colors',
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
 					'fivetwofive_theme_mods[heading_color]',
 					array(
-						'label'   => __( 'Heading Color', 'fivetwofive' ),
-						'section' => 'colors',
+						'label'       => __( 'Heading Color', 'fivetwofive' ),
+						'description' => __( 'The color to use for all the site headings.', 'fivetwofive' ),
+						'section'     => 'colors',
 					)
 				)
 			);
@@ -195,7 +198,7 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 				'fivetwofive_fonts_section',
 				array(
 					'title'          => __( 'Fonts', 'fivetwofive' ),
-					'description'    => __( 'define the site fonts here', 'fivetwofive' ),
+					'description'    => __( 'Customize the site\'s fonts.<br/> You can choose to all fonts provided by <a href="https://fonts.google.com/" rel="no-follow" target="_blank">Google Fonts</a>.', 'fivetwofive' ),
 					'panel'          => '', // Not typically needed.
 					'priority'       => 50,
 					'capability'     => 'edit_theme_options',
@@ -204,12 +207,32 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 			);
 
 			$wp_customize->add_setting(
-				'fivetwofive_theme_mods[primary_font]',
+				'fivetwofive_theme_mods[font_url]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => '',
+					'sanitize_callback' => 'sanitize_url',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[default_font]',
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
 					'default'           => 'abeezee',
-					'sanitize_callback' => array( $this, 'sanitize_font' ),
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[default_font_category]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => 'sans-serif',
+					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 
@@ -218,30 +241,61 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 				array(
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
-					'default'           => 'abeezee',
-					'sanitize_callback' => array( $this, 'sanitize_font' ),
+					'default'           => 'DM Sans',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[heading_font_category]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => 'sans-serif',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+
+			$wp_customize->add_control(
+				'fivetwofive_theme_mods[font_url]',
+				array(
+					'priority'    => 10,
+					'type'        => 'url',
+					'section'     => 'fivetwofive_fonts_section',
+					'label'       => __( 'Font URL', 'fivetwofive' ),
+					'description' => __( 'Google fonts URL.', 'fivetwofive' ),
 				)
 			);
 
 			// Include the custom select2 class.
 			include_once get_theme_file_path( 'lib/classes/class-fivetwofive-customize-select2-control.php' );
+			// Fonts Choices.
+			include_once get_theme_file_path( 'lib/config/fonts.php' );
 
 			$wp_customize->add_control(
 				new FiveTwoFive_Customize_Select2_Control(
 					$wp_customize,
-					'fivetwofive_theme_mods[primary_font]',
+					'fivetwofive_theme_mods[default_font]',
 					array(
 						'priority'    => 10,
 						'section'     => 'fivetwofive_fonts_section',
-						'label'       => __( 'Primary Font', 'fivetwofive' ),
-						'description' => __( 'This is the primary font.', 'fivetwofive' ),
-						'choices'     => array(
-							'abeezee'       => 'ABeeZee',
-							'abel'          => 'Abel',
-							'abhaya_libre'  => 'Abhaya Libre',
-							'abril_fatface' => 'Abril Fatface',
-							'aclonica'      => 'Aclonica',
-						),
+						'label'       => __( 'Default Font', 'fivetwofive' ),
+						'description' => __( 'The default font to use for all the text elements in the site except headings.', 'fivetwofive' ),
+						'choices'     => $google_fonts,
+					)
+				)
+			);
+
+			$wp_customize->add_control(
+				new FiveTwoFive_Customize_Select2_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[default_font_category]',
+					array(
+						'priority'    => 15,
+						'section'     => 'fivetwofive_fonts_section',
+						'label'       => __( 'Default Font Category', 'fivetwofive' ),
+						'description' => __( 'Refer to Google fonts for the category of your default font.', 'fivetwofive' ),
+						'choices'     => $font_categories,
 					)
 				)
 			);
@@ -254,28 +308,25 @@ if ( ! class_exists( 'FiveTwoFive_Customize' ) ) {
 						'priority'    => 15,
 						'section'     => 'fivetwofive_fonts_section',
 						'label'       => __( 'Heading Font', 'fivetwofive' ),
-						'description' => __( 'This is the heading font.', 'fivetwofive' ),
-						'choices'     => array(
-							'abeezee'       => 'ABeeZee',
-							'abel'          => 'Abel',
-							'abhaya_libre'  => 'Abhaya Libre',
-							'abril_fatface' => 'Abril Fatface',
-							'aclonica'      => 'Aclonica',
-						),
+						'description' => __( 'The font to use for headings (h1, h2, h3, h4, h5, h6).', 'fivetwofive' ),
+						'choices'     => $google_fonts,
 					)
 				)
 			);
-		}
 
-		/**
-		 * Undocumented function
-		 *
-		 * @param string $option Font string from customizer.
-		 * @param string $settings WP_Customize_Setting object.
-		 * @return string $option Sanitized user Font string input.
-		 */
-		public function sanitize_font( $option, $settings ) {
-			return sanitize_text_field( $option );
+			$wp_customize->add_control(
+				new FiveTwoFive_Customize_Select2_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[heading_font_category]',
+					array(
+						'priority'    => 15,
+						'section'     => 'fivetwofive_fonts_section',
+						'label'       => __( 'Heading Font Category', 'fivetwofive' ),
+						'description' => __( 'Refer to Google fonts for the category of your heading font.', 'fivetwofive' ),
+						'choices'     => $font_categories,
+					)
+				)
+			);
 		}
 
 		/**
