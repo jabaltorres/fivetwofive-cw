@@ -45,7 +45,7 @@
 
 <?php
     // Removing Paragraph Tags from WYSIWYG Fields
-//    remove_filter('the_content','wpautop');
+    remove_filter('the_content','wpautop');
 ?>
 
 
