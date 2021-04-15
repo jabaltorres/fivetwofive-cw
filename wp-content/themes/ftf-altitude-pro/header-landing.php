@@ -24,6 +24,9 @@
                     </a>
                 </div>
                 <div class="col-md-4">
+<!--                    <div class="phone-number-wrapper">-->
+<!--                        <a href="tel:916-399-3117">Call or Text Us</a>-->
+<!--                    </div>-->
                     <div class="button-wrapper">
                         <a href="/contact-us/" class="button btn btn-primary">Contact Us</a>
                     </div>
