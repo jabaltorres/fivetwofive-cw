@@ -13,7 +13,7 @@
 // Child theme (do not remove).
 define( 'CHILD_THEME_NAME', 'FiveTwoFive Theme' );
 define( 'CHILD_THEME_URL', 'https://fivetwofive.com/' );
-define( 'CHILD_THEME_VERSION', '1.0.7' );
+define( 'CHILD_THEME_VERSION', '1.0.8' );
 define( 'CHILD_THEME_DIR', get_stylesheet_directory() );
 define( 'CHILD_THEME_URI', get_stylesheet_directory_uri() );
 
@@ -691,3 +691,10 @@ function fivetwofive_sort_page_template_column_query( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'fivetwofive_sort_page_template_column_query' );
+
+//CUSTOM ACF MIN HEIGHT ROWS and Styling for Modules on backend
+add_filter( 'admin_head', 'textarea_temp_fix' );
+function textarea_temp_fix() {
+    echo '<style type="text/css">.acf_postbox .field textarea {min-height:0 !important;}
+	.acf-flexible-content .layout .acf-fc-layout-handle { background: #0073aa !important;color: #fff !important;font-weight: bold;    font-size: 18px !important;line-height: 18px !important; } .acf-oembed .canvas { min-height:100px !important; }</style>';
+}

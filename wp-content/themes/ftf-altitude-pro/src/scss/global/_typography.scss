@@ -196,13 +196,15 @@ blockquote{
   text-align: left;
 }
 
-.entry-title a {
-  color: $secondary;
+.entry-title{
+  a {
+    color: $secondary;
+  }
+  a:hover {
+    color: $primary;
+  }
 }
 
-.entry-title a:hover {
-  color: $primary;
-}
 
 .widget-full .widget-title {
   margin-bottom: 40px;
