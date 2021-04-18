@@ -357,8 +357,8 @@
                                 },
                                 {
                                     "key": "field_5c9bb02281a3f",
-                                    "label": "Caption",
-                                    "name": "caption",
+                                    "label": "Image Alt Text",
+                                    "name": "image_alt_text",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -1677,5 +1677,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1618096627
+    "modified": 1618782590
 }

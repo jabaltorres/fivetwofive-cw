@@ -10,7 +10,7 @@
 		<?php if ($title) : ?>
             <div class="row">
                 <div class="col-12 mb-4">
-                    <h2><?php echo $title; ?></h2>
+                    <h3 class="module-heading h2"><?php echo $title; ?></h3>
                 </div>
             </div>
 		<?php endif; ?>
@@ -26,12 +26,12 @@
                                 $button_link = get_sub_field('button_link');
                                 $text = get_sub_field('text');
                                 $cite = get_sub_field('cite');
-                                $caption = get_sub_field('caption');
+                                $image_alt_text = get_sub_field('image_alt_text');
                                 ?>
                                 <div class="testimonial">
                                     <div class="testimonial-wrap row">
                                         <div class="col-12 col-sm-4">
-                                            <img class="testimonial-img p-4" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
+                                            <img class="testimonial-img rounded-circle p-5" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image_alt_text; ?>" />
                                         </div>
                                         <div class="col-12 col-sm-8">
                                             <?php if ($cite) : ?>
@@ -40,7 +40,7 @@
                                                         <?php echo $text; ?>
                                                     <span class="visible-mobile-inline">"</span>
                                                 </span>
-                                                <span class="title d-block my-3"><?php echo $cite; ?></span>
+                                                <div class="text-dark d-block my-3"><?php echo $cite; ?></div>
                                             <?php else : ?>
                                                 <span class="quote no-quotes">
                                                     <?php echo $text; ?>
@@ -60,11 +60,11 @@
                         <div class="slider-nav multiple-nav"  id="carousel-<?php echo $navid; ?>">
                             <?php while(have_rows('slides')) : the_row();
                                 $image = get_sub_field('image');
-                                $caption = get_sub_field('caption');
+                                $image_alt_text = get_sub_field('image_alt_text');
                                 ?>
                                 <div class="thumb">
-                                    <img class="testimonial-thumb p-2" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $caption; ?>" />
-                                    <div class="location"><?php echo $caption; ?></div>
+                                    <img class="testimonial-thumb p-2" src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image_alt_text; ?>" />
+                                    <div class="location"><?php echo $image_alt_text; ?></div>
                                 </div>
                             <?php endwhile; ?>
                         </div>
