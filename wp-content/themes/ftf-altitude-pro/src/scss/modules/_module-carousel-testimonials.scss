@@ -24,20 +24,16 @@
     align-items: center;
   }
   .img-wrap {
-    //width: 490px;
     display: inline-block;
     vertical-align: top;
-    //margin-left: -6px;
   }
   .text-wrap {
     display: inline-block;
-    //width: calc(100% - 500px);
-    //padding: 100px 80px 0 80px;
     box-sizing: border-box;
   }
   .quote {
     font-size: 25px;
-    line-height: 1.25;
+    line-height: 1.35;
     display: inline-block;
     font-weight: 500;
     position: relative;
