@@ -3,6 +3,7 @@
 <head>
 	<?php // include "includes/gtm_antiflicker.php";?>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
