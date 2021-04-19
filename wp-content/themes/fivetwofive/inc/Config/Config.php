@@ -7,9 +7,16 @@
  * @since FiveTwoFive 1.0
  */
 
-$google_fonts = apply_filters(
-	'fivetwofive_google_fonts',
-	array(
+namespace Fivetwofive\Config;
+
+/**
+ * The Singleton class defines the `GetInstance` method that serves as an
+ * alternative to constructor and lets clients access the same instance of this
+ * class over and over.
+ */
+class Config {
+
+	private $google_fonts = array(
 		"ABeeZee" => "ABeeZee",
 		"Abel" => "Abel",
 		"Abhaya Libre" => "Abhaya Libre",
@@ -1062,16 +1069,82 @@ $google_fonts = apply_filters(
 		"Zhi Mang Xing" => "Zhi Mang Xing",
 		"Zilla Slab" => "Zilla Slab",
 		"Zilla Slab Highlight" => "Zilla Slab Highlight",
-	)
-);
+	);
 
-$font_categories = apply_filters(
-	'fivetwofive_font_categories',
-	array(
+	private $font_categories = array(
 		'serif'       => 'Serif',
 		'sans-serif'  => 'Sans Serif',
 		'display'     => 'Display',
 		'handwriting' => 'Handwriting',
 		'monospace'   => 'Monospace',
-	)
-);
+	);
+
+	private $default_theme_mods = array(
+		'accent_color'          => 'yellow',
+		'default_color'         => '#000000',
+		'heading_color'         => '#000000',
+		'default_font'          => 'DM Sans',
+		'default_font_category' => 'sans-serif',
+		'heading_font'          => 'DM Sans',
+		'heading_font_category' => 'sans-serif',
+		'font_url'              => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,500&display=swap',
+	);
+
+	private $preconnect_urls = array( 'https://fonts.gstatic.com' );
+
+	/**
+	 * The Singleton's instance is stored in a static field. This field is an
+	 * array, because we'll allow our Singleton to have subclasses. Each item in
+	 * this array will be an instance of a specific Singleton's subclass.
+	 */
+	private static $instances = array();
+
+	/**
+	 * The Singleton's constructor should always be private to prevent direct
+	 * construction calls with the `new` operator.
+	 */
+	protected function __construct() { }
+
+	/**
+	 * Singletons should not be cloneable.
+	 */
+	protected function __clone() { }
+
+	/**
+	 * Singletons should not be restorable from strings.
+	 */
+	public function __wakeup() {
+		throw new \Exception( 'Cannot unserialize a singleton.' );
+	}
+
+	/**
+	 * This is the static method that controls the access to the singleton
+	 * instance. On the first run, it creates a singleton object and places it
+	 * into the static field. On subsequent runs, it returns the client existing
+	 * object stored in the static field.
+	 *
+	 * This implementation lets you subclass the Singleton class while keeping
+	 * just one instance of each subclass around.
+	 */
+	public static function get_instance(): Config {
+		$cls = static::class;
+		if ( ! isset( self::$instances[ $cls ] ) ) {
+			self::$instances[ $cls ] = new static();
+		}
+
+		return self::$instances[ $cls ];
+	}
+
+	/**
+	 * Finally, any singleton should define some business logic, which can be
+	 * executed on its instance.
+	 */
+	public function get_settings() {
+		return array(
+			'google_fonts'       => apply_filters( 'fivetwofive_google_fonts', $this->google_fonts ),
+			'font_categories'    => apply_filters( 'fivetwofive_font_categories', $this->font_categories ),
+			'default_theme_mods' => apply_filters( 'fivetwofive_default_theme_mods', $this->default_theme_mods ),
+			'preconnect_urls'    => apply_filters( 'fivetwofive_preconnect_urls', $this->preconnect_urls ),
+		);
+	}
+}

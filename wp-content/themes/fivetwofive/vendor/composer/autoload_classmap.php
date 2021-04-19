@@ -8,8 +8,13 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Fivetwofive\\Component_Interface' => $baseDir . '/inc/Component_Interface.php',
-    'Fivetwofive\\Custom_Header\\Custom_Header' => $baseDir . '/inc/Custom_Header/Custom_Header.php',
+    'Fivetwofive\\Config\\Config' => $baseDir . '/inc/Config/Config.php',
+    'Fivetwofive\\CustomHeader\\CustomHeader' => $baseDir . '/inc/CustomHeader/CustomHeader.php',
     'Fivetwofive\\Customize\\Customize' => $baseDir . '/inc/Customize/Customize.php',
     'Fivetwofive\\Customize\\Customize_Select2_Control' => $baseDir . '/inc/Customize/Customize_Select2_Control.php',
-    'Fivetwofive\\Theme' => $baseDir . '/inc/Theme.php',
+    'Fivetwofive\\Init' => $baseDir . '/inc/Init.php',
+    'Fivetwofive\\Styles\\Styles' => $baseDir . '/inc/Styles/Styles.php',
+    'Fivetwofive\\Template\\Template' => $baseDir . '/inc/Template/Template.php',
+    'Fivetwofive\\Theme\\Theme' => $baseDir . '/inc/Theme/Theme.php',
+    'Fivetwofive\\Widgets\\Widgets' => $baseDir . '/inc/Widgets/Widgets.php',
 );

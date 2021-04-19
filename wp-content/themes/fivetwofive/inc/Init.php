@@ -18,7 +18,7 @@ use InvalidArgumentException;
  * @subpackage FiveTwoFive
  * @since FiveTwoFive 1.0
  */
-final class Theme {
+final class Init {
 	/**
 	 * Associative array of theme components, keyed by their slug.
 	 *
@@ -84,8 +84,12 @@ final class Theme {
 	 */
 	protected function get_default_components() : array {
 		$components = array(
-			new Custom_Header\Custom_Header(),
+			new CustomHeader\CustomHeader(),
+			new Styles\Styles(),
 			new Customize\Customize(),
+			new Template\Template(),
+			new Theme\Theme(),
+			new Widgets\Widgets(),
 		);
 
 		return $components;

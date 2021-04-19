@@ -11,14 +11,14 @@
  * @package FiveTwoFive
  */
 
-namespace Fivetwofive\Custom_Header;
+namespace Fivetwofive\CustomHeader;
 
 use Fivetwofive\Component_Interface;
 
 /**
  * Undocumented class
  */
-class Custom_Header implements Component_Interface {
+class CustomHeader implements Component_Interface {
 
 	/**
 	 * Undocumented function

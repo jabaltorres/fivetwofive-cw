@@ -11,6 +11,7 @@ namespace Fivetwofive\Customize;
 
 use Fivetwofive\Component_Interface;
 use Fivetwofive\Customize\Customize_Select2_Control;
+use Fivetwofive\Config\Config;
 
 /**
  * Customize class.
@@ -27,7 +28,7 @@ class Customize implements Component_Interface {
 	public function register() {
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 		add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'customize_css' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'customize_css' ), 11 );
 	}
 
 	/**
@@ -36,8 +37,9 @@ class Customize implements Component_Interface {
 	 * @since 1.0
 	 */
 	public function customize_css() {
+		$config     = Config::get_instance()->get_settings();
 		$css        = '';
-		$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', fivetwofive_default_theme_mods() );
+		$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', $config['default_theme_mods'] );
 
 		if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
 			return;
@@ -124,12 +126,14 @@ class Customize implements Component_Interface {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function add_color_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
 		$wp_customize->add_setting(
 			'fivetwofive_theme_mods[accent_color]',
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => '#FEC904',
+				'default'           => $config['default_theme_mods']['accent_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -139,7 +143,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => '#000000',
+				'default'           => $config['default_theme_mods']['default_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -149,7 +153,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => '#000000',
+				'default'           => $config['default_theme_mods']['heading_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -197,6 +201,8 @@ class Customize implements Component_Interface {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function add_font_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
 		$wp_customize->add_section(
 			'fivetwofive_fonts_section',
 			array(
@@ -214,7 +220,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => '',
+				'default'           => $config['default_theme_mods']['font_url'],
 				'sanitize_callback' => 'sanitize_url',
 			)
 		);
@@ -224,7 +230,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => 'abeezee',
+				'default'           => $config['default_theme_mods']['default_font'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -234,7 +240,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => 'sans-serif',
+				'default'           => $config['default_theme_mods']['default_font_category'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -244,7 +250,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => 'DM Sans',
+				'default'           => $config['default_theme_mods']['heading_font'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -254,7 +260,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => 'sans-serif',
+				'default'           => $config['default_theme_mods']['heading_font_category'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -270,9 +276,6 @@ class Customize implements Component_Interface {
 			)
 		);
 
-		// Fonts Choices.
-		include_once get_theme_file_path( 'config/fonts.php' );
-
 		$wp_customize->add_control(
 			new Customize_Select2_Control(
 				$wp_customize,
@@ -282,7 +285,7 @@ class Customize implements Component_Interface {
 					'section'     => 'fivetwofive_fonts_section',
 					'label'       => __( 'Default Font', 'fivetwofive' ),
 					'description' => __( 'The default font to use for all the text elements in the site except headings.', 'fivetwofive' ),
-					'choices'     => $google_fonts,
+					'choices'     => $config['google_fonts'],
 				)
 			)
 		);
@@ -296,7 +299,7 @@ class Customize implements Component_Interface {
 					'section'     => 'fivetwofive_fonts_section',
 					'label'       => __( 'Default Font Category', 'fivetwofive' ),
 					'description' => __( 'Refer to Google fonts for the category of your default font.', 'fivetwofive' ),
-					'choices'     => $font_categories,
+					'choices'     => $config['font_categories'],
 				)
 			)
 		);
@@ -310,7 +313,7 @@ class Customize implements Component_Interface {
 					'section'     => 'fivetwofive_fonts_section',
 					'label'       => __( 'Heading Font', 'fivetwofive' ),
 					'description' => __( 'The font to use for headings (h1, h2, h3, h4, h5, h6).', 'fivetwofive' ),
-					'choices'     => $google_fonts,
+					'choices'     => $config['google_fonts'],
 				)
 			)
 		);
@@ -324,7 +327,7 @@ class Customize implements Component_Interface {
 					'section'     => 'fivetwofive_fonts_section',
 					'label'       => __( 'Heading Font Category', 'fivetwofive' ),
 					'description' => __( 'Refer to Google fonts for the category of your heading font.', 'fivetwofive' ),
-					'choices'     => $font_categories,
+					'choices'     => $config['font_categories'],
 				)
 			)
 		);

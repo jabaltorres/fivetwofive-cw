@@ -23,10 +23,15 @@ class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Fivetwofive\\Component_Interface' => __DIR__ . '/../..' . '/inc/Component_Interface.php',
-        'Fivetwofive\\Custom_Header\\Custom_Header' => __DIR__ . '/../..' . '/inc/Custom_Header/Custom_Header.php',
+        'Fivetwofive\\Config\\Config' => __DIR__ . '/../..' . '/inc/Config/Config.php',
+        'Fivetwofive\\CustomHeader\\CustomHeader' => __DIR__ . '/../..' . '/inc/CustomHeader/CustomHeader.php',
         'Fivetwofive\\Customize\\Customize' => __DIR__ . '/../..' . '/inc/Customize/Customize.php',
         'Fivetwofive\\Customize\\Customize_Select2_Control' => __DIR__ . '/../..' . '/inc/Customize/Customize_Select2_Control.php',
-        'Fivetwofive\\Theme' => __DIR__ . '/../..' . '/inc/Theme.php',
+        'Fivetwofive\\Init' => __DIR__ . '/../..' . '/inc/Init.php',
+        'Fivetwofive\\Styles\\Styles' => __DIR__ . '/../..' . '/inc/Styles/Styles.php',
+        'Fivetwofive\\Template\\Template' => __DIR__ . '/../..' . '/inc/Template/Template.php',
+        'Fivetwofive\\Theme\\Theme' => __DIR__ . '/../..' . '/inc/Theme/Theme.php',
+        'Fivetwofive\\Widgets\\Widgets' => __DIR__ . '/../..' . '/inc/Widgets/Widgets.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
