@@ -28,7 +28,7 @@
                         <a class="font-weight-bold" href="tel:916-399-3117">1 (916) 399-3117</a>
                     </div>
                     <div class="button-wrapper">
-                        <a href="/contact-us/" class="button btn btn-primary">Contact Us</a>
+                        <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
                     </div>
                 </div>
             </div>
