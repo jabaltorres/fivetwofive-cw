@@ -13,7 +13,7 @@
 // Child theme (do not remove).
 define( 'CHILD_THEME_NAME', 'FiveTwoFive Theme' );
 define( 'CHILD_THEME_URL', 'https://fivetwofive.com/' );
-define( 'CHILD_THEME_VERSION', '1.0.8' );
+define( 'CHILD_THEME_VERSION', '1.0.9' );
 define( 'CHILD_THEME_DIR', get_stylesheet_directory() );
 define( 'CHILD_THEME_URI', get_stylesheet_directory_uri() );
 
