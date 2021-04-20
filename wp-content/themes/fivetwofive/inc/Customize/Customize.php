@@ -11,6 +11,7 @@ namespace Fivetwofive\Customize;
 
 use Fivetwofive\Component_Interface;
 use Fivetwofive\Customize\Customize_Select2_Control;
+use Fivetwofive\Customize\Customize_Checkboxes_Control;
 use Fivetwofive\Config\Config;
 
 /**
@@ -216,22 +217,22 @@ class Customize implements Component_Interface {
 		);
 
 		$wp_customize->add_setting(
-			'fivetwofive_theme_mods[font_url]',
-			array(
-				'type'              => 'theme_mod',
-				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['font_url'],
-				'sanitize_callback' => 'sanitize_url',
-			)
-		);
-
-		$wp_customize->add_setting(
 			'fivetwofive_theme_mods[default_font]',
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
 				'default'           => $config['default_theme_mods']['default_font'],
 				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[default_font_style]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['default_font_style'],
+				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
 
@@ -256,23 +257,22 @@ class Customize implements Component_Interface {
 		);
 
 		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[heading_font_style]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['heading_font_style'],
+				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
+			)
+		);
+
+		$wp_customize->add_setting(
 			'fivetwofive_theme_mods[heading_font_category]',
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
 				'default'           => $config['default_theme_mods']['heading_font_category'],
 				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
-
-		$wp_customize->add_control(
-			'fivetwofive_theme_mods[font_url]',
-			array(
-				'priority'    => 10,
-				'type'        => 'url',
-				'section'     => 'fivetwofive_fonts_section',
-				'label'       => __( 'Font URL', 'fivetwofive' ),
-				'description' => __( 'Google fonts URL.', 'fivetwofive' ),
 			)
 		);
 
@@ -286,6 +286,23 @@ class Customize implements Component_Interface {
 					'label'       => __( 'Default Font', 'fivetwofive' ),
 					'description' => __( 'The default font to use for all the text elements in the site except headings.', 'fivetwofive' ),
 					'choices'     => $config['google_fonts'],
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[default_font_style]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_fonts_section',
+					'label'       => __( 'Default Font Style', 'fivetwofive' ),
+					'description' => __( 'Refer to Google fonts for the desired font style of the default font.', 'fivetwofive' ),
+					'choices'     => $config['font_styles'],
+					'input_attrs' => array(
+						'multiple' => 'multiple',
+					),
 				)
 			)
 		);
@@ -321,6 +338,23 @@ class Customize implements Component_Interface {
 		$wp_customize->add_control(
 			new Customize_Select2_Control(
 				$wp_customize,
+				'fivetwofive_theme_mods[heading_font_style]',
+				array(
+					'priority'    => 15,
+					'section'     => 'fivetwofive_fonts_section',
+					'label'       => __( 'Heading Font Style', 'fivetwofive' ),
+					'description' => __( 'Refer to Google fonts for the desired font style of the heading font.', 'fivetwofive' ),
+					'choices'     => $config['font_styles'],
+					'input_attrs' => array(
+						'multiple' => 'multiple',
+					),
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
 				'fivetwofive_theme_mods[heading_font_category]',
 				array(
 					'priority'    => 15,
@@ -343,6 +377,18 @@ class Customize implements Component_Interface {
 	}
 
 	/**
+	 * Sanitize Customizer controls that have multiple fields.
+	 *
+	 * @param array $values User input options.
+	 * @return array Sanitized options.
+	 */
+	public function sanitize_multiple_select( $values ) {
+		$multi_values = ! is_array( $values ) ? explode( ',', $values ) : $values;
+
+		return ! empty( $multi_values ) ? array_map( 'sanitize_text_field', $multi_values ) : array();
+	}
+
+	/**
 	 * Render the site tagline for the selective refresh partial.
 	 *
 	 * @return void
@@ -355,6 +401,6 @@ class Customize implements Component_Interface {
 	 * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
 	 */
 	public function customize_preview_js() {
-		wp_enqueue_script( 'fivetwofive-customizer', get_template_directory_uri() . '/assets/js/customize.js', array( 'customize-preview' ), FIVETWOFIVE_VERSION, true );
+		wp_enqueue_script( 'fivetwofive-customizer', get_template_directory_uri() . '/assets/dist/js/customize.js', array( 'customize-preview' ), FIVETWOFIVE_VERSION, true );
 	}
 }

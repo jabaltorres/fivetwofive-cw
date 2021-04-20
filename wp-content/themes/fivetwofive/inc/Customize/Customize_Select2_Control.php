@@ -51,14 +51,25 @@ class Customize_Select2_Control extends \WP_Customize_Control {
 				<span id="<?php echo esc_attr( $description_id ); ?>" class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 			<?php endif; ?>
 
-			<select id="<?php echo esc_attr( $input_id ); ?>" class="js-customize-control-fivetwofive-select2" <?php echo esc_attr( $describedby_attr ); ?> <?php $this->link(); ?>>
+			<select <?php $this->input_attrs(); ?> id="<?php echo esc_attr( $input_id ); ?>" class="js-customize-control-fivetwofive-select2" <?php echo esc_attr( $describedby_attr ); ?> <?php $this->link(); ?>>
 				<?php
 				foreach ( $this->choices as $value => $label ) {
-					echo '<option value="' . esc_attr( $value ) . '"' . selected( $this->value(), $value, false ) . '>' . esc_html( $label ) . '</option>';
+					echo '<option value="' . esc_attr( $value ) . '"' . $this->is_selected( $this->value(), $value ) . '>' . esc_html( $label ) . '</option>';
 				}
 				?>
 			</select>
 		<?php
+	}
+
+	public function is_selected( $haystack, $needle ) {
+		$result = 'selected="selected"';
+
+		if ( ( is_array( $haystack ) && ! in_array( $needle, $haystack, true ) )
+			|| $needle !== $haystack ) {
+			$result = '';
+		}
+
+		return $result;
 	}
 
 	/**

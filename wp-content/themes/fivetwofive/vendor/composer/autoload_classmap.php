@@ -11,6 +11,7 @@ return array(
     'Fivetwofive\\Config\\Config' => $baseDir . '/inc/Config/Config.php',
     'Fivetwofive\\CustomHeader\\CustomHeader' => $baseDir . '/inc/CustomHeader/CustomHeader.php',
     'Fivetwofive\\Customize\\Customize' => $baseDir . '/inc/Customize/Customize.php',
+    'Fivetwofive\\Customize\\Customize_Checkboxes_Control' => $baseDir . '/inc/Customize/Customize_Checkboxes_Control.php',
     'Fivetwofive\\Customize\\Customize_Select2_Control' => $baseDir . '/inc/Customize/Customize_Select2_Control.php',
     'Fivetwofive\\Init' => $baseDir . '/inc/Init.php',
     'Fivetwofive\\Styles\\Styles' => $baseDir . '/inc/Styles/Styles.php',

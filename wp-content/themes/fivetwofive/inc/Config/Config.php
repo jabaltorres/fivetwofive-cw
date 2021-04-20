@@ -1079,15 +1079,37 @@ class Config {
 		'monospace'   => 'Monospace',
 	);
 
+	private $font_styles = array(
+		'100'  => 'Thin',
+		'100i' => 'Thin italic',
+		'200'  => 'Etra-light',
+		'200i' => 'Etra-light italic',
+		'300'  => 'Light',
+		'300i' => 'Light italic',
+		'400'  => 'Regular',
+		'400i' => 'Regular italic',
+		'500'  => 'Medium',
+		'500i' => 'Medium italic',
+		'600'  => 'Semi-bold',
+		'600i' => 'Semi-bold italic',
+		'700'  => 'Bold',
+		'700i' => 'Bold italic',
+		'800'  => 'Extra-bold',
+		'800i' => 'Extra-bold italic',
+		'900'  => 'Black',
+		'900i' => 'Black italic',
+	);
+
 	private $default_theme_mods = array(
 		'accent_color'          => 'yellow',
 		'default_color'         => '#000000',
 		'heading_color'         => '#000000',
 		'default_font'          => 'DM Sans',
+		'default_font_style'    => array( '400', '400i' ),
 		'default_font_category' => 'sans-serif',
 		'heading_font'          => 'DM Sans',
+		'heading_font_style'    => array( '700', '700i' ),
 		'heading_font_category' => 'sans-serif',
-		'font_url'              => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400;1,500&display=swap',
 	);
 
 	private $preconnect_urls = array( 'https://fonts.gstatic.com' );
@@ -1143,6 +1165,7 @@ class Config {
 		return array(
 			'google_fonts'       => apply_filters( 'fivetwofive_google_fonts', $this->google_fonts ),
 			'font_categories'    => apply_filters( 'fivetwofive_font_categories', $this->font_categories ),
+			'font_styles'        => apply_filters( 'fivetwofive_font_styles', $this->font_styles ),
 			'default_theme_mods' => apply_filters( 'fivetwofive_default_theme_mods', $this->default_theme_mods ),
 			'preconnect_urls'    => apply_filters( 'fivetwofive_preconnect_urls', $this->preconnect_urls ),
 		);
