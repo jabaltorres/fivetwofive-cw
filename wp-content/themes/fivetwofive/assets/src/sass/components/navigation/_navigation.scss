@@ -59,12 +59,8 @@
 	a {
 		display: block;
 		text-decoration: none;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
+		padding: 0.5rem 0;
+		transition: color 300ms ease-in-out;
 	}
 }
 
@@ -80,8 +76,26 @@
 		display: none;
 	}
 
-	.main-navigation ul {
+	.main-navigation {
 		display: flex;
+
+		ul {
+			display: flex;
+		}
+
+		.menu-primary-menu-container {
+			margin-left: auto;
+		}
+
+		.nav-menu {
+			justify-content: flex-end;
+			li {
+				margin-right: 3.125rem;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
 	}
 }
 

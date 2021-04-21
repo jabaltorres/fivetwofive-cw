@@ -26,7 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fivetwofive' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<div class="site-branding col-3">
 					<?php

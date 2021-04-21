@@ -59,6 +59,33 @@ class Customize implements Component_Interface {
 
 		$css .= sprintf(
 			'
+				.site-header {
+					background-color: %1$s;
+				}
+
+				.main-navigation a {
+					color: %2$s;
+				}
+
+				.main-navigation .current_page_item > a,
+				.main-navigation .current-menu-item > a,
+				.main-navigation .current_page_ancestor > a,
+				.main-navigation .current-menu-ancestor > a {
+					color: %3$s;
+				}
+
+				.main-navigation a:focus,
+				.main-navigation a:hover {
+					color: %3$s;
+				}
+			',
+			$theme_mods['header']['background_color'],
+			$theme_mods['header']['text_color'],
+			$theme_mods['header']['active_color']
+		);
+
+		$css .= sprintf(
+			'
 				body {
 					color: %1$s;
 					font-family: \'%2$s\',%3$s;
@@ -84,6 +111,17 @@ class Customize implements Component_Interface {
 			$theme_mods['heading_color'],
 			$theme_mods['heading_font'],
 			$theme_mods['heading_font_category']
+		);
+
+		$css .= sprintf(
+			'
+				.site-footer {
+					background-color: %1$s;
+					color: %2$s;
+				}
+			',
+			$theme_mods['footer']['background_color'],
+			$theme_mods['footer']['text_color']
 		);
 
 		if ( $css ) {
@@ -119,6 +157,8 @@ class Customize implements Component_Interface {
 
 		$this->add_font_options( $wp_customize );
 		$this->add_color_options( $wp_customize );
+		$this->add_footer_options( $wp_customize );
+		$this->add_header_options( $wp_customize );
 	}
 
 	/**
@@ -362,6 +402,156 @@ class Customize implements Component_Interface {
 					'label'       => __( 'Heading Font Category', 'fivetwofive' ),
 					'description' => __( 'Refer to Google fonts for the category of your heading font.', 'fivetwofive' ),
 					'choices'     => $config['font_categories'],
+				)
+			)
+		);
+	}
+
+	/**
+	 * Add Footer fields in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_footer_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->add_section(
+			'fivetwofive_footer_section',
+			array(
+				'title'          => __( 'Footer', 'fivetwofive' ),
+				'panel'          => '', // Not typically needed.
+				'priority'       => 50,
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '', // Rarely needed.
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[footer][background_color]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['footer']['background_color'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \WP_Customize_Color_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[footer][background_color]',
+				array(
+					'label'       => __( 'Footer Background Color', 'fivetwofive' ),
+					'description' => __( 'Set the footer background color.', 'fivetwofive' ),
+					'section'     => 'fivetwofive_footer_section',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[footer][text_color]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['footer']['text_color'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \WP_Customize_Color_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[footer][text_color]',
+				array(
+					'label'       => __( 'Footer Text Color', 'fivetwofive' ),
+					'description' => __( 'Set the footer text color.', 'fivetwofive' ),
+					'section'     => 'fivetwofive_footer_section',
+				)
+			)
+		);
+	}
+
+	/**
+	 * Add Header fields in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_header_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->add_section(
+			'fivetwofive_header_section',
+			array(
+				'title'          => __( 'Header', 'fivetwofive' ),
+				'panel'          => '', // Not typically needed.
+				'priority'       => 50,
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '', // Rarely needed.
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[header][background_color]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['header']['background_color'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \WP_Customize_Color_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[header][background_color]',
+				array(
+					'label'       => __( 'Header Background Color', 'fivetwofive' ),
+					'description' => __( 'Set the header background color.', 'fivetwofive' ),
+					'section'     => 'fivetwofive_header_section',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[header][text_color]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['header']['text_color'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \WP_Customize_Color_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[header][text_color]',
+				array(
+					'label'       => __( 'Header Text Color', 'fivetwofive' ),
+					'description' => __( 'Set the header text color.', 'fivetwofive' ),
+					'section'     => 'fivetwofive_header_section',
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[header][active_color]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['header']['active_color'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \WP_Customize_Color_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[header][active_color]',
+				array(
+					'label'       => __( 'Header Active Text Color', 'fivetwofive' ),
+					'description' => __( 'Set the header active text color.', 'fivetwofive' ),
+					'section'     => 'fivetwofive_header_section',
 				)
 			)
 		);

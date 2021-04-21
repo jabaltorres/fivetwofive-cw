@@ -17,26 +17,20 @@ sass.compiler = require('sass');
 
 const paths = {
     style: {
-        src: "assets/src/sass/**/style.scss",
-        dest: "./"
-    },
-    styles: {
-        // By using styles/**/*.sass we're telling gulp to check all folders for any sass file
         src: "assets/src/sass/**/*.scss",
-        // Compiled files will end up in whichever folder it's found in (partials are not compiled)
-        dest: "assets/dist/assets/css"
+        dest: "./"
     },
     scripts:{
         src: "assets/src/js/*.js",
-        dest: "assets/dist/assets/js",
+        dest: "assets/dist/js",
         hintfile: "assets/src/js/.jshintrc"
     },
     maps:{
-        dest: "./assets/dist/assets/maps"
+        dest: "./assets/dist/maps"
     },
     images:{
         src: "assets/src/images/*",
-        dest: "assets/dist/assets/images"
+        dest: "assets/dist/images"
     }
 };
 
@@ -51,19 +45,6 @@ const style = () => src(paths.style.src)
     .pipe(postcss([autoprefixer(), cssnano()]))
     .pipe(sourcemaps.write(paths.maps.dest))
     .pipe(dest(paths.style.dest))
-    .pipe(browserSync.stream());
-
-/**
- * @task style
- * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
- */
- const styles = () => src(paths.styles.src)
-    .pipe(sourcemaps.init())
-    .pipe(sass({fiber: Fiber})
-    .on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write(paths.maps.dest))
-    .pipe(dest(paths.styles.dest))
     .pipe(browserSync.stream());
 
 /**
@@ -113,10 +94,10 @@ const imageminify = () => src(paths.images.src)
 // It's currently only useful in other functions
 const serve = () => {
     browserSync.init({
-        proxy: "http://fivetwofive-cw.test/"
+        proxy: "http://fivetwofive.test:8000/"
     });
 
-    watch(paths.styles.src, series(style, styles));
+    watch(paths.style.src, style);
     watch(paths.scripts.src, series(lint, scripts));
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
@@ -137,6 +118,5 @@ exports.default = (cb) => {
 // Function are exported to be public and can be run with the `gulp` command.
 exports.serve       = serve;
 exports.imageminify = imageminify;
-exports.styles      = styles;
 exports.style       = style;
 exports.scripts     = series(lint, scripts);

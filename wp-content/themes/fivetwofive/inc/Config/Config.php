@@ -1101,7 +1101,7 @@ class Config {
 	);
 
 	private $default_theme_mods = array(
-		'accent_color'          => 'yellow',
+		'accent_color'          => '#FFCB05',
 		'default_color'         => '#000000',
 		'heading_color'         => '#000000',
 		'default_font'          => 'DM Sans',
@@ -1110,6 +1110,15 @@ class Config {
 		'heading_font'          => 'DM Sans',
 		'heading_font_style'    => array( '700', '700i' ),
 		'heading_font_category' => 'sans-serif',
+		'footer'                => array(
+			'background_color' => '#ffffff',
+			'text_color'       => '#000000',
+		),
+		'header'                => array(
+			'background_color' => '#ffffff',
+			'text_color'       => '#000000',
+			'active_color'     => '#FFCB05',
+		)
 	);
 
 	private $preconnect_urls = array( 'https://fonts.gstatic.com' );
