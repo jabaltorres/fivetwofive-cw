@@ -11,7 +11,6 @@ namespace Fivetwofive\Customize;
 
 use Fivetwofive\Component_Interface;
 use Fivetwofive\Customize\Customize_Select2_Control;
-use Fivetwofive\Customize\Customize_Checkboxes_Control;
 use Fivetwofive\Config\Config;
 
 /**
@@ -29,104 +28,6 @@ class Customize implements Component_Interface {
 	public function register() {
 		add_action( 'customize_register', array( $this, 'customize_register' ) );
 		add_action( 'customize_preview_init', array( $this, 'customize_preview_js' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'customize_css' ), 11 );
-	}
-
-	/**
-	 * Checks the settings for the colors and fonts of the theme.
-	 *
-	 * @since 1.0
-	 */
-	public function customize_css() {
-		$config     = Config::get_instance()->get_settings();
-		$css        = '';
-		$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', $config['default_theme_mods'] );
-
-		if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
-			return;
-		}
-
-		$css .= sprintf(
-			'
-				a,
-				a:focus,
-				a:hover {
-					color: %1$s;
-				}
-			',
-			$theme_mods['accent_color']
-		);
-
-		$css .= sprintf(
-			'
-				.site-header {
-					background-color: %1$s;
-				}
-
-				.main-navigation a {
-					color: %2$s;
-				}
-
-				.main-navigation .current_page_item > a,
-				.main-navigation .current-menu-item > a,
-				.main-navigation .current_page_ancestor > a,
-				.main-navigation .current-menu-ancestor > a {
-					color: %3$s;
-				}
-
-				.main-navigation a:focus,
-				.main-navigation a:hover {
-					color: %3$s;
-				}
-			',
-			$theme_mods['header']['background_color'],
-			$theme_mods['header']['text_color'],
-			$theme_mods['header']['active_color']
-		);
-
-		$css .= sprintf(
-			'
-				body {
-					color: %1$s;
-					font-family: \'%2$s\',%3$s;
-				}
-			',
-			$theme_mods['default_color'],
-			$theme_mods['default_font'],
-			$theme_mods['default_font_category']
-		);
-
-		$css .= sprintf(
-			'
-				h1,
-				h2,
-				h3,
-				h4,
-				h5,
-				h6 {
-					color: %1$s;
-					font-family: \'%2$s\',%3$s;
-				}
-			',
-			$theme_mods['heading_color'],
-			$theme_mods['heading_font'],
-			$theme_mods['heading_font_category']
-		);
-
-		$css .= sprintf(
-			'
-				.site-footer {
-					background-color: %1$s;
-					color: %2$s;
-				}
-			',
-			$theme_mods['footer']['background_color'],
-			$theme_mods['footer']['text_color']
-		);
-
-		if ( $css ) {
-			wp_add_inline_style( 'fivetwofive-global-style', $css );
-		}
 	}
 
 	/**

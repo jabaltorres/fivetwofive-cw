@@ -11,11 +11,13 @@ namespace Fivetwofive\Styles;
 
 use Fivetwofive\Component_Interface;
 use Fivetwofive\Config\Config;
+use Fivetwofive\Styles\CSS;
 
 class Styles implements Component_Interface {
 
 	public function register() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'theme_styles_and_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'theme_mods_css' ), 11 );
 		add_action( 'wp_head', array( $this, 'preconnect' ), 5 );
 	}
 
@@ -71,7 +73,6 @@ class Styles implements Component_Interface {
 			$font_args[] = $font_uri;
 		}
 
-
 		$google_fonts_url .= '?' . implode( '&', $font_args );
 		$google_fonts_url .= '&display=swap';
 
@@ -106,6 +107,55 @@ class Styles implements Component_Interface {
 
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
+		}
+	}
+
+	/**
+	 * Checks the settings for the colors and fonts of the theme.
+	 *
+	 * @since 1.0
+	 */
+	public function theme_mods_css() {
+		$defaults   = Config::get_instance()->get_settings();
+		$css        = new CSS();
+		$theme_mods = wp_parse_args(
+			get_theme_mod( 'fivetwofive_theme_mods' ),
+			$defaults['default_theme_mods']
+		);
+
+		if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
+			return;
+		}
+
+		$css->set_selector( 'a, a:focus, a:hover' );
+		$css->add_property( 'color', $theme_mods['accent_color'] );
+
+		$css->set_selector( '.site-header' );
+		$css->add_property( 'background-color', $theme_mods['header']['background_color'] );
+
+		$css->set_selector( '.main-navigation a' );
+		$css->add_property( 'color', $theme_mods['header']['text_color'] );
+
+		$css->set_selector( '.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a' );
+		$css->add_property( 'color', $theme_mods['header']['active_color'] );
+
+		$css->set_selector( '.main-navigation a:focus, .main-navigation a:hover' );
+		$css->add_property( 'color', $theme_mods['header']['active_color'] );
+
+		$css->set_selector( 'body' );
+		$css->add_property( 'color', $theme_mods['default_color'] );
+		$css->add_property( 'font-family', $theme_mods['default_font'] . ',' . $theme_mods['default_font_category'] );
+
+		$css->set_selector( 'h1, h2, h3, h4, h5, h6' );
+		$css->add_property( 'color', $theme_mods['heading_color'] );
+		$css->add_property( 'font-family', $theme_mods['heading_font'] . ',' . $theme_mods['heading_font_category'] );
+
+		$css->set_selector( '.site-footer' );
+		$css->add_property( 'background-color', $theme_mods['footer']['background_color'] );
+		$css->add_property( 'color', $theme_mods['footer']['text_color'] );
+
+		if ( $css ) {
+			wp_add_inline_style( 'fivetwofive-global-style', $css->css_output() );
 		}
 	}
 
