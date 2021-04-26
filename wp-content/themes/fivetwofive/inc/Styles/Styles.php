@@ -119,7 +119,7 @@ class Styles implements Component_Interface {
 		$defaults   = Config::get_instance()->get_settings();
 		$css        = new CSS();
 		$theme_mods = wp_parse_args(
-			get_theme_mod( 'fivetwofive_theme_mods' ),
+			get_theme_mod( 'fivetwofive_theme_mods', array() ),
 			$defaults['default_theme_mods']
 		);
 
@@ -127,32 +127,32 @@ class Styles implements Component_Interface {
 			return;
 		}
 
-		$css->set_selector( 'a, a:focus, a:hover' );
-		$css->add_property( 'color', $theme_mods['accent_color'] );
+		// $css->set_selector( 'a, a:focus, a:hover' );
+		// $css->add_property( 'color', $theme_mods['accent_color'] );
 
-		$css->set_selector( '.site-header' );
-		$css->add_property( 'background-color', $theme_mods['header']['background_color'] );
+		// $css->set_selector( '.site-header' );
+		// $css->add_property( 'background-color', $theme_mods['header']['background_color'] );
 
-		$css->set_selector( '.main-navigation a' );
-		$css->add_property( 'color', $theme_mods['header']['text_color'] );
+		// $css->set_selector( '.main-navigation a' );
+		// $css->add_property( 'color', $theme_mods['header']['text_color'] );
 
-		$css->set_selector( '.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a' );
-		$css->add_property( 'color', $theme_mods['header']['active_color'] );
+		// $css->set_selector( '.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a' );
+		// $css->add_property( 'color', $theme_mods['header']['active_color'] );
 
-		$css->set_selector( '.main-navigation a:focus, .main-navigation a:hover' );
-		$css->add_property( 'color', $theme_mods['header']['active_color'] );
+		// $css->set_selector( '.main-navigation a:focus, .main-navigation a:hover' );
+		// $css->add_property( 'color', $theme_mods['header']['active_color'] );
 
-		$css->set_selector( 'body' );
-		$css->add_property( 'color', $theme_mods['default_color'] );
-		$css->add_property( 'font-family', $theme_mods['default_font'] . ',' . $theme_mods['default_font_category'] );
+		// $css->set_selector( 'body' );
+		// $css->add_property( 'color', $theme_mods['default_color'] );
+		// $css->add_property( 'font-family', $theme_mods['default_font'] . ',' . $theme_mods['default_font_category'] );
 
-		$css->set_selector( 'h1, h2, h3, h4, h5, h6' );
-		$css->add_property( 'color', $theme_mods['heading_color'] );
-		$css->add_property( 'font-family', $theme_mods['heading_font'] . ',' . $theme_mods['heading_font_category'] );
+		// $css->set_selector( 'h1, h2, h3, h4, h5, h6' );
+		// $css->add_property( 'color', $theme_mods['heading_color'] );
+		// $css->add_property( 'font-family', $theme_mods['heading_font'] . ',' . $theme_mods['heading_font_category'] );
 
-		$css->set_selector( '.site-footer' );
-		$css->add_property( 'background-color', $theme_mods['footer']['background_color'] );
-		$css->add_property( 'color', $theme_mods['footer']['text_color'] );
+		// $css->set_selector( '.site-footer' );
+		// $css->add_property( 'background-color', $theme_mods['footer']['background_color'] );
+		// $css->add_property( 'color', $theme_mods['footer']['text_color'] );
 
 		if ( $css ) {
 			wp_add_inline_style( 'fivetwofive-global-style', $css->css_output() );

@@ -1101,32 +1101,50 @@ class Config {
 	);
 
 	private $default_theme_mods = array(
-		'accent_color'          => '#FFCB05',
-		'default_color'         => '#000000',
-		'heading_color'         => '#000000',
-		'default_font'          => 'DM Sans',
-		'default_font_style'    => array( '400', '400i' ),
-		'default_font_category' => 'sans-serif',
-		'heading_font'          => 'DM Sans',
-		'heading_font_style'    => array( '700', '700i' ),
-		'heading_font_category' => 'sans-serif',
-		'footer'                => array(
-			'background_color' => '#ffffff',
-			'text_color'       => '#000000',
+		'typography'    => array(
+			'body_font'          => 'DM Sans',
+			'body_font_style'    => array( '400', '400i' ),
+			'heading_font'       => 'DM Sans',
+			'heading_font_style' => array( '700', '700i' ),
 		),
-		'header'                => array(
-			'background_color' => '#ffffff',
-			'text_color'       => '#000000',
-			'active_color'     => '#FFCB05',
+		'colors'        => array(
+			'body'               => array(
+				'background_color'   => '#ffffff',
+				'text_color'         => '#000000',
+				'heading_color'      => '#000000',
+				'link_color'         => '#ffcb05',
+				'link_color_hover'   => '#ffcb05',
+				'link_color_visited' => '#ffcb05',
+			),
+			'header'             => array(
+				'background_color' => '#ffffff',
+			),
+			'primary_navigation' => array(
+				'background_color'  => '#ffffff',
+				'link_color'        => '#000000',
+				'active_link_color' => '#FFCB05',
+			),
+			'footer'             => array(
+				'background_color' => '#ffffff',
+				'text_color'       => '#000000',
+			),
 		),
-		'site_identity'         => array(
+		'site_identity' => array(
 			'hide_blogname'        => '',
 			'hide_blogdescription' => '',
 		),
-		'layout'                => array(
+		'layout'        => array(
 			'header' => array(
+				'width'     => 'full',
 				'presets'   => 'default',
 				'alignment' => 'right',
+			),
+			'primary_navigation' => array(
+				'location'    => 'float_right',
+				'width'       => 'full',
+				'inner_width' => 'contained',
+				'alignment'   => 'right',
+				'search'      => 'enable',
 			)
 		)
 	);

@@ -84,7 +84,6 @@ final class Init {
 	 */
 	protected function get_default_components() : array {
 		$components = array(
-			new Custom_Header\Custom_Header(),
 			new Styles\Styles(),
 			new Customize\Customize(),
 			new Template\Template(),
