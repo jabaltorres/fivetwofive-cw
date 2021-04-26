@@ -1,6 +1,6 @@
 <?php
 
-namespace Fivetwofive;
+namespace Fivetwofive\FivetwofiveTheme;
 
 interface Component_Interface {
     public function register();

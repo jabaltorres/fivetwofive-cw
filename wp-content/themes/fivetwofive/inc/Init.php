@@ -7,7 +7,7 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive;
+namespace Fivetwofive\FivetwofiveTheme;
 
 use InvalidArgumentException;
 
@@ -84,7 +84,7 @@ final class Init {
 	 */
 	protected function get_default_components() : array {
 		$components = array(
-			new CustomHeader\CustomHeader(),
+			new Custom_Header\Custom_Header(),
 			new Styles\Styles(),
 			new Customize\Customize(),
 			new Template\Template(),

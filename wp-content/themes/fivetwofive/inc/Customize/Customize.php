@@ -7,11 +7,11 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Customize;
+namespace Fivetwofive\FivetwofiveTheme\Customize;
 
-use Fivetwofive\Component_Interface;
-use Fivetwofive\Customize\Customize_Select2_Control;
-use Fivetwofive\Config\Config;
+use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Customize\Customize_Select2_Control;
+use Fivetwofive\FivetwofiveTheme\Config\Config;
 
 /**
  * Customize class.
@@ -36,30 +36,12 @@ class Customize implements Component_Interface {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function customize_register( $wp_customize ) {
-		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-
-		if ( isset( $wp_customize->selective_refresh ) ) {
-			$wp_customize->selective_refresh->add_partial(
-				'blogname',
-				array(
-					'selector'        => '.site-title a',
-					'render_callback' => array( $this, 'customize_partial_blogname' ),
-				)
-			);
-			$wp_customize->selective_refresh->add_partial(
-				'blogdescription',
-				array(
-					'selector'        => '.site-description',
-					'render_callback' => array( $this, 'customize_partial_blogdescription' ),
-				)
-			);
-		}
-
 		$this->add_font_options( $wp_customize );
 		$this->add_color_options( $wp_customize );
 		$this->add_footer_options( $wp_customize );
 		$this->add_header_options( $wp_customize );
+		$this->add_site_identity_options( $wp_customize );
+		$this->add_layout_options( $wp_customize );
 	}
 
 	/**
@@ -454,6 +436,159 @@ class Customize implements Component_Interface {
 					'description' => __( 'Set the header active text color.', 'fivetwofive' ),
 					'section'     => 'fivetwofive_header_section',
 				)
+			)
+		);
+	}
+
+	/**
+	 * Add Site Identity fields in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_site_identity_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->get_control( 'blogname' )->priority         = 1;
+		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+		$wp_customize->get_control( 'blogdescription' )->priority  = 3;
+
+		if ( isset( $wp_customize->selective_refresh ) ) {
+			$wp_customize->selective_refresh->add_partial(
+				'blogname',
+				array(
+					'selector'        => '.site-title a',
+					'render_callback' => array( $this, 'customize_partial_blogname' ),
+				)
+			);
+			$wp_customize->selective_refresh->add_partial(
+				'blogdescription',
+				array(
+					'selector'        => '.site-description',
+					'render_callback' => array( $this, 'customize_partial_blogdescription' ),
+				)
+			);
+		}
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[site_identity][hide_blogname]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['site_identity']['hide_blogname'],
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[site_identity][hide_blogname]',
+			array(
+				'label'    => __( 'Hide site title', 'fivetwofive' ),
+				'section'  => 'title_tagline',
+				'type'     => 'checkbox',
+				'priority' => 2,
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[site_identity][hide_blogdescription]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['site_identity']['hide_blogdescription'],
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport'         => 'postMessage',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[site_identity][hide_blogdescription]',
+			array(
+				'label'    => __( 'Hide tagline', 'fivetwofive' ),
+				'section'  => 'title_tagline',
+				'type'     => 'checkbox',
+				'priority' => 4,
+			)
+		);
+	}
+
+	/**
+	 * Add Layout panel in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_layout_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->add_panel(
+			'fivetwofive_layout_panel',
+			array(
+				'title'    => __( 'Layout', 'fivetwofive' ),
+				'priority' => 160,
+			)
+		);
+
+		$wp_customize->add_section(
+			'fivetwofive_layout_header_section',
+			array(
+				'title'      => __( 'Header', 'fivetwofive' ),
+				'panel'      => 'fivetwofive_layout_panel',
+				'priority'   => 50,
+				'capability' => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][header][presets]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['header']['presets'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][header][presets]',
+			array(
+				'label'    => __( 'Presets', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_header_section',
+				'type'     => 'select',
+				'priority' => 2,
+				'choices'  => array(
+					'default'                    => 'Default',
+					'navigation_before'          => 'Navigation Before',
+					'navigation_after'           => 'Navigation After',
+					'navigation_before_centered' => 'Navigation Before - Centered',
+					'navigation_after_centered'  => 'Navigation After - Centered',
+					'navigation_left'            => 'Navigation Left',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][header][alignment]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['header']['alignment'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][header][alignment]',
+			array(
+				'label'    => __( 'Alignment', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_header_section',
+				'type'     => 'select',
+				'priority' => 3,
+				'choices'  => array(
+					'left'     => 'Left',
+					'right'    => 'Right',
+					'centered' => 'Centered',
+				),
 			)
 		);
 	}

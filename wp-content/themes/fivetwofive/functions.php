@@ -21,18 +21,7 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
-if ( class_exists( 'Fivetwofive\\Init' ) ) :
-	/**
-	 * When called for the first time, the function will initialize the theme.
-	 */
-	function fivetwofive() {
-		static $theme = null;
-
-		if ( null === $theme ) {
-			$theme = new Fivetwofive\Init();
-			$theme->register();
-		}
-	}
-
-	fivetwofive();
+if ( class_exists( 'Fivetwofive\\FivetwofiveTheme\\Init' ) ) :
+	$theme = new Fivetwofive\FivetwofiveTheme\Init();
+	$theme->register();
 endif;

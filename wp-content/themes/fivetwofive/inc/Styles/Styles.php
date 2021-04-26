@@ -7,11 +7,11 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Styles;
+namespace Fivetwofive\FivetwofiveTheme\Styles;
 
-use Fivetwofive\Component_Interface;
-use Fivetwofive\Config\Config;
-use Fivetwofive\Styles\CSS;
+use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Config\Config;
+use Fivetwofive\FivetwofiveTheme\Styles\CSS;
 
 class Styles implements Component_Interface {
 

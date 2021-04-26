@@ -9,12 +9,12 @@ class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
     public static $prefixLengthsPsr4 = array (
         'F' => 
         array (
-            'Fivetwofive\\' => 12,
+            'Fivetwofive\\FivetwofiveTheme\\' => 29,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Fivetwofive\\' => 
+        'Fivetwofive\\FivetwofiveTheme\\' => 
         array (
             0 => __DIR__ . '/../..' . '/inc',
         ),
@@ -22,18 +22,18 @@ class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Fivetwofive\\Component_Interface' => __DIR__ . '/../..' . '/inc/Component_Interface.php',
-        'Fivetwofive\\Config\\Config' => __DIR__ . '/../..' . '/inc/Config/Config.php',
-        'Fivetwofive\\Config\\Typography' => __DIR__ . '/../..' . '/inc/Config/Typography.php',
-        'Fivetwofive\\CustomHeader\\CustomHeader' => __DIR__ . '/../..' . '/inc/CustomHeader/CustomHeader.php',
-        'Fivetwofive\\Customize\\Customize' => __DIR__ . '/../..' . '/inc/Customize/Customize.php',
-        'Fivetwofive\\Customize\\Customize_Select2_Control' => __DIR__ . '/../..' . '/inc/Customize/Customize_Select2_Control.php',
-        'Fivetwofive\\Init' => __DIR__ . '/../..' . '/inc/Init.php',
-        'Fivetwofive\\Styles\\CSS' => __DIR__ . '/../..' . '/inc/Styles/CSS.php',
-        'Fivetwofive\\Styles\\Styles' => __DIR__ . '/../..' . '/inc/Styles/Styles.php',
-        'Fivetwofive\\Template\\Template' => __DIR__ . '/../..' . '/inc/Template/Template.php',
-        'Fivetwofive\\Theme\\Theme' => __DIR__ . '/../..' . '/inc/Theme/Theme.php',
-        'Fivetwofive\\Widgets\\Widgets' => __DIR__ . '/../..' . '/inc/Widgets/Widgets.php',
+        'Fivetwofive\\FivetwofiveTheme\\Component_Interface' => __DIR__ . '/../..' . '/inc/Component_Interface.php',
+        'Fivetwofive\\FivetwofiveTheme\\Config\\Config' => __DIR__ . '/../..' . '/inc/Config/Config.php',
+        'Fivetwofive\\FivetwofiveTheme\\Config\\Typography' => __DIR__ . '/../..' . '/inc/Config/Typography.php',
+        'Fivetwofive\\FivetwofiveTheme\\Custom_Header\\Custom_Header' => __DIR__ . '/../..' . '/inc/Custom_Header/Custom_Header.php',
+        'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize' => __DIR__ . '/../..' . '/inc/Customize/Customize.php',
+        'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize_Select2_Control' => __DIR__ . '/../..' . '/inc/Customize/Customize_Select2_Control.php',
+        'Fivetwofive\\FivetwofiveTheme\\Init' => __DIR__ . '/../..' . '/inc/Init.php',
+        'Fivetwofive\\FivetwofiveTheme\\Styles\\CSS' => __DIR__ . '/../..' . '/inc/Styles/CSS.php',
+        'Fivetwofive\\FivetwofiveTheme\\Styles\\Styles' => __DIR__ . '/../..' . '/inc/Styles/Styles.php',
+        'Fivetwofive\\FivetwofiveTheme\\Template\\Template' => __DIR__ . '/../..' . '/inc/Template/Template.php',
+        'Fivetwofive\\FivetwofiveTheme\\Theme\\Theme' => __DIR__ . '/../..' . '/inc/Theme/Theme.php',
+        'Fivetwofive\\FivetwofiveTheme\\Widgets\\Widgets' => __DIR__ . '/../..' . '/inc/Widgets/Widgets.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

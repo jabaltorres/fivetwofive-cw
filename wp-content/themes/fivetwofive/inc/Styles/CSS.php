@@ -7,7 +7,7 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Styles;
+namespace Fivetwofive\FivetwofiveTheme\Styles;
 
 /**
  * Creates minified css via PHP.

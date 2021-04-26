@@ -7,7 +7,7 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Config;
+namespace Fivetwofive\FivetwofiveTheme\Config;
 
 /**
  * The Singleton class defines the `GetInstance` method that serves as an
@@ -21,6 +21,7 @@ class Typography {
 		// Loop through them and put what we need into our fonts array.
 		$fonts = array();
 		$google_fonts = json_decode( $this->google_fonts_json );
+
 		foreach ( $google_fonts as $item ) {
 
 			// Grab what we need from our big list.

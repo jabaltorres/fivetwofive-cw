@@ -11,14 +11,14 @@
  * @package FiveTwoFive
  */
 
-namespace Fivetwofive\CustomHeader;
+namespace Fivetwofive\FivetwofiveTheme\Custom_Header;
 
-use Fivetwofive\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Component_Interface;
 
 /**
  * Undocumented class
  */
-class CustomHeader implements Component_Interface {
+class Custom_Header implements Component_Interface {
 
 	/**
 	 * Undocumented function
@@ -46,33 +46,8 @@ class CustomHeader implements Component_Interface {
 					'height'             => 250,
 					'flex-height'        => true,
 					'header-text'        => false,
-					'wp-head-callback'   => array( $this, 'header_style' ),
 				)
 			)
 		);
 	}
-
-	/**
-	 * Styles the header image and text displayed on the blog.
-	 *
-	 * @see fivetwofive_custom_header_setup().
-	 */
-	public function header_style() {
-		// If we get this far, we have custom styles. Let's do this.
-		?>
-		<style type="text/css">
-		<?php
-		// Has the text been hidden?
-		if ( ! display_header_text() ) :
-			?>
-			.site-title,
-			.site-description {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-			}
-		<?php endif; ?>
-		</style>
-		<?php
-	}
-
 }

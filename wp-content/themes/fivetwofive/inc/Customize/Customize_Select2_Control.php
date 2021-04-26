@@ -7,7 +7,7 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Customize;
+namespace Fivetwofive\FivetwofiveTheme\Customize;
 
 /**
  * Custom icons for this theme.

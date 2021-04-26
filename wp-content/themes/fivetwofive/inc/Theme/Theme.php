@@ -7,9 +7,9 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Theme;
+namespace Fivetwofive\FivetwofiveTheme\Theme;
 
-use Fivetwofive\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Component_Interface;
 
 class Theme implements Component_Interface {
 

@@ -7,7 +7,7 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Config;
+namespace Fivetwofive\FivetwofiveTheme\Config;
 
 /**
  * The Singleton class defines the `GetInstance` method that serves as an
@@ -1118,6 +1118,16 @@ class Config {
 			'background_color' => '#ffffff',
 			'text_color'       => '#000000',
 			'active_color'     => '#FFCB05',
+		),
+		'site_identity'         => array(
+			'hide_blogname'        => '',
+			'hide_blogdescription' => '',
+		),
+		'layout'                => array(
+			'header' => array(
+				'presets'   => 'default',
+				'alignment' => 'right',
+			)
 		)
 	);
 

@@ -29,22 +29,32 @@
 		<div class="container">
 			<div class="row">
 				<div class="site-branding col-3">
-					<?php
-					the_custom_logo();
-					if ( is_front_page() && is_home() ) :
-						?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<div class="site-branding__logo">
+						<?php the_custom_logo(); ?>
+					</div>
+					<div class="site-branding__text">
 						<?php
-					else :
+						$fivetwofive_theme_mod = get_theme_mod( 'fivetwofive_theme_mods' );
+						$hide_site_title       = $fivetwofive_theme_mod['site_identity']['hide_blogname'];
+						$hide_site_description = $fivetwofive_theme_mod['site_identity']['hide_blogdescription'];
+
+						if ( ! $hide_site_title ) {
+							if ( is_front_page() && is_home() ) {
+								echo sprintf( '<h1 class="site-title"><a href="%1$s" rel="home">%2$s</a></h1>', esc_url( home_url( '/' ) ), esc_html( get_bloginfo( 'name' ) ) );
+							} else {
+								echo sprintf( '<p class="site-title"><a href="%1$s" rel="home">%2$s</a></p>', esc_url( home_url( '/' ) ), esc_html( get_bloginfo( 'name' ) ) );
+							}
+						}
+
+						if ( ! $hide_site_description ) {
+							$fivetwofive_description = get_bloginfo( 'description', 'display' );
+							if ( $fivetwofive_description || is_customize_preview() ) {
+								echo sprintf( '<p class="site-description">%1$s</p>', esc_html( $fivetwofive_description ) );
+							}
+						}
+
 						?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-						<?php
-					endif;
-					$fivetwofive_description = get_bloginfo( 'description', 'display' );
-					if ( $fivetwofive_description || is_customize_preview() ) :
-						?>
-						<p class="site-description"><?php echo $fivetwofive_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-					<?php endif; ?>
+					</div>
 				</div><!-- .site-branding -->
 
 				<nav id="site-navigation" class="main-navigation col-9">

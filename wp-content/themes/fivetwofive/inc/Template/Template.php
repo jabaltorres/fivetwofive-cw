@@ -7,9 +7,9 @@
  * @since FiveTwoFive 1.0
  */
 
-namespace Fivetwofive\Template;
+namespace Fivetwofive\FivetwofiveTheme\Template;
 
-use Fivetwofive\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Component_Interface;
 
 class Template implements Component_Interface {
 
