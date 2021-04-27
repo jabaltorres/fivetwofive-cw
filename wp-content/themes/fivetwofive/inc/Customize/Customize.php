@@ -378,11 +378,11 @@ class Customize implements Component_Interface {
 		);
 
 		$wp_customize->add_setting(
-			'fivetwofive_theme_mods[typography][body_font_style]',
+			'fivetwofive_theme_mods[typography][body_font_variants]',
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['body_font_style'],
+				'default'           => $config['default_theme_mods']['typography']['body_font_variants'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -390,16 +390,61 @@ class Customize implements Component_Interface {
 		$wp_customize->add_control(
 			new Customize_Select2_Control(
 				$wp_customize,
-				'fivetwofive_theme_mods[typography][body_font_style]',
+				'fivetwofive_theme_mods[typography][body_font_variants]',
 				array(
 					'priority'    => 10,
 					'section'     => 'fivetwofive_typography_section',
-					'label'       => __( 'Body Font Style', 'fivetwofive' ),
-					'description' => __( 'Refer to Google fonts for the desired font style of the body font.', 'fivetwofive' ),
-					'choices'     => $config['font_styles'],
+					'description' => __( 'Font Variants', 'fivetwofive' ),
+					'choices'     => $config['font_variants'],
 					'input_attrs' => array(
 						'multiple' => 'multiple',
 					),
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[typography][body_font_category]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['typography']['body_font_category'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[typography][body_font_category]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_typography_section',
+					'description' => __( 'Font Category', 'fivetwofive' ),
+					'choices'     => $config['font_categories'],
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[typography][body_font_weight]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['typography']['body_font_weight'],
+				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[typography][body_font_weight]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_typography_section',
+					'description' => __( 'Font weight', 'fivetwofive' ),
+					'choices'     => $config['font_weights'],
 				)
 			)
 		);
@@ -429,11 +474,11 @@ class Customize implements Component_Interface {
 		);
 
 		$wp_customize->add_setting(
-			'fivetwofive_theme_mods[typography][heading_font_style]',
+			'fivetwofive_theme_mods[typography][heading_font_variants]',
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['heading_font_style'],
+				'default'           => $config['default_theme_mods']['typography']['heading_font_variants'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -441,16 +486,61 @@ class Customize implements Component_Interface {
 		$wp_customize->add_control(
 			new Customize_Select2_Control(
 				$wp_customize,
-				'fivetwofive_theme_mods[typography][heading_font_style]',
+				'fivetwofive_theme_mods[typography][heading_font_variants]',
 				array(
 					'priority'    => 15,
 					'section'     => 'fivetwofive_typography_section',
-					'label'       => __( 'Heading Font Style', 'fivetwofive' ),
-					'description' => __( 'Refer to Google fonts for the desired font style of the heading font.', 'fivetwofive' ),
-					'choices'     => $config['font_styles'],
+					'description' => __( 'Font Variants', 'fivetwofive' ),
+					'choices'     => $config['font_variants'],
 					'input_attrs' => array(
 						'multiple' => 'multiple',
 					),
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[typography][heading_font_category]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['typography']['heading_font_category'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[typography][heading_font_category]',
+				array(
+					'priority'    => 15,
+					'section'     => 'fivetwofive_typography_section',
+					'description' => __( 'Font Category', 'fivetwofive' ),
+					'choices'     => $config['font_categories'],
+				)
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[typography][heading_font_weight]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['typography']['heading_font_weight'],
+				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
+			)
+		);
+
+		$wp_customize->add_control(
+			new Customize_Select2_Control(
+				$wp_customize,
+				'fivetwofive_theme_mods[typography][heading_font_weight]',
+				array(
+					'priority'    => 15,
+					'section'     => 'fivetwofive_typography_section',
+					'description' => __( 'Font weight', 'fivetwofive' ),
+					'choices'     => $config['font_weights'],
 				)
 			)
 		);

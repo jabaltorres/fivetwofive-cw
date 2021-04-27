@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
+class ComposerStaticInit1b10295a90c7faaa17f00f3f821bb1dc
 {
     public static $prefixLengthsPsr4 = array (
         'F' => 
@@ -25,7 +25,6 @@ class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
         'Fivetwofive\\FivetwofiveTheme\\Component_Interface' => __DIR__ . '/../..' . '/inc/Component_Interface.php',
         'Fivetwofive\\FivetwofiveTheme\\Config\\Config' => __DIR__ . '/../..' . '/inc/Config/Config.php',
         'Fivetwofive\\FivetwofiveTheme\\Config\\Typography' => __DIR__ . '/../..' . '/inc/Config/Typography.php',
-        'Fivetwofive\\FivetwofiveTheme\\Custom_Header\\Custom_Header' => __DIR__ . '/../..' . '/inc/Custom_Header/Custom_Header.php',
         'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize' => __DIR__ . '/../..' . '/inc/Customize/Customize.php',
         'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize_Select2_Control' => __DIR__ . '/../..' . '/inc/Customize/Customize_Select2_Control.php',
         'Fivetwofive\\FivetwofiveTheme\\Init' => __DIR__ . '/../..' . '/inc/Init.php',
@@ -39,9 +38,9 @@ class ComposerStaticInitb10e8971480eff83f96015e2d3a3725b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb10e8971480eff83f96015e2d3a3725b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb10e8971480eff83f96015e2d3a3725b::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb10e8971480eff83f96015e2d3a3725b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1b10295a90c7faaa17f00f3f821bb1dc::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1b10295a90c7faaa17f00f3f821bb1dc::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1b10295a90c7faaa17f00f3f821bb1dc::$classMap;
 
         }, null, ClassLoader::class);
     }

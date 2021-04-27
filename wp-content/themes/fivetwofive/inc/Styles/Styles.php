@@ -31,12 +31,13 @@ class Styles implements Component_Interface {
 		}
 
 		foreach ( $fonts as $font ) {
-			$font_uri = '';
-			$font_uri_weights = array();
-			$has_italic = false;
-			// check if there is an italic
-			foreach ( $font['weights'] as $font_weight ) {
-				if ( strpos( $font_weight, 'i' ) !== false ) {
+			$font_uri         = '';
+			$font_uri_variants = array();
+			$has_italic       = false;
+
+			// check if there is an italic.
+			foreach ( $font['variants'] as $font_weight ) {
+				if ( strpos( $font_weight, 'italic' ) !== false ) {
 					$has_italic = true;
 					break;
 				}
@@ -45,29 +46,29 @@ class Styles implements Component_Interface {
 			if ( $has_italic ) {
 				$font_uri = wp_sprintf(
 					'family=%s:ital,wght@',
-					urlencode( $font['name'] )
+					rawurlencode( $font['name'] )
 				);
 
-				foreach ( $font['weights'] as $weight ) {
-					if ( strpos( $weight, 'i' ) === false ) {
-						$font_uri_weights[] = '0,' . $weight;
+				foreach ( $font['variants'] as $variant ) {
+					if ( strpos( $variant, 'italic' ) === false ) {
+						$font_uri_variants[] = '0,' . $variant;
 					} else {
-						$font_uri_weights[] = '1,' . str_replace( 'i', '', $weight );
+						$font_uri_variants[] = '1,' . str_replace( 'italic', '', $variant );
 					}
 				}
 
-				$font_uri .= implode( ';', $font_uri_weights );
+				$font_uri .= implode( ';', $font_uri_variants );
 			} else {
 				$font_uri = wp_sprintf(
 					'family=%s:wght@',
-					urlencode( $font['name'] )
+					rawurlencode( $font['name'] )
 				);
 
-				foreach ( $font['weights'] as $weight ) {
-					$font_uri_weights[] = $weight;
+				foreach ( $font['variants'] as $variant ) {
+					$font_uri_variants[] = $variant;
 				}
 
-				$font_uri .= implode( ';', $font_uri_weights );
+				$font_uri .= implode( ';', $font_uri_variants );
 			}
 
 			$font_args[] = $font_uri;
@@ -80,18 +81,21 @@ class Styles implements Component_Interface {
 	}
 
 	public function fonts_url() {
-		$defaults = Config::get_instance()->get_settings();
-		$theme_mods = get_theme_mod( 'fivetwofive_theme_mods', $defaults['default_theme_mods'] );
+		$defaults   = Config::get_instance()->get_settings();
+		$theme_mods = wp_parse_args(
+			get_theme_mod( 'fivetwofive_theme_mods', array() ),
+			$defaults['default_theme_mods']
+		);
 
 		$fonts = array(
 			array(
-				'name'    => $theme_mods['default_font'],
-				'weights' =>  $theme_mods['default_font_style'],
+				'name'     => $theme_mods['typography']['body_font'],
+				'variants' => $theme_mods['typography']['body_font_variants'],
 			),
 			array(
-				'name'    => $theme_mods['heading_font'],
-				'weights' =>  $theme_mods['heading_font_style'],
-			)
+				'name'     => $theme_mods['typography']['heading_font'],
+				'variants' => $theme_mods['typography']['heading_font_variants'],
+			),
 		);
 
 		return $this->generate_google_fonts_url( $fonts );
@@ -127,32 +131,42 @@ class Styles implements Component_Interface {
 			return;
 		}
 
-		// $css->set_selector( 'a, a:focus, a:hover' );
-		// $css->add_property( 'color', $theme_mods['accent_color'] );
+		$css->set_selector( 'a, a:focus' );
+		$css->add_property( 'color', $theme_mods['colors']['body']['link_color'] );
 
-		// $css->set_selector( '.site-header' );
-		// $css->add_property( 'background-color', $theme_mods['header']['background_color'] );
+		$css->set_selector( 'a:hover' );
+		$css->add_property( 'color', $theme_mods['colors']['body']['link_color_hover'] );
 
-		// $css->set_selector( '.main-navigation a' );
-		// $css->add_property( 'color', $theme_mods['header']['text_color'] );
+		$css->set_selector( 'a:visited' );
+		$css->add_property( 'color', $theme_mods['colors']['body']['link_color_visited'] );
 
-		// $css->set_selector( '.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a' );
-		// $css->add_property( 'color', $theme_mods['header']['active_color'] );
+		$css->set_selector( '.site-header' );
+		$css->add_property( 'background-color', $theme_mods['colors']['header']['background_color'] );
 
-		// $css->set_selector( '.main-navigation a:focus, .main-navigation a:hover' );
-		// $css->add_property( 'color', $theme_mods['header']['active_color'] );
+		$css->set_selector( '.main-navigation' );
+		$css->add_property( 'background-color', $theme_mods['colors']['primary_navigation']['background_color'] );
 
-		// $css->set_selector( 'body' );
-		// $css->add_property( 'color', $theme_mods['default_color'] );
-		// $css->add_property( 'font-family', $theme_mods['default_font'] . ',' . $theme_mods['default_font_category'] );
+		$css->set_selector( '.main-navigation a' );
+		$css->add_property( 'color', $theme_mods['colors']['primary_navigation']['link_color'] );
 
-		// $css->set_selector( 'h1, h2, h3, h4, h5, h6' );
-		// $css->add_property( 'color', $theme_mods['heading_color'] );
-		// $css->add_property( 'font-family', $theme_mods['heading_font'] . ',' . $theme_mods['heading_font_category'] );
+		$css->set_selector( '.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a, .main-navigation .current-menu-ancestor > a' );
+		$css->add_property( 'color', $theme_mods['colors']['primary_navigation']['active_link_color'] );
 
-		// $css->set_selector( '.site-footer' );
-		// $css->add_property( 'background-color', $theme_mods['footer']['background_color'] );
-		// $css->add_property( 'color', $theme_mods['footer']['text_color'] );
+		$css->set_selector( '.main-navigation a:focus, .main-navigation a:hover' );
+		$css->add_property( 'color', $theme_mods['colors']['primary_navigation']['active_link_color'] );
+
+		$css->set_selector( 'body' );
+		$css->add_property( 'color', $theme_mods['colors']['body']['text_color'] );
+		$css->add_property( 'background-color', $theme_mods['colors']['body']['background_color'] );
+		$css->add_property( 'font-family', $theme_mods['typography']['body_font'] . ', ' . $theme_mods['typography']['body_font_category'] );
+
+		$css->set_selector( 'h1, h2, h3, h4, h5, h6' );
+		$css->add_property( 'color', $theme_mods['colors']['body']['heading_color'] );
+		$css->add_property( 'font-family', $theme_mods['typography']['heading_font'] . ', ' . $theme_mods['typography']['heading_font_category'] );
+
+		$css->set_selector( '.site-footer' );
+		$css->add_property( 'background-color', $theme_mods['colors']['footer']['background_color'] );
+		$css->add_property( 'color', $theme_mods['colors']['footer']['text_color'] );
 
 		if ( $css ) {
 			wp_add_inline_style( 'fivetwofive-global-style', $css->css_output() );
