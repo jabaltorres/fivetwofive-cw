@@ -24,7 +24,7 @@ class Config {
 			'body_font_variants'    => array( '400', 'italic' ),
 			'body_font_category'    => 'sans-serif',
 			'body_font_weight'      => '400',
-			'heading_font'          => 'DM sans',
+			'heading_font'          => 'Roboto',
 			'heading_font_variants' => array( '700', '700italic' ),
 			'heading_font_category' => 'sans-serif',
 			'heading_font_weight'   => '700',
