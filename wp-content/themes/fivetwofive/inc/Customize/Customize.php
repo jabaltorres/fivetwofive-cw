@@ -606,7 +606,7 @@ class Customize implements Component_Interface {
 		$wp_customize->add_control(
 			new \WP_Customize_Color_Control(
 				$wp_customize,
-				'fivetwofive_theme_mods[colors][body][heading_color]',
+				'fivetwofive_theme_mods[colors][body][text_color]',
 				array(
 					'label'   => __( 'Text Color', 'fivetwofive' ),
 					'section' => 'fivetwofive_body_color_section',
