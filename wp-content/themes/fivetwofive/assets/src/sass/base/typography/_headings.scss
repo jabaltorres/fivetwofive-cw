@@ -5,4 +5,30 @@ h4,
 h5,
 h6 {
 	clear: both;
+	margin: 0 0 rem(20px);
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: rem(44px);
+}
+
+h2 {
+	font-size: rem(36px);
+}
+
+h3 {
+	font-size: rem(32px);
+}
+
+h4 {
+	font-size: rem(28px);
+}
+
+h5 {
+	font-size: rem(24px);
+}
+
+h6 {
+	font-size: rem(20px);
 }

@@ -13,6 +13,7 @@ return array(
     'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize' => $baseDir . '/inc/Customize/Customize.php',
     'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize_Select2_Control' => $baseDir . '/inc/Customize/Customize_Select2_Control.php',
     'Fivetwofive\\FivetwofiveTheme\\Init' => $baseDir . '/inc/Init.php',
+    'Fivetwofive\\FivetwofiveTheme\\Post\\Post' => $baseDir . '/inc/Post/Post.php',
     'Fivetwofive\\FivetwofiveTheme\\Styles\\CSS' => $baseDir . '/inc/Styles/CSS.php',
     'Fivetwofive\\FivetwofiveTheme\\Styles\\Styles' => $baseDir . '/inc/Styles/Styles.php',
     'Fivetwofive\\FivetwofiveTheme\\Template\\Template' => $baseDir . '/inc/Template/Template.php',

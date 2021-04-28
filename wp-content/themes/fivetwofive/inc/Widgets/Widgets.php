@@ -26,7 +26,7 @@ class Widgets implements Component_Interface {
 		register_sidebar(
 			array(
 				'name'          => esc_html__( 'Sidebar', 'fivetwofive' ),
-				'id'            => 'sidebar',
+				'id'            => 'primary-sidebar',
 				'description'   => esc_html__( 'Add widgets here.', 'fivetwofive' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',

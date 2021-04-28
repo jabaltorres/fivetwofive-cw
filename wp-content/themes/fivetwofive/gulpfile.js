@@ -94,7 +94,7 @@ const imageminify = () => src(paths.images.src)
 // It's currently only useful in other functions
 const serve = () => {
     browserSync.init({
-        proxy: "http://fivetwofive.test:8000/"
+        proxy: "https://fivetwofive.local/"
     });
 
     watch(paths.style.src, style);

@@ -28,6 +28,7 @@ class ComposerStaticInit1b10295a90c7faaa17f00f3f821bb1dc
         'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize' => __DIR__ . '/../..' . '/inc/Customize/Customize.php',
         'Fivetwofive\\FivetwofiveTheme\\Customize\\Customize_Select2_Control' => __DIR__ . '/../..' . '/inc/Customize/Customize_Select2_Control.php',
         'Fivetwofive\\FivetwofiveTheme\\Init' => __DIR__ . '/../..' . '/inc/Init.php',
+        'Fivetwofive\\FivetwofiveTheme\\Post\\Post' => __DIR__ . '/../..' . '/inc/Post/Post.php',
         'Fivetwofive\\FivetwofiveTheme\\Styles\\CSS' => __DIR__ . '/../..' . '/inc/Styles/CSS.php',
         'Fivetwofive\\FivetwofiveTheme\\Styles\\Styles' => __DIR__ . '/../..' . '/inc/Styles/Styles.php',
         'Fivetwofive\\FivetwofiveTheme\\Template\\Template' => __DIR__ . '/../..' . '/inc/Template/Template.php',

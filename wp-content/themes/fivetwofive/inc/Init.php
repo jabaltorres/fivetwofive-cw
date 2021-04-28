@@ -89,6 +89,7 @@ final class Init {
 			new Template\Template(),
 			new Theme\Theme(),
 			new Widgets\Widgets(),
+			new Post\Post(),
 		);
 
 		return $components;

@@ -1,10 +1,56 @@
-.sticky {
-	display: block;
-}
+.entry {
+	&-header {
+		padding: rem(25px) 0;
+	}
 
-.post,
-.page {
-	margin: 0 0 1.5em;
+	&-title {
+		margin-bottom: 0.375em;
+		a {
+			color: inherit;
+			transition: color 300ms ease-in-out;
+		}
+	}
+
+	&-footer,
+	&-meta {
+		font-size: 85%;
+		margin-top: .5em;
+		line-height: 1.5;
+	}
+
+	&-footer {
+		span {
+			display: block;
+			margin-bottom: 0.278em;
+		}
+	}
+
+	&-read-more {
+		padding-left: rem(5px);
+	}
+
+	.post-thumbnail {
+		margin-top: 1.5em;
+		display: block;
+	}
+
+	.home &,
+	.archive & {
+		padding: rem(25px) 0;
+		margin-bottom: rem(25px);
+		border-bottom: 1px solid #efefef;
+
+		.entry-header {
+			padding: 0;
+		}
+	}
+
+	&.sticky {
+		display: block;
+		background-color: #efefef;
+		padding: 1.5625rem;
+		border-radius: 5px;
+	}
 }
 
 .updated:not(.published) {
@@ -20,4 +66,9 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+
+.page-title {
+	margin: 0;
 }
