@@ -68,6 +68,11 @@ class Config {
 				'alignment'   => 'right',
 				'search'      => 'enable',
 			),
+			'footer' => array(
+				'width'       => 'full',
+				'inner_width' => 'contained',
+				'widgets'     => '3',
+			),
 		),
 	);
 

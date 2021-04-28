@@ -38,6 +38,9 @@ class Customize implements Component_Interface {
 	public function customize_register( $wp_customize ) {
 		$this->add_site_identity_options( $wp_customize );
 		$this->add_layout_options( $wp_customize );
+		$this->add_layout_header_options( $wp_customize );
+		$this->add_layout_primary_navigation_options( $wp_customize );
+		$this->add_layout_footer_options( $wp_customize );
 		$this->add_typography_options( $wp_customize );
 		$this->add_color_options( $wp_customize );
 		$this->add_color_header_options( $wp_customize );
@@ -134,6 +137,16 @@ class Customize implements Component_Interface {
 			)
 		);
 
+	}
+
+	/**
+	 * Add Header Layout panel in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_layout_header_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
 		$wp_customize->add_section(
 			'fivetwofive_layout_header_section',
 			array(
@@ -196,6 +209,16 @@ class Customize implements Component_Interface {
 				),
 			)
 		);
+
+	}
+
+	/**
+	 * Add Primary Navigation layout settings in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_layout_primary_navigation_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
 
 		$wp_customize->add_section(
 			'fivetwofive_layout_navigation_section',
@@ -331,6 +354,101 @@ class Customize implements Component_Interface {
 				),
 			)
 		);
+	}
+
+	/**
+	 * Add Footer Layout panel in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_layout_footer_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->add_section(
+			'fivetwofive_layout_footer_section',
+			array(
+				'title'      => __( 'Footer', 'fivetwofive' ),
+				'panel'      => 'fivetwofive_layout_panel',
+				'priority'   => 30,
+				'capability' => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][footer][width]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['footer']['width'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][footer][width]',
+			array(
+				'label'    => __( 'Footer Width', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_footer_section',
+				'type'     => 'select',
+				'priority' => 10,
+				'choices'  => array(
+					'contained' => 'Contained',
+					'full'      => 'Full',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][footer][inner_width]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['footer']['inner_width'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][footer][inner_width]',
+			array(
+				'label'    => __( 'Footer Inner Width', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_footer_section',
+				'type'     => 'select',
+				'priority' => 20,
+				'choices'  => array(
+					'contained' => 'Contained',
+					'full'      => 'Full',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][footer][widgets]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['footer']['widgets'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][footer][widgets]',
+			array(
+				'label'    => __( 'Footer Widgets', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_footer_section',
+				'type'     => 'select',
+				'priority' => 30,
+				'choices'  => array(
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+				),
+			)
+		);
+
 	}
 
 	/**
