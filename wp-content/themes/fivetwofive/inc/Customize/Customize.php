@@ -44,6 +44,7 @@ class Customize implements Component_Interface {
 		$this->add_layout_header_options( $wp_customize );
 		$this->add_layout_primary_navigation_options( $wp_customize );
 		$this->add_layout_footer_options( $wp_customize );
+		$this->add_layout_sidebars_options( $wp_customize );
 		$this->add_typography_options( $wp_customize );
 		$this->add_color_options( $wp_customize );
 		$this->add_color_header_options( $wp_customize );
@@ -448,6 +449,101 @@ class Customize implements Component_Interface {
 					'3' => '3',
 					'4' => '4',
 					'5' => '5',
+				),
+			)
+		);
+
+	}
+
+	/**
+	 * Add Sidebar Layout panel in the customizer api.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	public function add_layout_sidebars_options( $wp_customize ) {
+		$config = Config::get_instance()->get_settings();
+
+		$wp_customize->add_section(
+			'fivetwofive_layout_sidebars_section',
+			array(
+				'title'      => __( 'Sidebars', 'fivetwofive' ),
+				'panel'      => 'fivetwofive_layout_panel',
+				'priority'   => 40,
+				'capability' => 'edit_theme_options',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][sidebars][sidebar_layout]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['sidebars']['sidebar_layout'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][sidebars][sidebar_layout]',
+			array(
+				'label'    => __( 'Sidebar Layout', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_sidebars_section',
+				'type'     => 'select',
+				'priority' => 10,
+				'choices'  => array(
+					'sidebar_content'    => 'Sidebar / Content',
+					'content_sidebar'    => 'Content / Sidebar',
+					'content_no_sidebar' => 'Content (no sidebars)',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][sidebars][blog_sidebar_layout]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['sidebars']['blog_sidebar_layout'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][sidebars][blog_sidebar_layout]',
+			array(
+				'label'    => __( 'Blog Sidebar Layout', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_sidebars_section',
+				'type'     => 'select',
+				'priority' => 20,
+				'choices'  => array(
+					'sidebar_content'    => 'Sidebar / Content',
+					'content_sidebar'    => 'Content / Sidebar',
+					'content_no_sidebar' => 'Content (no sidebars)',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			'fivetwofive_theme_mods[layout][sidebars][single_post_sidebar_layout]',
+			array(
+				'type'              => 'theme_mod',
+				'capability'        => 'edit_theme_options',
+				'default'           => $config['default_theme_mods']['layout']['sidebars']['single_post_sidebar_layout'],
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+
+		$wp_customize->add_control(
+			'fivetwofive_theme_mods[layout][sidebars][single_post_sidebar_layout]',
+			array(
+				'label'    => __( 'Single Post Sidebar Layout', 'fivetwofive' ),
+				'section'  => 'fivetwofive_layout_sidebars_section',
+				'type'     => 'select',
+				'priority' => 20,
+				'choices'  => array(
+					'sidebar_content'    => 'Sidebar / Content',
+					'content_sidebar'    => 'Content / Sidebar',
+					'content_no_sidebar' => 'Content (no sidebars)',
 				),
 			)
 		);

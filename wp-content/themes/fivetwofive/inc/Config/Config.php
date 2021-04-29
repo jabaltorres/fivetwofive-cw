@@ -59,7 +59,7 @@ class Config {
 			'hide_blogdescription' => '',
 		),
 		'layout'        => array(
-			'header' => array(
+			'header'             => array(
 				'width'     => 'full',
 				'presets'   => 'default',
 				'alignment' => 'right',
@@ -71,10 +71,15 @@ class Config {
 				'alignment'   => 'right',
 				'search'      => 'enable',
 			),
-			'footer' => array(
+			'footer'             => array(
 				'width'       => 'full',
 				'inner_width' => 'contained',
 				'widgets'     => '3',
+			),
+			'sidebars'           => array(
+				'sidebar_layout'             => 'content_no_sidebar',
+				'blog_sidebar_layout'        => 'content_sidebar',
+				'single_post_sidebar_layout' => 'content_sidebar',
 			),
 		),
 	);
