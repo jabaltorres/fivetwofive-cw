@@ -1,10 +1,10 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Handle all the function in displaying posts.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Post
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Post;
@@ -12,8 +12,14 @@ namespace Fivetwofive\FivetwofiveTheme\Post;
 use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Interfaces\Templating_Component_Interface;
 
+/**
+ * Post Class.
+ */
 class Post implements Component_Interface, Templating_Component_Interface {
 
+	/**
+	 * Adds the action and filter hooks to integrate with WordPress.
+	 */
 	public function register() {
 		add_filter( 'excerpt_length', array( $this, 'excerpt_length' ) );
 		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );

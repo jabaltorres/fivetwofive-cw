@@ -1,20 +1,18 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Customize Select2 Control class.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Customize
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Customize;
 
 /**
- * Custom icons for this theme.
+ * Customize Select2 Control class.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @since 1.0.0
  */
 class Customize_Select2_Control extends \WP_Customize_Control {
 	/**

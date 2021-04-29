@@ -1,16 +1,19 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Handle all the functions for theme main structures.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Template
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Template;
 
 use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 
+/**
+ * Undocumented class
+ */
 class Template implements Component_Interface {
 
 	public function register() {

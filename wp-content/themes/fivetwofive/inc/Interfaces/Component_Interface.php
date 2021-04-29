@@ -1,14 +1,18 @@
 <?php
 /**
- * Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface interface
+ * Interface for a theme component.
  *
- * @package Fivetwofive\FivetwofiveTheme
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Interfaces
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Interfaces;
 
 /**
  * Interface for a theme component.
+ *
+ * @since 1.0.0
  */
 interface Component_Interface {
 	/**

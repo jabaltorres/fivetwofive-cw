@@ -1,10 +1,10 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Handle all the outputting of styles need in the site.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Styles
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Styles;
@@ -13,6 +13,9 @@ use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Config\Config;
 use Fivetwofive\FivetwofiveTheme\Styles\CSS;
 
+/**
+ * Handle all the outputting of styles need in the site.
+ */
 class Styles implements Component_Interface {
 
 	public function register() {

@@ -1,10 +1,10 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Customize class.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Customize
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Customize;
@@ -13,8 +13,11 @@ use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Customize\Customize_Select2_Control;
 use Fivetwofive\FivetwofiveTheme\Config\Config;
 
+
 /**
  * Customize class.
+ *
+ * @since 1.0.0
  */
 class Customize implements Component_Interface {
 

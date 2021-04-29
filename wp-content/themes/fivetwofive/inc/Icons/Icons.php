@@ -2,9 +2,9 @@
 /**
  * Custom icons for this theme.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Icons
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Icons;
@@ -13,8 +13,10 @@ use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Interfaces\Templating_Component_Interface;
 
 /**
- * SVG ICONS CLASS
+ * Icons class
  * Retrieve the SVG code for the specified icon. Based on a solution in Twenty Nineteen.
+ *
+ * @since 1.0.0
  */
 class Icons implements Component_Interface, Templating_Component_Interface {
 

@@ -1,10 +1,10 @@
 <?php
 /**
- * Google Fonts list for customize font controls.
+ * Handle all the theme configuration settings - Config class.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Config
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Config;
@@ -12,12 +12,15 @@ namespace Fivetwofive\FivetwofiveTheme\Config;
 use Fivetwofive\FivetwofiveTheme\Config\Typography;
 
 /**
- * The Singleton class defines the `GetInstance` method that serves as an
- * alternative to constructor and lets clients access the same instance of this
- * class over and over.
+ * Handle all the theme configuration settings.
  */
 class Config {
 
+	/**
+	 * Default Theme mods - see get_settings to add or override default theme mods.
+	 *
+	 * @var array
+	 */
 	private $default_theme_mods = array(
 		'typography'    => array(
 			'body_font'             => 'DM sans',
@@ -76,40 +79,47 @@ class Config {
 		),
 	);
 
+	/**
+	 * Preconnect URLs
+	 *
+	 * @var array
+	 */
 	private $preconnect_urls = array( 'https://fonts.gstatic.com' );
 
 	/**
-	 * The Singleton's instance is stored in a static field. This field is an
-	 * array, because we'll allow our Singleton to have subclasses. Each item in
-	 * this array will be an instance of a specific Singleton's subclass.
+	 * Config instance.
+	 *
+	 * @var array
 	 */
 	private static $instances = array();
 
 	/**
-	 * The Singleton's constructor should always be private to prevent direct
+	 * The Config's constructor should always be private to prevent direct
 	 * construction calls with the `new` operator.
 	 */
 	protected function __construct() { }
 
 	/**
-	 * Singletons should not be cloneable.
+	 * Config class should not be cloneable.
 	 */
 	protected function __clone() { }
 
 	/**
-	 * Singletons should not be restorable from strings.
+	 * Config class should not be restorable from strings.
+	 *
+	 * @throws \Exception Throws an exception when the config class is serialized.
 	 */
 	public function __wakeup() {
-		throw new \Exception( 'Cannot unserialize a singleton.' );
+		throw new \Exception( 'Cannot unserialize a config class.' );
 	}
 
 	/**
-	 * This is the static method that controls the access to the singleton
-	 * instance. On the first run, it creates a singleton object and places it
+	 * This is the static method that controls the access to the config
+	 * instance. On the first run, it creates a config object and places it
 	 * into the static field. On subsequent runs, it returns the client existing
 	 * object stored in the static field.
 	 *
-	 * This implementation lets you subclass the Singleton class while keeping
+	 * This implementation lets you subclass the config class while keeping
 	 * just one instance of each subclass around.
 	 */
 	public static function get_instance(): Config {
@@ -122,8 +132,9 @@ class Config {
 	}
 
 	/**
-	 * Finally, any singleton should define some business logic, which can be
-	 * executed on its instance.
+	 * Get the Theme configuration settings.
+	 *
+	 * @return array Various configuration of the theme.
 	 */
 	public function get_settings() {
 		$typography_config = new Typography();

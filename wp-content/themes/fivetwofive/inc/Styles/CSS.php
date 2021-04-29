@@ -1,10 +1,10 @@
 <?php
 /**
- * Generate CSS for 
+ * Creates minified css via PHP.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Styles
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Styles;

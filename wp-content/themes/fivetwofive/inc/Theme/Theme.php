@@ -1,16 +1,19 @@
 <?php
 /**
- * Custom icons for this theme.
+ * Handle all the functions need in theme setup.
  *
- * @package WordPress
- * @subpackage FiveTwoFive
- * @since FiveTwoFive 1.0
+ * @package Fivetwofive
+ * @subpackage FivetwofiveTheme/Theme
+ * @since 1.0.0
  */
 
 namespace Fivetwofive\FivetwofiveTheme\Theme;
 
 use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 
+/**
+ * Handle all the functions need in theme setup.
+ */
 class Theme implements Component_Interface {
 
 	public function register() {
