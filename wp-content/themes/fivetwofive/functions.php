@@ -12,16 +12,15 @@ if ( ! defined( 'FIVETWOFIVE_VERSION' ) ) {
 	define( 'FIVETWOFIVE_VERSION', '1.0.0' );
 }
 
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/functions/template-tags.php';
+// Include WordPress shims.
+require get_template_directory() . '/inc/wordpress-shims.php';
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) :
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 endif;
 
-if ( class_exists( 'Fivetwofive\\FivetwofiveTheme\\Init' ) ) :
-	$theme = new Fivetwofive\FivetwofiveTheme\Init();
-	$theme->register();
-endif;
+// Load the `fivetwofive()` entry point function.
+require get_template_directory() . '/inc/functions.php';
+
+// Initialize the theme.
+call_user_func( 'Fivetwofive\FivetwofiveTheme\fivetwofive' );

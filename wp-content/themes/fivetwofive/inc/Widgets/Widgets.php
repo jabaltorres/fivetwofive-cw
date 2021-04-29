@@ -9,7 +9,7 @@
 
 namespace Fivetwofive\FivetwofiveTheme\Widgets;
 
-use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 
 class Widgets implements Component_Interface {
 

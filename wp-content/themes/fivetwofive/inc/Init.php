@@ -11,6 +11,9 @@ namespace Fivetwofive\FivetwofiveTheme;
 
 use InvalidArgumentException;
 
+use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Templating_Component_Interface;
+
 /**
  * Custom icons for this theme.
  *
@@ -25,6 +28,13 @@ final class Init {
 	 * @var array
 	 */
 	protected $components = array();
+
+	/**
+	 * The template tags instance, providing access to all available template tags.
+	 *
+	 * @var Template_Tags
+	 */
+	protected $template_tags;
 
 	/**
 	 * Constructor.
@@ -59,6 +69,29 @@ final class Init {
 
 			$this->components[] = $component;
 		}
+
+		// Instantiate the template tags instance for all theme templating components.
+		$this->template_tags = new Template_Tags(
+			array_filter(
+				$this->components,
+				function( Component_Interface $component ) {
+					return $component instanceof Templating_Component_Interface;
+				}
+			)
+		);
+	}
+
+	/**
+	 * Retrieves the template tags instance, the entry point exposing template tag methods.
+	 *
+	 * Calling `fivetwofive()` is a short-hand for calling this method on the main theme instance. The instance then allows
+	 * for actual template tag methods to be called. For example, if there is a template tag called `posted_on`, it can
+	 * be accessed via `fivetwofive()->posted_on()`.
+	 *
+	 * @return Template_Tags Template tags instance.
+	 */
+	public function template_tags() : Template_Tags {
+		return $this->template_tags;
 	}
 
 	/**
@@ -90,6 +123,7 @@ final class Init {
 			new Theme\Theme(),
 			new Widgets\Widgets(),
 			new Post\Post(),
+			new Icons\Icons(),
 		);
 
 		return $components;

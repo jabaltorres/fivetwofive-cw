@@ -7,6 +7,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -14,7 +16,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php fivetwofive_post_thumbnail(); ?>
+	<?php fivetwofive()->post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

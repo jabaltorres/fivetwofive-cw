@@ -9,6 +9,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

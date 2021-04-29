@@ -9,7 +9,7 @@
 
 namespace Fivetwofive\FivetwofiveTheme\Customize;
 
-use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Customize\Customize_Select2_Control;
 use Fivetwofive\FivetwofiveTheme\Config\Config;
 

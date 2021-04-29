@@ -7,6 +7,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( array( 'entry' ) ); ?>>
@@ -22,14 +24,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				fivetwofive_posted_on();
-				fivetwofive_posted_by();
+				fivetwofive()->posted_on();
+				fivetwofive()->posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php fivetwofive_post_thumbnail(); ?>
+	<?php fivetwofive()->post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -62,6 +64,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php fivetwofive_entry_footer(); ?>
+		<?php fivetwofive()->entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

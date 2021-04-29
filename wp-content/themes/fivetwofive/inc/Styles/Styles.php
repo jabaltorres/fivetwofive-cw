@@ -9,7 +9,7 @@
 
 namespace Fivetwofive\FivetwofiveTheme\Styles;
 
-use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 use Fivetwofive\FivetwofiveTheme\Config\Config;
 use Fivetwofive\FivetwofiveTheme\Styles\CSS;
 
@@ -31,9 +31,9 @@ class Styles implements Component_Interface {
 		}
 
 		foreach ( $fonts as $font ) {
-			$font_uri         = '';
+			$font_uri          = '';
 			$font_uri_variants = array();
-			$has_italic       = false;
+			$has_italic        = false;
 
 			// check if there is an italic.
 			foreach ( $font['variants'] as $font_weight ) {

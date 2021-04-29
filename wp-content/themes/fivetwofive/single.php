@@ -7,6 +7,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 get_header();
 ?>
 

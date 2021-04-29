@@ -9,7 +9,7 @@
 
 namespace Fivetwofive\FivetwofiveTheme\Template;
 
-use Fivetwofive\FivetwofiveTheme\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
 
 class Template implements Component_Interface {
 

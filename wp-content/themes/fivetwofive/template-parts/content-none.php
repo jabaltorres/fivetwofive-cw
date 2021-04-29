@@ -7,6 +7,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 ?>
 
 <section class="no-results not-found">

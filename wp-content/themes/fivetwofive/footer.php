@@ -9,6 +9,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 ?>
 
 	<footer id="colophon" class="site-footer">

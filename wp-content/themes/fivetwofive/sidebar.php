@@ -7,6 +7,8 @@
  * @package FiveTwoFive
  */
 
+namespace Fivetwofive\FivetwofiveTheme;
+
 if ( ! is_active_sidebar( 'primary-sidebar' ) ) {
 	return;
 }
