@@ -11,8 +11,10 @@
 
 namespace Fivetwofive\FivetwofiveTheme;
 
+	do_action( 'fivetwofive_after_content' );
 ?>
-
+	</div><!-- .content-sidebar-wrap -->
+	<?php do_action( 'fivetwofive_after_content_sidebar_wrap' ); ?>
 	<footer id="colophon" class="site-footer">
 		<div class="container site-footer__widgets">
 			<div class="row">

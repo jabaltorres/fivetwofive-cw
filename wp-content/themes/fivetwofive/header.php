@@ -73,3 +73,6 @@ namespace Fivetwofive\FivetwofiveTheme;
 			</div>
 		</div>
 	</header><!-- #masthead -->
+	<?php do_action( 'fivetwofive_before_content_sidebar_wrap' ); ?>
+	<div class="content-sidebar-wrap">
+		<?php do_action( 'fivetwofive_before_content' ); ?>

@@ -84,11 +84,7 @@ class Styles implements Component_Interface {
 	}
 
 	public function fonts_url() {
-		$defaults   = Config::get_instance()->get_settings();
-		$theme_mods = wp_parse_args(
-			get_theme_mod( 'fivetwofive_theme_mods', array() ),
-			$defaults['default_theme_mods']
-		);
+		$theme_mods = Config::get_instance()->get_theme_mods();
 
 		$fonts = array(
 			array(
@@ -123,12 +119,8 @@ class Styles implements Component_Interface {
 	 * @since 1.0
 	 */
 	public function theme_mods_css() {
-		$defaults   = Config::get_instance()->get_settings();
 		$css        = new CSS();
-		$theme_mods = wp_parse_args(
-			get_theme_mod( 'fivetwofive_theme_mods', array() ),
-			$defaults['default_theme_mods']
-		);
+		$theme_mods = Config::get_instance()->get_theme_mods();
 
 		if ( ! is_array( $theme_mods ) || empty( $theme_mods ) ) {
 			return;
@@ -182,7 +174,7 @@ class Styles implements Component_Interface {
 	 * @return void
 	 */
 	public function preconnect() {
-		$config = Config::get_instance()->get_settings();
+		$config = Config::get_instance()->get_theme_config();
 
 		if ( ! is_array( $config['preconnect_urls'] ) ) {
 			return;

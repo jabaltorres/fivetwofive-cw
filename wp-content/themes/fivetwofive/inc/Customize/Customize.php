@@ -39,26 +39,30 @@ class Customize implements Component_Interface {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function customize_register( $wp_customize ) {
-		$this->add_site_identity_options( $wp_customize );
+		$config   = Config::get_instance()->get_theme_config();
+		$defaults = Config::get_instance()->get_default_theme_mods();
+
+		$this->add_site_identity_options( $wp_customize, $defaults );
 		$this->add_layout_options( $wp_customize );
-		$this->add_layout_header_options( $wp_customize );
-		$this->add_layout_primary_navigation_options( $wp_customize );
-		$this->add_layout_footer_options( $wp_customize );
-		$this->add_layout_sidebars_options( $wp_customize );
-		$this->add_typography_options( $wp_customize );
-		$this->add_color_options( $wp_customize );
-		$this->add_color_header_options( $wp_customize );
-		$this->add_color_primary_navigation_options( $wp_customize );
-		$this->add_color_footer_options( $wp_customize );
+		$this->add_layout_header_options( $wp_customize, $defaults );
+		$this->add_layout_primary_navigation_options( $wp_customize, $defaults );
+		$this->add_layout_footer_options( $wp_customize, $defaults );
+		$this->add_layout_sidebars_options( $wp_customize, $defaults );
+		$this->add_typography_options( $wp_customize, $defaults, $config );
+		$this->add_color_options( $wp_customize, $defaults );
+		$this->add_color_header_options( $wp_customize, $defaults );
+		$this->add_color_primary_navigation_options( $wp_customize, $defaults );
+		$this->add_color_footer_options( $wp_customize, $defaults );
 	}
 
 	/**
 	 * Add Site Identity fields in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_site_identity_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_site_identity_options( $wp_customize, $defaults ) {
 
 		$wp_customize->get_control( 'blogname' )->priority         = 1;
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
@@ -87,7 +91,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['site_identity']['hide_blogname'],
+				'default'           => $defaults['site_identity']['hide_blogname'],
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -108,7 +112,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['site_identity']['hide_blogdescription'],
+				'default'           => $defaults['site_identity']['hide_blogdescription'],
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -129,10 +133,9 @@ class Customize implements Component_Interface {
 	 * Add Layout panel in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @return void
 	 */
 	public function add_layout_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
-
 		$wp_customize->add_panel(
 			'fivetwofive_layout_panel',
 			array(
@@ -140,16 +143,16 @@ class Customize implements Component_Interface {
 				'priority' => 30,
 			)
 		);
-
 	}
 
 	/**
 	 * Add Header Layout panel in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_layout_header_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_layout_header_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_layout_header_section',
@@ -166,7 +169,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['header']['presets'],
+				'default'           => $defaults['layout']['header']['presets'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -194,7 +197,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['header']['alignment'],
+				'default'           => $defaults['layout']['header']['alignment'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -220,9 +223,10 @@ class Customize implements Component_Interface {
 	 * Add Primary Navigation layout settings in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_layout_primary_navigation_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_layout_primary_navigation_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_layout_navigation_section',
@@ -239,7 +243,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['primary_navigation']['location'],
+				'default'           => $defaults['layout']['primary_navigation']['location'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -267,7 +271,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['primary_navigation']['width'],
+				'default'           => $defaults['layout']['primary_navigation']['width'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -291,7 +295,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['primary_navigation']['inner_width'],
+				'default'           => $defaults['layout']['primary_navigation']['inner_width'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -315,7 +319,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['primary_navigation']['alignment'],
+				'default'           => $defaults['layout']['primary_navigation']['alignment'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -340,7 +344,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['primary_navigation']['search'],
+				'default'           => $defaults['layout']['primary_navigation']['search'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -364,9 +368,10 @@ class Customize implements Component_Interface {
 	 * Add Footer Layout panel in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_layout_footer_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_layout_footer_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_layout_footer_section',
@@ -383,7 +388,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['footer']['width'],
+				'default'           => $defaults['layout']['footer']['width'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -407,7 +412,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['footer']['inner_width'],
+				'default'           => $defaults['layout']['footer']['inner_width'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -431,7 +436,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['footer']['widgets'],
+				'default'           => $defaults['layout']['footer']['widgets'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -459,9 +464,10 @@ class Customize implements Component_Interface {
 	 * Add Sidebar Layout panel in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_layout_sidebars_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_layout_sidebars_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_layout_sidebars_section',
@@ -478,7 +484,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['sidebars']['sidebar_layout'],
+				'default'           => $defaults['layout']['sidebars']['sidebar_layout'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -503,7 +509,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['sidebars']['blog_sidebar_layout'],
+				'default'           => $defaults['layout']['sidebars']['blog_sidebar_layout'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -528,7 +534,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['layout']['sidebars']['single_post_sidebar_layout'],
+				'default'           => $defaults['layout']['sidebars']['single_post_sidebar_layout'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -554,10 +560,11 @@ class Customize implements Component_Interface {
 	 * Add Typography fields in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @param array                $config Theme Configuration.
+	 * @return void
 	 */
-	public function add_typography_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
-
+	public function add_typography_options( $wp_customize, $defaults, $config ) {
 		$wp_customize->add_section(
 			'fivetwofive_typography_section',
 			array(
@@ -575,7 +582,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['body_font'],
+				'default'           => $defaults['typography']['body_font'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -599,7 +606,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['body_font_variants'],
+				'default'           => $defaults['typography']['body_font_variants'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -625,7 +632,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['body_font_category'],
+				'default'           => $defaults['typography']['body_font_category'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -648,7 +655,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['body_font_weight'],
+				'default'           => $defaults['typography']['body_font_weight'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -671,7 +678,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['heading_font'],
+				'default'           => $defaults['typography']['heading_font'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -695,7 +702,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['heading_font_variants'],
+				'default'           => $defaults['typography']['heading_font_variants'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -721,7 +728,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['heading_font_category'],
+				'default'           => $defaults['typography']['heading_font_category'],
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -744,7 +751,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['typography']['heading_font_weight'],
+				'default'           => $defaults['typography']['heading_font_weight'],
 				'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
 			)
 		);
@@ -767,9 +774,10 @@ class Customize implements Component_Interface {
 	 * Add postMessage support for site title and description for the Theme Customizer.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_color_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_color_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_panel(
 			'fivetwofive_color_panel',
@@ -794,7 +802,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['background_color'],
+				'default'           => $defaults['colors']['body']['background_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -815,7 +823,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['text_color'],
+				'default'           => $defaults['colors']['body']['text_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -836,7 +844,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['heading_color'],
+				'default'           => $defaults['colors']['body']['heading_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -857,7 +865,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['link_color'],
+				'default'           => $defaults['colors']['body']['link_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -878,7 +886,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['link_color_hover'],
+				'default'           => $defaults['colors']['body']['link_color_hover'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -899,7 +907,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['body']['link_color_visited'],
+				'default'           => $defaults['colors']['body']['link_color_visited'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -921,10 +929,10 @@ class Customize implements Component_Interface {
 	 * Add Header color fields in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_color_header_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
-
+	public function add_color_header_options( $wp_customize, $defaults ) {
 		$wp_customize->add_section(
 			'fivetwofive_header_color_section',
 			array(
@@ -940,7 +948,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['header']['background_color'],
+				'default'           => $defaults['colors']['header']['background_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -961,9 +969,10 @@ class Customize implements Component_Interface {
 	 * Add Primary Navigation color fields in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_color_primary_navigation_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_color_primary_navigation_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_primary_navigation_color_section',
@@ -980,7 +989,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['primary_navigation']['background_color'],
+				'default'           => $defaults['colors']['primary_navigation']['background_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -1001,7 +1010,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['primary_navigation']['link_color'],
+				'default'           => $defaults['colors']['primary_navigation']['link_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -1022,7 +1031,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['primary_navigation']['active_link_color'],
+				'default'           => $defaults['colors']['primary_navigation']['active_link_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -1043,9 +1052,10 @@ class Customize implements Component_Interface {
 	 * Add Footer color fields in the customizer api.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param array                $defaults default theme mods.
+	 * @return void
 	 */
-	public function add_color_footer_options( $wp_customize ) {
-		$config = Config::get_instance()->get_settings();
+	public function add_color_footer_options( $wp_customize, $defaults ) {
 
 		$wp_customize->add_section(
 			'fivetwofive_footer_color_section',
@@ -1062,7 +1072,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['footer']['background_color'],
+				'default'           => $defaults['colors']['footer']['background_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -1083,7 +1093,7 @@ class Customize implements Component_Interface {
 			array(
 				'type'              => 'theme_mod',
 				'capability'        => 'edit_theme_options',
-				'default'           => $config['default_theme_mods']['colors']['footer']['text_color'],
+				'default'           => $defaults['colors']['footer']['text_color'],
 				'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);

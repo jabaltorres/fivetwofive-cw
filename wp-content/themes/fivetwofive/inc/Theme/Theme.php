@@ -9,16 +9,84 @@
 
 namespace Fivetwofive\FivetwofiveTheme\Theme;
 
+use Fivetwofive\FivetwofiveTheme\Config\Config;
 use Fivetwofive\FivetwofiveTheme\Interfaces\Component_Interface;
+use Fivetwofive\FivetwofiveTheme\Interfaces\Templating_Component_Interface;
 
 /**
  * Handle all the functions need in theme setup.
  */
-class Theme implements Component_Interface {
+class Theme implements Component_Interface, Templating_Component_Interface {
 
+	/**
+	 * Adds the action and filter hooks to integrate with WordPress.
+	 */
 	public function register() {
 		add_action( 'after_setup_theme', array( $this, 'content_width' ), 0 );
 		add_action( 'after_setup_theme', array( $this, 'theme_setup' ) );
+		add_filter( 'body_class', array( $this, 'body_class' ) );
+		add_action( 'fivetwofive_before_content', array( $this, 'before_content' ) );
+		add_action( 'fivetwofive_after_content', array( $this, 'after_content' ) );
+	}
+
+	/**
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wp_rig()`.
+	 *
+	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
+	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
+	 *               adding support for further arguments in the future.
+	 */
+	public function template_tags() : array {
+		return array(
+			'get_theme_mods' => array( $this, 'get_theme_mods' ),
+		);
+	}
+
+	/**
+	 * Expose the theme settings in the template files.
+	 *
+	 * @return class Config class.
+	 */
+	public function get_theme_mods() {
+		return Config::get_instance()->get_theme_mods();
+	}
+
+	/**
+	 * Expose the theme settings in the template files.
+	 *
+	 * @return class Config class.
+	 */
+	public function get_theme_config() {
+		return Config::get_instance()->get_theme_config();
+	}
+
+	/**
+	 * Add the appropriate classes depending on the theme settings.
+	 *
+	 * @param array $classes default WordPress body classes.
+	 * @return array $classes default WordPress body classes with theme settings classes.
+	 */
+	public function body_class( $classes ) {
+		$theme_mods   = Config::get_instance()->get_theme_mods();
+		$theme_config = Config::get_instance()->get_theme_config();
+
+		if ( ! is_array( $theme_mods ) ) {
+			return $classes;
+		}
+
+		if ( is_home() ) {
+			$classes[] = str_replace( '_', '-', 'fivetwofive-' . $theme_mods['layout']['sidebars']['sidebar_layout'] );
+		}
+
+		if ( is_singular( $theme_config['single_posts'] ) ) {
+			$classes[] = str_replace( '_', '-', 'fivetwofive_' . $theme_mods['layout']['sidebars']['single_post_sidebar_layout'] );
+		}
+
+		if ( ! is_single( $theme_config['single_posts'] ) && ! is_home() ) {
+			$classes[] = str_replace( '_', '-', 'fivetwofive_' . $theme_mods['layout']['sidebars']['sidebar_layout'] );
+		}
+
+		return $classes;
 	}
 
 	/**
@@ -97,6 +165,54 @@ class Theme implements Component_Interface {
 			)
 		);
 
+	}
+
+	/**
+	 * Manipulate the page content
+	 *
+	 * @return void
+	 */
+	public function before_content() {
+		$theme_mods   = Config::get_instance()->get_theme_mods();
+		$sidebar_mods = $theme_mods['layout']['sidebars'];
+		$theme_config = Config::get_instance()->get_theme_config();
+
+		if ( is_home() && 'sidebar_content' === $sidebar_mods['blog_sidebar_layout'] ) {
+			get_sidebar();
+		}
+
+		if ( is_singular( $theme_config['single_posts'] ) && 'sidebar_content' === $sidebar_mods['single_post_sidebar_layout'] ) {
+			get_sidebar();
+		}
+
+		if ( ( ! is_single( $theme_config['single_posts'] ) && ! is_home() )
+		&& 'sidebar_content' === $sidebar_mods['sidebar_layout'] ) {
+			get_sidebar();
+		}
+	}
+
+	/**
+	 * Manipulate the page content
+	 *
+	 * @return void
+	 */
+	public function after_content() {
+		$theme_mods   = Config::get_instance()->get_theme_mods();
+		$sidebar_mods = $theme_mods['layout']['sidebars'];
+		$theme_config = Config::get_instance()->get_theme_config();
+
+		if ( is_home() && 'content_sidebar' === $sidebar_mods['blog_sidebar_layout'] ) {
+			get_sidebar();
+		}
+
+		if ( is_singular( $theme_config['single_posts'] ) && 'content_sidebar' === $sidebar_mods['single_post_sidebar_layout'] ) {
+			get_sidebar();
+		}
+
+		if ( ( ! is_single( $theme_config['single_posts'] ) && ! is_home() )
+		&& 'content_sidebar' === $sidebar_mods['sidebar_layout'] ) {
+			get_sidebar();
+		}
 	}
 
 	/**

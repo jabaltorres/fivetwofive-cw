@@ -17,7 +17,7 @@ use Fivetwofive\FivetwofiveTheme\Config\Typography;
 class Config {
 
 	/**
-	 * Default Theme mods - see get_settings to add or override default theme mods.
+	 * Default Theme mods - see get_theme_mods to add or override default theme mods.
 	 *
 	 * @var array
 	 */
@@ -92,6 +92,13 @@ class Config {
 	private $preconnect_urls = array( 'https://fonts.gstatic.com' );
 
 	/**
+	 * The post types where the single post sidebar layout will be applied.
+	 *
+	 * @var array
+	 */
+	private $single_posts = array( 'post' );
+
+	/**
 	 * Config instance.
 	 *
 	 * @var array
@@ -141,16 +148,40 @@ class Config {
 	 *
 	 * @return array Various configuration of the theme.
 	 */
-	public function get_settings() {
+	public function get_default_theme_mods() {
+		return apply_filters( 'fivetwofive_default_theme_mods', $this->default_theme_mods );
+	}
+
+	/**
+	 * Get the Theme mods with the default theme mods as fallback.
+	 *
+	 * @return array $theme_mods Theme mods.
+	 */
+	public function get_theme_mods() {
+		$defaults   = $this->get_default_theme_mods();
+		$theme_mods = wp_parse_args(
+			get_theme_mod( 'fivetwofive_theme_mods', array() ),
+			$defaults
+		);
+
+		return $theme_mods;
+	}
+
+	/**
+	 * Get the Theme configuration settings.
+	 *
+	 * @return array Various configuration of the theme.
+	 */
+	public function get_theme_config() {
 		$typography_config = new Typography();
 
 		return array(
-			'google_fonts'       => $typography_config->get_google_font_names(),
-			'font_variants'      => $typography_config->get_font_variants(),
-			'font_weights'       => $typography_config->get_font_weights(),
-			'font_categories'    => $typography_config->get_font_categories(),
-			'default_theme_mods' => apply_filters( 'fivetwofive_default_theme_mods', $this->default_theme_mods ),
-			'preconnect_urls'    => apply_filters( 'fivetwofive_preconnect_urls', $this->preconnect_urls ),
+			'google_fonts'    => $typography_config->get_google_font_names(),
+			'font_variants'   => $typography_config->get_font_variants(),
+			'font_weights'    => $typography_config->get_font_weights(),
+			'font_categories' => $typography_config->get_font_categories(),
+			'preconnect_urls' => apply_filters( 'fivetwofive_preconnect_urls', $this->preconnect_urls ),
+			'single_posts'    => apply_filters( 'fivetwofive_single_post_sidebar', $this->single_posts ),
 		);
 	}
 }
