@@ -7,12 +7,21 @@
  * @package FiveTwoFive_Theme
  */
 
-$module_title     = get_sub_field( 'title' );
-$module_subtitle  = get_sub_field( 'sub_title' );
-$module_button    = get_sub_field( 'button' );
-$background_color = get_sub_field( 'background_color' );
-$color            = get_sub_field( 'text_color' );
-$column_count     = count( get_sub_field( 'columns' ) );
+// Contents.
+$module_title       = get_sub_field( 'title' );
+$module_subtitle    = get_sub_field( 'sub_title' );
+$module_description = get_sub_field( 'description' );
+$module_button      = get_sub_field( 'button' );
+$background_color   = get_sub_field( 'background_color' );
+$column_count       = count( get_sub_field( 'columns' ) );
+
+// Styles.
+$background_image        = get_sub_field( 'background_image' );
+$background_color        = get_sub_field( 'background_color' );
+$text_color              = get_sub_field( 'text_color' );
+$button_text_color       = get_sub_field( 'button_text_color' );
+$button_background_color = get_sub_field( 'button_background_color' );
+$button_border_color     = get_sub_field( 'button_border_color' );
 
 switch ( $column_count ) {
 	case '1':
@@ -31,18 +40,45 @@ switch ( $column_count ) {
 		$column_width = '0';
 }
 
-$button = get_sub_field( 'button' );
+$styles                  = '';
+$text_color_inline_style = '';
+$button_styles           = '';
+
+if ( $background_color ) {
+	$styles .= sprintf( 'background-color: %1$s;', $background_color );
+}
+
+if ( $background_image ) {
+	$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+}
+
+if ( $text_color ) {
+	$styles                 .= sprintf( 'color:%1$s;', $text_color );
+	$text_color_inline_style = sprintf( 'color:%1$s;', $text_color );
+}
+
+if ( $button_text_color ) {
+	$button_styles .= sprintf( 'color:%1$s;', $button_text_color );
+}
+
+if ( $button_background_color ) {
+	$button_styles .= sprintf( 'background-color:%1$s;', $button_background_color );
+}
+
+if ( $button_border_color ) {
+	$button_styles .= sprintf( 'border-color:%1$s;', $button_border_color );
+}
 
 ?>
-<section class="ftf-module module-multi-column py-5 py-md-6" style="background-color:<?php echo esc_attr( $background_color ); ?>;">
+<section class="ftf-module module-multi-column py-5 py-md-6" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<header class="module__header text-md-center mb-md-6">
 			<?php if ( $module_title ) : ?>
-				<h2 class="module__title" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+				<h2 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( $module_subtitle ) : ?>
-				<h3 class="module__subtitle" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
+				<h3 class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
 			<?php endif; ?>
 		</header>
 
@@ -58,15 +94,15 @@ $button = get_sub_field( 'button' );
 				<div class="column col-12 col-md-<?php echo esc_attr( $column_width ); ?>">
 					<?php
 					if ( $column_image ) :
-						echo wp_get_attachment_image( $column_image, 'thumbnail', false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
+						echo wp_get_attachment_image( $column_image, array( 150 ), false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
 					endif;
 					?>
 					<?php if ( $column_title ) : ?>
-						<h3 class="column-title mb-3 mb-md-4" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $column_title ); ?></h3>
+						<h3 class="column-title mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $column_title ); ?></h3>
 					<?php endif; ?>
 
 					<?php if ( $column_text ) : ?>
-						<div class="column-text mb-3 mb-md-4" style="color:<?php echo esc_attr( $color ); ?>"><?php echo wp_kses_post( $column_text ); ?></div>
+						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $column_text ); ?></div>
 					<?php endif; ?>
 
 					<?php
@@ -75,7 +111,7 @@ $button = get_sub_field( 'button' );
 						$link_title  = $column_button['title'];
 						$link_target = $column_button['target'] ? $column_button['target'] : '_self';
 						?>
-						<a class="button column-button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<a class="button column-button" role="button" href="<?php echo esc_url( $link_url ); ?>" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 					<?php endif; ?>
 				</div>
 			<?php endwhile; ?>
@@ -87,7 +123,9 @@ $button = get_sub_field( 'button' );
 			$link_title  = $module_button['title'];
 			$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 			?>
-			<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+			<footer class="module__footer mt-3 mt-md-5 text-center">
+				<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+			</footer>
 		<?php endif; ?>
 	</div>
 </section>

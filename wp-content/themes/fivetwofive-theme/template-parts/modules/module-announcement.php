@@ -29,7 +29,7 @@ if ( $border_color ) {
 }
 
 ?>
-<section class="ftf-module module-announcement py-5 py-md-6 js-is-sticky-<?php echo esc_attr( $sticky ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
+<section class="ftf-module module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
 	<div class="container">
 		<?php if ( ! $module_button && ( $module_title || $module_content ) ) : ?>
 
