@@ -153,13 +153,67 @@ function ftf_featured_projects_shortcode() {
 			<div class="featured-projects-inner-wrapper py-5">
 				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
 				<?php
-					foreach ( $featured_projects as $post ) :
-						setup_postdata( $post );
-						get_template_part( 'lib/includes/featured_projects_homepage_items' );
-					endforeach;
-					wp_reset_postdata();
+				foreach ( $featured_projects as $post ) :
+					setup_postdata( $post );
+
+					$project_client      = get_field( 'project_client' );
+					$project_url         = get_field( 'project_url' );
+					$project_button_text = get_field( 'project_button_text' );
+					$homepage_toggle     = get_field( 'homepage_toggle' );
+
+					?>
+						<div class="container featured-projects-homepage-item mb-4">
+							<div class="row align-items-center">
+								<?php if ( $homepage_toggle ) : ?>
+
+									<div class="col-12 col-md-7 has-img">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+
+								<?php else: ?>
+
+									<div class="col-12 col-md-7 has-image order-md-last">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_post_thumbnail_caption(); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text order-md-first">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+								<?php endif; ?>
+
+							</div>
+						</div>
+					<?php
+				endforeach;
+				wp_reset_postdata();
 				?>
-				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url(  get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url( get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
 			</div>
 		</div>
 		<?php
