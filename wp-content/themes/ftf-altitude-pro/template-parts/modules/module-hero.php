@@ -1,4 +1,7 @@
 <?php 
+	$hero_id = get_sub_field('module_hero_id');
+	$hero_class = get_sub_field('module_hero_class');
+
 	$title = get_sub_field('title');
 	$hero_copy = get_sub_field('module_hero_copy');
 
@@ -20,7 +23,7 @@
 	$video_thumbnail = get_sub_field('video_thumbnail'); 
 	$video_caption = get_sub_field('video_caption'); 	
 ?>
-<div class="ftf-module module-hero <?php echo ($video) ? 'with-video' : 'without-video'; ?>" style="background:url('<?php echo $background_image['sizes']['large']; ?>') center center no-repeat; background-size:cover;">
+<div id="<?= $hero_id; ?>" class="ftf-module module-hero <?php echo ($video) ? 'with-video' : 'without-video'; ?> <?= $hero_class; ?>" style="background:url('<?php echo $background_image['sizes']['large']; ?>') center center no-repeat; background-size:cover;">
 	<div class="container">
         <div class="row py-5">
 

@@ -83,7 +83,7 @@ function ftf_featured_projects_register_cpt() {
 		'capability_type'     => "post",
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'work', 'with_front' => true ),
+		'rewrite'             => array( 'slug' => 'work', 'with_front' => false ),
 		'query_var'           => true,
 		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
@@ -94,94 +94,24 @@ function ftf_featured_projects_register_cpt() {
 add_action( 'init', 'ftf_featured_projects_register_cpt' );
 
 /**
- * Register custom taxonomies for featured projects custom post type.
- *
- * @return void
- */
-function ftf_featured_projects_register_custom_taxonomies() {
-
-	// Type of Product/Service taxonomy
-	$labels = array(
-		'name'              => __( 'Type of Products/Services', 'jt-featured-projects' ),
-		'singular_name'     => __( 'Type of Product/Service', 'jt-featured-projects' ),
-		'search_items'      => __( 'Search Types of Products/Services', 'jt-featured-projects' ),
-		'all_items'         => __( 'All Types of Products/Services', 'jt-featured-projects' ),
-		'parent_item'       => __( 'Parent Type of Product/Service', 'jt-featured-projects' ),
-		'parent_item_colon' => __( 'Parent Type of Product/Service:', 'jt-featured-projects' ),
-		'edit_item'         => __( 'Edit Type of Product/Service', 'jt-featured-projects' ),
-		'update_item'       => __( 'Update Type of Product/Service', 'jt-featured-projects' ),
-		'add_new_item'      => __( 'Add New Type of Product/Service', 'jt-featured-projects' ),
-		'new_item_name'     => __( 'New Type of Product/Service Name', 'jt-featured-projects' ),
-		'menu_name'         => __( 'Type of Product/Service', 'jt-featured-projects' ),
-	);
-
-	$args = array(
-		'hierarchical'      => true,
-		'labels'            => $labels,
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'product-types' ),
-	);
-
-	register_taxonomy( 'product-type', array( 'featured-projects' ), $args );
-
-	// Mood taxonomy (non-hierarchical)
-	$labels = array(
-		'name'                       => __( 'JT Custom Tags', 'jt-featured-projects' ),
-		'singular_name'              => __( 'JT Custom Tag', 'jt-featured-projects' ),
-		'search_items'               => __( 'Search JT Custom Tags', 'jt-featured-projects' ),
-		'popular_items'              => __( 'Popular JT Custom Tags', 'jt-featured-projects' ),
-		'all_items'                  => __( 'All JT Custom Tags', 'jt-featured-projects' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit JT Custom Tag', 'jt-featured-projects' ),
-		'update_item'                => __( 'Update JT Custom Tag', 'jt-featured-projects' ),
-		'add_new_item'               => __( 'Add New JT Custom Tag', 'jt-featured-projects' ),
-		'new_item_name'              => __( 'New JT Custom Tag Name', 'jt-featured-projects' ),
-		'separate_items_with_commas' => __( 'Separate JT Custom Tags with commas', 'jt-featured-projects' ),
-		'add_or_remove_items'        => __( 'Add or remove JT Custom Tags', 'jt-featured-projects' ),
-		'choose_from_most_used'      => __( 'Choose from the most used JT Custom Tags', 'jt-featured-projects' ),
-		'not_found'                  => __( 'No JT Custom Tags found.', 'jt-featured-projects' ),
-		'menu_name'                  => __( 'JT Custom Tags', 'jt-featured-projects' ),
-	);
-
-	$args = array(
-		'hierarchical'          => false,
-		'labels'                => $labels,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'jt-custom-tags' ),
-	);
-
-	register_taxonomy( 'jt-custom-tag', array( 'featured-projects', 'post' ), $args );
-}
-add_action( 'init', 'ftf_featured_projects_register_custom_taxonomies' );
-
-/**
- * Register custom post type and custom taxonomy on plugin activation.
+ * Register custom post type on plugin activation.
  *
  * @return void
  */
 function ftf_featured_projects_setup_custom_post_type() {
 	ftf_featured_projects_register_cpt();
-	ftf_featured_projects_register_custom_taxonomies();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_type' );
 
 /**
- * Unregister custom post type and custom taxonomy on plugin deactivation.
+ * Unregister custom post type on plugin deactivation.
  *
  * @link https://core.trac.wordpress.org/ticket/42563
  * @return void
  */
 function ftf_featured_projects_unregister_cpt() {
     unregister_post_type( 'featured-projects' );
-	unregister_taxonomy( 'product-type' );
-	unregister_taxonomy( 'jt-custom-tag' );
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
@@ -223,13 +153,67 @@ function ftf_featured_projects_shortcode() {
 			<div class="featured-projects-inner-wrapper py-5">
 				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
 				<?php
-					foreach ( $featured_projects as $post ) :
-						setup_postdata( $post );
-						get_template_part( '/includes/featured_projects_homepage_items' );
-					endforeach;
-					wp_reset_postdata();
+				foreach ( $featured_projects as $post ) :
+					setup_postdata( $post );
+
+					$project_client      = get_field( 'project_client' );
+					$project_url         = get_field( 'project_url' );
+					$project_button_text = get_field( 'project_button_text' );
+					$homepage_toggle     = get_field( 'homepage_toggle' );
+
+					?>
+						<div class="container featured-projects-homepage-item mb-4">
+							<div class="row align-items-center">
+								<?php if ( $homepage_toggle ) : ?>
+
+									<div class="col-12 col-md-7 has-img">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+
+								<?php else: ?>
+
+									<div class="col-12 col-md-7 has-image order-md-last">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_post_thumbnail_caption(); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text order-md-first">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+								<?php endif; ?>
+
+							</div>
+						</div>
+					<?php
+				endforeach;
+				wp_reset_postdata();
 				?>
-				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url(  get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url( get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
 			</div>
 		</div>
 		<?php

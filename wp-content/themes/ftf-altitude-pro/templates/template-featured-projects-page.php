@@ -4,6 +4,8 @@
 * Template Name: Featured Projects Template
 */
 
+//remove_action( 'genesis_sidebar', 'genesis_do_sidebar' );
+
 add_action('genesis_loop', 'featured_projects_loop');
 
 function featured_projects_loop(){
@@ -20,7 +22,7 @@ function featured_projects_loop(){
 		 echo '<div class="container">';
 			 echo '<div class="row">';
 				while($featured_projects -> have_posts()): $featured_projects ->the_post();
-					get_template_part( '/includes/featured_projects_cpt' );
+					get_template_part( '/lib/includes/featured_projects_cpt' );
 				endwhile;
 			 echo '</div>';
 		 echo '</div>';

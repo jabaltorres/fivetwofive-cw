@@ -208,8 +208,8 @@
 }
 
 .front-page-contact-form {
-  background-image: url(/wp-content/themes/ftf-altitude-pro/dist/images/home_bg_005.jpg);
-  background-color: #fff;
+  background-image: url(/wp-content/themes/ftf-altitude-pro/lib/assets/images/home_bg_005.jpg);
+  background-color: $white;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -221,33 +221,20 @@
     table-layout: fixed;
     width: 100%;
   }
-  div.wpforms-container-full .wpforms-form button[type=submit]{
-    background-color: $primary;
-    border-color: $primary;
-    color: $white;
-    border-radius: 4px;
-    &:hover{
-      color: $dark;
-    }
-  }
   .form{
     padding: 40px;
     background-color: rgba(0, 0, 0, 0.75);
   }
-  #wpforms-302-field_2{
-    border-radius: 4px;
-  }
+
   @include media-breakpoint-up(md){
     background-attachment: fixed;
     .form{
       max-width: 75%;
-      //background-color: red;
     }
   }
   @include media-breakpoint-up(lg){
     .form{
       max-width: 50%;
-      //background-color: blue;
     }
   }
 }
@@ -264,11 +251,5 @@
 .home{
   .site-container{
     @include animation('fadein 2s');
-  }
-}
-
-._form_1{
-  form{
-    width: 100% !important;
   }
 }

@@ -55,8 +55,8 @@ function fivetwofive_front_page_genesis_meta() {
  * @since 1.0.0
  */
 function fivetwofive_enqueue_front_page_script() {
-	wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/dist/js/vendor/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
-	wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/dist/js/vendor/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
+	wp_enqueue_script( 'localScroll', get_stylesheet_directory_uri() . '/lib/assets/js/vendor/jquery.localScroll.min.js', array( 'scrollTo' ), '1.2.8b', true );
+	wp_enqueue_script( 'scrollTo', get_stylesheet_directory_uri() . '/lib/assets/js/vendor/jquery.scrollTo.min.js', array( 'jquery' ), '1.4.5-beta', true );
 }
 
 /**
@@ -113,7 +113,14 @@ function fivetwofive_contact_us_section() {
 				<div class="col-12 py-5">
 					<div class="form mx-auto">
 						<h4 class="text-center text-uppercase"><?php echo esc_html__( 'Let\'s Work Together', 'fivetwofive' ); ?></h4>
-						<div class="_form_1"></div><script src="https://jabaltorres.activehosted.com/f/embed.php?id=1" type="text/javascript" charset="utf-8"></script>
+                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+                        <script>
+                            hbspt.forms.create({
+                                region: "na1",
+                                portalId: "7921289",
+                                formId: "5ce5a7bb-b7ef-4851-87e7-f749ff7c74dc"
+                            });
+                        </script>
 					</div>
 				</div>
 			</div>

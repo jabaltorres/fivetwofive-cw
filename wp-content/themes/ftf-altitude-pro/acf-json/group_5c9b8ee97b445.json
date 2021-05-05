@@ -357,8 +357,8 @@
                                 },
                                 {
                                     "key": "field_5c9bb02281a3f",
-                                    "label": "Caption",
-                                    "name": "caption",
+                                    "label": "Image Alt Text",
+                                    "name": "image_alt_text",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -767,6 +767,44 @@
                     "label": "Hero Module",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_60722dd850e2c",
+                            "label": "Hero ID",
+                            "name": "module_hero_id",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60722df050e2d",
+                            "label": "Hero Class",
+                            "name": "module_hero_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
                         {
                             "key": "field_5c9b9152e68ce",
                             "label": "Title",
@@ -1301,8 +1339,8 @@
                             "sub_fields": [
                                 {
                                     "key": "field_5c9ba40d6bd6a",
-                                    "label": "Icon",
-                                    "name": "icon",
+                                    "label": "Image",
+                                    "name": "image",
                                     "type": "image",
                                     "instructions": "",
                                     "required": 0,
@@ -1639,5 +1677,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1617432412
+    "modified": 1618782590
 }
