@@ -80,6 +80,22 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$css->add_property( 'background-color', $theme_mods['colors_footer_background_color'] );
 			$css->add_property( 'color', $theme_mods['colors_footer_text_color'] );
 
+			$css->set_selector( '.button, button, input[type="button"], input[type="reset"], input[type="submit"]' );
+			$css->add_property( 'background-color', $theme_mods['colors_button_background_color'] );
+			$css->add_property( 'color', $theme_mods['colors_button_text_color'] );
+			$css->add_property( 'border-color', $theme_mods['colors_button_border_color'] );
+
+			$css->set_selector( '.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover' );
+			$css->add_property( 'background-color', $theme_mods['colors_button_background_color_hover'] );
+			$css->add_property( 'color', $theme_mods['colors_button_text_color_hover'] );
+			$css->add_property( 'border-color', $theme_mods['colors_button_border_color_hover'] );
+
+			$css->set_selector( '.button:focus, button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus' );
+			$css->add_property( 'background-color', $theme_mods['colors_button_background_color_hover'] );
+			$css->add_property( 'color', $theme_mods['colors_button_text_color_hover'] );
+			$css->add_property( 'border-color', $theme_mods['colors_button_border_color_hover'] );
+			$css->add_property( 'box-shadow', '0 0 0 0.25rem ' . $theme_mods['colors_button_border_color_hover'] . '7d' );
+
 			if ( $css ) {
 				wp_add_inline_style( 'fivetwofive-theme-style', $css->css_output() );
 			}
@@ -100,6 +116,7 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$this->add_site_identity_options( $wp_customize, $defaults );
 			$this->add_typography_options( $wp_customize, $defaults, $config );
 			$this->add_color_options( $wp_customize, $defaults );
+			$this->add_color_buttons_options( $wp_customize, $defaults );
 			$this->add_color_header_options( $wp_customize, $defaults );
 			$this->add_color_primary_navigation_options( $wp_customize, $defaults );
 			$this->add_color_footer_options( $wp_customize, $defaults );
@@ -542,6 +559,151 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 					array(
 						'label'   => __( 'Link Color Visited', 'fivetwofive' ),
 						'section' => 'fivetwofive_body_color_section',
+					)
+				)
+			);
+		}
+
+		/**
+		 * Add Buttons color fields in the customizer api.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param array                $defaults default theme mods.
+		 * @return void
+		 */
+		public function add_color_buttons_options( $wp_customize, $defaults ) {
+			$wp_customize->add_section(
+				'fivetwofive_button_color_section',
+				array(
+					'title'      => __( 'Buttons', 'fivetwofive' ),
+					'panel'      => 'fivetwofive_color_panel',
+					'priority'   => 20,
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_text_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_text_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_text_color]',
+					array(
+						'label'   => __( 'Button Text Color', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_text_color_hover]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_text_color_hover'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_text_color_hover]',
+					array(
+						'label'   => __( 'Button Text Color Hover', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_background_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_background_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_background_color]',
+					array(
+						'label'   => __( 'Button Background Color', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_background_color_hover]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_background_color_hover'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_background_color_hover]',
+					array(
+						'label'   => __( 'Button Background Color Hover', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_border_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_border_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_border_color]',
+					array(
+						'label'   => __( 'Button Border Color', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_button_border_color_hover]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_button_border_color_hover'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_button_border_color_hover]',
+					array(
+						'label'   => __( 'Button Border Color Hover', 'fivetwofive' ),
+						'section' => 'fivetwofive_button_color_section',
 					)
 				)
 			);

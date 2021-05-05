@@ -1,0 +1,22 @@
+.module-announcement {
+    background-size: cover;
+
+    &__close {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+
+    &.js-is-sticky-yes {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99999;
+    }
+}

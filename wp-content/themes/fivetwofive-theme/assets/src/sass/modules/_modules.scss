@@ -1,0 +1,8 @@
+.ftf-module {
+    position: relative;
+    .module__content {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

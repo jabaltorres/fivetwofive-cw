@@ -17,16 +17,20 @@ sass.compiler = require('sass');
 
 const paths = {
     style: {
-        src: "assets/src/sass/**/*.scss",
-        dest: "./"
+        src: "assets/src/sass/style.scss",
+        dest: "./",
+        maps: "./assets/dist/maps"
+    },
+    styles: {
+        src: ["assets/src/sass/**/*.scss", "!assets/src/sass/style.scss"],
+        dest: "assets/dist/css",
+        maps: "../maps"
     },
     scripts:{
         src: "assets/src/js/*.js",
         dest: "assets/dist/js",
-        hintfile: "assets/src/js/.jshintrc"
-    },
-    maps:{
-        dest: "./assets/dist/maps"
+        hintfile: "assets/src/js/.jshintrc",
+        maps: "assets/dist/maps"
     },
     images:{
         src: "assets/src/images/*",
@@ -43,8 +47,21 @@ const style = () => src(paths.style.src)
     .pipe(sass({fiber: Fiber})
     .on('error', sass.logError))
     .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write(paths.maps.dest))
+    .pipe(sourcemaps.write(paths.style.maps))
     .pipe(dest(paths.style.dest))
+    .pipe(browserSync.stream());
+
+/**
+ * @task styles
+ * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
+ */
+ const styles = () => src(paths.styles.src)
+    .pipe(sourcemaps.init())
+    .pipe(sass({fiber: Fiber})
+    .on('error', sass.logError))
+    .pipe(postcss([autoprefixer(), cssnano()]))
+    .pipe(sourcemaps.write(paths.styles.maps))
+    .pipe(dest(paths.styles.dest))
     .pipe(browserSync.stream());
 
 /**
@@ -62,11 +79,11 @@ const lint = () => src(paths.scripts.src)
  */
 const scripts = () => src(paths.scripts.src)
     .pipe(sourcemaps.init())
-    .pipe(concat('scripts.js'))
+    .pipe(concat('template-module.js'))
     .pipe(dest(paths.scripts.dest))
-    .pipe(rename('scripts.min.js'))
+    .pipe(rename('template-module.min.js'))
     .pipe(uglify().on('error', (e) => { log(e); }))
-    .pipe(sourcemaps.write(paths.maps.dest))
+    .pipe(sourcemaps.write(paths.scripts.dest))
     .pipe(dest(paths.scripts.dest))
     .pipe(browserSync.stream())
     .on('end', () => { log('Scripts Done!'); });
@@ -97,6 +114,7 @@ const serve = () => {
         proxy: "https://fivetwofive.local/"
     });
 
+    watch(paths.styles.src, styles);
     watch(paths.style.src, style);
     watch(paths.scripts.src, series(lint, scripts));
     // We should tell gulp which files to watch to trigger the reload
@@ -119,4 +137,5 @@ exports.default = (cb) => {
 exports.serve       = serve;
 exports.imageminify = imageminify;
 exports.style       = style;
+exports.styles      = styles;
 exports.scripts     = series(lint, scripts);

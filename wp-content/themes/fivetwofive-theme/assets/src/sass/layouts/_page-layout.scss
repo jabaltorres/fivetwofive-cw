@@ -9,6 +9,12 @@
     }
 }
 
+.page-template-template-module {
+    .content-sidebar-wrap {
+        padding: 0;
+    }
+}
+
 @media (min-width: 576px) {
     .fivetwofive-page-layout-contained {
         .content-sidebar-wrap {
@@ -50,6 +56,12 @@
             flex-basis: 30%;
             width: 30%;
             margin-right: - rem(15px);
+        }
+    }
+
+    .page-template-template-module {
+        .content-sidebar-wrap {
+            padding: 0;
         }
     }
 }

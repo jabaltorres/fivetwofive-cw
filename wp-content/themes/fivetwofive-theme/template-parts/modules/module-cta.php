@@ -22,31 +22,37 @@ if ( $background_image ) {
 }
 
 ?>
-<section class="ftf-module module-cta" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;">
+<section class="ftf-module module-cta py-5 py-md-6" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;">
 	<div class="container">
-		<?php if ( $show_logo ) : ?>
-			<?php the_custom_logo(); ?>
-		<?php endif; ?>
+		<div class="row">
+			<div class="col-12 col-md-10 offset-md-1">
+				<?php if ( $show_logo ) : ?>
+					<div class="module-cta__logo mb-3 mb-md-4">
+						<?php the_custom_logo(); ?>
+					</div>
+				<?php endif; ?>
 
-		<?php if ( $module_title ) : ?>
-			<h2 class="module__title"><?php echo esc_html( $module_title ); ?></h2>
-		<?php endif; ?>
+				<?php if ( $module_title ) : ?>
+					<h2 class="module__title mb-3 mb-md-4"><?php echo esc_html( $module_title ); ?></h2>
+				<?php endif; ?>
 
-		<?php if ( $module_subtitle ) : ?>
-			<h2 class="module__subtitle"><?php echo esc_html( $module_subtitle ); ?></h2>
-		<?php endif; ?>
+				<?php if ( $module_subtitle ) : ?>
+					<h3 class="module__subtitle mb-3 mb-md-4"><?php echo esc_html( $module_subtitle ); ?></h3>
+				<?php endif; ?>
 
-		<?php if ( $module_content ) : ?>
-			<div class="module__content"><?php echo wp_kses_post( $module_content ); ?></div>
-		<?php endif; ?>
+				<?php if ( $module_content ) : ?>
+					<div class="module__content mb-3 mb-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
+				<?php endif; ?>
 
-		<?php
-		if ( $module_button ) :
-			$link_url    = $module_button['url'];
-			$link_title  = $module_button['title'];
-			$link_target = $module_button['target'] ? $module_button['target'] : '_self';
-			?>
-			<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-		<?php endif; ?>
+				<?php
+				if ( $module_button ) :
+					$link_url    = $module_button['url'];
+					$link_title  = $module_button['title'];
+					$link_target = $module_button['target'] ? $module_button['target'] : '_self';
+					?>
+					<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+				<?php endif; ?>
+			</div>
+		</div>
 	</div>
 </section>

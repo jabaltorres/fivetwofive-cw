@@ -9,6 +9,9 @@
  * @package FiveTwoFive_Theme
  */
 
+$fivetwofive_theme_mods = fivetwofive_theme_mods();
+$hide_site_title        = $fivetwofive_theme_mods['site_identity_hide_blogname'];
+$hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescription'];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -32,12 +35,6 @@
 					<div class="site-branding__logo">
 						<?php the_custom_logo(); ?>
 					</div>
-
-					<?php
-						$fivetwofive_theme_mods = fivetwofive_theme_mods();
-						$hide_site_title        = $fivetwofive_theme_mods['site_identity']['hide_blogname'];
-						$hide_site_description  = $fivetwofive_theme_mods['site_identity']['hide_blogdescription'];
-					?>
 
 					<?php if ( ! $hide_site_title || ! $hide_site_description ) : ?>
 						<div class="site-branding__text">

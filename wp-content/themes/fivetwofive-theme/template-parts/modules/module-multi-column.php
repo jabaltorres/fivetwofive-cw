@@ -34,17 +34,19 @@ switch ( $column_count ) {
 $button = get_sub_field( 'button' );
 
 ?>
-<div class="ftf-module module-multi-column" style="background-color:<?php echo esc_attr( $background_color ); ?>;">
+<section class="ftf-module module-multi-column py-5 py-md-6" style="background-color:<?php echo esc_attr( $background_color ); ?>;">
 	<div class="container">
-		<?php if ( $module_title ) : ?>
-			<h2 class="module__title" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
-		<?php endif; ?>
+		<header class="module__header text-md-center mb-md-6">
+			<?php if ( $module_title ) : ?>
+				<h2 class="module__title" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+			<?php endif; ?>
 
-		<?php if ( $module_subtitle ) : ?>
-			<h3 class="module__subtitle" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
-		<?php endif; ?>
+			<?php if ( $module_subtitle ) : ?>
+				<h3 class="module__subtitle" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
+			<?php endif; ?>
+		</header>
 
-		<div class="row">
+		<div class="row text-md-center">
 			<?php
 			while ( have_rows( 'columns' ) ) :
 				the_row();
@@ -56,15 +58,15 @@ $button = get_sub_field( 'button' );
 				<div class="column col-12 col-md-<?php echo esc_attr( $column_width ); ?>">
 					<?php
 					if ( $column_image ) :
-						echo wp_get_attachment_image( $column_image, 'thumbnail', false, array( 'class' => 'column-image' ) );
+						echo wp_get_attachment_image( $column_image, 'thumbnail', false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
 					endif;
 					?>
 					<?php if ( $column_title ) : ?>
-						<h3 class="column-title" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $column_title ); ?></h3>
+						<h3 class="column-title mb-3 mb-md-4" style="color:<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $column_title ); ?></h3>
 					<?php endif; ?>
 
 					<?php if ( $column_text ) : ?>
-						<div class="column-text" style="color:<?php echo esc_attr( $color ); ?>"><?php echo wp_kses_post( $column_text ); ?></div>
+						<div class="column-text mb-3 mb-md-4" style="color:<?php echo esc_attr( $color ); ?>"><?php echo wp_kses_post( $column_text ); ?></div>
 					<?php endif; ?>
 
 					<?php
@@ -88,4 +90,4 @@ $button = get_sub_field( 'button' );
 			<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 		<?php endif; ?>
 	</div>
-</div>
+</section>

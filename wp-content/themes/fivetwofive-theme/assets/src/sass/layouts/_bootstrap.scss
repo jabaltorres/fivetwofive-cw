@@ -1,0 +1,65 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+
+@import "../../../node_modules/bootstrap/scss/mixins/lists";
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../../node_modules/bootstrap/scss/mixins/container";
+@import "../../../node_modules/bootstrap/scss/mixins/grid";
+@import "../../../node_modules/bootstrap/scss/mixins/utilities";
+
+@import "../../../node_modules/bootstrap/scss/vendor/rfs";
+
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),    //4px
+    2: ($spacer * .5),     //8px
+    3: $spacer,            //16px
+    4: ($spacer * 1.5),    //24px
+    5: ($spacer * 3),      //48px
+    6: ($spacer * 4),      //64px
+  ),
+  $spacers
+);
+
+@import "../../../node_modules/bootstrap/scss/containers";
+@import "../../../node_modules/bootstrap/scss/grid";
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+// Only use the utilities we need
+// stylelint-disable-next-line scss/dollar-variable-default
+$utilities: map-get-multiple(
+  $utilities,
+  (
+    "text-align",
+    "order",
+    "flex",
+    "flex-direction",
+    "flex-grow",
+    "flex-shrink",
+    "flex-wrap",
+    "justify-content",
+    "align-items",
+    "align-content",
+    "align-self",
+    "margin",
+    "margin-x",
+    "margin-y",
+    "margin-top",
+    "margin-end",
+    "margin-bottom",
+    "margin-start",
+    "padding",
+    "padding-x",
+    "padding-y",
+    "padding-top",
+    "padding-end",
+    "padding-bottom",
+    "padding-start",
+  )
+);
+
+@import "../../../node_modules/bootstrap/scss/utilities/api";

@@ -125,6 +125,11 @@ if ( ! function_exists( 'fivetwofive_is_contained' ) ) :
 		if ( is_home() || is_archive() || is_singular( array( 'post' ) ) || is_page() || is_search() ) {
 			$is_contained = true;
 		}
+
+		if ( is_page_template( 'page-templates/template-module.php' ) ) {
+			$is_contained = false;
+		}
+
 		return $is_contained;
 	}
 endif;

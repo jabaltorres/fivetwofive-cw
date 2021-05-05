@@ -8,6 +8,8 @@
  */
 
 ?>
-<div class="ftf-module module-code">
-	<?php echo get_sub_field( 'code' ); ?>
+<div class="ftf-module module-code py-5 py-md-6">
+	<div class="module__content">
+		<?php echo get_sub_field( 'code' ); ?>
+	</div>
 </div>
