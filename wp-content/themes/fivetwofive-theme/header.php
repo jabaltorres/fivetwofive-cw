@@ -30,8 +30,8 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 
 	<header id="masthead" class="site-header">
 		<div class="container">
-			<div class="row">
-				<div class="site-branding col-3">
+			<div class="row align-items-center">
+				<div class="site-branding col-6 col-md-3">
 					<div class="site-branding__logo">
 						<?php the_custom_logo(); ?>
 					</div>
@@ -58,7 +58,7 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 					<?php endif; ?>
 				</div><!-- .site-branding -->
 
-				<nav id="site-navigation" class="main-navigation col-9">
+				<nav id="site-navigation" class="main-navigation col-6 col-md-9">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="menu-toggle__text"><?php esc_html_e( 'Menu', 'fivetwofive' ); ?></span></button>
 					<?php
 					wp_nav_menu(

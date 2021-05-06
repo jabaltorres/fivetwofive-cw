@@ -72,10 +72,10 @@ if ( $text_color ) {
 				}
 				?>
 				<div class="swiper-slide">
-					<div class="swiper-slide-content px-6 py-3">
+					<div class="swiper-slide-content px-5 pt-3 pb-4 py-md-3 px-md-6">
 						<div class="row align-items-center">
 							<?php if ( $author_avatar ) : ?>
-								<div class="col-12 col-md-2">
+								<div class="col-12 col-md-2 mb-4 mb-md-0">
 									<?php echo wp_get_attachment_image( $author_avatar, 'thumbnail', false, array( 'class' => 'testimonial__avatar mx-auto' ) ); ?>
 								</div>
 							<?php endif; ?>
