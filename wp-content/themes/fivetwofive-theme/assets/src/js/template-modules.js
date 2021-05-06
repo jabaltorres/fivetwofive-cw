@@ -32,8 +32,30 @@
         };
     })();
 
+    var testimonialCarouselModule = (function(){
+        function init() {
+            new Swiper('.module-testimonials-carousel .swiper-container', {
+                loop: true,
+                // If we need pagination
+                pagination: {
+                  el: '.swiper-pagination',
+                  clickable: true,
+                },
+                // Navigation arrows
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+            });
+        }
+        return {
+            init: init
+        }
+    })();
+
     $(function() {
         announcementModule.init();
+        testimonialCarouselModule.init();
     });
 
 })(jQuery);

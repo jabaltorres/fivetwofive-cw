@@ -5,6 +5,7 @@
 	- Announcement Module
 	- Hero Module
 	- CTA Module
+	- Testimonials Carousel Module
 --------------------------------------------------------------*/
 
 // Import variables and mixins.
@@ -29,3 +30,8 @@
 - CTA Module
 --------------------------------------------------------------*/
 @import "modules/module-cta";
+
+/*--------------------------------------------------------------
+- Testimonials Carousel Module
+--------------------------------------------------------------*/
+@import "modules/module-testimonials-carousel";
