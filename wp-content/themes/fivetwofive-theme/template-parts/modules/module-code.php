@@ -7,9 +7,19 @@
  * @package FiveTwoFive_Theme
  */
 
+// Styles.
+$background_image = get_sub_field( 'background_image' );
+$background_color = get_sub_field( 'background_color' );
+$styles           = '';
+
+if ( $background_color ) {
+	$styles .= sprintf( 'background-color: %1$s;', $background_color );
+}
+
+if ( $background_image ) {
+	$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+}
 ?>
-<div class="ftf-module module-code py-5 py-md-6">
-	<div class="module__content">
-		<?php echo get_sub_field( 'code' ); ?>
-	</div>
+<div class="ftf-module module-code" style="<?php echo esc_attr( $styles ); ?>">
+	<?php echo get_sub_field( 'code' ); ?>
 </div>
