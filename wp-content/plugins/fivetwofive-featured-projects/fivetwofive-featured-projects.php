@@ -149,9 +149,9 @@ function ftf_featured_projects_shortcode() {
 	if  ( $featured_projects ) {
 		ob_start();
 		?>
-		<div id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper d-block clearboth text-center">
+		<section id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper text-center">
 			<div class="featured-projects-inner-wrapper py-5">
-				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
+				<h2 class="title mb-5"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h2>
 				<?php
 				foreach ( $featured_projects as $post ) :
 					setup_postdata( $post );
@@ -181,7 +181,7 @@ function ftf_featured_projects_shortcode() {
 											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 										<?php endif; ?>
 
-										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+										<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
 
 									</div>
 
@@ -202,7 +202,7 @@ function ftf_featured_projects_shortcode() {
 											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 										<?php endif; ?>
 
-										<a class="btn btn-primary" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+										<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
 
 									</div>
 								<?php endif; ?>
@@ -213,9 +213,9 @@ function ftf_featured_projects_shortcode() {
 				endforeach;
 				wp_reset_postdata();
 				?>
-				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url( get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+				<a class="button mx-auto my-4" href="<?php echo esc_url( get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
 			</div>
-		</div>
+		</section>
 		<?php
 		$projects = ob_get_clean();
 	}
