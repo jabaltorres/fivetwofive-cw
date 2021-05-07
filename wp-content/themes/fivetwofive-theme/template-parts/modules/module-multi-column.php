@@ -19,6 +19,7 @@ $column_count       = count( get_sub_field( 'columns' ) );
 $background_image        = get_sub_field( 'background_image' );
 $background_color        = get_sub_field( 'background_color' );
 $text_color              = get_sub_field( 'text_color' );
+$text_alignment          = get_sub_field( 'text_alignment' );
 $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
 $button_border_color     = get_sub_field( 'button_border_color' );
@@ -70,9 +71,9 @@ if ( $button_border_color ) {
 }
 
 ?>
-<section class="ftf-module module-multi-column py-5 py-md-6" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
-		<header class="module__header text-md-center mb-md-6">
+		<header class="module__header mb-md-6">
 			<?php if ( $module_title ) : ?>
 				<h2 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 			<?php endif; ?>
@@ -82,19 +83,30 @@ if ( $button_border_color ) {
 			<?php endif; ?>
 		</header>
 
-		<div class="row text-md-center">
+		<div class="row">
 			<?php
 			while ( have_rows( 'columns' ) ) :
 				the_row();
-				$column_image  = get_sub_field( 'image' );
-				$column_title  = get_sub_field( 'title' );
-				$column_text   = get_sub_field( 'text' );
-				$column_button = get_sub_field( 'button' );
+				$column_image     = get_sub_field( 'image' );
+				$column_dimension = get_sub_field( 'image_dimension' );
+				$column_title     = get_sub_field( 'title' );
+				$column_text      = get_sub_field( 'text' );
+				$column_button    = get_sub_field( 'button' );
+				$image_dimension  = 'full';
+
+				if ( $column_dimension ) {
+					// check if the dimension set it width and height.
+					if ( count( explode( ',', $column_dimension ) ) > 1 ) {
+						$image_dimension = explode( ',', $column_dimension );
+					} else {
+						$image_dimension = $column_dimension;
+					}
+				}
 				?>
 				<div class="column col-12 col-md-<?php echo esc_attr( $column_width ); ?>">
 					<?php
 					if ( $column_image ) :
-						echo wp_get_attachment_image( $column_image, array( 150 ), false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
+						echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
 					endif;
 					?>
 					<?php if ( $column_title ) : ?>

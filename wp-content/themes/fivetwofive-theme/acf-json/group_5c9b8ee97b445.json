@@ -746,6 +746,25 @@
                                     "mime_types": ""
                                 },
                                 {
+                                    "key": "field_6094805717f4c",
+                                    "label": "Image dimension",
+                                    "name": "image_dimension",
+                                    "type": "text",
+                                    "instructions": "Define the image dimension by entering the image width and height seperated by comma\r\ne.g. 100, 100\r\nor any existing image sizes\r\ne.g. thumbnail",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
                                     "key": "field_5d2cf7e19e264",
                                     "label": "Title",
                                     "name": "title",
@@ -809,7 +828,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -833,7 +852,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -848,11 +867,37 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
                             "default_value": "#000000"
+                        },
+                        {
+                            "key": "field_60947fba17f4a",
+                            "label": "Text alignment",
+                            "name": "text_alignment",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "start": "Left",
+                                "end": "Right",
+                                "center": "Center"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
                             "key": "field_609327d5ed7aa",
@@ -863,7 +908,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
@@ -878,7 +923,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
@@ -893,7 +938,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "16.66",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
@@ -1151,5 +1196,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620261405
+    "modified": 1620346131
 }
