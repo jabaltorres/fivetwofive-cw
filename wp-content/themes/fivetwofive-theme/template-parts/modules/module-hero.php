@@ -93,7 +93,7 @@ if ( $button_border_color ) {
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<h2 class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></h2>
+					<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>

@@ -9,7 +9,7 @@
 
 // Contents.
 $module_title       = get_sub_field( 'title' );
-$module_subtitle    = get_sub_field( 'sub_title' );
+$module_subtitle    = get_sub_field( 'subtitle' );
 $module_description = get_sub_field( 'description' );
 
 // Styles.
@@ -43,7 +43,7 @@ if ( $text_color ) {
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<h3 class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
+					<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>

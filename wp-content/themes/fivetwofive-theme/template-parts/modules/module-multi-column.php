@@ -9,7 +9,7 @@
 
 // Contents.
 $module_title       = get_sub_field( 'title' );
-$module_subtitle    = get_sub_field( 'sub_title' );
+$module_subtitle    = get_sub_field( 'subtitle' );
 $module_description = get_sub_field( 'description' );
 $module_button      = get_sub_field( 'button' );
 $background_color   = get_sub_field( 'background_color' );
@@ -79,7 +79,11 @@ if ( $button_border_color ) {
 			<?php endif; ?>
 
 			<?php if ( $module_subtitle ) : ?>
-				<h3 class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
+				<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+			<?php endif; ?>
+
+			<?php if ( $module_description ) : ?>
+				<div class="module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
 			<?php endif; ?>
 		</header>
 
