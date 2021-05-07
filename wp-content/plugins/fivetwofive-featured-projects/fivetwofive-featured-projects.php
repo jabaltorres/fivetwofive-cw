@@ -72,9 +72,9 @@ function ftf_featured_projects_register_cpt() {
 		'public'              => true,
 		'publicly_queryable'  => true,
 		'show_ui'             => true,
-		'show_in_rest'        => false,
+		'show_in_rest'        => true,
 		'rest_base'           => "",
-		'has_archive'         => false,
+		'has_archive'         => true,
 		'show_in_menu'        => true,
 		'menu_position'       => '5',
 		'menu_icon'           => 'dashicons-megaphone',
@@ -92,6 +92,20 @@ function ftf_featured_projects_register_cpt() {
 	register_post_type( 'featured-projects', $args );
 }
 add_action( 'init', 'ftf_featured_projects_register_cpt' );
+
+/**
+ * Make the featured projects archive full width.
+ *
+ * @return boolean $enable Make the featured projects archive full width.
+ */
+function ftf_featured_projects_archive_disable_sidebar( $enable_sidebar ) {
+	if ( is_post_type_archive( 'featured-projects' ) ) {
+		$enable_sidebar = false;
+	}
+
+	return $enable_sidebar;
+}
+add_filter( 'fivetwofive_theme_enable_sidebar', 'ftf_featured_projects_archive_disable_sidebar' );
 
 /**
  * Register custom post type on plugin activation.

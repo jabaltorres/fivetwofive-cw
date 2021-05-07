@@ -110,7 +110,7 @@ if ( ! function_exists( 'fivetwofive_enable_sidebar' ) ) :
 		if ( is_home() || is_archive() || is_singular( array( 'post' ) ) ) {
 			$show_sidebar = true;
 		}
-		return $show_sidebar;
+		return apply_filters( 'fivetwofive_theme_enable_sidebar', $show_sidebar );
 	}
 endif;
 
