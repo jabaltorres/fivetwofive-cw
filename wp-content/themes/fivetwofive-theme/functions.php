@@ -46,3 +46,8 @@ require get_template_directory() . '/inc/customizer.php';
  * SVG Icons
  */
 require get_template_directory() . '/inc/svg-icons.php';
+
+/**
+ * Share Buttons
+ */
+require get_template_directory() . '/inc/share-buttons.php';
