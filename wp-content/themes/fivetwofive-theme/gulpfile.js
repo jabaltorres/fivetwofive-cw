@@ -5,7 +5,7 @@ const { src, dest, watch, series } = require('gulp'),
     autoprefixer                   = require('autoprefixer'),
     cssnano                        = require('cssnano'),
     sourcemaps                     = require('gulp-sourcemaps'),
-    jshint                         = require('gulp-jshint'),
+    eslint                         = require('gulp-eslint'),
     rename                         = require('gulp-rename'),
     uglify                         = require('gulp-uglify'),
     concat                         = require('gulp-concat'),
@@ -16,26 +16,25 @@ const { src, dest, watch, series } = require('gulp'),
 sass.compiler = require('sass');
 
 const paths = {
-    style: {
-        src: "assets/src/sass/style.scss",
-        dest: "./",
-        maps: "./assets/dist/maps"
-    },
-    styles: {
-        src: ["assets/src/sass/**/*.scss", "!assets/src/sass/style.scss"],
-        dest: "assets/dist/css",
-        maps: "../maps"
-    },
-    scripts:{
-        src: "assets/src/js/*.js",
-        dest: "assets/dist/js",
-        hintfile: "assets/src/js/.jshintrc",
-        maps: "assets/dist/maps"
-    },
-    images:{
-        src: "assets/src/images/*",
-        dest: "assets/dist/images"
-    }
+  style: {
+    src: "assets/src/sass/style.scss",
+    dest: "./",
+    maps: "./assets/dist/maps"
+  },
+  styles: {
+    src: ["assets/src/sass/**/*.scss", "!assets/src/sass/style.scss"],
+    dest: "assets/dist/css",
+    maps: "../maps"
+  },
+  scripts:{
+    src: "assets/src/js/*.js",
+    dest: "assets/dist/js",
+    maps: "assets/dist/maps"
+  },
+  images:{
+    src: "assets/src/images/*",
+    dest: "assets/dist/images"
+  }
 };
 
 /**
@@ -43,34 +42,45 @@ const paths = {
  * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
  */
 const style = () => src(paths.style.src)
-    .pipe(sourcemaps.init())
-    .pipe(sass({fiber: Fiber})
-    .on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write(paths.style.maps))
-    .pipe(dest(paths.style.dest))
-    .pipe(browserSync.stream());
+  .pipe(sourcemaps.init())
+  .pipe(sass({fiber: Fiber})
+  .on('error', sass.logError))
+  .pipe(postcss([autoprefixer(), cssnano()]))
+  .pipe(sourcemaps.write(paths.style.maps))
+  .pipe(dest(paths.style.dest))
+  .pipe(browserSync.stream());
 
 /**
  * @task styles
  * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
  */
  const styles = () => src(paths.styles.src)
-    .pipe(sourcemaps.init())
-    .pipe(sass({fiber: Fiber})
-    .on('error', sass.logError))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(sourcemaps.write(paths.styles.maps))
-    .pipe(dest(paths.styles.dest))
-    .pipe(browserSync.stream());
+  .pipe(sourcemaps.init())
+  .pipe(sass({fiber: Fiber})
+  .on('error', sass.logError))
+  .pipe(postcss([autoprefixer(), cssnano()]))
+  .pipe(sourcemaps.write(paths.styles.maps))
+  .pipe(dest(paths.styles.dest))
+  .pipe(browserSync.stream());
 
 /**
  * @task lint
  * Detects errors and potential problems in JavaScript code
  */
 const lint = () => src(paths.scripts.src)
-    .pipe(jshint(paths.scripts.hintfile))
-    .pipe(jshint.reporter('jshint-stylish'));
+  .pipe(eslint(
+    {
+      useEslintrc: true,
+      fix: true
+    }
+  ))
+  .pipe(eslint.format())
+  .pipe(eslint.results(results => {
+    // Called once for all ESLint results.
+      console.log(`Total Results: ${results.length}`);
+      console.log(`Total Warnings: ${results.warningCount}`);
+      console.log(`Total Errors: ${results.errorCount}`);
+  }));
 
 /**
  * @task scripts
@@ -78,15 +88,15 @@ const lint = () => src(paths.scripts.src)
  * `scripts` depends on `lint`
  */
 const scripts = () => src(paths.scripts.src)
-    .pipe(sourcemaps.init())
-    .pipe(concat('template-module.js'))
-    .pipe(dest(paths.scripts.dest))
-    .pipe(rename('template-module.min.js'))
-    .pipe(uglify().on('error', (e) => { log(e); }))
-    .pipe(sourcemaps.write(paths.scripts.dest))
-    .pipe(dest(paths.scripts.dest))
-    .pipe(browserSync.stream())
-    .on('end', () => { log('Scripts Done!'); });
+  .pipe(sourcemaps.init())
+  .pipe(concat('template-module.js'))
+  .pipe(dest(paths.scripts.dest))
+  .pipe(rename('template-module.min.js'))
+  .pipe(uglify().on('error', (e) => { log(e); }))
+  .pipe(sourcemaps.write(paths.scripts.dest))
+  .pipe(dest(paths.scripts.dest))
+  .pipe(browserSync.stream())
+  .on('end', () => { log('Scripts Done!'); });
 
 /**
  * @task minify
@@ -138,4 +148,5 @@ exports.serve       = serve;
 exports.imageminify = imageminify;
 exports.style       = style;
 exports.styles      = styles;
+exports.lint     = lint;
 exports.scripts     = series(lint, scripts);
