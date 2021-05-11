@@ -122,7 +122,7 @@ if ( ! function_exists( 'fivetwofive_is_contained' ) ) :
 	 */
 	function fivetwofive_is_contained() {
 		$is_contained = false;
-		if ( is_home() || is_archive() || is_singular( array( 'post' ) ) || is_page() || is_search() ) {
+		if ( is_home() || is_archive() || is_singular() || is_page() || is_search() ) {
 			$is_contained = true;
 		}
 
