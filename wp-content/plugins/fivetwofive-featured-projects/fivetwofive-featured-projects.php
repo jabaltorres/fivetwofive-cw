@@ -227,7 +227,7 @@ function ftf_featured_projects_shortcode() {
 				endforeach;
 				wp_reset_postdata();
 				?>
-				<a class="button mx-auto my-4" href="<?php echo esc_url( get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+				<a class="button mx-auto my-4" href="<?php echo esc_url( get_post_type_archive_link( 'featured-projects' ) ); ?>">View All Projects</a>
 			</div>
 		</section>
 		<?php
