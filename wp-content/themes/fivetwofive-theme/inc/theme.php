@@ -169,3 +169,28 @@ if ( ! function_exists( 'fivetwofive_layout_enable_sidebar' ) ) :
 	}
 endif;
 add_action( 'fivetwofive_after_content', 'fivetwofive_layout_enable_sidebar', 5 );
+
+if ( ! function_exists( 'fivetwofive_theme_archive_title' ) ) :
+	/**
+	 * Get rid of the “Category:”, “Tag:”, “Author:”, “Archives:” and “Other taxonomy name:” in the archive title.
+	 *
+	 * @param string $title The archive title text.
+	 * @return string $title The archive title text.
+	 */
+	function fivetwofive_theme_archive_title( $title ) {
+		if ( is_category() ) {
+			$title = single_cat_title( '', false );
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+		} elseif ( is_author() ) {
+			$title = '<span class="vcard">' . get_the_author() . '</span>';
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
+		} elseif ( is_tax() ) {
+			$title = single_term_title( '', false );
+		}
+
+		return $title;
+	}
+endif;
+add_filter( 'get_the_archive_title', 'fivetwofive_theme_archive_title' );
