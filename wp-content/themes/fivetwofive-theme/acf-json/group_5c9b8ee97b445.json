@@ -867,7 +867,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
@@ -882,7 +882,33 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "33.33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "start": "Left",
+                                "end": "Right",
+                                "center": "Center"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_609b2fab0dd73",
+                            "label": "Column Text Alignment",
+                            "name": "column_text_alignment",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
@@ -1196,5 +1222,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1620346847
+    "modified": 1620783225
 }

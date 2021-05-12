@@ -23,6 +23,7 @@ $text_alignment          = get_sub_field( 'text_alignment' );
 $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
 $button_border_color     = get_sub_field( 'button_border_color' );
+$column_text_alignment   = get_sub_field( 'column_text_alignment' );
 
 switch ( $column_count ) {
 	case '1':
@@ -87,7 +88,7 @@ if ( $button_border_color ) {
 			<?php endif; ?>
 		</header>
 
-		<div class="row">
+		<div class="row text-md-<?php echo esc_attr( $column_text_alignment ); ?>">
 			<?php
 			while ( have_rows( 'columns' ) ) :
 				the_row();
