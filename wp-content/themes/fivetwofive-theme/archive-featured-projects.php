@@ -27,32 +27,34 @@ get_header();
 				while ( have_posts() ) :
 					the_post();
 					?>
-					<article id="card-<?php the_ID(); ?>" <?php post_class( 'col-md-6 mb-3 mb-md-5' ); ?>>
-						<a class="card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-							<?php
-								the_post_thumbnail(
-									'post-thumbnail',
-									array(
-										'alt' => the_title_attribute(
-											array(
-												'echo' => false,
-											)
-										),
-										'class' => 'card__image mb-2',
-									)
-								);
-							?>
-						</a>
-
-						<header class="card__header">
-							<?php the_title( '<h2 class="card__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-						</header><!-- .card-header -->
-
-						<div class="card__content">
-							<?php the_excerpt(); ?>
-						</div><!-- .carc-content -->
-
-					</article><!-- #card-<?php the_ID(); ?> -->
+					<div class="col-md-4 mb-3 mb-md-5">
+						<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
+							<div class="card__image-wrap mb-4">
+								<?php
+									the_post_thumbnail(
+										'large',
+										array(
+											'alt' => the_title_attribute(
+												array(
+													'echo' => false,
+												)
+											),
+											'class' => 'card__image img-responsive',
+										)
+									);
+								?>
+								<div class="card__image-overlay">
+									<a class="button card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">Read More</a>
+								</div>
+							</div>
+							<header class="card__header">
+								<?php the_title( sprintf( '<h2 class="card__title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							</header><!-- .card-header -->
+							<div class="card__content">
+								<?php the_excerpt(); ?>
+							</div>
+						</article><!-- #card-<?php the_ID(); ?> -->
+					</div>
 					<?php
 				endwhile;
 				?>
