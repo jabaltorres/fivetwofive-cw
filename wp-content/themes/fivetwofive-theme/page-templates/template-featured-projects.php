@@ -1,31 +1,32 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * Template Name: Archived Projects Template
  *
  * @package FiveTwoFive_Theme
+ * @since FiveTwoFive Theme 1.0.0
  */
 
 get_header();
+
+$args = array(
+	'post_type' => 'featured-projects',
+	'orderby'   => 'menu_order',
+	'order'     => 'DESC',
+	'paged'     => max( 1, get_query_var( 'paged' ) ),
+);
+
+$work_query = new WP_Query( $args );
 ?>
 
 	<main id="primary" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header mb-5">
-				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+		<?php if ( $work_query->have_posts() ) : ?>
 
 			<div class="row">
 				<?php
 				/* Start the Loop */
-				while ( have_posts() ) :
-					the_post();
+				while ( $work_query->have_posts() ) :
+					$work_query->the_post();
 					?>
 					<div class="col-md-4 mb-3 mb-md-5">
 						<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
@@ -60,17 +61,29 @@ get_header();
 				?>
 			</div>
 
-			<?php
-			the_posts_navigation(
-				array(
-					'prev_text'          => __( 'Older projects', 'fivetwofive-theme' ),
-					'next_text'          => __( 'Newer projects', 'fivetwofive-theme' ),
-					'screen_reader_text' => __( 'Projects navigation', 'fivetwofive-theme' ),
-					'aria_label'         => __( 'Projects', 'fivetwofive-theme' ),
-					'class'              => 'post-navigation',
-				)
-			);
+			<div class="featured-projects-pagination">
+				<?php
+					echo paginate_links(
+						array(
+							'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+							'total'        => $work_query->max_num_pages,
+							'current'      => max( 1, get_query_var( 'paged' ) ),
+							'format'       => '?paged=%#%',
+							'show_all'     => false,
+							'type'         => 'plain',
+							'end_size'     => 2,
+							'mid_size'     => 1,
+							'prev_next'    => true,
+							'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Projects', 'fivetwofive-theme' ) ),
+							'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Projects', 'fivetwofive-theme' ) ),
+							'add_args'     => false,
+							'add_fragment' => '',
+						)
+					);
+				?>
+			</div>
 
+			<?php
 		else :
 
 			get_template_part( 'template-parts/content', 'none' );

@@ -74,7 +74,7 @@ function ftf_featured_projects_register_cpt() {
 		'show_ui'             => true,
 		'show_in_rest'        => true,
 		'rest_base'           => "",
-		'has_archive'         => true,
+		'has_archive'         => false,
 		'show_in_menu'        => true,
 		'menu_position'       => '5',
 		'menu_icon'           => 'dashicons-megaphone',
@@ -125,16 +125,19 @@ register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_typ
  * @return void
  */
 function ftf_featured_projects_unregister_cpt() {
-    unregister_post_type( 'featured-projects' );
-    flush_rewrite_rules();
+	unregister_post_type( 'featured-projects' );
+	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
 
 /**
  * Add featured project shortcode.
  */
-function ftf_featured_projects_shortcode() {
+function ftf_featured_projects_shortcode( $a ) {
 	$projects = '';
+
+	$atts = shortcode_atts( array( 'archive' => null ), $a );
+
 	global $post;
 
 	// Check for transient. If none, then execute WP_Query
@@ -227,7 +230,10 @@ function ftf_featured_projects_shortcode() {
 				endforeach;
 				wp_reset_postdata();
 				?>
-				<a class="button mx-auto my-4" href="<?php echo esc_url( get_post_type_archive_link( 'featured-projects' ) ); ?>">View All Projects</a>
+
+				<?php if ( $atts['archive'] ) : ?>
+					<a class="button mx-auto my-4" href="<?php echo esc_url( get_the_permalink( intval( $atts['archive'] ) ) ); ?>"><?php echo esc_html__( 'View All Projects', 'jt-featured-projects' ); ?></a>
+				<?php endif; ?>
 			</div>
 		</section>
 		<?php
