@@ -83,7 +83,6 @@ function ftf_featured_projects_register_cpt() {
 		'capability_type'     => "post",
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'work', 'with_front' => false ),
 		'query_var'           => true,
 		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
