@@ -171,12 +171,7 @@ function ftf_featured_projects_shortcode( $a ) {
 				<?php
 				foreach ( $featured_projects as $post ) :
 					setup_postdata( $post );
-
-					$project_client      = get_field( 'project_client' );
-					$project_url         = get_field( 'project_url' );
-					$project_button_text = get_field( 'project_button_text' );
-					$homepage_toggle     = get_field( 'homepage_toggle' );
-
+					$homepage_toggle = get_field( 'homepage_toggle' );
 					?>
 						<div class="container featured-projects-homepage-item mb-4">
 							<div class="row align-items-center">
@@ -241,78 +236,6 @@ function ftf_featured_projects_shortcode( $a ) {
 	return $projects;
 }
 add_shortcode( 'fivetwofive_featured_projects', 'ftf_featured_projects_shortcode' );
-
-/**
- * Register ACF blocks.
- *
- * @return void
- */
-function ftf_featured_projects_register_acf_blocks() {
-
-    // Check function exists.
-    if ( function_exists('acf_register_block_type') ) {
-
-        // Register a Featured Project block.
-        acf_register_block_type(array(
-            'name'              => 'featured-projects',
-            'title'             => __('Featured Projects'),
-            'description'       => __('Display Featured Projects'),
-            'render_template'   => plugin_dir_path( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.php',
-			'enqueue_style'     => plugin_dir_url( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.css',
-            'category'          => 'formatting',
-        ));
-
-    }
-
-	acf_add_local_field_group(
-		array(
-			'key'                   => 'group_603ed99cda827',
-			'title'                 => 'Block: Featured Projects',
-			'fields'                => array(
-				array(
-					'key'               => 'field_603ed9be8fe98',
-					'label'             => 'Number of Projects to show',
-					'name'              => 'number_of_projects_to_show',
-					'type'              => 'number',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'min'               => '',
-					'max'               => '',
-					'step'              => '',
-				),
-			),
-			'location'              => array(
-				array(
-					array(
-						'param'    => 'block',
-						'operator' => '==',
-						'value'    => 'acf/featured-projects',
-					),
-				),
-			),
-			'menu_order'            => 0,
-			'position'              => 'normal',
-			'style'                 => 'default',
-			'label_placement'       => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen'        => '',
-			'active'                => true,
-			'description'           => '',
-		)
-	);
-
-}
-add_action('acf/init', 'ftf_featured_projects_register_acf_blocks');
 
 /**
  * Register Featured Projects image sizes
