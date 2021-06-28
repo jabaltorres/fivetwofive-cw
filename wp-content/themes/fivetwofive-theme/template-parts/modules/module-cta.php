@@ -15,6 +15,12 @@ $module_subtitle  = get_sub_field( 'subtitle' );
 $module_content   = get_sub_field( 'content' );
 $module_button    = get_sub_field( 'button' );
 
+$module_classes   = '';
+
+if ( get_sub_field( 'module_classes' ) ) {
+	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
+}
+
 if ( $background_image ) {
 	$background = "url('" . wp_get_attachment_image_url( $background_image, 'large' ) . "') center center no-repeat";
 } else {
@@ -22,7 +28,7 @@ if ( $background_image ) {
 }
 
 ?>
-<section class="ftf-module module-cta py-5 py-md-6" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;">
+<section class="ftf-module module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">

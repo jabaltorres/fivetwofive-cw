@@ -15,6 +15,11 @@ $text_color       = get_sub_field( 'text_color' );
 $module_title     = get_sub_field( 'title' );
 $module_content   = get_sub_field( 'content' );
 $module_button    = get_sub_field( 'button' );
+$module_classes   = '';
+
+if ( get_sub_field( 'module_classes' ) ) {
+	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
+}
 
 if ( $background_image ) {
 	$module_background = 'background-image:url(' . $background_image['sizes']['large'] . ');';
@@ -29,7 +34,7 @@ if ( $border_color ) {
 }
 
 ?>
-<section class="ftf-module module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
+<section class="ftf-module module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
 	<div class="container">
 		<?php if ( ! $module_button && ( $module_title || $module_content ) ) : ?>
 

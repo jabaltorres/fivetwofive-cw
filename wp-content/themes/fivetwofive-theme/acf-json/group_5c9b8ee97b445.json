@@ -255,6 +255,25 @@
                                 "id": ""
                             },
                             "default_value": ""
+                        },
+                        {
+                            "key": "field_60d91ce155f33",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -411,6 +430,25 @@
                                 "id": ""
                             },
                             "return_format": "array"
+                        },
+                        {
+                            "key": "field_60d91d3c55f34",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -479,6 +517,25 @@
                                 "id": ""
                             },
                             "default_value": ""
+                        },
+                        {
+                            "key": "field_60d91d4b55f35",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -619,6 +676,25 @@
                                 "id": ""
                             },
                             "return_format": "array"
+                        },
+                        {
+                            "key": "field_60d91d5355f36",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -969,6 +1045,25 @@
                                 "id": ""
                             },
                             "default_value": ""
+                        },
+                        {
+                            "key": "field_60d91d5c55f37",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -1192,6 +1287,25 @@
                                 "id": ""
                             },
                             "default_value": ""
+                        },
+                        {
+                            "key": "field_60d91d6755f38",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
@@ -1222,5 +1336,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1621294195
+    "modified": 1624841587
 }

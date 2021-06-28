@@ -24,6 +24,11 @@ $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
 $button_border_color     = get_sub_field( 'button_border_color' );
 $column_text_alignment   = get_sub_field( 'column_text_alignment' );
+$module_classes          = '';
+
+if ( get_sub_field( 'module_classes' ) ) {
+	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
+}
 
 switch ( $column_count ) {
 	case '1':
@@ -72,7 +77,7 @@ if ( $button_border_color ) {
 }
 
 ?>
-<section class="ftf-module module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<header class="module__header mb-md-6">
 			<?php if ( $module_title ) : ?>

@@ -16,6 +16,11 @@ $module_description = get_sub_field( 'description' );
 $background_image = get_sub_field( 'background_image' );
 $background_color = get_sub_field( 'background_color' );
 $text_color       = get_sub_field( 'text_color' );
+$module_classes   = '';
+
+if ( get_sub_field( 'module_classes' ) ) {
+	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
+}
 
 $styles                  = '';
 $text_color_inline_style = '';
@@ -34,7 +39,7 @@ if ( $text_color ) {
 }
 
 ?>
-<section class="ftf-module module-testimonials-carousel py-5 py-md-6" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module module-testimonials-carousel py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle ) : ?>
 			<header class="module__header text-md-center mb-md-6">
