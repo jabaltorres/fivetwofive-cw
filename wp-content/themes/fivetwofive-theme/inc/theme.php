@@ -130,7 +130,7 @@ if ( ! function_exists( 'fivetwofive_is_contained' ) ) :
 			$is_contained = false;
 		}
 
-		return $is_contained;
+		return apply_filters( 'fivetwofive_theme_is_contained', $is_contained );
 	}
 endif;
 

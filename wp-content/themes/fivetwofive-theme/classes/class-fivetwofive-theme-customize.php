@@ -96,8 +96,12 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$css->add_property( 'border-color', $theme_mods['colors_button_border_color_hover'] );
 			$css->add_property( 'box-shadow', '0 0 0 0.25rem ' . $theme_mods['colors_button_border_color_hover'] . '7d' );
 
+			$css->set_selector( '.page-numbers.current, .page-numbers:hover' );
+			$css->add_property( 'background-color', $theme_mods['colors_button_background_color'] );
+			$css->add_property( 'color', $theme_mods['colors_button_text_color'] );
+
 			if ( $css ) {
-				wp_add_inline_style( 'fivetwofive-theme-style', $css->css_output() );
+				wp_add_inline_style( 'fivetwofive-theme-main', $css->css_output() );
 			}
 		}
 
@@ -296,7 +300,7 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
 					'default'           => $defaults['typography_body_font_weight'],
-					'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
+					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 
@@ -392,7 +396,7 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 					'type'              => 'theme_mod',
 					'capability'        => 'edit_theme_options',
 					'default'           => $defaults['typography_heading_font_weight'],
-					'sanitize_callback' => array( $this, 'sanitize_multiple_select' ),
+					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 

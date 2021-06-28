@@ -16,13 +16,8 @@ const { src, dest, watch, series } = require('gulp'),
 sass.compiler = require('sass');
 
 const paths = {
-  style: {
-    src: "assets/src/sass/style.scss",
-    dest: "./",
-    maps: "./assets/dist/maps"
-  },
   styles: {
-    src: ["assets/src/sass/**/*.scss", "!assets/src/sass/style.scss"],
+    src: ["assets/src/sass/**/*.scss"],
     dest: "assets/dist/css",
     maps: "../maps"
   },
@@ -36,19 +31,6 @@ const paths = {
     dest: "assets/dist/images"
   }
 };
-
-/**
- * @task style
- * Compile files from scss src, run postcss, write sourcemap, send to dest, and refresh browser
- */
-const style = () => src(paths.style.src)
-  .pipe(sourcemaps.init())
-  .pipe(sass({fiber: Fiber})
-  .on('error', sass.logError))
-  .pipe(postcss([autoprefixer(), cssnano()]))
-  .pipe(sourcemaps.write(paths.style.maps))
-  .pipe(dest(paths.style.dest))
-  .pipe(browserSync.stream());
 
 /**
  * @task styles
@@ -125,7 +107,6 @@ const serve = () => {
     });
 
     watch(paths.styles.src, styles);
-    watch(paths.style.src, style);
     watch(paths.scripts.src, series(lint, scripts));
     // We should tell gulp which files to watch to trigger the reload
     // This can be html or whatever you're using to develop your website
@@ -146,7 +127,6 @@ exports.default = (cb) => {
 // Function are exported to be public and can be run with the `gulp` command.
 exports.serve       = serve;
 exports.imageminify = imageminify;
-exports.style       = style;
 exports.styles      = styles;
-exports.lint     = lint;
+exports.lint        = lint;
 exports.scripts     = series(lint, scripts);
