@@ -14,7 +14,6 @@ $module_title     = get_sub_field( 'title' );
 $module_subtitle  = get_sub_field( 'subtitle' );
 $module_content   = get_sub_field( 'content' );
 $module_button    = get_sub_field( 'button' );
-
 $module_classes   = '';
 
 if ( get_sub_field( 'module_classes' ) ) {

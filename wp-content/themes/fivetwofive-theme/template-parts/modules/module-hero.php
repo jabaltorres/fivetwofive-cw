@@ -7,22 +7,20 @@
  * @package FiveTwoFive_Theme
  */
 
-$module_title         = get_sub_field( 'title' );
-$module_subtitle      = get_sub_field( 'subtitle' );
-$module_product_title = get_sub_field( 'product_title' );
-$module_content       = get_sub_field( 'content' );
-$video                = get_sub_field( 'video' );
-$video_thumbnail      = get_sub_field( 'video_thumbnail' );
-$video_caption        = get_sub_field( 'video_caption' );
-$module_button        = get_sub_field( 'button' );
-
+$module_title            = get_sub_field( 'title' );
+$module_subtitle         = get_sub_field( 'subtitle' );
+$module_product_title    = get_sub_field( 'product_title' );
+$module_content          = get_sub_field( 'content' );
+$video                   = get_sub_field( 'video' );
+$video_thumbnail         = get_sub_field( 'video_thumbnail' );
+$video_caption           = get_sub_field( 'video_caption' );
+$module_button           = get_sub_field( 'button' );
 $background_image        = get_sub_field( 'background_image' );
 $text_color              = get_sub_field( 'text_color' );
 $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
 $button_border_color     = get_sub_field( 'button_border_color' );
-
-$module_classes   = '';
+$module_classes          = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );

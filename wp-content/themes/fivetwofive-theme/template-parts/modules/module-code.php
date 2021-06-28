@@ -11,7 +11,6 @@
 $background_image = get_sub_field( 'background_image' );
 $background_color = get_sub_field( 'background_color' );
 $styles           = '';
-
 $module_classes   = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
