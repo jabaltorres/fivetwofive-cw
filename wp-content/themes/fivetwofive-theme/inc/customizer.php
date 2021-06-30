@@ -133,11 +133,10 @@ if ( ! function_exists( 'fivetwofive_theme_typography_config' ) ) :
 				'900' => 'Black (900)',
 			),
 			'font_categories' => array(
-				'serif'       => 'Serif',
-				'sans-serif'  => 'Sans Serif',
-				'display'     => 'Display',
-				'handwriting' => 'Handwriting',
-				'monospace'   => 'Monospace',
+				'serif'      => 'Serif',
+				'sans-serif' => 'Sans Serif',
+				'cursive'    => 'Display or Handwriting',
+				'monospace'  => 'Monospace',
 			),
 		);
 
