@@ -130,7 +130,7 @@ function ftf_featured_projects_unregister_cpt() {
 register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
 
 /**
- * Add featured project shortcode.
+ * Featured projects shortcode.
  */
 function ftf_featured_projects_shortcode( $a ) {
 	$projects = '';
@@ -236,6 +236,93 @@ function ftf_featured_projects_shortcode( $a ) {
 	return $projects;
 }
 add_shortcode( 'fivetwofive_featured_projects', 'ftf_featured_projects_shortcode' );
+
+/**
+ * Featured projects archive shortcode.
+ */
+function ftf_featured_projects_archive_shortcode() {
+	$args = array(
+		'post_type' => 'featured-projects',
+		'orderby'   => 'menu_order',
+		'order'     => 'DESC',
+		'paged'     => max( 1, get_query_var( 'paged' ) ),
+	);
+	$work_query = new WP_Query( $args );
+
+	ob_start();
+
+	if ( $work_query->have_posts() ) :
+		?>
+
+		<div class="container">
+			<div class="row">
+				<?php
+				/* Start the Loop */
+				while ( $work_query->have_posts() ) :
+					$work_query->the_post();
+					?>
+					<div class="col-md-4 mb-3 mb-md-5">
+						<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
+							<div class="card__image-wrap mb-4">
+								<?php
+									the_post_thumbnail(
+										'large',
+										array(
+											'alt' => the_title_attribute(
+												array(
+													'echo' => false,
+												)
+											),
+											'class' => 'card__image img-responsive',
+										)
+									);
+								?>
+								<div class="card__image-overlay">
+									<a class="button card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">Read More</a>
+								</div>
+							</div>
+							<header class="card__header">
+								<?php the_title( sprintf( '<h2 class="card__title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							</header><!-- .card-header -->
+							<div class="card__content">
+								<?php the_excerpt(); ?>
+							</div>
+						</article><!-- #card-<?php the_ID(); ?> -->
+					</div>
+					<?php
+				endwhile;
+				?>
+			</div>
+
+			<div class="featured-projects-pagination pagination">
+				<?php
+					echo paginate_links(
+						array(
+							'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+							'total'        => $work_query->max_num_pages,
+							'current'      => max( 1, get_query_var( 'paged' ) ),
+							'format'       => '?page=%#%',
+							'show_all'     => false,
+							'type'         => 'plain',
+							'end_size'     => 2,
+							'mid_size'     => 1,
+							'prev_next'    => true,
+							'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Projects', 'fivetwofive-theme' ) ),
+							'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Projects', 'fivetwofive-theme' ) ),
+							'add_args'     => false,
+							'add_fragment' => '',
+						)
+					);
+				?>
+			</div>
+		</div>
+
+		<?php
+	endif;
+
+	return ob_get_clean();
+}
+add_shortcode( 'fivetwofive_featured_projects_archive', 'ftf_featured_projects_archive_shortcode' );
 
 /**
  * Register Featured Projects image sizes
