@@ -21,6 +21,7 @@ $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
 $button_border_color     = get_sub_field( 'button_border_color' );
 $module_classes          = '';
+$hero_content_class      = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
