@@ -46,7 +46,8 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 					$font_uri_variants[] = '1,' . str_replace( 'italic', '', $variant );
 				}
 			}
-
+			sort( $font_uri_variants, SORT_NUMERIC );
+			error_log( print_r( $font_uri_variants, true ) );
 			$font_uri .= implode( ';', $font_uri_variants );
 		} else {
 			$font_uri = wp_sprintf(
