@@ -18,34 +18,34 @@ if ( ! function_exists( 'fivetwofive_theme_default_theme_mods' ) ) :
 		$default_theme_mods = apply_filters(
 			'fivetwofive_theme_default_theme_mods',
 			array(
-				'site_identity_hide_blogname'                 => '',
-				'site_identity_hide_blogdescription'          => '',
-				'colors_body_background_color'                => '#ffffff',
-				'colors_body_text_color'                      => '#444444',
-				'colors_body_heading_color'                   => '#444444',
-				'colors_body_link_color'                      => '#444444',
-				'colors_body_link_color_hover'                => '#ffcb05',
-				'colors_body_link_color_visited'              => '#444444',
-				'colors_button_text_color'                    => '#444444',
-				'colors_button_text_color_hover'              => '#FFCB05',
-				'colors_button_background_color'              => '#FFCB05',
-				'colors_button_background_color_hover'        => '#444444',
-				'colors_button_border_color'                  => '#FFCB05',
-				'colors_button_border_color_hover'            => '#444444',
-				'colors_header_background_color'              => '#ffffff',
-				'colors_primary_navigation_background_color'  => '#ffffff',
-				'colors_primary_navigation_link_color'        => '#444444',
+				'site_identity_hide_blogname'          => '',
+				'site_identity_hide_blogdescription'   => '',
+				'colors_body_background_color'         => '#ffffff',
+				'colors_body_text_color'               => '#444444',
+				'colors_body_heading_color'            => '#444444',
+				'colors_body_link_color'               => '#444444',
+				'colors_body_link_color_hover'         => '#ffcb05',
+				'colors_body_link_color_visited'       => '#444444',
+				'colors_button_text_color'             => '#444444',
+				'colors_button_text_color_hover'       => '#FFCB05',
+				'colors_button_background_color'       => '#FFCB05',
+				'colors_button_background_color_hover' => '#444444',
+				'colors_button_border_color'           => '#FFCB05',
+				'colors_button_border_color_hover'     => '#444444',
+				'colors_header_background_color'       => '#ffffff',
+				'colors_primary_navigation_background_color' => '#ffffff',
+				'colors_primary_navigation_link_color' => '#444444',
 				'colors_primary_navigation_active_link_color' => '#FFCB05',
-				'colors_footer_background_color'              => '#ffffff',
-				'colors_footer_text_color'                    => '#000000',
-				'typography_body_font'                        => 'DM Sans',
-				'typography_body_font_variants'               => array( '400', 'italic' ),
-				'typography_body_font_category'               => 'sans-serif',
-				'typography_body_font_weight'                 => '400',
-				'typography_heading_font'                     => 'Roboto',
-				'typography_heading_font_variants'            => array( '700', '700italic' ),
-				'typography_heading_font_category'            => 'sans-serif',
-				'typography_heading_font_weight'              => '700',
+				'colors_footer_background_color'       => '#ffffff',
+				'colors_footer_text_color'             => '#000000',
+				'typography_body_font'                 => 'DM Sans',
+				'typography_body_font_variants'        => array( '400', 'italic' ),
+				'typography_body_font_category'        => 'sans-serif',
+				'typography_body_font_weight'          => '400',
+				'typography_heading_font'              => 'Roboto',
+				'typography_heading_font_variants'     => array( '700', '700italic' ),
+				'typography_heading_font_category'     => 'sans-serif',
+				'typography_heading_font_weight'       => '700',
 			)
 		);
 		return $default_theme_mods;
@@ -91,14 +91,12 @@ endif;
 
 if ( ! function_exists( 'fivetwofive_theme_typography_config' ) ) :
 	/**
-	 * Default Theme mods
+	 * Customizer typography fields dropdown options.
 	 *
-	 * @return array $default_theme_mods Default Theme mods.
+	 * @return array $typography_config typography dropdown options.
 	 */
 	function fivetwofive_theme_typography_config() {
-		/**
-		 * The default theme mods the theme will use if there is no settings applied.
-		 */
+
 		$typography_config = array(
 			'google_fonts'    => fivetwofive_theme_google_font_names(),
 			'font_variants'   => array(
