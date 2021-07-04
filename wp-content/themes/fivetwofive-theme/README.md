@@ -9,7 +9,7 @@ FiveTwoFive Theme is a meant to be used as a parent theme for any client project
 - Theme options - easily customize the site colors and typography.
 - Modules template - create pages with ease and flexibility
 - Responsive design - automatically adjust for different screen sizes and viewports.
-- Boostrap - quickly design and customize responsive mobile-first sites
+- Bootstrap - quickly design and customize responsive mobile-first sites
 - Task runner - automate slow, repetitive workflows and compose them into efficient build pipelines.
 
 ## Getting Started
@@ -36,9 +36,9 @@ The typography section have the following fields:
 
 **Heading Font** - the font to apply on all headings.
 
-**Font Variants** - sets how thick or thin characters in text should be displayed, this fields also have two font styles to choose from regular or italic.
+**Font Variants** - sets how thick or thin characters in text should be displayed, these fields also have two font styles to choose from regular or italic.
 
-**Font Category** - define what font category the choosen body or heading font belongs to.
+**Font Category** - define what font category the chosen body or heading font belongs to.
 
 **Font Weight** - select what the specific font weight you want to use to the body or heading font.
 
@@ -106,7 +106,7 @@ Add a filter to `fivetwofive_theme_enable_sidebar` to make a specific page have 
 enabled. By default blog page, archive pages, and single post page have sidebar enabled.
 Simply add a condition and set the $enable_sidebar to true or false if you want to remove the sidebar to the page.
 
-The example below shows how to enable sidebar to the frontpage.
+The example below shows how to enable the sidebar to the frontpage.
 
 ```php
 /**
@@ -127,7 +127,7 @@ add_filter( 'fivetwofive_theme_enable_sidebar', 'fivetwofive_theme_enable_frontp
 ```
 
 ### Make a page content contained
-If yoy want to change the page content width to contained or full width simple add a filter to `fivetwofive_theme_is_contained`.  
+If you want to change the page content width to contained or full width simply add a filter to `fivetwofive_theme_is_contained`.  
 By default blog page, archive pages, single pages, search, and 404 pages have contained contents.
 See the example below where we change the front page content to contained.
 
@@ -154,7 +154,7 @@ Change the default Icons of the theme through these filters.
 
 ### How to display an SVG icons?
 
-Use `fivetwofive_theme_get_icon_svg` function to disply an SVG icon.
+Use `fivetwofive_theme_get_icon_svg` function to display an SVG icon.
 
 Display a specific SVG icon depending on the icon name and group.  
 You can also specify the icon size in the 3rd argument of the function.
