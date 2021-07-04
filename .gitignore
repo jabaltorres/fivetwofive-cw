@@ -28,6 +28,11 @@ wp-content/plugins/*
 !wp-content/plugins/fivetwofive-events-post-type
 
 wp-content/themes/*
+!wp-content/themes/twentytwenty
+!wp-content/themes/genesis
+!wp-content/themes/altitude-pro
+!wp-content/themes/ftf-altitude-pro
+!wp-content/themes/genesis-fivetwofive
 !wp-content/themes/fivetwofive-theme
 
 # always ignore node_modules folders

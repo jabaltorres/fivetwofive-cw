@@ -1,0 +1,87 @@
+.work-list-item{
+	margin-bottom: 20px;
+	display: block;
+	position: relative;
+	a{
+		display: inline;
+	}
+	.text{
+    padding: 1em 0.5em;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.7);
+    border-top: solid thin rgba(255,255,255,0.1);
+    border-bottom: solid thin rgba(255,255,255,0.1);
+    top: 37%;
+    color: white;
+    h3{
+      margin: 0;
+      font-size: $h5-font-size;
+      @include transition(top 0.3s ease-in-out, opacity 0.3s ease-in-out);
+    }
+    span{
+      display: block;
+      padding-bottom: 0.7em;
+    }
+  }
+  .thumbnail img{
+  	display: block;
+  }
+  // .work-title{
+  // 	color: white;
+  // }
+  .overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background-color: rgba(0,0,0,0.8);
+    @include transition(background-color 0.3s ease-in-out);
+  }
+}
+
+.single-work{
+	margin-bottom: 30px;
+	.single-work-thumbnail{
+		margin-bottom: 20px;
+	}
+	.img-description{
+		color: #656565;
+		font-size: 14px;
+	}	
+	.button{
+		padding: 5px 15px
+	}
+}
+
+.single-work-content{
+  img{
+    border: solid thin #eee;
+  }
+}
+
+.client-info{
+	padding: 20px;
+	margin-bottom: 20px;
+	border: solid thin #eee;
+	.skills{
+		margin-bottom: 10px;
+	}
+}
+
+.single-featured-projects{
+  .site-inner{
+    max-width: 100%;
+  }
+  &.full-width-content .content{
+    padding: 0;
+    //background-color: $white;
+  }
+
+  main.content{
+    @include animation('fadein 1s');
+  }
+}

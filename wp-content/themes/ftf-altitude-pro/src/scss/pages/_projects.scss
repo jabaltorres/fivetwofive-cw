@@ -1,0 +1,56 @@
+.page-template-template-featured-projects-page{
+  .content{
+    padding: 0;
+  }
+}
+
+.featured-project-list-item .project-card{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &:before{
+    content: '';
+    position: absolute;
+    background: rgba(30, 30, 30, 0.85);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+  }
+  & > .btn{
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out;
+    &:hover{
+      color: $primary;
+    }
+  }
+  &:hover{
+    a.article-title-wrapper{
+      bottom: 0;
+    }
+    & > .btn{
+      opacity: 1;
+    }
+  }
+}
+
+a.article-title-wrapper{
+  display: flex;
+  min-height: 130px;
+  align-items: center;
+  justify-content: center;
+  bottom: -20px;
+  transition: bottom $global-speed $global-ease;
+  position: relative;
+  z-index: 10;
+}

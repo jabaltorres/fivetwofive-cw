@@ -1,0 +1,20 @@
+
+
+// @extend %h3-font-size;
+// @extend %heading-font;
+
+
+// @include medium-screen{
+
+// }
+
+.work-example{
+  // background-color: red;
+  ul{
+    margin-left: 0;
+    li{
+      list-style-type: none;
+      margin-bottom: 2em;
+    }
+  }
+}

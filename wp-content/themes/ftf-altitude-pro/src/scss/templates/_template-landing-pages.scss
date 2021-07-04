@@ -1,0 +1,35 @@
+.lp-hero{
+  position: relative;
+  .hero-bg-overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.85);
+  }
+}
+
+.single-fivetwofive-lp{
+  .btn{
+    font-weight: 700;
+  }
+}
+ul#menu-lp-footer{
+  li{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.single-fivetwofive-lp .hs-form fieldset>div>.input>input,
+.single-fivetwofive-lp .hs-form fieldset>div>.input>select {
+  border-color: #959ca3 !important;
+  font-size: 1.4rem;
+  line-height: normal;
+  font-weight: normal;
+  border-radius: 3px;
+  color: #343434;
+  height: 40px;
+}

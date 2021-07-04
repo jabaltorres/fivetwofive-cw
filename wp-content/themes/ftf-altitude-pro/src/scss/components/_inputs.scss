@@ -1,0 +1,16 @@
+form{
+  width:100%;
+}
+
+input,select{
+  font-size: 16px;
+  padding:10px;
+}
+
+input, select{
+  margin-bottom:20px;
+  box-sizing: border-box;
+}
+input{
+  border-radius: $border-radius;
+}

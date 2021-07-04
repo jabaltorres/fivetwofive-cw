@@ -1,0 +1,129 @@
+.module-hero {
+  //background: url(/assets/img/shotspotter-homepage-banner.jpg) no-repeat top center transparent;
+  //background-size: cover;
+
+  .copy,
+  .img-wrap {
+    //width: 100%;
+    //float: left;
+    position: relative;
+  }
+
+  .img-wrap{
+    video {
+      position: absolute;
+      top: 38px;
+      left: 45px;
+      width: 100%;
+      max-width: 480px;
+    }
+  }
+
+  img.screen {
+    width: 100%;
+    height: auto;
+  }
+  .hero-module-title {
+    font-size: 60px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .hero-module-copy {
+    margin-bottom: 24px;
+    font-size: 18px;
+  }
+
+  .hero-video-caption {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  a.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  a.video-play-button:before,
+  a.video-play-button:after {
+    background: none;
+  }
+  a.button:before {
+    position: absolute;
+    content: '';
+    background: url(/assets/img/bracket-mid-left.png) no-repeat center left transparent;
+    background-size: 11px;
+    width: 11px;
+    height: 38px;
+    top: 0;
+    left: 0;
+  }
+
+  a.button:after {
+    position: absolute;
+    content: '';
+    background: url(/assets/img/bracket-mid-right.png) no-repeat center right transparent;
+    background-size: 11px;
+    width: 11px;
+    height: 38px;
+    top: 0;
+    right: 0;
+  }
+  //@media screen and (min-width: 768px){
+  //  .copy{
+  //    width: 60%;
+  //  }
+  //  .img-wrap{
+  //    width: 40%;
+  //  }
+  //}
+}
+
+
+//.module-hero.without-video .copy {
+//  width: 100%;
+//}
+
+.module-hero .video-play-button img {
+  width: 100%;
+  max-width: 100px;
+}
+
+.hero-module-inner-wrapper{
+  max-width: 1170px;
+  width: 100%;
+  overflow: auto;
+}
+
+.module-hero.with-video{
+  .copy{
+    padding-right: $global-padding;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .module-hero .video-play-button img {
+    width: 80%;
+  }
+
+  .module-hero {
+    height: auto;
+    background-position: center top;
+  }
+
+  .module-hero .copy,
+  .module-hero .img-wrap,
+  .module-hero.without-video .copy {
+    width: 100%;
+    float: left;
+    padding: 0;
+    position: relative;
+  }
+
+  .module-hero .hero-module-title {
+    font-size: 36px;
+    padding-top: 20px;
+  }
+}

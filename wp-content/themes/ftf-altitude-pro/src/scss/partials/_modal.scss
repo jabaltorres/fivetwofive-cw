@@ -1,0 +1,53 @@
+@mixin global-hover-interaction {
+  transition: all $global-speed $global-ease;
+  &:hover{
+    transform: translateY(-5px);
+    transition: all $global-ease $global-ease;
+    box-shadow: $global-box-shadow;
+  }
+}
+
+.modal{
+  .modal-body,
+  .modal-footer {
+    padding: 20px;
+  }
+}
+
+.modal-header{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  .close {
+    margin: -0.6rem -1rem;
+    padding: 10px;
+  }
+}
+
+.modal-title{
+  font-family: $font-family-sans-serif;
+}
+
+.modal-dialog{
+  max-width: 1080px;
+}
+
+.has-modal{
+  a{
+    cursor: zoom-in;
+  }
+  img{
+    transition: transform $global-speed $global-ease;
+  }
+}
+
+.has-modal:hover{
+  img{
+    @include global-hover-interaction;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .modal-dialog{
+    margin-top: 4rem;
+  }
+}

@@ -1,0 +1,30 @@
+.footer-widgets {
+  background-color: $black;
+  clear: both;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+  .wrap {
+    padding-bottom: 100px;
+    padding-top: 100px;
+  }
+  a:hover {
+    color: #000;
+  }
+  li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer-widgets,
+.footer-widgets .wrap a,
+.footer-widgets .wrap a.button {
+  color: $white;
+}
+
+
+

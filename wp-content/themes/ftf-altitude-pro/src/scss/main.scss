@@ -1,0 +1,248 @@
+@import "global/font-family";
+
+@import "global/variables";
+
+@import "vendor/bootstrap";
+
+@import "global/base";
+@import "global/utility-classes";
+@import "global/typography";
+
+@import "mixins/mixins";
+@import "mixins/media-queries";
+@import "mixins/animations";
+@import "mixins/transitions-and-interactions";
+
+@import "components/inputs";
+@import "components/ctas";
+
+@import "modules/module-announcement";
+@import "modules/module-carousel-testimonials";
+@import "modules/module-cta";
+@import "modules/module-featured-image";
+@import "modules/module-hero";
+@import "modules/module-image-overlay";
+@import "modules/module-multi-column";
+@import "modules/module-multi-column-video-module";
+@import "modules/module-mosaic";
+
+@import "layout/navigation";
+@import "layout/site-footer";
+@import "layout/header-landing";
+@import "layout/footer-widgets";
+
+@import "partials/scroll-to-top";
+@import "partials/blogroll-page";
+@import "partials/work-example";
+@import "partials/entries";
+@import "partials/pagination";
+@import "partials/modal";
+@import "partials/featured-projects";
+
+@import "templates/template-work";
+@import "templates/template-gated-page";
+@import "templates/template-landing-pages";
+@import "templates/template-resources";
+@import "templates/template-events";
+@import "templates/template-modules";
+@import "templates/template-default";
+
+@import "pages/home-page";
+@import "pages/case-studies";
+@import "pages/about";
+@import "pages/contact";
+@import "pages/process";
+@import "pages/projects";
+
+.site-header{
+  &.dark{
+    box-shadow: 0 3px 5px rgba(0,0,0,.05);
+    .site-description{
+      text-indent: -9999px;
+      height:0;
+    }
+  }
+}
+
+.site-inner{
+  @include max-1023{
+    margin-top: 30px;
+  }
+}
+
+@include medium-screen{
+  .site-header{
+    padding-bottom:0;
+  }
+  .title-area{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.button, .widget .button{
+  @extend .btn;
+}
+
+div#respond.comment-respond{
+  display: none;
+}
+
+.more-link{
+  display: block;
+  border: none !important;
+}
+
+/* TODO: Make this a util class */
+.has-hover{
+  position: relative;
+  display: block;
+  transition: $global-ease;
+  &:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 20px 20px -15px rgba(0,0,0,0.5);
+  }
+}
+
+.sd-social-icon .sd-content ul li[class*=share-] a.sd-button{
+  padding: 7px;
+}
+
+.fixed-widget {
+  position: fixed;
+  top:60px;
+  right:0;
+  //transform: translateZ(0);
+  //-webkit-transform: translateZ(0);
+}
+
+#contact-form-19{
+  .contact-form input[type=email],
+  .contact-form input[type=text],
+  .contact-form input[type=url],
+  .contact-form textarea{
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.entry-content ul{
+  margin-left: 0;
+}
+
+.entry-content ul > li {
+  list-style-type: inherit;
+  margin-left: 30px;
+}
+
+.test-images{
+  img{
+    border: solid thin #eee;
+  }
+}
+
+img:focus {
+  outline-color: transparent;
+  outline-width: inherit;
+  outline-style: unset;
+}
+
+.clearboth{
+  clear: both;
+}
+
+.archive.tag,
+.archive.category{
+  .featured-projects{
+    img{
+      float: none !important;
+    }
+    .entry-footer:before{
+      padding-top: 30px;
+    }
+  }
+}
+
+.sidebar-primary{
+  .widget{
+    ul li a {
+      color: $dark;
+      &:hover{
+        color: $primary;
+      }
+    }
+  }
+}
+
+.single-project-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.featured-project-list-item{
+  h1{
+    color: $secondary;
+    font-size: $h4-font-size;
+  }
+  .project-title.h4{
+    font-size: $h5-font-size;
+  }
+  @include medium-screen{
+    h1{
+      font-size: $h3-font-size;
+    }
+    .project-title.h4{
+      font-size: $h4-font-size;
+    }
+  }
+}
+.featured-project-list-item a{
+  color: $primary;
+}
+
+.nav-link.active{
+  font-weight: 700;
+}
+
+.postid-839{
+  .carousel-caption{
+    background-color: rgba(0,0,0,0.85);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.project-excerpt p{
+  margin-bottom: 0;
+}
+
+//body p {
+//color: red !important;
+//}
+
+// I think this is used on LP templates
+.hubspot-form-wrapper{
+  .hbspt-form{
+    padding: 20px;
+    background-color: #e9ecef;
+    margin-bottom: 20px;
+    .hs-form{
+      .hs-input{
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+.page:not(.home):not(.page-template-template-modules),
+.blog.content-sidebar,
+.single-featured-projects,
+.single-blog-post{
+  .site-inner{
+    padding-top: 40px;
+  }
+}

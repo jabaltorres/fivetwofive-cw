@@ -1,0 +1,119 @@
+/* Entries
+--------------------------------------------- */
+
+.entry {
+  //margin-bottom: 100px;
+  margin-bottom: 50px;
+}
+
+.widget .entry {
+  margin-bottom: 40px;
+}
+
+.entry-content ol,
+.entry-content ul {
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+
+.entry-content ol > li {
+  list-style-type: decimal;
+}
+
+.entry-content ul > li {
+  list-style-type: disc;
+}
+
+.entry-content ol ol,
+.entry-content ul ul {
+  margin-bottom: 0;
+}
+
+.entry-content code {
+  background-color: #000;
+  //color: #ddd;
+}
+
+
+/* Entry Meta
+--------------------------------------------- */
+
+p.entry-meta {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.entry-header,
+.entry-footer {
+  text-align: center;
+}
+
+.entry-header p.entry-meta {
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.entry-header::after {
+  border-bottom: 4px solid $primary;
+  content: "";
+  display: block;
+  margin: 0 auto 30px;
+  padding-bottom: 10px;
+  width: 200px;
+  @include animation('borderWidth 1s');
+}
+
+.image-section .entry-header::after {
+  border-color: $white;
+}
+
+.entry-footer::before {
+  border-top: 1px solid $black;
+  content: "";
+  display: block;
+  margin: 30px auto 0;
+  padding-top: 60px;
+  width: 25%;
+}
+
+.sidebar .entry-header::after {
+  display: none;
+}
+
+.entry-categories::before,
+.entry-tags::before {
+  display: inline-block;
+  font: normal 20px/1 "dashicons";
+  margin-right: 5px;
+  margin-top: 2px;
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+}
+
+.entry-comments-link::before {
+  content: "\2014";
+  margin: 0 6px 0 2px;
+}
+
+/* After Entry
+--------------------------------------------- */
+
+.after-entry {
+  border-top: 1px solid $black;
+  padding: 40px 0;
+}
+
+.after-entry .widget {
+  margin-bottom: 40px;
+}
+
+.after-entry p:last-child,
+.after-entry .widget:last-child {
+  margin: 0;
+}
+
+.after-entry li {
+  list-style-type: none;
+}

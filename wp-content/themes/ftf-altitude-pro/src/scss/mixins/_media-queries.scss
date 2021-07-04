@@ -1,0 +1,67 @@
+// Media Query Mixins
+@mixin small-screen{
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin max-800{
+   @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+@mixin max-1023{
+   @media only screen and (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin min-1023{
+   @media only screen and (min-width: 1023px) {
+    @content;
+  }
+}
+@mixin medium-screen{
+  @media only screen and (min-width: 800px) {
+    @content;
+  }
+}
+@mixin medium-screen-only{
+  @media only screen and (min-width: 480px) and (max-width: 800px) {
+    @content;
+  }
+}
+@mixin large-screen{
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin large-screen-max{
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin max-1280{
+   @media only screen and (max-width: 1280px) {
+    @content;
+  }
+}
+@mixin large-screen-only{
+  @media only screen and (min-width: 1200px) and (max-width: 2700px) {
+    @content;
+  }
+}
+@mixin xlarge-screen{
+  @media only screen and (min-width: 1600px) {
+    @content;
+  }
+}
+@mixin xlarge-screen-only{
+  @media only screen and (min-width: 1600px) and (max-width: 2000px) {
+    @content;
+  }
+}
+@mixin xxlarge-screen{
+  @media only screen and (min-width: 2000px) {
+    @content;
+  }
+}
