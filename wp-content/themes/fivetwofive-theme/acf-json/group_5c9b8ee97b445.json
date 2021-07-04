@@ -39,25 +39,6 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_5d2cf0b76e58f",
-                            "label": "Product Title",
-                            "name": "product_title",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "100",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
                             "key": "field_5c9b9152e68ce",
                             "label": "Title",
                             "name": "title",
@@ -1528,5 +1509,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625183562
+    "modified": 1625441983
 }

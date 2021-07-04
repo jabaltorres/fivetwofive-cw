@@ -9,7 +9,6 @@
 
 $module_title            = get_sub_field( 'title' );
 $module_subtitle         = get_sub_field( 'subtitle' );
-$module_product_title    = get_sub_field( 'product_title' );
 $module_content          = get_sub_field( 'content' );
 $video                   = get_sub_field( 'video' );
 $video_thumbnail         = get_sub_field( 'video_thumbnail' );
@@ -89,10 +88,6 @@ if ( $button_border_color ) {
 			<?php endif; ?>
 
 			<div class="col-12 <?php echo esc_attr( $hero_content_class ); ?>">
-				<?php if ( $module_product_title ) : ?>
-					<p class="module-hero__product-title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_product_title ); ?></p>
-				<?php endif; ?>
-
 				<?php if ( $module_title ) : ?>
 					<h1 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h1>
 				<?php endif; ?>
