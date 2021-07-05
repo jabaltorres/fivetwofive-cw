@@ -9,7 +9,7 @@
 
 if ( ! defined( 'FIVETWOFIVE_THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'FIVETWOFIVE_THEME_VERSION', '0.3.8' );
+	define( 'FIVETWOFIVE_THEME_VERSION', '0.4.0' );
 }
 
 /**
