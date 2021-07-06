@@ -78,19 +78,21 @@ if ( $button_border_color ) {
 ?>
 <section class="ftf-module module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
-		<header class="module__header mb-md-6">
-			<?php if ( $module_title ) : ?>
-				<h2 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
-			<?php endif; ?>
+		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
+			<header class="module__header mb-md-6">
+				<?php if ( $module_title ) : ?>
+					<h2 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+				<?php endif; ?>
 
-			<?php if ( $module_subtitle ) : ?>
-				<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
-			<?php endif; ?>
+				<?php if ( $module_subtitle ) : ?>
+					<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+				<?php endif; ?>
 
-			<?php if ( $module_description ) : ?>
-				<div class="module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
-			<?php endif; ?>
-		</header>
+				<?php if ( $module_description ) : ?>
+					<div class="module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
+				<?php endif; ?>
+			</header>
+		<?php endif; ?>
 
 		<div class="row text-md-<?php echo esc_attr( $column_text_alignment ); ?>">
 			<?php
