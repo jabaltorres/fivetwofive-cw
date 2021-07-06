@@ -1048,11 +1048,20 @@
                                     },
                                     "choices": {
                                         "col-md-12": "100%",
-                                        "col-md-6": "Red",
-                                        "red": "Red"
+                                        "col-md-11": "91%",
+                                        "col-md-10": "83%",
+                                        "col-md-9": "75%",
+                                        "col-md-8": "66%",
+                                        "col-md-7": "57%",
+                                        "col-md-6": "50%",
+                                        "col-md-5": "41%",
+                                        "col-md-4": "33%",
+                                        "col-md-3": "25%",
+                                        "col-md-2": "16%",
+                                        "col-md-1": "8%"
                                     },
                                     "default_value": false,
-                                    "allow_null": 0,
+                                    "allow_null": 1,
                                     "multiple": 0,
                                     "ui": 0,
                                     "return_format": "value",
@@ -1550,5 +1559,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625533724
+    "modified": 1625538006
 }

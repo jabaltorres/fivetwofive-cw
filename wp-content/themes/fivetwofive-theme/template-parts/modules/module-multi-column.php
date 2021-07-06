@@ -8,12 +8,28 @@
  */
 
 // Contents.
-$module_title       = get_sub_field( 'title' );
-$module_subtitle    = get_sub_field( 'subtitle' );
-$module_description = get_sub_field( 'description' );
-$module_button      = get_sub_field( 'button' );
-$background_color   = get_sub_field( 'background_color' );
-$column_count       = count( get_sub_field( 'columns' ) );
+$module_title         = get_sub_field( 'title' );
+$module_subtitle      = get_sub_field( 'subtitle' );
+$module_description   = get_sub_field( 'description' );
+$module_button        = get_sub_field( 'button' );
+$background_color     = get_sub_field( 'background_color' );
+$column_count         = count( get_sub_field( 'columns' ) );
+$default_column_width = '';
+
+switch ( $column_count ) {
+	case 2:
+		$default_column_width = 'col-md-6';
+		break;
+	case 3:
+		$default_column_width = 'col-md-4';
+		break;
+	case 4:
+		$default_column_width = 'col-md-3';
+		break;
+	default:
+		$default_column_width = 'col-md-2';
+		break;
+}
 
 // Styles.
 $background_image        = get_sub_field( 'background_image' );
@@ -28,23 +44,6 @@ $module_classes          = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
-}
-
-switch ( $column_count ) {
-	case '1':
-		$column_width = '12';
-		break;
-	case '2':
-		$column_width = '6';
-		break;
-	case '3':
-		$column_width = '4';
-		break;
-	case '4':
-		$column_width = '3';
-		break;
-	default:
-		$column_width = '0';
 }
 
 $styles                  = '';
@@ -102,7 +101,9 @@ if ( $button_border_color ) {
 				$column_title     = get_sub_field( 'title' );
 				$column_text      = get_sub_field( 'text' );
 				$column_button    = get_sub_field( 'button' );
+				$column_width     = get_sub_field( 'width' );
 				$image_dimension  = 'full';
+				$column_classes   = array( 'column', 'col-12' );
 
 				if ( $column_dimension ) {
 					// check if the dimension set it width and height.
@@ -112,8 +113,15 @@ if ( $button_border_color ) {
 						$image_dimension = $column_dimension;
 					}
 				}
+
+				if ( $column_width ) {
+					$column_classes[] = $column_width;
+				} else {
+					$column_classes[] = $default_column_width;
+				}
+
 				?>
-				<div class="column col-12 col-md-<?php echo esc_attr( $column_width ); ?>">
+				<div class="<?php echo esc_attr( implode( ' ', $column_classes ) ); ?>">
 					<?php
 					if ( $column_image ) :
 						echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
