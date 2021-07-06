@@ -9,7 +9,7 @@
     }
 }
 
-.page-template-template-module {
+body[class*="template-module-php"] {
     .content-sidebar-wrap {
         padding: 0;
     }
