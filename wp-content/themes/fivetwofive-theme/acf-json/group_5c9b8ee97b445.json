@@ -748,6 +748,21 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_60e3acfeebe7f",
+                            "label": "Text Color",
+                            "name": "text_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
+                        },
+                        {
                             "key": "field_5f74b5e665a9c",
                             "label": "Background color",
                             "name": "background_color",
@@ -1017,6 +1032,32 @@
                                         "id": ""
                                     },
                                     "return_format": "array"
+                                },
+                                {
+                                    "key": "field_60e3a0ceebe7e",
+                                    "label": "Width",
+                                    "name": "width",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "col-md-12": "100%",
+                                        "col-md-6": "Red",
+                                        "red": "Red"
+                                    },
+                                    "default_value": false,
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
                                 }
                             ]
                         },
@@ -1509,5 +1550,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625441983
+    "modified": 1625533724
 }

@@ -7,14 +7,15 @@
  * @package FiveTwoFive_Theme
  */
 
-$show_logo        = get_sub_field( 'show_logo' );
-$background_color = get_sub_field( 'background_color' );
-$background_image = get_sub_field( 'background_image' );
-$module_title     = get_sub_field( 'title' );
-$module_subtitle  = get_sub_field( 'subtitle' );
-$module_content   = get_sub_field( 'content' );
-$module_button    = get_sub_field( 'button' );
-$module_classes   = '';
+$show_logo         = get_sub_field( 'show_logo' );
+$background_color  = get_sub_field( 'background_color' );
+$background_image  = get_sub_field( 'background_image' );
+$module_title      = get_sub_field( 'title' );
+$module_subtitle   = get_sub_field( 'subtitle' );
+$module_content    = get_sub_field( 'content' );
+$module_button     = get_sub_field( 'button' );
+$module_text_color = '';
+$module_classes    = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
@@ -26,8 +27,12 @@ if ( $background_image ) {
 	$background = $background_color;
 }
 
+if ( get_sub_field( 'text_color' ) ) {
+	$module_text_color = 'color:' . get_sub_field( 'text_color' );
+}
+
 ?>
-<section class="ftf-module module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;">
+<section class="ftf-module module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">
@@ -38,15 +43,15 @@ if ( $background_image ) {
 				<?php endif; ?>
 
 				<?php if ( $module_title ) : ?>
-					<h2 class="module__title mb-3 mb-md-4"><?php echo esc_html( $module_title ); ?></h2>
+					<h2 class="module__title my-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<h3 class="module__subtitle mb-3 mb-md-4"><?php echo esc_html( $module_subtitle ); ?></h3>
+					<h3 class="module__subtitle mt-3 mt-md-4 mb-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="module__content mb-3 mb-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
+					<div class="module__content mt-3 mt-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
 				<?php endif; ?>
 
 				<?php
@@ -55,7 +60,7 @@ if ( $background_image ) {
 					$link_title  = $module_button['title'];
 					$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 					?>
-					<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<a class="button module__button mt-3 mt-md-4" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 				<?php endif; ?>
 			</div>
 		</div>

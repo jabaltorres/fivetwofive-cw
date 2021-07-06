@@ -47,7 +47,6 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 				}
 			}
 			sort( $font_uri_variants, SORT_NUMERIC );
-			error_log( print_r( $font_uri_variants, true ) );
 			$font_uri .= implode( ';', $font_uri_variants );
 		} else {
 			$font_uri = wp_sprintf(
