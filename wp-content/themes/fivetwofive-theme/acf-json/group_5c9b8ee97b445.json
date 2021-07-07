@@ -649,7 +649,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "33.333333",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -1559,5 +1559,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625538006
+    "modified": 1625614161
 }
