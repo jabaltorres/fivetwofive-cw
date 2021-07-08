@@ -34,16 +34,16 @@ if ( $border_color ) {
 }
 
 ?>
-<section class="ftf-module module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
+<section class="ftf-module ftf-module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
 	<div class="container">
 		<?php if ( ! $module_button && ( $module_title || $module_content ) ) : ?>
 
 			<?php if ( $module_title ) : ?>
-				<h2 class="module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
+				<h2 class="ftf-module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( $module_content ) : ?>
-				<div class="module__content mb-4 mb-md-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo wp_kses_post( $module_content ); ?></div>
+				<div class="ftf-module__content mb-4 mb-md-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo wp_kses_post( $module_content ); ?></div>
 			<?php endif; ?>
 
 		<?php endif; ?>
@@ -52,11 +52,11 @@ if ( $border_color ) {
 			<div class="row align-items-center">
 				<div class="col-12 col-sm-9">
 					<?php if ( $module_title ) : ?>
-						<h2 class="module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
+						<h2 class="ftf-module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
 					<?php endif; ?>
 
 					<?php if ( $module_content ) : ?>
-						<div class="module__content mb-4 mb-md-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo wp_kses_post( $module_content ); ?></div>
+						<div class="ftf-module__content mb-4 mb-md-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo wp_kses_post( $module_content ); ?></div>
 					<?php endif; ?>
 				</div>
 				<div class="col-12 col-sm-3">
@@ -74,5 +74,5 @@ if ( $border_color ) {
 
 	</div>
 
-	<a href="javascript:void(0);" class="module-announcement__close"><?php echo fivetwofive_theme_get_icon_svg( 'ui', 'close', 30 ); ?></a>
+	<a href="javascript:void(0);" class="ftf-module-announcement__close"><?php echo fivetwofive_theme_get_icon_svg( 'ui', 'close', 30 ); ?></a>
 </section>

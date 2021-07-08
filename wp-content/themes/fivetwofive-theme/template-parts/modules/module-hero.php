@@ -65,22 +65,22 @@ if ( $button_border_color ) {
 
 ?>
 
-<section class="ftf-module module-hero py-5 py-md-6 <?php echo ( $video ) ? 'with-video' : 'without-video'; ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module ftf-module-hero py-5 py-md-6 <?php echo ( $video ) ? 'with-video' : 'without-video'; ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<div class="row">
 
 			<?php if ( $video ) : ?>
 				<div class="col-12 col-md-5 mb-2 mb-md-0 order-md-2">
 					<?php if ( $video_thumbnail ) : ?>
-						<figure class="module-hero__video">
-							<div class="module-hero__video-image-wrap">
-								<?php echo wp_get_attachment_image( $video_thumbnail, 'full', false, array( 'class' => 'module-hero__video-image' ) ); ?>
-								<a class="module-hero__video-play-buttton" data-fancybox href="<?php echo esc_url_raw( $video ); ?>" style="<?php echo esc_attr( $text_color_inline_style ); ?>">
+						<figure class="ftf-module-hero__video">
+							<div class="ftf-module-hero__video-image-wrap">
+								<?php echo wp_get_attachment_image( $video_thumbnail, 'full', false, array( 'class' => 'ftf-module-hero__video-image' ) ); ?>
+								<a class="ftf-module-hero__video-play-buttton" data-fancybox href="<?php echo esc_url_raw( $video ); ?>" style="<?php echo esc_attr( $text_color_inline_style ); ?>">
 									<?php echo fivetwofive_theme_get_icon_svg( 'ui', 'play', 100 ); ?>
 								</a>
 							</div>
 							<?php if ( $video_caption ) : ?>
-								<figcaption class="module-hero__video-caption" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $video_caption ); ?></figcaption>
+								<figcaption class="ftf-module-hero__video-caption" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $video_caption ); ?></figcaption>
 							<?php endif; ?>
 						</figure>
 					<?php endif; ?>
@@ -89,15 +89,15 @@ if ( $button_border_color ) {
 
 			<div class="col-12 <?php echo esc_attr( $hero_content_class ); ?>">
 				<?php if ( $module_title ) : ?>
-					<h1 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h1>
+					<h1 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h1>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+					<p class="ftf-module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="module__content mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_content ); ?></div>
+					<div class="ftf-module__content mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_content ); ?></div>
 				<?php endif; ?>
 
 				<?php
@@ -106,7 +106,7 @@ if ( $button_border_color ) {
 					$link_title  = $module_button['title'];
 					$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 					?>
-					<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					<a class="button ftf-module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 				<?php endif; ?>
 			</div>
 		</div>

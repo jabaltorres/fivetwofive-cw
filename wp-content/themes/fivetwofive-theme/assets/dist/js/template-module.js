@@ -3,9 +3,9 @@
 
 	const announcementModule = ( function() {
 		const makeSticky = function() {
-			if ( $( '.module-announcement' ).hasClass( 'js-is-sticky-yes' ) ) {
-				const height = $( '.module-announcement' ).outerHeight( true );
-				$( '.module-announcement' ).wrap( '<div class="sticky-announcement-spacer"></div>' );
+			if ( $( '.ftf-module-announcement' ).hasClass( 'js-is-sticky-yes' ) ) {
+				const height = $( '.ftf-module-announcement' ).outerHeight( true );
+				$( '.ftf-module-announcement' ).wrap( '<div class="sticky-announcement-spacer"></div>' );
 				$( '.sticky-announcement-spacer' ).css( {
 					height,
 				} );
@@ -14,9 +14,9 @@
 		};
 
 		const closeModule = function() {
-			$( '.module-announcement__close' ).on( 'click', function( e ) {
+			$( '.ftf-module-announcement__close' ).on( 'click', function( e ) {
 				e.preventDefault();
-				$( this ).parent( '.module-announcement' ).slideUp( 400 );
+				$( this ).parent( '.ftf-module-announcement' ).slideUp( 400 );
 
 				if ( $( '.sticky-announcement-spacer' ).length ) {
 					$( '.sticky-announcement-spacer' ).slideUp( 400 );
@@ -37,7 +37,7 @@
 	const testimonialCarouselModule = ( function() {
 		const init = function() {
 			// eslint-disable-next-line no-undef
-			new Swiper( '.module-testimonials-carousel .swiper-container', {
+			new Swiper( '.ftf-module-testimonials-carousel .swiper-container', {
 				loop: true,
 				pagination: {
 					el: '.swiper-pagination',

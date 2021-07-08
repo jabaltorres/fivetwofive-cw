@@ -32,26 +32,26 @@ if ( get_sub_field( 'text_color' ) ) {
 }
 
 ?>
-<section class="ftf-module module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
+<section class="ftf-module ftf-module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">
 				<?php if ( $show_logo ) : ?>
-					<div class="module-cta__logo mb-3 mb-md-4">
+					<div class="ftf-module-cta__logo mb-3 mb-md-4">
 						<?php the_custom_logo(); ?>
 					</div>
 				<?php endif; ?>
 
 				<?php if ( $module_title ) : ?>
-					<h2 class="module__title my-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+					<h2 class="ftf-module__title my-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<h3 class="module__subtitle mt-3 mt-md-4 mb-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
+					<h3 class="ftf-module__subtitle mt-3 mt-md-4 mb-0" style="<?php echo esc_attr( $module_text_color ); ?>"><?php echo esc_html( $module_subtitle ); ?></h3>
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="module__content mt-3 mt-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
+					<div class="ftf-module__content mt-3 mt-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
 				<?php endif; ?>
 
 				<?php

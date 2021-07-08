@@ -76,20 +76,20 @@ if ( $button_border_color ) {
 }
 
 ?>
-<section class="ftf-module module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module ftf-module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="module__header mb-md-6">
+			<header class="ftf-module__header mb-md-6">
 				<?php if ( $module_title ) : ?>
-					<h2 class="module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+					<h2 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<p class="module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+					<p class="ftf-module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
+					<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
@@ -155,7 +155,7 @@ if ( $button_border_color ) {
 			$link_title  = $module_button['title'];
 			$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 			?>
-			<footer class="module__footer mt-3 mt-md-5 text-center">
+			<footer class="ftf-module__footer mt-3 mt-md-5 text-center">
 				<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 			</footer>
 		<?php endif; ?>

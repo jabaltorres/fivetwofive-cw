@@ -25,6 +25,6 @@ if ( $background_image ) {
 	$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
 }
 ?>
-<div class="ftf-module module-code <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<div class="ftf-module ftf-module-code <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<?php echo get_sub_field( 'code' ); ?>
 </div>

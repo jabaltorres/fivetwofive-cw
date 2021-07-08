@@ -52,17 +52,17 @@ if ( $module_text_alignment ) {
 <section class="ftf-module ftf-module-gallery py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="module__header mb-md-5">
+			<header class="ftf-module__header mb-md-5">
 				<?php if ( $module_title ) : ?>
-					<h2 class="module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+					<h2 class="ftf-module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<p class="module__subtitle"><?php echo esc_html( $module_subtitle ); ?></p>
+					<p class="ftf-module__subtitle"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="module_description"><?php echo wp_kses_post( $module_description ); ?></div>
+					<div class="ftf-module_description"><?php echo wp_kses_post( $module_description ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
