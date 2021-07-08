@@ -6,6 +6,7 @@
 	- Hero Module
 	- CTA Module
 	- Testimonials Carousel Module
+  - Gallery Module
 --------------------------------------------------------------*/
 
 // Import variables and mixins.
@@ -35,3 +36,8 @@
 - Testimonials Carousel Module
 --------------------------------------------------------------*/
 @import "modules/module-testimonials-carousel";
+
+/*--------------------------------------------------------------
+- Gallery Module
+--------------------------------------------------------------*/
+@import "modules/module-gallery";

@@ -1,0 +1,13 @@
+.ftf-module-gallery {
+  &__item {
+    display: inline-block;
+  }
+
+  &__item-image {
+    display: block;
+  }
+
+  &__column {
+    margin-bottom: 30px;
+  }
+}
