@@ -74,7 +74,13 @@
 	margin-left: auto;
 }
 
-.main-navigation.toggled .menu-primary-menu-container {
+.main-navigation.toggled {
+  .nav-menu {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .menu-primary-menu-container {
     position: absolute;
     z-index: 99999;
     background-color: #fff;
@@ -84,12 +90,7 @@
     right: 0;
     padding: 20px;
     border-top: 1px solid #e8e5e5;
-}
-
-@media (min-width: 576px) {
-	.main-navigation.toggled .menu-primary-menu-container {
-		max-width: 540px;
-	}
+  }
 }
 
 @media screen and (min-width: 768px) {
