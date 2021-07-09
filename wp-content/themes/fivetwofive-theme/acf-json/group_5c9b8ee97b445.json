@@ -111,6 +111,22 @@
                             "return_format": "array"
                         },
                         {
+                            "key": "field_60e83abf86a42",
+                            "label": "Video",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_5c9b9249e68d2",
                             "label": "Video",
                             "name": "video",
@@ -919,6 +935,22 @@
                             "return_format": "array"
                         },
                         {
+                            "key": "field_60e83b7d995c3",
+                            "label": "Columns",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_5c9ba3ad6bd69",
                             "label": "Columns",
                             "name": "columns",
@@ -1340,6 +1372,22 @@
                             "delay": 0
                         },
                         {
+                            "key": "field_60e83bac5e4db",
+                            "label": "Testimonials",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_609339413f431",
                             "label": "Testimonials",
                             "name": "testimonials",
@@ -1614,6 +1662,22 @@
                             "delay": 0
                         },
                         {
+                            "key": "field_60e83bbe5e4dc",
+                            "label": "Gallery",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
                             "key": "field_60e5013007bd4",
                             "label": "Images",
                             "name": "images",
@@ -1812,5 +1876,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1625623177
+    "modified": 1625832432
 }
