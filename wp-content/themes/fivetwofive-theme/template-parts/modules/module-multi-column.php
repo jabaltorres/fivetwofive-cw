@@ -89,7 +89,7 @@ if ( $button_border_color ) {
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_description ); ?></div>
+					<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
@@ -134,7 +134,7 @@ if ( $button_border_color ) {
 					<?php endif; ?>
 
 					<?php if ( $column_text ) : ?>
-						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $column_text ); ?></div>
+						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $column_text, fivetwofive_kses_extended_ruleset() ); ?></div>
 					<?php endif; ?>
 
 					<?php

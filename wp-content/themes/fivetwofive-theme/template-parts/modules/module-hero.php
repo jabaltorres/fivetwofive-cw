@@ -97,7 +97,7 @@ if ( $button_border_color ) {
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="ftf-module__content mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses_post( $module_content ); ?></div>
+					<div class="ftf-module__content mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_content, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 
 				<?php

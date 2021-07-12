@@ -62,7 +62,7 @@ if ( $module_text_alignment ) {
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="ftf-module_description"><?php echo wp_kses_post( $module_description ); ?></div>
+					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>

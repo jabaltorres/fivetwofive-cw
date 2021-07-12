@@ -37,3 +37,24 @@ function fivetwofive_theme_get_social_link_svg( $uri, $size = 24 ) {
 function fivetwofive_theme_get_icon_svg( $group, $icon, $size = 24 ) {
 	return Fivetwofive_Theme_SVG_Icons::get_svg( $group, $icon, $size );
 }
+
+/**
+ * Embed shortcode in modules content through shortcode.
+ *
+ * @param array $a fivetwofive_theme_get_icon_svg parameters.
+ * @uses fivetwofive_theme_get_icon_svg()
+ * @return string SVG icon.
+ */
+function fivetwofive_icon_shortcode_func( $a ) {
+	$atts = shortcode_atts(
+		array(
+			'group' => 'ui',
+			'icon'  => 'close',
+			'size'  => 30,
+		),
+		$a
+	);
+
+	return fivetwofive_theme_get_icon_svg( $atts['group'], $atts['icon'], $atts['size'] );
+}
+add_shortcode( 'fivetwofive_icon', 'fivetwofive_icon_shortcode_func' );

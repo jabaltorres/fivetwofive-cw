@@ -51,7 +51,7 @@ if ( get_sub_field( 'text_color' ) ) {
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="ftf-module__content mt-3 mt-md-4"><?php echo wp_kses_post( $module_content ); ?></div>
+					<div class="ftf-module__content mt-3 mt-md-4"><?php echo wp_kses( $module_content, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 
 				<?php

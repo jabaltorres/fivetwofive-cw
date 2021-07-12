@@ -87,7 +87,7 @@ if ( $text_color ) {
 
 							<div class="col-12 col-md-10">
 								<?php if ( $message ) : ?>
-									<div class="testimonial__message"><?php echo wp_kses_post( $message ); ?></div>
+									<div class="testimonial__message"><?php echo wp_kses( $message, fivetwofive_kses_extended_ruleset() ); ?></div>
 								<?php endif; ?>
 
 								<?php if ( $author ) : ?>
