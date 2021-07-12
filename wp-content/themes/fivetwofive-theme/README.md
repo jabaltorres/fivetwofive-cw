@@ -219,6 +219,74 @@ function fivetwofive_theme_change_default_icons( $arr ) {
 add_filter( 'fivetwofive_theme_svg_icons_ui', 'fivetwofive_theme_change_default_icons' );
 ```
 
+#### Embed Icon in modules.
+
+To embed icons within the modules use `[fivetwofive_icon]` shortcode, it uses the function `fivetwofive_theme_get_icon_svg()` under the hood.
+In able to get a specific icon use the shortcode parameters below:
+
+`group` - The icon group, social or ui. *default: ui*
+`icon` - The icon name depending on the group. *default: close*
+`size` - The icon size in pixels. *default: 30*
+
+All available icons and group are listed below
+
+**UI**
+
+- arrow_right
+- arrow_left
+- close
+- menu
+- plus
+- minus
+- play
+
+**Social**
+
+- 500px
+- amazon
+- bandcamp
+- behance
+- codepen
+- deviantart
+- dribbble
+- dropbox
+- etsy
+- facebook
+- feed
+- flickr
+- foursquare
+- goodreads
+- google
+- github
+- instagram
+- lastfm
+- linkedin
+- mail
+- mastodon
+- medium
+- meetup
+- pinterest  
+- pocket
+- reddit
+- skype
+- snapchat
+- soundcloud
+- spotify
+- tumblr
+- twitch
+- twitter
+- vimeo
+- vk
+- wordpress  
+- yelp
+- youtube
+
+Below code is an example of showing a close button from the UI group with the size of 35 pixels.
+`[fivetwofive_icon icon=close size=35]`
+
+Below code is an example of showing the youtube icon from the social group with the size of 40 pixels.
+`[fivetwofive_icon group=social icon=youtube size=40]`
+
 ## Installation
 
 Close the repo to an existing WordPress installation.
