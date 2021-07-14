@@ -61,6 +61,42 @@ function fivetwofive_kses_extended_ruleset() {
 			'd'    => true,
 			'fill' => true,
 		),
+		'iframe' => array(
+			'src'             => true,
+			'height'          => true,
+			'width'           => true,
+			'frameborder'     => true,
+			'allowfullscreen' => true,
+		),
 	);
 	return array_merge( $kses_defaults, $svg_args );
+}
+
+/**
+ * Undocumented function
+ *
+ * @param string $iframe ACF Oembed field.
+ * @param array  $params Iframe attributes.
+ * @return void
+ */
+function fivetwofive_get_acf_oembed_iframe(
+	$iframe,
+	$params = array(
+		'controls' => 0,
+		'hd'       => 1,
+		'autohide' => 1,
+	) ) {
+
+	// Use preg_match to find iframe src.
+	preg_match( '/src="(.+?)"/', $iframe, $matches );
+	$src     = $matches[1];
+	$new_src = add_query_arg( $params, $src );
+	$iframe  = str_replace( $src, $new_src, $iframe );
+
+	// Add extra attributes to iframe HTML.
+	$attributes   = 'frameborder="0"';
+	$iframe = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $iframe );
+
+	// Display customized HTML.
+	return $iframe;
 }
