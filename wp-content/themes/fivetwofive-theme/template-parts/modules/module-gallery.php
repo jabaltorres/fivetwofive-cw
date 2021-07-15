@@ -7,6 +7,9 @@
  * @package FiveTwoFive_Theme
  */
 
+wp_enqueue_script( 'fivetwofive-theme-fancybox' );
+wp_enqueue_style( 'fivetwofive-theme-fancybox' );
+
 $module_title          = get_sub_field( 'title' );
 $module_subtitle       = get_sub_field( 'subtitle' );
 $module_description    = get_sub_field( 'description' );

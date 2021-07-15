@@ -7,6 +7,8 @@
  * @package FiveTwoFive_Theme
  */
 
+wp_enqueue_script( 'fivetwofive-theme-module-announcement' );
+
 $sticky           = get_sub_field( 'sticky' );
 $background_image = get_sub_field( 'background_image' );
 $background_color = get_sub_field( 'background_color' );

@@ -22,9 +22,8 @@ const paths = {
     maps: "../maps"
   },
   scripts:{
-    src: "assets/src/js/*.js",
+    src: "assets/src/js/**/*.js",
     dest: "assets/dist/js",
-    maps: "assets/dist/maps"
   },
   images:{
     src: "assets/src/images/*",
@@ -71,11 +70,9 @@ const lint = () => src(paths.scripts.src)
  */
 const scripts = () => src(paths.scripts.src)
   .pipe(sourcemaps.init())
-  .pipe(concat('template-module.js'))
   .pipe(dest(paths.scripts.dest))
-  .pipe(rename('template-module.min.js'))
+  .pipe(rename({ suffix: '.min' }))
   .pipe(uglify().on('error', (e) => { log(e); }))
-  .pipe(sourcemaps.write(paths.scripts.dest))
   .pipe(dest(paths.scripts.dest))
   .pipe(browserSync.stream())
   .on('end', () => { log('Scripts Done!'); });
