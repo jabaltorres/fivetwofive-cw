@@ -7,6 +7,7 @@
 	- CTA Module
 	- Testimonials Carousel Module
   - Gallery Module
+  - Accordion Module
 --------------------------------------------------------------*/
 
 // Import variables and mixins.
@@ -41,3 +42,8 @@
 - Gallery Module
 --------------------------------------------------------------*/
 @import "modules/module-gallery";
+
+/*--------------------------------------------------------------
+- Accordion Module
+--------------------------------------------------------------*/
+@import "modules/module-accordion";

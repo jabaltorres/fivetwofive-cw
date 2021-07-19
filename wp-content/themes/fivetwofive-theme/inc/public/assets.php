@@ -114,6 +114,8 @@ function fivetwofive_theme_assets() {
 		wp_register_script( 'fivetwofive-theme-module-announcement', get_template_directory_uri() . '/assets/dist/js/modules/module-announcement.min.js', array( 'jquery' ), FIVETWOFIVE_THEME_VERSION, true );
 		// Testimonials Carousel module.
 		wp_register_script( 'fivetwofive-theme-module-testimonials-carousel', get_template_directory_uri() . '/assets/dist/js/modules/module-testimonials-carousel.min.js', array( 'jquery', 'fivetwofive-theme-swiper' ), FIVETWOFIVE_THEME_VERSION, true );
+		// Accordion Carousel module.
+		wp_register_script( 'fivetwofive-theme-module-accordion', get_template_directory_uri() . '/assets/dist/js/modules/module-accordion.min.js', array( 'jquery', 'jquery-ui-accordion' ), FIVETWOFIVE_THEME_VERSION, true );
 
 		// Enqueue module styles.
 		wp_enqueue_style( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/css/template-modules.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );

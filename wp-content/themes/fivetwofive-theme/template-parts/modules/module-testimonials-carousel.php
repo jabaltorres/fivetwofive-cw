@@ -7,8 +7,8 @@
  * @package FiveTwoFive_Theme
  */
 
-wp_enqueue_script( 'fivetwofive-theme-module-testimonials-carousel' );
 wp_enqueue_style( 'fivetwofive-theme-swiper' );
+wp_enqueue_script( 'fivetwofive-theme-module-testimonials-carousel' );
 
 // Contents.
 $module_title       = get_sub_field( 'title' );
