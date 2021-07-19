@@ -1,0 +1,19 @@
+.fivetwofive-share-buttons {
+    display: flex;
+    list-style: none;
+    margin: 0 0 rem(15px);
+
+    li {
+        margin-right: rem(15px);
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    a {
+        display: block;
+    }
+
+    .svg-icon {
+        display: block;
+    }
+}

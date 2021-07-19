@@ -1,0 +1,18 @@
+.ftf-module-testimonials-carousel {
+    .swiper-slide {
+        .row {
+            box-sizing: border-box;
+        }
+    }
+
+    .testimonial {
+        &__author {
+            font-size: rem(18px);
+        }
+
+        &__avatar {
+            display: block;
+            border-radius: 50%;
+        }
+    }
+}

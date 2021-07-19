@@ -72,7 +72,7 @@ function ftf_featured_projects_register_cpt() {
 		'public'              => true,
 		'publicly_queryable'  => true,
 		'show_ui'             => true,
-		'show_in_rest'        => false,
+		'show_in_rest'        => true,
 		'rest_base'           => "",
 		'has_archive'         => false,
 		'show_in_menu'        => true,
@@ -83,7 +83,6 @@ function ftf_featured_projects_register_cpt() {
 		'capability_type'     => "post",
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'work', 'with_front' => false ),
 		'query_var'           => true,
 		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
@@ -92,6 +91,20 @@ function ftf_featured_projects_register_cpt() {
 	register_post_type( 'featured-projects', $args );
 }
 add_action( 'init', 'ftf_featured_projects_register_cpt' );
+
+/**
+ * Make the featured projects archive full width.
+ *
+ * @return boolean $enable Make the featured projects archive full width.
+ */
+function ftf_featured_projects_archive_disable_sidebar( $enable_sidebar ) {
+	if ( is_post_type_archive( 'featured-projects' ) ) {
+		$enable_sidebar = false;
+	}
+
+	return $enable_sidebar;
+}
+add_filter( 'fivetwofive_theme_enable_sidebar', 'ftf_featured_projects_archive_disable_sidebar' );
 
 /**
  * Register custom post type on plugin activation.
@@ -111,16 +124,19 @@ register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_typ
  * @return void
  */
 function ftf_featured_projects_unregister_cpt() {
-    unregister_post_type( 'featured-projects' );
-    flush_rewrite_rules();
+	unregister_post_type( 'featured-projects' );
+	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
 
 /**
- * Add featured project shortcode.
+ * Featured projects shortcode.
  */
-function ftf_featured_projects_shortcode() {
+function ftf_featured_projects_shortcode( $a ) {
 	$projects = '';
+
+	$atts = shortcode_atts( array( 'archive' => null ), $a );
+
 	global $post;
 
 	// Check for transient. If none, then execute WP_Query
@@ -149,19 +165,71 @@ function ftf_featured_projects_shortcode() {
 	if  ( $featured_projects ) {
 		ob_start();
 		?>
-		<div id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper d-block clearboth text-center">
+		<section id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper text-center">
 			<div class="featured-projects-inner-wrapper py-5">
-				<h4 class="title text-white"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h4>
+				<h2 class="title mb-5"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h2>
 				<?php
-					foreach ( $featured_projects as $post ) :
-						setup_postdata( $post );
-						get_template_part( 'lib/includes/featured_projects_homepage_items' );
-					endforeach;
-					wp_reset_postdata();
+				foreach ( $featured_projects as $post ) :
+					setup_postdata( $post );
+					$homepage_toggle = get_field( 'homepage_toggle' );
+					?>
+						<div class="container featured-projects-homepage-item mb-4">
+							<div class="row align-items-center">
+								<?php if ( $homepage_toggle ) : ?>
+
+									<div class="col-12 col-md-7 has-img">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+
+								<?php else: ?>
+
+									<div class="col-12 col-md-7 has-image order-md-last">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<a class="has-hover" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+												<img class="thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_post_thumbnail_caption(); ?>" />
+											</a>
+										<?php endif; ?>
+									</div>
+									<div class="col-12 col-md-5 has-text order-md-first">
+
+										<a href="<?php echo esc_url_raw( get_permalink() ); ?>"><h3 class="article-title"><?php the_title(); ?></h3></a>
+
+										<?php if ( has_excerpt() ) : ?>
+											<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+										<?php endif; ?>
+
+										<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+									</div>
+								<?php endif; ?>
+
+							</div>
+						</div>
+					<?php
+				endforeach;
+				wp_reset_postdata();
 				?>
-				<a class="btn btn-primary mx-auto my-4" href="<?php echo esc_url(  get_permalink( get_page_by_path( 'work' ) ) ); ?>">View All Projects</a>
+
+				<?php if ( $atts['archive'] ) : ?>
+					<a class="button mx-auto my-4" href="<?php echo esc_url( get_the_permalink( intval( $atts['archive'] ) ) ); ?>"><?php echo esc_html__( 'View All Projects', 'jt-featured-projects' ); ?></a>
+				<?php endif; ?>
 			</div>
-		</div>
+		</section>
 		<?php
 		$projects = ob_get_clean();
 	}
@@ -170,76 +238,91 @@ function ftf_featured_projects_shortcode() {
 add_shortcode( 'fivetwofive_featured_projects', 'ftf_featured_projects_shortcode' );
 
 /**
- * Register ACF blocks.
- *
- * @return void
+ * Featured projects archive shortcode.
  */
-function ftf_featured_projects_register_acf_blocks() {
-
-    // Check function exists.
-    if ( function_exists('acf_register_block_type') ) {
-
-        // Register a Featured Project block.
-        acf_register_block_type(array(
-            'name'              => 'featured-projects',
-            'title'             => __('Featured Projects'),
-            'description'       => __('Display Featured Projects'),
-            'render_template'   => plugin_dir_path( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.php',
-			'enqueue_style'     => plugin_dir_url( __FILE__ ) . 'acf/blocks/featured-projects/featured-projects.css',
-            'category'          => 'formatting',
-        ));
-
-    }
-
-	acf_add_local_field_group(
-		array(
-			'key'                   => 'group_603ed99cda827',
-			'title'                 => 'Block: Featured Projects',
-			'fields'                => array(
-				array(
-					'key'               => 'field_603ed9be8fe98',
-					'label'             => 'Number of Projects to show',
-					'name'              => 'number_of_projects_to_show',
-					'type'              => 'number',
-					'instructions'      => '',
-					'required'          => 0,
-					'conditional_logic' => 0,
-					'wrapper'           => array(
-						'width' => '',
-						'class' => '',
-						'id'    => '',
-					),
-					'default_value'     => '',
-					'placeholder'       => '',
-					'prepend'           => '',
-					'append'            => '',
-					'min'               => '',
-					'max'               => '',
-					'step'              => '',
-				),
-			),
-			'location'              => array(
-				array(
-					array(
-						'param'    => 'block',
-						'operator' => '==',
-						'value'    => 'acf/featured-projects',
-					),
-				),
-			),
-			'menu_order'            => 0,
-			'position'              => 'normal',
-			'style'                 => 'default',
-			'label_placement'       => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen'        => '',
-			'active'                => true,
-			'description'           => '',
-		)
+function ftf_featured_projects_archive_shortcode() {
+	$args = array(
+		'post_type' => 'featured-projects',
+		'orderby'   => 'menu_order',
+		'order'     => 'DESC',
+		'paged'     => max( 1, get_query_var( 'paged' ) ),
 	);
+	$work_query = new WP_Query( $args );
 
+	ob_start();
+
+	if ( $work_query->have_posts() ) :
+		?>
+
+		<div class="container">
+			<div class="row">
+				<?php
+				/* Start the Loop */
+				while ( $work_query->have_posts() ) :
+					$work_query->the_post();
+					?>
+					<div class="col-md-4 mb-3 mb-md-5">
+						<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
+							<div class="card__image-wrap mb-4">
+								<?php
+									the_post_thumbnail(
+										'large',
+										array(
+											'alt' => the_title_attribute(
+												array(
+													'echo' => false,
+												)
+											),
+											'class' => 'card__image img-responsive',
+										)
+									);
+								?>
+								<div class="card__image-overlay">
+									<a class="button card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">Read More</a>
+								</div>
+							</div>
+							<header class="card__header">
+								<?php the_title( sprintf( '<h2 class="card__title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+							</header><!-- .card-header -->
+							<div class="card__content">
+								<?php the_excerpt(); ?>
+							</div>
+						</article><!-- #card-<?php the_ID(); ?> -->
+					</div>
+					<?php
+				endwhile;
+				?>
+			</div>
+
+			<div class="featured-projects-pagination pagination">
+				<?php
+					echo paginate_links(
+						array(
+							'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+							'total'        => $work_query->max_num_pages,
+							'current'      => max( 1, get_query_var( 'paged' ) ),
+							'format'       => '?page=%#%',
+							'show_all'     => false,
+							'type'         => 'plain',
+							'end_size'     => 2,
+							'mid_size'     => 1,
+							'prev_next'    => true,
+							'prev_text'    => sprintf( '<i></i> %1$s', __( 'Newer Projects', 'fivetwofive-theme' ) ),
+							'next_text'    => sprintf( '%1$s <i></i>', __( 'Older Projects', 'fivetwofive-theme' ) ),
+							'add_args'     => false,
+							'add_fragment' => '',
+						)
+					);
+				?>
+			</div>
+		</div>
+
+		<?php
+	endif;
+
+	return ob_get_clean();
 }
-add_action('acf/init', 'ftf_featured_projects_register_acf_blocks');
+add_shortcode( 'fivetwofive_featured_projects_archive', 'ftf_featured_projects_archive_shortcode' );
 
 /**
  * Register Featured Projects image sizes

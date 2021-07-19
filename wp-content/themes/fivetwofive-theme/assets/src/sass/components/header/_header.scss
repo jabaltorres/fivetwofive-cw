@@ -1,0 +1,15 @@
+.site-header {
+    padding: 0.9375rem 0;
+    position: relative;
+}
+
+@media only screen and (min-width: 992px) {
+    .site-header {
+        padding: 1.5625rem 0;
+        .container {
+            > .row {
+                align-items: center;
+            }
+        }
+    }
+}

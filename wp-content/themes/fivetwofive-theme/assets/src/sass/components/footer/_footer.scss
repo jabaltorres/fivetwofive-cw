@@ -1,0 +1,10 @@
+.site-footer {
+    &__bottom {
+        padding-top: rem(25px);
+        padding-bottom: rem(25px);
+    }
+
+    &__copyright {
+        margin: 0;
+    }
+}

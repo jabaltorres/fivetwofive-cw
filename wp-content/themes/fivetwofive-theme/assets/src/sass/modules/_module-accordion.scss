@@ -1,0 +1,21 @@
+.ftf-module-accordion {
+  &__panel {
+    border: 1px solid #444;
+    margin-bottom: 15px;
+    &-title,
+    &-content {
+      margin: 0;
+      padding: 15px;
+    }
+
+    &-title {
+      cursor: pointer;
+    }
+
+    &-content {
+      p:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
