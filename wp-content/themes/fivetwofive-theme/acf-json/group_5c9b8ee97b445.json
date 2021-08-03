@@ -16,6 +16,418 @@
                 "id": ""
             },
             "layouts": {
+                "layout_5de7dca77f903": {
+                    "key": "layout_5de7dca77f903",
+                    "name": "module-announcement",
+                    "label": "Announcement Module",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_60de52696aabd",
+                            "label": "Content",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5de7dd8a7f90b",
+                            "label": "Sticky",
+                            "name": "sticky",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "yes": "Yes",
+                                "no": "No"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "save_other_choice": 0
+                        },
+                        {
+                            "key": "field_5de7de263a1f8",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "maxlength": "",
+                            "rows": 1,
+                            "new_lines": "br"
+                        },
+                        {
+                            "key": "field_5fa1e60b0f48c",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5de7de3a3a1fa",
+                            "label": "Button",
+                            "name": "button",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
+                            "key": "field_60de52896aabe",
+                            "label": "Appearance",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_5de7dcb17f904",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5de7dcc27f905",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#FFFFFF"
+                        },
+                        {
+                            "key": "field_5de7dcdb7f906",
+                            "label": "Border Color",
+                            "name": "border_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#e62f24"
+                        },
+                        {
+                            "key": "field_5de7dce57f907",
+                            "label": "Text Color",
+                            "name": "text_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#000000"
+                        },
+                        {
+                            "key": "field_60d91d3c55f34",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108c95b4c4c3",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108c9644c4c4",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c9704c4c5",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c9784c4c6",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c9914c4c7",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c9a24c4c8",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c9b54c4c9",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c9ce4c4ca",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c9ea4c4cb",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108c9fb4c4cc",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5c9b90c26695d": {
                     "key": "layout_5c9b90c26695d",
                     "name": "module-hero",
@@ -303,20 +715,10 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_5de7dca77f903": {
-                    "key": "layout_5de7dca77f903",
-                    "name": "module-announcement",
-                    "label": "Announcement Module",
-                    "display": "block",
-                    "sub_fields": [
+                        },
                         {
-                            "key": "field_60de52696aabd",
-                            "label": "Content",
+                            "key": "field_6108c786c0d5b",
+                            "label": "Animation",
                             "name": "",
                             "type": "tab",
                             "instructions": "",
@@ -331,35 +733,179 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_5de7dd8a7f90b",
-                            "label": "Sticky",
-                            "name": "sticky",
-                            "type": "radio",
+                            "key": "field_6108c7a0c0d5c",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c7abc0d5d",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c7b4c0d5e",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "10",
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c7d2c0d5f",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c7e6c0d60",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c7f7c0d61",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c813c0d62",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c824c0d63",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "choices": {
-                                "yes": "Yes",
-                                "no": "No"
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
                             },
+                            "default_value": false,
                             "allow_null": 0,
-                            "other_choice": 0,
-                            "default_value": "",
-                            "layout": "vertical",
+                            "multiple": 0,
+                            "ui": 0,
                             "return_format": "value",
-                            "save_other_choice": 0
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
-                            "key": "field_5de7de263a1f8",
-                            "label": "Title",
-                            "name": "title",
-                            "type": "textarea",
-                            "instructions": "",
+                            "key": "field_6108c83dc0d64",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -367,149 +913,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 1,
-                            "new_lines": "br"
-                        },
-                        {
-                            "key": "field_5fa1e60b0f48c",
-                            "label": "Content",
-                            "name": "content",
-                            "type": "wysiwyg",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
-                        },
-                        {
-                            "key": "field_5de7de3a3a1fa",
-                            "label": "Button",
-                            "name": "button",
-                            "type": "link",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        },
-                        {
-                            "key": "field_60de52896aabe",
-                            "label": "Appearance",
-                            "name": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0
-                        },
-                        {
-                            "key": "field_5de7dcb17f904",
-                            "label": "Background Image",
-                            "name": "background_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "15",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array",
-                            "preview_size": "medium",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5de7dcc27f905",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "15",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#FFFFFF"
-                        },
-                        {
-                            "key": "field_5de7dcdb7f906",
-                            "label": "Border Color",
-                            "name": "border_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "15",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#e62f24"
-                        },
-                        {
-                            "key": "field_5de7dce57f907",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "15",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "#000000"
-                        },
-                        {
-                            "key": "field_60d91d3c55f34",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
                             "prepend": "",
                             "append": "",
-                            "maxlength": ""
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -629,6 +1039,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108c5a381e75",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108c5aa81e76",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c5b481e77",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c5c081e78",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c5e081e79",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c5f581e7a",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c60981e7b",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c61b81e7c",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c63381e7d",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108c64781e7e",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -835,6 +1450,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108c209294f1",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108c214294f2",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c21f294f3",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c22b294f4",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c24c294f5",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c25b294f6",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c27a294f7",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c288294f8",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c2a2294f9",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108c2c2294fa",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -1287,6 +2107,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108bdc3c0091",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108c0113c958",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c0223c959",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c0343c95a",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108c04b3c95b",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c0603c95c",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c0773c95d",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c0903c95e",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108c0b13c95f",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108c0d43c960",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -1577,6 +2602,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108bdd3c0092",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108bde0c0093",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108bdf0c0094",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108be0dc0095",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108be1ac0096",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108be30c0097",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108be56c0098",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108be77c0099",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108be9fc009a",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108beb8c009b",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -1846,6 +3076,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108bb97f1398",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108bba7f1399",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108bbd1f139a",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108bbfdf139b",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108bc0cf139c",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108bc43f139d",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108bc5df139e",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108bc7af139f",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108bcaaf13a0",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108bcc9f13a1",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -2216,6 +3651,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_6108b7fd0069c",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_6108b81e0069e",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108b8330069f",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108b84f006a0",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6108b873006a1",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108b888006a2",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108b8ab006a3",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108b8bd006a4",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6108b901006a5",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6108b922006a6",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -2489,6 +4129,211 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_610376c1f3b5b",
+                            "label": "Animation",
+                            "name": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0
+                        },
+                        {
+                            "key": "field_61037b4bf3b62",
+                            "label": "Desktop",
+                            "name": "animation_desktop",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on desktop browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_61037b67f3b63",
+                            "label": "Mobile",
+                            "name": "animation_mobile",
+                            "type": "true_false",
+                            "instructions": "enables\/disables animations on mobile browsers.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_61037b82f3b64",
+                            "label": "Reset",
+                            "name": "animation_reset",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_610376caf3b5c",
+                            "label": "Delay",
+                            "name": "animation_delay",
+                            "type": "number",
+                            "instructions": "Delay is the time before reveal animations begin. By default, delay will be used for all animations. If reset options is true will never use delay.\r\n\r\nThe number passed to delay is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_6103792af3b5d",
+                            "label": "Distance",
+                            "name": "animation_distance",
+                            "type": "number",
+                            "instructions": "Controls how far the module will move when revealed in pixels.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "px",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_610379bdf3b5e",
+                            "label": "Duration",
+                            "name": "animation_duration",
+                            "type": "number",
+                            "instructions": "Controls how long animations take to complete.\r\nAccepted value is a measure of time in milliseconds.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 600,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_61037a00f3b5f",
+                            "label": "Opacity",
+                            "name": "animation_opacity",
+                            "type": "number",
+                            "instructions": "Specifies the opacity the module have prior to being revealed.\r\n\r\nThe number passed to opacity is a range between 0.0 and 1.0. Values outside that range, though valid, will be clamped to the nearest limit.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "0.0",
+                            "max": "1.0",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_61037a9af3b60",
+                            "label": "Origin",
+                            "name": "animation_origin",
+                            "type": "select",
+                            "instructions": "Specifies what direction the module come from when revealed.\r\n\r\nPlease note that You will need a non-zero value assigned to distance for origin to have any visible impact on the module's animation.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top",
+                                "right": "Right",
+                                "bottom": "Bottom",
+                                "left": "Left"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_61037afef3b61",
+                            "label": "Scale",
+                            "name": "animation_scale",
+                            "type": "number",
+                            "instructions": "Specifies the size of elements have prior to being revealed.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 1,
+                            "placeholder": "The number passed to scale is a proportion relative to computed size.",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": ""
                         }
                     ],
                     "min": "",
@@ -2519,5 +4364,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1626657888
+    "modified": 1627965979
 }

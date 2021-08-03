@@ -31,8 +31,51 @@ if ( get_sub_field( 'text_color' ) ) {
 	$module_text_color = 'color:' . get_sub_field( 'text_color' );
 }
 
+// Animations.
+$module_id                 = uniqid( 'ftf-module-cta' );
+$module_animation_desktop  = get_sub_field( 'animation_desktop' );
+$module_animation_mobile   = get_sub_field( 'animation_mobile' );
+$module_animation_reset    = get_sub_field( 'animation_reset' );
+$module_animation_delay    = get_sub_field( 'animation_delay' );
+$module_animation_distance = get_sub_field( 'animation_distance' );
+$module_animation_duration = get_sub_field( 'animation_duration' );
+$module_animation_opacity  = get_sub_field( 'animation_opacity' );
+$module_animation_origin   = get_sub_field( 'animation_origin' );
+$module_animation_scale    = get_sub_field( 'animation_scale' );
+
+$module_animation_options = array(
+	'reset'   => $module_animation_reset,
+	'origin'  => $module_animation_origin,
+	'desktop' => $module_animation_desktop,
+	'mobile'  => $module_animation_mobile,
+);
+
+if ( $module_animation_delay ) {
+	$module_animation_options['delay'] = $module_animation_delay;
+}
+
+if ( $module_animation_distance ) {
+	$module_animation_options['distance'] = $module_animation_distance . 'px';
+}
+
+if ( $module_animation_duration ) {
+	$module_animation_options['duration'] = (int) $module_animation_duration;
+}
+
+if ( $module_animation_opacity ) {
+	$module_animation_options['opacity'] = (int) $module_animation_opacity;
+}
+
+if ( $module_animation_scale ) {
+	$module_animation_options['scale'] = (int) $module_animation_scale;
+}
+
+if ( $module_animation_desktop || $module_animation_mobile ) {
+	$module_classes .= ' ftf-module-hidden';
+}
+
 ?>
-<section class="ftf-module ftf-module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
+<section  id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">
