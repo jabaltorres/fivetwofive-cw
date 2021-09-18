@@ -147,8 +147,9 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				$column_text      = get_sub_field( 'text' );
 				$column_button    = get_sub_field( 'button' );
 				$column_width     = get_sub_field( 'width' );
+				$column_classes   = get_sub_field( 'column_classes' );
 				$image_dimension  = 'full';
-				$column_classes   = array( 'column', 'col-12' );
+				$column_width_classes   = array( 'column', 'col-12' );
 
 				if ( $column_dimension ) {
 					// check if the dimension set it width and height.
@@ -160,13 +161,19 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				}
 
 				if ( $column_width ) {
-					$column_classes[] = $column_width;
+					$column_width_classes[] = $column_width;
 				} else {
-					$column_classes[] = $default_column_width;
+					$column_width_classes[] = $default_column_width;
 				}
 
+				if ( !$column_classes ) {
+					$column_module_classes = '';
+                } else {
+					$column_module_classes = $column_classes;
+                }
+
 				?>
-				<div class="<?php echo esc_attr( implode( ' ', $column_classes ) ); ?>">
+				<div class="<?php echo esc_attr( implode( ' ', $column_width_classes ) ); ?> <?= $column_module_classes; ?>">
 					<?php
 					if ( $column_image ) :
 						echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
@@ -177,7 +184,8 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					<?php endif; ?>
 
 					<?php if ( $column_text ) : ?>
-						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $column_text, fivetwofive_kses_extended_ruleset() ); ?></div>
+<!--						<div class="column-text mb-3 mb-md-4" style="--><?php //echo esc_attr( $text_color_inline_style ); ?><!--">--><?php //echo wp_kses( $column_text, fivetwofive_kses_extended_ruleset() ); ?><!--</div>-->
+						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo $column_text; ?></div>
 					<?php endif; ?>
 
 					<?php
