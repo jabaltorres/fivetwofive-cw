@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive Featured Projects Custom Post Type
- * Description: A simple plug in that adds a featured project custom post type
+ * Plugin Name: FiveTwoFive Work Custom Post Type
+ * Description: A simple plug in that adds a Work custom post type
  * Version: 0.1
  * Author:  Jabal Torres
  * License: GPL2
- * Text Domain: fivetwofive-featured-projects
+ * Text Domain: fivetwofive-work
  */
 
 /*
@@ -26,58 +26,61 @@
 */
 
 /**
- * Register featured projects custom post type.
+ * Register work custom post type.
  *
  * @return void
  */
-function ftf_featured_projects_register_cpt() {
+function ftf_work_register_cpt() {
 
 	/**
-	 * Post Type: Featured Projects.
+	 * Post Type: Work.
 	 */
 
 	$labels = array(
-		'name'                  => __( 'Featured Projects', 'jt-featured-projects' ),
-		'singular_name'         => __( 'Featured Project', 'jt-featured-projects' ),
-		'menu_name'             => __( 'Featured Projects', 'jt-featured-projects' ),
-		'all_items'             => __( 'All Featured Projects', 'jt-featured-projects' ),
-		'add_new'               => __( 'Add New Featured Project', 'jt-featured-projects' ),
-		'add_new_item'          => __( 'Add New Featured Project', 'jt-featured-projects' ),
-		'edit_item'             => __( 'Edit Featured Project', 'jt-featured-projects' ),
-		'new_item'              => __( 'New Featured Project', 'jt-featured-projects' ),
-		'view_item'             => __( 'View Featured Project', 'jt-featured-projects' ),
-		'view_items'            => __( 'View Featured Projects', 'jt-featured-projects' ),
-		'search_items'          => __( 'Search Featured Project', 'jt-featured-projects' ),
-		'not_found'             => __( 'Featured Project Not Found', 'jt-featured-projects' ),
-		'not_found_in_trash'    => __( 'No Featured Projects found in trash', 'jt-featured-projects' ),
-		'parent_item_colon'     => __( 'Parent Featured Project', 'jt-featured-projects' ),
-		'featured_image'        => __( 'Featured image for this Featured Project', 'jt-featured-projects' ),
-		'set_featured_image'    => __( 'Set featured image for this Featured Project', 'jt-featured-projects' ),
-		'remove_featured_image' => __( 'Remove featured image for this Featured Project', 'jt-featured-projects' ),
-		'use_featured_image'    => __( 'Use featured image for this Featured Project', 'jt-featured-projects' ),
-		'archives'              => __( 'Featured Project archives', 'jt-featured-projects' ),
-		'insert_into_item'      => __( 'Insert into Featured Project', 'jt-featured-projects' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Featured Project', 'jt-featured-projects' ),
-		'filter_items_list'     => __( 'Filter Featured Projects list', 'jt-featured-projects' ),
-		'items_list_navigation' => __( 'Featured Projects list navigation', 'jt-featured-projects' ),
-		'items_list'            => __( 'Featured Projects list', 'jt-featured-projects' ),
-		'attributes'            => __( 'Featured Projects Attributes', 'jt-featured-projects' ),
-		'parent_item_colon'     => __( 'Parent Featured Project', 'jt-featured-projects' ),
+		'name'                  => __( 'Works', 'fivetwofive-work' ),
+		'singular_name'         => __( 'Work', 'fivetwofive-work' ),
+		'menu_name'             => __( 'Works', 'fivetwofive-work' ),
+		'all_items'             => __( 'All Works', 'fivetwofive-work' ),
+		'add_new'               => __( 'Add New Work', 'fivetwofive-work' ),
+		'add_new_item'          => __( 'Add New Work', 'fivetwofive-work' ),
+		'edit_item'             => __( 'Edit Work', 'fivetwofive-work' ),
+		'new_item'              => __( 'New Work', 'fivetwofive-work' ),
+		'view_item'             => __( 'View Work', 'fivetwofive-work' ),
+		'view_items'            => __( 'View Works', 'fivetwofive-work' ),
+		'search_items'          => __( 'Search Work', 'fivetwofive-work' ),
+		'not_found'             => __( 'Work Not Found', 'fivetwofive-work' ),
+		'not_found_in_trash'    => __( 'No Works found in trash', 'fivetwofive-work' ),
+		'parent_item_colon'     => __( 'Parent Work', 'fivetwofive-work' ),
+		'featured_image'        => __( 'Featured image for this Work', 'fivetwofive-work' ),
+		'set_featured_image'    => __( 'Set featured image for this Work', 'fivetwofive-work' ),
+		'remove_featured_image' => __( 'Remove featured image for this Work', 'fivetwofive-work' ),
+		'use_featured_image'    => __( 'Use featured image for this Work', 'fivetwofive-work' ),
+		'archives'              => __( 'Work archives', 'fivetwofive-work' ),
+		'insert_into_item'      => __( 'Insert into Work', 'fivetwofive-work' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Work', 'fivetwofive-work' ),
+		'filter_items_list'     => __( 'Filter Works list', 'fivetwofive-work' ),
+		'item_published'        => __( 'Work published.', 'fivetwofive-work' ),
+		'item_updated'          => __( 'Work updated.', 'fivetwofive-work' ),
+		'items_list_navigation' => __( 'Works list navigation', 'fivetwofive-work' ),
+		'items_list'            => __( 'Works list', 'fivetwofive-work' ),
+		'item_link'             => __( 'Work Link', 'fivetwofive-work' ),
+		'attributes'            => __( 'Works Attributes', 'fivetwofive-work' ),
+		'parent_item_colon'     => __( 'Parent Work', 'fivetwofive-work' ),
 	);
 
 	$args = array(
-		'label'               => __( 'Featured Projects', 'jt-featured-projects' ),
+		'label'               => __( 'Works', 'fivetwofive-work' ),
 		'labels'              => $labels,
-		'description'         => __( 'Featured Project Description', 'jt-featured-projects' ),
+		'description'         => __( 'Work Description', 'fivetwofive-work' ),
 		'public'              => true,
 		'publicly_queryable'  => true,
 		'show_ui'             => true,
 		'show_in_rest'        => true,
 		'rest_base'           => '',
-		'has_archive'         => false,
+		'has_archive'         => true,
 		'show_in_menu'        => true,
 		'menu_position'       => '5',
-		'menu_icon'           => 'dashicons-megaphone',
+		'menu_icon'           => 'dashicons-hammer',
 		'show_in_nav_menus'   => true,
 		'exclude_from_search' => false,
 		'capability_type'     => 'post',
@@ -87,38 +90,38 @@ function ftf_featured_projects_register_cpt() {
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
 		'query_var'           => true,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
-	register_post_type( 'featured-projects', $args );
+	register_post_type( 'ftf_work', $args );
 }
-add_action( 'init', 'ftf_featured_projects_register_cpt' );
+add_action( 'init', 'ftf_work_register_cpt' );
 
 /**
- * Make the featured projects archive full width.
+ * Make the work archive full width.
  *
- * @return boolean $enable Make the featured projects archive full width.
+ * @return boolean $enable Make the work archive full width.
  */
-function ftf_featured_projects_archive_disable_sidebar( $enable_sidebar ) {
-	if ( is_post_type_archive( 'featured-projects' ) ) {
+function ftf_work_archive_disable_sidebar( $enable_sidebar ) {
+	if ( is_post_type_archive( 'ftf_work' ) ) {
 		$enable_sidebar = false;
 	}
 
 	return $enable_sidebar;
 }
-add_filter( 'fivetwofive_theme_enable_sidebar', 'ftf_featured_projects_archive_disable_sidebar' );
+add_filter( 'fivetwofive_theme_enable_sidebar', 'ftf_work_archive_disable_sidebar' );
 
 /**
  * Register custom post type on plugin activation.
  *
  * @return void
  */
-function ftf_featured_projects_setup_custom_post_type() {
-	ftf_featured_projects_register_cpt();
+function ftf_work_setup_custom_post_type() {
+	ftf_work_register_cpt();
 	flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_type' );
+register_activation_hook( __FILE__, 'ftf_work_setup_custom_post_type' );
 
 /**
  * Unregister custom post type on plugin deactivation.
@@ -126,59 +129,58 @@ register_activation_hook( __FILE__, 'ftf_featured_projects_setup_custom_post_typ
  * @link https://core.trac.wordpress.org/ticket/42563
  * @return void
  */
-function ftf_featured_projects_unregister_cpt() {
+function ftf_work_unregister_cpt() {
 	unregister_post_type( 'featured-projects' );
 	flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'ftf_featured_projects_unregister_cpt' );
+register_deactivation_hook( __FILE__, 'ftf_work_unregister_cpt' );
 
 /**
- * Featured projects shortcode.
+ * Works shortcode.
  */
-function ftf_featured_projects_shortcode( $a ) {
+function ftf_featured_works_shortcode() {
 	$projects = '';
-
-	$atts = shortcode_atts( array( 'archive' => null ), $a );
 
 	global $post;
 
 	// Check for transient. If none, then execute WP_Query
-	if ( false === ( $featured_projects = get_transient( 'fivetwofive_featured_projects' ) ) ) {
+	if ( false === ( $works = get_transient( 'fivetwofive_featured_works' ) ) ) {
 
-		$featured_projects_args = array(
-			'post_type'      => 'featured-projects',
+		$work_args = array(
+			'post_type'      => 'ftf_work',
 			'posts_per_page' => 3,
 			'orderby'        => 'menu_order',
 			'order'          => 'DESC',
 			'meta_query'	 => array(
 				array(
-					'key'	  	=> 'project_is_featured',
+					'key'	  	=> 'ftf_featured_work',
 					'value'	  	=> '1',
 					'compare' 	=> '=',
 				),
 			),
 		);
 
-		$featured_projects = get_posts( $featured_projects_args );
+		$works = get_posts( $work_args );
 
 		// Put the results in a transient. Expire after 12 hours.
-		set_transient( 'fivetwofive_featured_projects', $featured_projects, 12 * HOUR_IN_SECONDS );
+		set_transient( 'fivetwofive_featured_works', $works, 12 * HOUR_IN_SECONDS );
 	}
 
-	if  ( $featured_projects ) {
+	if  ( $works ) {
 		ob_start();
+		$work_counter = 0;
 		?>
 		<section id="fivetwofive-featured-projects" class="fivetwofive-featured-projects featured-projects-homepage-wrapper text-center">
 			<div class="featured-projects-inner-wrapper py-5">
 				<h2 class="title mb-5"><?php echo esc_html__( 'Recent Projects', 'fivetwofive' ); ?></h2>
 				<?php
-				foreach ( $featured_projects as $post ) :
+				foreach ( $works as $post ) :
 					setup_postdata( $post );
-					$homepage_toggle = get_field( 'homepage_toggle' );
+					$work_counter++;
 					?>
 						<div class="container featured-projects-homepage-item mb-4">
 							<div class="row align-items-center">
-								<?php if ( $homepage_toggle ) : ?>
+								<?php if ( $work_counter % 2 !== 0 ) : ?>
 
 									<div class="col-12 col-md-7 has-img">
 										<?php if ( has_post_thumbnail() ) : ?>
@@ -228,9 +230,7 @@ function ftf_featured_projects_shortcode( $a ) {
 				wp_reset_postdata();
 				?>
 
-				<?php if ( $atts['archive'] ) : ?>
-					<a class="button mx-auto my-4" href="<?php echo esc_url( get_the_permalink( intval( $atts['archive'] ) ) ); ?>"><?php echo esc_html__( 'View All Projects', 'jt-featured-projects' ); ?></a>
-				<?php endif; ?>
+				<a class="button mx-auto my-4" href="<?php echo esc_url( get_post_type_archive_link( 'ftf_work' ) ); ?>"><?php echo esc_html__( 'View All Projects', 'fivetwofive-work' ); ?></a>
 			</div>
 		</section>
 		<?php
@@ -238,14 +238,14 @@ function ftf_featured_projects_shortcode( $a ) {
 	}
 	return $projects;
 }
-add_shortcode( 'fivetwofive_featured_projects', 'ftf_featured_projects_shortcode' );
+add_shortcode( 'fivetwofive_featured_works', 'ftf_featured_works_shortcode' );
 
 /**
- * Featured projects archive shortcode.
+ * Works Archive shortcode.
  */
-function ftf_featured_projects_archive_shortcode() {
+function ftf_work_archive_shortcode() {
 	$args = array(
-		'post_type' => 'featured-projects',
+		'post_type' => 'ftf_works',
 		'orderby'   => 'menu_order',
 		'order'     => 'DESC',
 		'paged'     => max( 1, get_query_var( 'paged' ) ),
@@ -325,14 +325,14 @@ function ftf_featured_projects_archive_shortcode() {
 
 	return ob_get_clean();
 }
-add_shortcode( 'fivetwofive_featured_projects_archive', 'ftf_featured_projects_archive_shortcode' );
+add_shortcode( 'fivetwofive_work_archive', 'ftf_work_archive_shortcode' );
 
 /**
- * Register Featured Projects image sizes
+ * Register Works image sizes
  *
  * @return void
  */
-function ftf_featured_projects_theme_setup() {
-    add_image_size( 'fivetwofive-featured-project', 600, 450, true );
+function ftf_work_theme_setup() {
+    add_image_size( 'fivetwofive-work-thumbnail', 600, 450, true );
 }
-add_action( 'after_setup_theme', 'ftf_featured_projects_theme_setup' );
+add_action( 'after_setup_theme', 'ftf_work_theme_setup' );
