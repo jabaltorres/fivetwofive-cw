@@ -35,68 +35,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_5f3eab508cfff",
-            "label": "White Paper Options",
-            "name": "resource_white_paper_options",
-            "type": "button_group",
-            "instructions": "Choose if white paper should present as a downloadable PDF or WYSIWYG content",
-            "required": 1,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "White Paper"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "PDF": "PDF",
-                "WYSIWYG": "WYSIWYG"
-            },
-            "allow_null": 0,
-            "default_value": "wysiwyg",
-            "layout": "horizontal",
-            "return_format": "value"
-        },
-        {
-            "key": "field_5f3eb4ed6b28f",
-            "label": "White Paper WYSIWYG",
-            "name": "resource_white_paper_wysiwyg",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "White Paper"
-                    },
-                    {
-                        "field": "field_5f3eab508cfff",
-                        "operator": "==",
-                        "value": "WYSIWYG"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
             "key": "field_5ee3d680a65ac",
             "label": "Resource File",
             "name": "resource_file",
@@ -158,61 +96,12 @@
         },
         {
             "key": "field_5ee3d6f2a65ad",
-            "label": "Vimeo Video Name",
-            "name": "vimeo_video_name",
+            "label": "Resource Name",
+            "name": "resource_name",
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Pre-Recorded Webinar"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Demo"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ee3d726a65ae",
-            "label": "Vimeo Video ID",
-            "name": "vimeo_video_id",
-            "type": "text",
-            "instructions": "Enter Vimeo video ID",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Pre-Recorded Webinar"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Demo"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -257,92 +146,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_5ee3d7bca65b0",
-            "label": "Ungated form heading",
-            "name": "ungated_form_heading",
-            "type": "text",
-            "instructions": "Heading after form is ungated",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ee3d7dea65b1",
-            "label": "Ungated form message",
-            "name": "ungated_form_message",
-            "type": "textarea",
-            "instructions": "Message for ungated forms",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 6,
-            "new_lines": ""
-        },
-        {
-            "key": "field_5ee3d80da65b2",
-            "label": "Gated asset button text",
-            "name": "gated_asset_button_text",
-            "type": "text",
-            "instructions": "Button text",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "!=",
-                        "value": "Pre-Recorded Webinar"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ee3caa77d98d",
-            "label": "Active Campaign Form ID",
-            "name": "active_campaign_form_id",
-            "type": "number",
-            "instructions": "",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
             "key": "field_5ee3f9f07b154",
             "label": "Share this post",
             "name": "share_this_post",
@@ -382,5 +185,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633202987
+    "modified": 1633207725
 }
