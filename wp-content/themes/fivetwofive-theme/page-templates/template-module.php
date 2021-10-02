@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Modules Template
- * Template Post Type: page, featured-projects, fivetwofive-lp
+ * Template Post Type: page, fivetwofive-lp, ftf_work
  *
  * @package FiveTwoFive_Theme
  * @since FiveTwoFive Theme 1.0.0
