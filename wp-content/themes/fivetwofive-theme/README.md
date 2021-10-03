@@ -148,6 +148,17 @@ function fivetwofive_theme_frontpage_content_contained( $is_contained ) {
 }
 add_filter( 'fivetwofive_theme_is_contained', 'fivetwofive_theme_frontpage_content_contained' );
 ```
+## Modules
+- Accordion
+- Announcement
+- Code
+- Content and Media
+- CTA
+- Gallery
+- Hero
+- Muli-Columns
+- Testimonial Carousel
+- Works
 
 ## Icons
 Change the default Icons of the theme through these filters.
