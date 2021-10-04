@@ -91,10 +91,37 @@ function ftf_work_register_cpt() {
 		'hierarchical'        => false,
 		'query_var'           => true,
 		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
 	);
 
 	register_post_type( 'ftf_work', $args );
+
+	unset( $args );
+	unset( $labels );
+
+	$labels = array(
+		'name'              => _x( 'Work Categories', 'taxonomy general name', 'fivetwofive-work' ),
+		'singular_name'     => _x( 'Work Category', 'taxonomy singular name', 'fivetwofive-work' ),
+		'search_items'      => __( 'Search Work Categories', 'fivetwofive-work' ),
+		'all_items'         => __( 'All Work Categories', 'fivetwofive-work' ),
+		'parent_item'       => __( 'Parent Work Category', 'fivetwofive-work' ),
+		'parent_item_colon' => __( 'Parent Work Category:', 'fivetwofive-work' ),
+		'edit_item'         => __( 'Edit Work Category', 'fivetwofive-work' ),
+		'update_item'       => __( 'Update Work Category', 'fivetwofive-work' ),
+		'add_new_item'      => __( 'Add New Work Category', 'fivetwofive-work' ),
+		'new_item_name'     => __( 'New Work Category Name', 'fivetwofive-work' ),
+		'menu_name'         => __( 'Work Category', 'fivetwofive-work' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'work-category' ),
+	);
+
+	register_taxonomy( 'ftf_work_category', 'ftf_work', $args );
 }
 add_action( 'init', 'ftf_work_register_cpt' );
 
@@ -141,6 +168,6 @@ register_deactivation_hook( __FILE__, 'ftf_work_unregister_cpt' );
  * @return void
  */
 function ftf_work_theme_setup() {
-    add_image_size( 'fivetwofive-work-thumbnail', 600, 450, true );
+	add_image_size( 'fivetwofive-work-thumbnail', 600, 450, true );
 }
 add_action( 'after_setup_theme', 'ftf_work_theme_setup' );
