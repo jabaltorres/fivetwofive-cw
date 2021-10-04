@@ -208,22 +208,24 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 						<div class="col-md-4 mb-3 mb-md-5">
 							<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
 								<div class="card__image-wrap mb-4">
-									<?php
-										the_post_thumbnail(
-											'large',
-											array(
-												'alt' => the_title_attribute(
-													array(
-														'echo' => false,
-													)
-												),
-												'class' => 'card__image img-responsive',
-											)
-										);
-									?>
-									<div class="card__image-overlay">
-										<a class="button card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">Read More</a>
-									</div>
+									<a class="card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+										<?php
+											the_post_thumbnail(
+												'large',
+												array(
+													'alt' => the_title_attribute(
+														array(
+															'echo' => false,
+														)
+													),
+													'class' => 'card__image img-responsive',
+												)
+											);
+										?>
+										<div class="card__image-overlay">
+											<button class="button card__image-link" aria-hidden="true" tabindex="-1">Read More</button>
+										</div>
+									</a>
 								</div>
 								<header class="card__header">
 									<?php the_title( sprintf( '<h2 class="card__title"><a href="%s" style="' . esc_attr( $inline_text_color ) . '" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
