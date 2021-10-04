@@ -114,46 +114,48 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				$work_counter++;
 				?>
 
-					<div class="row mb-4 align-items-center">
+					<div class="ftf-work-item ftf-work-item--stacked row mb-4 align-items-center">
 						<?php if ( 0 !== $work_counter % 2 ) : ?>
 
-							<div class="col-12 col-md-7 has-img">
-								<?php if ( has_post_thumbnail() ) : ?>
-									<a class="has-hover" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-										<img class="thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
+							<?php if ( has_post_thumbnail() ) : ?>
+								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col">
+									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
 									</a>
-								<?php endif; ?>
-							</div>
-							<div class="col-12 col-md-5 has-text">
+								</div>
+							<?php endif; ?>
 
-								<h3 class="article-title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
+							<div class="col-12 col-md-5 ftf-work-item__text-col">
+
+								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
 
 								<?php if ( has_excerpt() ) : ?>
-									<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 								<?php endif; ?>
 
-								<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
 
 							</div>
 
 						<?php else : ?>
 
-							<div class="col-12 col-md-7 has-image order-md-last">
-								<?php if ( has_post_thumbnail() ) : ?>
-									<a class="has-hover" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-										<img class="thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_post_thumbnail_caption(); ?>" />
+							<?php if ( has_post_thumbnail() ) : ?>
+								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col order-md-last">
+									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
 									</a>
-								<?php endif; ?>
-							</div>
-							<div class="col-12 col-md-5 has-text order-md-first">
+								</div>
+							<?php endif; ?>
 
-								<h3 class="article-title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
+							<div class="col-12 col-md-5 ftf-work-item__text-col">
+
+								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
 
 								<?php if ( has_excerpt() ) : ?>
-									<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 								<?php endif; ?>
 
-								<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
 
 							</div>
 						<?php endif; ?>
@@ -171,25 +173,28 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				setup_postdata( $post );
 				?>
 
-					<div class="row mb-4 align-items-center">
-						<div class="col-12 col-md-7 has-image">
+					<div class="ftf-work-item ftf-work-item--stacked row mb-4 align-items-center">
+
 							<?php if ( has_post_thumbnail() ) : ?>
-								<a class="has-hover" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-									<img class="thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_post_thumbnail_caption(); ?>" />
-								</a>
-							<?php endif; ?>
-						</div>
-						<div class="col-12 col-md-5 has-text">
-
-							<h3 class="article-title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
-
-							<?php if ( has_excerpt() ) : ?>
-								<div class="project-excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col">
+									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
+										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
+									</a>
+								</div>
 							<?php endif; ?>
 
-							<a class="button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+							<div class="col-12 col-md-5 ftf-work-item__text-col">
 
-						</div>
+								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
+
+								<?php if ( has_excerpt() ) : ?>
+									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
+								<?php endif; ?>
+
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+
+							</div>
+
 					</div>
 
 				<?php

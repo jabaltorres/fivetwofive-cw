@@ -9,7 +9,7 @@
 
 if ( ! defined( 'FIVETWOFIVE_THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'FIVETWOFIVE_THEME_VERSION', '0.5.6' );
+	define( 'FIVETWOFIVE_THEME_VERSION', '0.5.7' );
 }
 
 /**
@@ -60,22 +60,26 @@ require get_template_directory() . '/inc/public/share-buttons.php';
 /**
  * Options Page
  */
-if( function_exists('acf_add_options_page') ) {
+if ( function_exists( 'acf_add_options_page' ) ) {
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Theme Options',
-		'menu_title'	=> 'Theme options',
-		'menu_slug' 	=> 'options',
-		'capability'	=> 'edit_posts',
-		'redirect'	=> false
-	));
+	acf_add_options_page(
+		array(
+			'page_title' => 'Theme Options',
+			'menu_title' => 'Theme options',
+			'menu_slug'  => 'options',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+		)
+	);
 
-	acf_add_options_page(array(
-		'page_title' 	=> 'Business Information',
-		'menu_title'	=> 'Business Information',
-		'menu_slug' 	=> 'business_information',
-		'capability'	=> 'edit_posts',
-		'redirect'	=> false
-	));
+	acf_add_options_page(
+		array(
+			'page_title' => 'Business Information',
+			'menu_title' => 'Business Information',
+			'menu_slug'  => 'business_information',
+			'capability' => 'edit_posts',
+			'redirect'   => false,
+		)
+	);
 
 }
