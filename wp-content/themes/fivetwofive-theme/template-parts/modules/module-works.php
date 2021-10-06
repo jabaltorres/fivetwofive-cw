@@ -1,13 +1,11 @@
 <?php
 /**
- * Template part for displaying the Gallery module of the modules template.
+ * Template part for displaying the Works module of the modules template.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package FiveTwoFive_Theme
  */
-
-wp_enqueue_script( 'fivetwofive-theme-module-accordion' );
 
 $module_title          = get_sub_field( 'title' );
 $module_subtitle       = get_sub_field( 'subtitle' );
@@ -19,7 +17,7 @@ $module_text_alignment = get_sub_field( 'text_alignment' );
 $module_classes        = '';
 $module_styles         = '';
 $inline_text_color     = '';
-$module_id             = uniqid( 'ftf-module-accordion' );
+$module_id             = uniqid( 'ftf-module-work' );
 $module_works          = get_sub_field( 'works' );
 $module_display        = get_sub_field( 'display' );
 
@@ -88,7 +86,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-accordion py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-works py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
 			<header class="ftf-module__header mb-md-5">
@@ -133,7 +131,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 								<?php endif; ?>
 
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
 
 							</div>
 
@@ -155,7 +153,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 								<?php endif; ?>
 
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
 
 							</div>
 						<?php endif; ?>
@@ -191,7 +189,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
 								<?php endif; ?>
 
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-featured-projects' ); ?></a>
+								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
 
 							</div>
 
