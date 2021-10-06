@@ -51,6 +51,9 @@ Thumbs.db
 .cvs
 .sass-cache
 
+# Gulp config for local development
+gulpfile-config.js
+
 # theme related
 config.json
 
