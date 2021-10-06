@@ -9,6 +9,7 @@ const { src, dest, watch, series } = require('gulp'),
     rename                         = require('gulp-rename'),
     uglify                         = require('gulp-uglify'),
     concat                         = require('gulp-concat'),
+    config                         = require('./gulpfile-config');
     imagemin                       = require('gulp-imagemin'),
     log                            = require('fancy-log'),
     browserSync                    = require("browser-sync").create();
@@ -100,7 +101,7 @@ const imageminify = () => src(paths.images.src)
 // It's currently only useful in other functions
 const serve = () => {
     browserSync.init({
-        proxy: "https://fivetwofive.local/"
+        proxy: config.browserSync.proxy
     });
 
     watch(paths.styles.src, styles);
