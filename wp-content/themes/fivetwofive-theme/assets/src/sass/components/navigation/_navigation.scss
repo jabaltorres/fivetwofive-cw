@@ -74,22 +74,24 @@
 	margin-left: auto;
 }
 
-.main-navigation.toggled {
-  .nav-menu {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .menu-primary-menu-container {
-    position: absolute;
-    z-index: 99999;
-    background-color: #fff;
-    width: 100%;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    border-top: 1px solid #e8e5e5;
+@media screen and (max-width: 768px) {
+  .main-navigation.toggled {
+    .nav-menu {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  
+    .menu-primary-menu-container {
+      position: absolute;
+      z-index: 99999;
+      background-color: #fff;
+      width: 100%;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      border-top: 1px solid #e8e5e5;
+    }
   }
 }
 
