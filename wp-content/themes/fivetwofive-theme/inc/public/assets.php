@@ -121,6 +121,21 @@ function fivetwofive_theme_assets() {
 		// Enqueue module style and script.
 		wp_enqueue_style( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/css/template-modules.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
 		wp_enqueue_script( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/js/template-modules.min.js', array( 'jquery', 'fivetwofive-theme-scrollreveal' ), FIVETWOFIVE_THEME_VERSION, true );
+
+		// module custom styles.
+		$current_page_id       = get_queried_object_id();
+		$module_custom_styles  = get_field( 'ftf_custom_styles', $current_page_id );
+		$module_styles         = get_field( 'ftf_module_styles', $current_page_id );
+		$module_custom_scripts = get_field( 'ftf_custom_scripts', $current_page_id );
+		$module_scripts        = get_field( 'ftf_module_scripts', $current_page_id );
+
+		if ( $module_custom_styles && $module_styles ) {
+			wp_add_inline_style( 'fivetwofive-theme-template-module', $module_styles );
+		}
+
+		if ( $module_custom_scripts && $module_scripts ) {
+			wp_add_inline_script( 'fivetwofive-theme-template-module', $module_scripts );
+		}
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
