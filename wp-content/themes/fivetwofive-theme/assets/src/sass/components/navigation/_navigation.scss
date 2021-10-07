@@ -64,20 +64,20 @@
 	}
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-	display: block;
-}
-
 .menu-toggle {
 	margin-left: auto;
 }
 
 @media screen and (max-width: 768px) {
+  /* Small menu. */
+  .menu-toggle,
+  .main-navigation.toggled ul {
+    display: block;
+  }
+
   .main-navigation.toggled {
     .nav-menu {
-      max-width: 500px;
+      max-width: 700px;
       margin: 0 auto;
     }
   
@@ -95,7 +95,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
 
 	.menu-toggle {
 		display: none;
@@ -126,7 +126,7 @@
 	}
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
 	.main-navigation {
 		.nav-menu {
 			li {
