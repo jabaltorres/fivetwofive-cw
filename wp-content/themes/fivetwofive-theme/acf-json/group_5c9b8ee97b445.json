@@ -3,6 +3,98 @@
     "title": "Modules Template",
     "fields": [
         {
+            "key": "field_615eed4f4683d",
+            "label": "Custom Styles",
+            "name": "ftf_custom_styles",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
+        },
+        {
+            "key": "field_615eefc2beadb",
+            "label": "Custom Scripts",
+            "name": "ftf_custom_scripts",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Enabled",
+            "ui_off_text": "Disabled"
+        },
+        {
+            "key": "field_615eed134683b",
+            "label": "Styles",
+            "name": "ftf_module_styles",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_615eed4f4683d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 10,
+            "new_lines": ""
+        },
+        {
+            "key": "field_615eefd9beadc",
+            "label": "Scripts",
+            "name": "ftf_module_scripts",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_615eefc2beadb",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 10,
+            "new_lines": ""
+        },
+        {
             "key": "field_5c9b90b7e68cc",
             "label": "Modules",
             "name": "modules",
@@ -4565,7 +4657,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6154fb6989b76",
@@ -4604,7 +4698,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6154fb6989b78",
@@ -5112,7 +5208,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_615ba7f741850",
@@ -5151,7 +5249,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_615ba7f741852",
@@ -5411,98 +5511,6 @@
             "button_label": "Add Module",
             "min": "",
             "max": ""
-        },
-        {
-            "key": "field_615eed4f4683d",
-            "label": "Custom Styles",
-            "name": "ftf_custom_styles",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Enabled",
-            "ui_off_text": "Disabled"
-        },
-        {
-            "key": "field_615eefc2beadb",
-            "label": "Custom Scripts",
-            "name": "ftf_custom_scripts",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "Enabled",
-            "ui_off_text": "Disabled"
-        },
-        {
-            "key": "field_615eed134683b",
-            "label": "Styles",
-            "name": "ftf_module_styles",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_615eed4f4683d",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 10,
-            "new_lines": ""
-        },
-        {
-            "key": "field_615eefd9beadc",
-            "label": "Scripts",
-            "name": "ftf_module_scripts",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_615eefc2beadb",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 10,
-            "new_lines": ""
         }
     ],
     "location": [
@@ -5524,5 +5532,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1633611850
+    "modified": 1633621006
 }
