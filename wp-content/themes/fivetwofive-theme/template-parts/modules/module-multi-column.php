@@ -119,7 +119,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 }
 
 ?>
-<section id="<?php echo esc_attr( $module_id ); ?>" class="ftf-module ftf-module-multi-column py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" class="ftf-module ftf-module-multi-column text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
 			<header class="ftf-module__header mb-md-6">

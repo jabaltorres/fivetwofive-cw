@@ -97,7 +97,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 }
 
 ?>
-<section class="ftf-module ftf-module-content-and-media py-5 py-md-6 text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<section class="ftf-module ftf-module-content-and-media text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<div class="row">
 			<?php if ( $module_image || $module_video ) : ?>

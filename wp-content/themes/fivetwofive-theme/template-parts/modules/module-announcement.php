@@ -79,7 +79,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 }
 
 ?>
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-announcement py-4 js-is-sticky-<?php echo esc_attr( $sticky ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-announcement js-is-sticky-<?php echo esc_attr( $sticky ); ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_background . $module_border ); ?>">
 	<div class="container">
 		<?php if ( ! $module_button && ( $module_title || $module_content ) ) : ?>
 

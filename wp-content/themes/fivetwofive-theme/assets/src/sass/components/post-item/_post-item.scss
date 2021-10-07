@@ -1,0 +1,22 @@
+.ftf-post-item {
+  position: relative;
+  top: 0;
+  transition: all .3s linear;
+
+  &:hover,
+  &:focus {
+    top: -10px;
+  }
+
+  .ftf-post-item__title, a:not(.button) {
+    color: inherit;
+  }
+}
+
+.ftf-event-meta {
+  span:not(:last-child) {
+    padding-right: 10px;
+    border-right: 1px solid;
+    margin-right: 5px;
+  }
+}

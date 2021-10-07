@@ -12,15 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			fivetwofive_theme_posted_on();
-			fivetwofive_theme_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
+		<?php fivetwofive_theme_post_meta( get_the_ID() ); ?>
 	</header><!-- .entry-header -->
 
 	<?php fivetwofive_theme_post_thumbnail(); ?>

@@ -17,7 +17,7 @@ $module_text_alignment = get_sub_field( 'text_alignment' );
 $module_classes        = '';
 $module_styles         = '';
 $inline_text_color     = '';
-$module_id             = uniqid( 'ftf-module-work' );
+$module_id             = uniqid( 'ftf-module-works' );
 $module_works          = get_sub_field( 'works' );
 $module_display        = get_sub_field( 'display' );
 
@@ -86,7 +86,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-works py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-works <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
 			<header class="ftf-module__header mb-md-5">
@@ -105,146 +105,60 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 		<?php endif; ?>
 
 		<?php
-		if ( $module_works && 'stacked-alternate' === $module_display ) :
-			$work_counter = 0;
+		if ( $module_works ) :
+			$event_counter = 0;
+
+			if ( 'grid' === $module_display ) :
+				?>
+					<div class="row">
+				<?php
+			endif;
+
 			foreach ( $module_works as $post ) :
 				setup_postdata( $post );
-				$work_counter++;
-				?>
 
-					<div class="ftf-work-item ftf-work-item--stacked row mb-4 align-items-center">
-						<?php if ( 0 !== $work_counter % 2 ) : ?>
+				if ( 'stacked-alternate' === $module_display ) {
+					$event_counter++;
 
-							<?php if ( has_post_thumbnail() ) : ?>
-								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col">
-									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
-									</a>
-								</div>
-							<?php endif; ?>
+					if ( 0 !== $event_counter % 2 ) {
+						get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
+					} else {
+						get_template_part(
+							'template-parts/post-type/post-item',
+							null,
+							array(
+								'id'                 => get_the_ID(),
+								'thumbnail-position' => 'right',
+							)
+						);
+					}
+				}
 
-							<div class="col-12 col-md-5 ftf-work-item__text-col">
+				if ( 'stacked' === $module_display ) {
+					get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
+				}
 
-								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
-
-								<?php if ( has_excerpt() ) : ?>
-									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
-								<?php endif; ?>
-
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
-
-							</div>
-
-						<?php else : ?>
-
-							<?php if ( has_post_thumbnail() ) : ?>
-								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col order-md-last">
-									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
-									</a>
-								</div>
-							<?php endif; ?>
-
-							<div class="col-12 col-md-5 ftf-work-item__text-col">
-
-								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
-
-								<?php if ( has_excerpt() ) : ?>
-									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
-								<?php endif; ?>
-
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
-
-							</div>
-						<?php endif; ?>
-					</div>
-
-				<?php
-			endforeach;
-			wp_reset_postdata();
-		endif;
-		?>
-
-		<?php
-		if ( $module_works && 'stacked' === $module_display ) :
-			foreach ( $module_works as $post ) :
-				setup_postdata( $post );
-				?>
-
-					<div class="ftf-work-item ftf-work-item--stacked row mb-4 align-items-center">
-
-							<?php if ( has_post_thumbnail() ) : ?>
-								<div class="col-12 col-md-7 ftf-work-item__thumbnail-col">
-									<a class="ftf-work-item__link" href="<?php echo esc_url_raw( get_permalink() ); ?>" title="<?php the_title_attribute(); ?>">
-										<img class="ftf-work-item__thumbnail" src="<?php echo esc_url_raw( get_the_post_thumbnail_url() ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption() ); ?>" />
-									</a>
-								</div>
-							<?php endif; ?>
-
-							<div class="col-12 col-md-5 ftf-work-item__text-col">
-
-								<h3 class="ftf-work-item__title"><a href="<?php echo esc_url_raw( get_permalink() ); ?>" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php the_title(); ?></a></h3>
-
-								<?php if ( has_excerpt() ) : ?>
-									<div class="ftf-work-item__excerpt mb-4"><?php echo wp_kses_post( the_excerpt() ); ?></div>
-								<?php endif; ?>
-
-								<a class="button ftf-work-item__button" href="<?php echo esc_url_raw( get_permalink() ); ?>"><?php echo esc_html__( 'Learn More', 'fivetwofive-work' ); ?></a>
-
-							</div>
-
-					</div>
-
-				<?php
-			endforeach;
-			wp_reset_postdata();
-		endif;
-		?>
-
-		<?php if ( $module_works && 'grid' === $module_display ) : ?>
-			<div class="row">
-				<?php
-				foreach ( $module_works as $post ) :
-					setup_postdata( $post );
+				if ( 'grid' === $module_display ) :
 					?>
 
-						<div class="col-md-4 mb-3 mb-md-5">
-							<article id="card-<?php the_ID(); ?>" <?php post_class( 'card' ); ?>>
-								<div class="card__image-wrap mb-4">
-									<a class="card__image-link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-										<?php
-											the_post_thumbnail(
-												'large',
-												array(
-													'alt' => the_title_attribute(
-														array(
-															'echo' => false,
-														)
-													),
-													'class' => 'card__image img-responsive',
-												)
-											);
-										?>
-										<div class="card__image-overlay">
-											<button class="button card__image-link" aria-hidden="true" tabindex="-1">Read More</button>
-										</div>
-									</a>
-								</div>
-								<header class="card__header">
-									<?php the_title( sprintf( '<h2 class="card__title"><a href="%s" style="' . esc_attr( $inline_text_color ) . '" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-								</header><!-- .card-header -->
-								<div class="card__content">
-									<?php the_excerpt(); ?>
-								</div>
-							</article><!-- #card-<?php the_ID(); ?> -->
-						</div>
+					<div class="col-md-4 mb-3 mb-md-5">
+						<?php get_template_part( 'template-parts/post-type/post-card', null, array( 'id' => get_the_ID() ) ); ?>
+					</div>
 
 					<?php
-				endforeach;
-				wp_reset_postdata();
+				endif;
+
+			endforeach;
+
+			wp_reset_postdata();
+
+			if ( 'grid' === $module_display ) :
 				?>
-			</div>
-		<?php endif; ?>
+					</div>
+				<?php
+			endif;
+		endif;
+		?>
 
 	</div>
 </section>
