@@ -8,6 +8,13 @@
 }
 
 /* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
+.site-branding__logo {
+  display: flex;
+  .custom-logo-link {
+    display: inline-block;
+  }
+
+  .custom-logo {
+    display: block;
+  }
 }
