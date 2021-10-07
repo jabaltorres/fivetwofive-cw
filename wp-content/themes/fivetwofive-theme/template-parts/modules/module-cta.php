@@ -75,7 +75,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 }
 
 ?>
-<section  id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-cta py-5 py-md-6 <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
+<section  id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-cta <?php echo esc_attr( $module_classes ); ?>" style="background:<?php echo esc_attr( $background ); ?>;background-size:cover;<?php echo esc_attr( $module_text_color ); ?>">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1">

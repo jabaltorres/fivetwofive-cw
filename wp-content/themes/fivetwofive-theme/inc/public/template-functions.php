@@ -37,7 +37,8 @@ function fivetwofive_theme_pingback_header() {
 add_action( 'wp_head', 'fivetwofive_theme_pingback_header' );
 
 /**
- * Allow SVG in kses ruleset.
+ * FiveTwoFive Extended ruleset
+ * Allow SVG, iframe, and time in kses ruleset.
  *
  * @return array kses ruleset.
  */
@@ -45,7 +46,18 @@ function fivetwofive_kses_extended_ruleset() {
 	$kses_defaults = wp_kses_allowed_html( 'post' );
 
 	$svg_args = array(
-		'svg'   => array(
+		'iframe' => array(
+			'src'             => true,
+			'height'          => true,
+			'width'           => true,
+			'frameborder'     => true,
+			'allowfullscreen' => true,
+		),
+		'time'   => array(
+			'class'    => true,
+			'datetime' => true,
+		),
+		'svg'    => array(
 			'class'           => true,
 			'aria-hidden'     => true,
 			'aria-labelledby' => true,
@@ -55,25 +67,18 @@ function fivetwofive_kses_extended_ruleset() {
 			'height'          => true,
 			'viewbox'         => true, // <= Must be lower case!
 		),
-		'g'     => array( 'fill' => true ),
-		'title' => array( 'title' => true ),
-		'path'  => array(
+		'g'      => array( 'fill' => true ),
+		'title'  => array( 'title' => true ),
+		'path'   => array(
 			'd'    => true,
 			'fill' => true,
-		),
-		'iframe' => array(
-			'src'             => true,
-			'height'          => true,
-			'width'           => true,
-			'frameborder'     => true,
-			'allowfullscreen' => true,
 		),
 	);
 	return array_merge( $kses_defaults, $svg_args );
 }
 
 /**
- * Undocumented function
+ * Get ACF OEmbed Iframe.
  *
  * @param string $iframe ACF Oembed field.
  * @param array  $params Iframe attributes.
@@ -94,8 +99,8 @@ function fivetwofive_get_acf_oembed_iframe(
 	$iframe  = str_replace( $src, $new_src, $iframe );
 
 	// Add extra attributes to iframe HTML.
-	$attributes   = 'frameborder="0"';
-	$iframe = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $iframe );
+	$attributes = 'frameborder="0"';
+	$iframe     = str_replace( '></iframe>', ' ' . $attributes . '></iframe>', $iframe );
 
 	// Display customized HTML.
 	return $iframe;

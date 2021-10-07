@@ -107,7 +107,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 }
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-hero py-5 py-md-6 <?php echo ( $video ) ? 'with-video' : 'without-video'; ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-hero <?php echo ( $video ) ? 'with-video' : 'without-video'; ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
 		<div class="row">
 

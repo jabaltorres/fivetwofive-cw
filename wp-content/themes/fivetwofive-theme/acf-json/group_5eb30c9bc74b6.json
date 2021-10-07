@@ -1,14 +1,14 @@
 {
     "key": "group_5eb30c9bc74b6",
-    "title": "Events",
+    "title": "Event Fields",
     "fields": [
         {
             "key": "field_5eb30ca8b54a1",
-            "label": "Event Type",
-            "name": "event_type",
+            "label": "Type",
+            "name": "ftf_event_type",
             "type": "select",
             "instructions": "Select the type of event",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -16,16 +16,13 @@
                 "id": ""
             },
             "choices": {
-                "Conference": "Conference",
-                "Webinar": "Webinar",
-                "Pre-Recorded Webinar": "Pre-Recorded Webinar",
-                "In-Person": "In-Person",
-                "Virtual": "Virtual",
-                "Customer": "Customer",
-                "Tradeshow": "Tradeshow"
+                "Webinars": "Webinars",
+                "Tradeshows": "Tradeshows",
+                "Regional": "Regional",
+                "Customer Event": "Customer Event"
             },
             "default_value": false,
-            "allow_null": 1,
+            "allow_null": 0,
             "multiple": 0,
             "ui": 0,
             "return_format": "value",
@@ -34,31 +31,48 @@
         },
         {
             "key": "field_5eb30ceab54a2",
-            "label": "Event Date",
-            "name": "event_date",
+            "label": "Start Date",
+            "name": "ftf_event_start_date",
             "type": "date_picker",
-            "instructions": "Select date for event",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "D, F j, Y",
-            "return_format": "D, F j, Y",
-            "first_day": 0
-        },
-        {
-            "key": "field_5eb30d39b54a3",
-            "label": "Event Start Time",
-            "name": "event_start_time",
-            "type": "time_picker",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "D, F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 0
+        },
+        {
+            "key": "field_615cf229ce4a8",
+            "label": "End Date",
+            "name": "ftf_event_end_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "D, F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 0
+        },
+        {
+            "key": "field_5eb30d39b54a3",
+            "label": "Start Time",
+            "name": "ftf_event_start_time",
+            "type": "time_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -66,241 +80,20 @@
             "return_format": "g:i a"
         },
         {
-            "key": "field_5eb30d60b54a4",
-            "label": "Event Description",
-            "name": "event_description",
-            "type": "textarea",
-            "instructions": "Enter short text description",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "This shows on the archive page",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": ""
-        },
-        {
-            "key": "field_5eb30da6b54a5",
-            "label": "Event Speaker",
-            "name": "event_speaker",
-            "type": "repeater",
+            "key": "field_615ba2423170c",
+            "label": "End Time",
+            "name": "ftf_event_end_time",
+            "type": "time_picker",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_5eb30dc2b54a6",
-                    "label": "Event Speaker Name",
-                    "name": "event_speaker_name",
-                    "type": "text",
-                    "instructions": "Enter event speaker's name",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5eb30de5b54a7",
-                    "label": "Event Speaker Image",
-                    "name": "event_speaker_image",
-                    "type": "image",
-                    "instructions": "Select speaker image",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_5eb30e23b54a8",
-                    "label": "Event Speaker Bio",
-                    "name": "event_speaker_bio",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                }
-            ]
-        },
-        {
-            "key": "field_5eb30e57b54a9",
-            "label": "Event Abstract WYSIWYG",
-            "name": "event_abstract_wysiwyg",
-            "type": "wysiwyg",
-            "instructions": "Enter event Abstract",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_5eb30e83b54aa",
-            "label": "Event Registration Form ID",
-            "name": "event_registration_form_id",
-            "type": "number",
-            "instructions": "Form ID for active campaign form",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
-        },
-        {
-            "key": "field_5eb36267a1c4b",
-            "label": "Event Registration Group",
-            "name": "event_reg_group",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "table",
-            "sub_fields": [
-                {
-                    "key": "field_5eb362b7a1c4c",
-                    "label": "Event Reg Text",
-                    "name": "event_reg_text",
-                    "type": "wysiwyg",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 1,
-                    "delay": 0
-                },
-                {
-                    "key": "field_5eb362eaa1c4d",
-                    "label": "Event Reg URL",
-                    "name": "event_reg_url",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_5eb36312a1c4e",
-                    "label": "Event Reg Ext",
-                    "name": "event_reg_ext",
-                    "type": "radio",
-                    "instructions": "Is this an external link?",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Yes": "Yes",
-                        "No": "No"
-                    },
-                    "allow_null": 0,
-                    "other_choice": 0,
-                    "default_value": "",
-                    "layout": "vertical",
-                    "return_format": "value",
-                    "save_other_choice": 0
-                },
-                {
-                    "key": "field_5eb36354a1c4f",
-                    "label": "Event Reg Button Text",
-                    "name": "event_reg_button_text",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "display_format": "g:i a",
+            "return_format": "g:i a"
         }
     ],
     "location": [
@@ -308,7 +101,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "fivetwofive-events"
+                "value": "ftf_event"
             }
         ]
     ],
@@ -320,5 +113,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633202936
+    "modified": 1633570763
 }
