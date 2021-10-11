@@ -37,6 +37,7 @@ if ( ! function_exists( 'fivetwofive_theme_default_theme_mods' ) ) :
 				'colors_primary_navigation_link_color' => '#444444',
 				'colors_primary_navigation_active_link_color' => '#FFCB05',
 				'colors_footer_background_color'       => '#ffffff',
+				'colors_footer_heading_color'          => '#000000',
 				'colors_footer_text_color'             => '#000000',
 				'typography_body_font'                 => 'DM Sans',
 				'typography_body_font_variants'        => array( '400', 'italic' ),

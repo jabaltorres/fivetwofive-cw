@@ -80,6 +80,9 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$css->add_property( 'background-color', $theme_mods['colors_footer_background_color'] );
 			$css->add_property( 'color', $theme_mods['colors_footer_text_color'] );
 
+			$css->set_selector( '.site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6' );
+			$css->add_property( 'color', $theme_mods['colors_footer_heading_color'] );
+
 			$css->set_selector( '.button, button, input[type="button"], input[type="reset"], input[type="submit"]' );
 			$css->add_property( 'background-color', $theme_mods['colors_button_background_color'] );
 			$css->add_property( 'color', $theme_mods['colors_button_text_color'] );
@@ -872,6 +875,27 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 					'fivetwofive_theme_mods[colors_footer_background_color]',
 					array(
 						'label'   => __( 'Footer Background Color', 'fivetwofive' ),
+						'section' => 'fivetwofive_footer_color_section',
+					)
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[colors_footer_heading_color]',
+				array(
+					'type'              => 'theme_mod',
+					'capability'        => 'edit_theme_options',
+					'default'           => $defaults['colors_footer_heading_color'],
+					'sanitize_callback' => 'sanitize_hex_color',
+				)
+			);
+
+			$wp_customize->add_control(
+				new \WP_Customize_Color_Control(
+					$wp_customize,
+					'fivetwofive_theme_mods[colors_footer_heading_color]',
+					array(
+						'label'   => __( 'Footer Heading Color', 'fivetwofive' ),
 						'section' => 'fivetwofive_footer_color_section',
 					)
 				)

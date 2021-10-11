@@ -1,10 +1,44 @@
 .site-footer {
-    &__bottom {
-        padding-top: rem(25px);
-        padding-bottom: rem(25px);
+  padding-top: rem(50);
+  padding-bottom: rem(50);
+
+  &__bottom {
+      padding-top: rem(25px);
+      padding-bottom: rem(25px);
+  }
+
+  &__copyright {
+      margin: 0;
+  }
+
+  a,
+  a:focus,
+  a:visited {
+    color: inherit;
+  }
+
+  &-menu {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: rem(20px) 0 0;
+    padding: 0;
+
+    @media only screen and (min-width: 768px) {
+      justify-content: flex-end;
+      margin: 0;
     }
 
-    &__copyright {
-        margin: 0;
+    li:not(:last-child) {
+      margin-right: rem(10px);
+      padding-right: rem(10px);
+      border-right: 1px solid;
     }
+
+    a,
+    a:focus,
+    a:visited {
+      color: inherit;
+    }
+  }
 }
