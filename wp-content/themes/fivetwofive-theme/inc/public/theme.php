@@ -43,7 +43,8 @@ if ( ! function_exists( 'fivetwofive_theme_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary_menu' => esc_html__( 'Primary', 'fivetwofive-theme' ),
+				'primary_menu' => esc_html__( 'Primary Menu', 'fivetwofive-theme' ),
+				'footer_menu'  => esc_html__( 'Footer Menu', 'fivetwofive-theme' ),
 			)
 		);
 

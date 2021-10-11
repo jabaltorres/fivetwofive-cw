@@ -1,8 +1,27 @@
-.widget {
-	margin: 0 0 1.5em;
+.widget { 
+
+  &:not(:first-child) {
+    margin-top: rem(30px);
+  }
 
 	// Make sure select elements fit in widgets.
 	select {
 		max-width: 100%;
 	}
+
+  h2.widgettitle {
+    font-size: rem(24px);
+    font-weight: 400;
+  }
+}
+
+.widget_nav_menu {
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li:not(:first-child) {
+      margin-top: rem(10px);
+    }
+  }
 }
