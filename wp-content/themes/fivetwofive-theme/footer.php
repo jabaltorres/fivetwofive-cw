@@ -29,17 +29,19 @@
 						?>
 					</p><!-- .site-footer__copyright -->
 				</div>
-				<div class="col-md-6">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer_menu',
-							'menu_id'        => 'footer-menu',
-							'menu_class'     => 'site-footer-menu',
-						)
-					);
-					?>
-				</div>
+				<?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
+					<div class="col-md-6">
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'footer_menu',
+								'menu_id'        => 'footer-menu',
+								'menu_class'     => 'site-footer-menu',
+							)
+						);
+						?>
+					</div>
+				<?php endif; ?>
 			</div><!-- .site-footer__bottom -->
 		</div>
 

@@ -57,23 +57,24 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 						</div>
 					<?php endif; ?>
 				</div><!-- .site-branding -->
-
-				<nav id="site-navigation" class="main-navigation col-6 col-md-9">
-					<button class="menu-toggle hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
-						<span class="menu-toggle__text screen-reader-text"><?php esc_html_e( 'Menu', 'fivetwofive' ); ?></span>
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'primary_menu',
-							'menu_id'        => 'primary-menu',
-						)
-					);
-					?>
-				</nav><!-- #site-navigation -->
+				<?php if ( has_nav_menu( 'primary_menu' ) ) : ?>
+					<nav id="site-navigation" class="main-navigation col-6 col-md-9">
+						<button class="menu-toggle hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+							<span class="menu-toggle__text screen-reader-text"><?php esc_html_e( 'Menu', 'fivetwofive' ); ?></span>
+							<span class="hamburger-box">
+								<span class="hamburger-inner"></span>
+							</span>
+						</button>
+						<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary_menu',
+								'menu_id'        => 'primary-menu',
+							)
+						);
+						?>
+					</nav><!-- #site-navigation -->
+				<?php endif; ?>
 			</div>
 		</div>
 	</header><!-- #masthead -->
