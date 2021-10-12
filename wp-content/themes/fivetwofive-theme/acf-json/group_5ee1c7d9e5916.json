@@ -5,7 +5,7 @@
         {
             "key": "field_5ee1c7e6ca29f",
             "label": "Resource Type",
-            "name": "resource_type",
+            "name": "ftf_resource_type",
             "type": "select",
             "instructions": "Select the type of resource. This value gets passed to Active Campaign hidden field",
             "required": 1,
@@ -61,11 +61,6 @@
                         "field": "field_5ee1c7e6ca29f",
                         "operator": "==",
                         "value": "White Paper"
-                    },
-                    {
-                        "field": "field_5f3eab508cfff",
-                        "operator": "==",
-                        "value": "PDF"
                     }
                 ],
                 [
@@ -93,79 +88,6 @@
             "min_size": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5ee3d6f2a65ad",
-            "label": "Resource Name",
-            "name": "resource_name",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5ee3d74ea65af",
-            "label": "Resource Thumbnail",
-            "name": "resource_thumbnail",
-            "type": "image",
-            "instructions": "Upload thumbnail image",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "eBook"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_5ee3f9f07b154",
-            "label": "Share this post",
-            "name": "share_this_post",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "Yes": "Yes",
-                "No": "No"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "horizontal",
-            "return_format": "value"
         }
     ],
     "location": [
@@ -173,7 +95,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "resources"
+                "value": "ftf_resource"
             }
         ]
     ],
@@ -185,5 +107,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633207725
+    "modified": 1634041768
 }
