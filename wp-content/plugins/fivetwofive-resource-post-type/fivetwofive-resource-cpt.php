@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive Resources Custom Post Type
+ * Plugin Name: FiveTwoFive Resource Custom Post Type
  * Description: A simple plug in that adds an resources custom post type
  * Version: 0.1
  * Author:  Jabal Torres
@@ -30,10 +30,10 @@
  *
  * @return void
  */
-function ftf_resource_cpt() {
+function ftf_register_resource_cpt() {
 
 	/**
-	 * Post Type: Resources.
+	 * Post Type: Resource.
 	 */
 
 	$labels = array(
@@ -76,22 +76,24 @@ function ftf_resource_cpt() {
 		'rest_base'           => '',
 		'has_archive'         => false,
 		'show_in_menu'        => true,
-		'menu_position'       => '5',
+		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-pressthis',
 		'show_in_nav_menus'   => true,
 		'exclude_from_search' => false,
-		'capability_type'     => "post",
+		'capability_type'     => 'post',
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
-		'rewrite'             => array( 'slug' => 'resources', 'with_front' => false ),
+		'rewrite'             => array(
+			'slug'       => 'resources',
+			'with_front' => false,
+		),
 		'query_var'           => true,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'page-attributes' ),
-		'taxonomies'          => array( 'category', 'post_tag' ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
 	);
 
-	register_post_type( 'resources', $args );
+	register_post_type( 'ftf_resource', $args );
 }
-add_action( 'init', 'ftf_resource_cpt' );
+add_action( 'init', 'ftf_register_resource_cpt' );
 
 /**
  * Register custom post type on plugin activation.
@@ -99,7 +101,7 @@ add_action( 'init', 'ftf_resource_cpt' );
  * @return void
  */
 function ftf_setup_resources_custom_post_type() {
-	ftf_resource_cpt();
+	ftf_register_resource_cpt();
 	flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'ftf_setup_resources_custom_post_type' );
@@ -110,8 +112,8 @@ register_activation_hook( __FILE__, 'ftf_setup_resources_custom_post_type' );
  * @link https://core.trac.wordpress.org/ticket/42563
  * @return void
  */
-function ftf_unregister_resources_custom_post_type() {
-    unregister_post_type( 'resources' );
-    flush_rewrite_rules();
+function ftf_unregister_resource_custom_post_type() {
+	unregister_post_type( 'ftf_resource' );
+	flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'ftf_unregister_resources_custom_post_type' );
+register_deactivation_hook( __FILE__, 'ftf_unregister_resource_custom_post_type' );
