@@ -37,7 +37,7 @@ function ftf_work_register_cpt() {
 	 */
 
 	$labels = array(
-		'name'                  => __( 'Works', 'fivetwofive-work' ),
+		'name'                  => __( 'Work', 'fivetwofive-work' ),
 		'singular_name'         => __( 'Work', 'fivetwofive-work' ),
 		'menu_name'             => __( 'Works', 'fivetwofive-work' ),
 		'all_items'             => __( 'All Works', 'fivetwofive-work' ),
@@ -69,7 +69,7 @@ function ftf_work_register_cpt() {
 	);
 
 	$args = array(
-		'label'               => __( 'Works', 'fivetwofive-work' ),
+		'label'               => __( 'Work', 'fivetwofive-work' ),
 		'labels'              => $labels,
 		'description'         => __( 'Work Description', 'fivetwofive-work' ),
 		'public'              => true,
@@ -85,7 +85,8 @@ function ftf_work_register_cpt() {
 		'exclude_from_search' => false,
 		'capability_type'     => 'post',
 		'rewrite'             => array(
-			'slug' => 'works',
+			'slug'       => 'work',
+			'with_front' => false,
 		),
 		'map_meta_cap'        => true,
 		'hierarchical'        => false,
