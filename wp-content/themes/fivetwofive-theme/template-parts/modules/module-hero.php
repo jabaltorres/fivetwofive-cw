@@ -14,7 +14,9 @@ $video                   = get_sub_field( 'video' );
 $video_thumbnail         = get_sub_field( 'video_thumbnail' );
 $video_caption           = get_sub_field( 'video_caption' );
 $module_button           = get_sub_field( 'button' );
+$background_toggle       = get_sub_field( 'background_toggle' );
 $background_image        = get_sub_field( 'background_image' );
+$background_color        = get_sub_field( 'background_color' );
 $text_color              = get_sub_field( 'text_color' );
 $button_text_color       = get_sub_field( 'button_text_color' );
 $button_background_color = get_sub_field( 'button_background_color' );
@@ -42,8 +44,12 @@ $styles                  = '';
 $text_color_inline_style = '';
 $button_styles           = '';
 
-if ( $background_image ) {
+if ( $background_image && $background_toggle ) {
 	$styles .= sprintf( 'background:url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( $background_image['sizes']['large'] ) );
+}
+
+if ( $background_color && ! $background_toggle ) {
+	$styles .= sprintf( 'background-color: %1$s;', $background_color );
 }
 
 if ( $text_color ) {

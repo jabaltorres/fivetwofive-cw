@@ -712,15 +712,42 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_6166c5119a3af",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "100",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_5c9b9127e68cd",
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6166c5119a3af",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "20",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -736,6 +763,29 @@
                             "mime_types": ""
                         },
                         {
+                            "key": "field_6166c4ce9a3ae",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6166c5119a3af",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
+                        },
+                        {
                             "key": "field_6093221add0dd",
                             "label": "Text Color",
                             "name": "text_color",
@@ -744,13 +794,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "20",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60932231dd0de",
@@ -761,13 +809,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "20",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60932244dd0df",
@@ -778,13 +824,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "20",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60932252dd0e0",
@@ -795,13 +839,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "20",
+                                "width": "33.33",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60d91ce155f33",
@@ -5532,5 +5574,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1633621006
+    "modified": 1634125339
 }
