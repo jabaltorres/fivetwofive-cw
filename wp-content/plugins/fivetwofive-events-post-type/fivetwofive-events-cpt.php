@@ -73,7 +73,7 @@ function ftf_register_events_cpt() {
 		'show_ui'             => true,
 		'show_in_rest'        => true,
 		'rest_base'           => '',
-		'has_archive'         => true,
+		'has_archive'         => false,
 		'show_in_menu'        => true,
 		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-megaphone',
