@@ -1,80 +1,39 @@
 {
     "key": "group_5ee1c7d9e5916",
-    "title": "Resources",
+    "title": "Resource fields",
     "fields": [
         {
-            "key": "field_5ee1c7e6ca29f",
-            "label": "Resource Type",
-            "name": "ftf_resource_type",
-            "type": "select",
-            "instructions": "Select the type of resource. This value gets passed to Active Campaign hidden field",
-            "required": 1,
+            "key": "field_61678b7423973",
+            "label": "Source",
+            "name": "ftf_resource_source",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "White Paper": "White Paper",
-                "Demo": "Demo",
-                "Pre-Recorded Webinar": "Pre-Recorded Webinar",
-                "Research Paper": "Research Paper",
-                "Datasheet": "Datasheet",
-                "Case Study": "Case Study",
-                "Product Video": "Product Video",
-                "eBook": "eBook",
-                "Interactive Tool": "Interactive Tool"
-            },
-            "default_value": false,
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 0,
-            "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "File Attachment",
+            "ui_off_text": "URL"
         },
         {
             "key": "field_5ee3d680a65ac",
-            "label": "Resource File",
-            "name": "resource_file",
+            "label": "File attachment",
+            "name": "ftf_resource_file_attachment",
             "type": "file",
             "instructions": "Upload a file here",
             "required": 0,
             "conditional_logic": [
                 [
                     {
-                        "field": "field_5ee1c7e6ca29f",
+                        "field": "field_61678b7423973",
                         "operator": "==",
-                        "value": "Research Paper"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Datasheet"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "White Paper"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "Case Study"
-                    }
-                ],
-                [
-                    {
-                        "field": "field_5ee1c7e6ca29f",
-                        "operator": "==",
-                        "value": "eBook"
+                        "value": "1"
                     }
                 ]
             ],
@@ -88,6 +47,30 @@
             "min_size": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_61678be823974",
+            "label": "URL",
+            "name": "ftf_resource_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61678b7423973",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -107,5 +90,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1634041768
+    "modified": 1634176080
 }

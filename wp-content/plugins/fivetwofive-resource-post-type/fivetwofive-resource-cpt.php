@@ -92,6 +92,41 @@ function ftf_register_resource_cpt() {
 	);
 
 	register_post_type( 'ftf_resource', $args );
+
+	unset( $args );
+	unset( $labels );
+
+	$labels = array(
+		'name'              => _x( 'Types', 'taxonomy general name', 'ftf-resources' ),
+		'singular_name'     => _x( 'Type', 'taxonomy singular name', 'ftf-resources' ),
+		'search_items'      => __( 'Search Types', 'ftf-resources' ),
+		'all_items'         => __( 'All Types', 'ftf-resources' ),
+		'parent_item'       => __( 'Parent Type', 'ftf-resources' ),
+		'parent_item_colon' => __( 'Parent Type:', 'ftf-resources' ),
+		'edit_item'         => __( 'Edit Type', 'ftf-resources' ),
+		'update_item'       => __( 'Update Type', 'ftf-resources' ),
+		'add_new_item'      => __( 'Add New Type', 'ftf-resources' ),
+		'new_item_name'     => __( 'New Type Name', 'ftf-resources' ),
+		'menu_name'         => __( 'Types', 'ftf-resources' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array(
+			'slug'       => 'type',
+			'with_front' => false,
+		),
+		'default_term'      => array(
+			'name' => __( 'Uncategorized', 'ftf-resources' ),
+			'slug' => 'uncategorized',
+		),
+	);
+
+	register_taxonomy( 'ftf_resource_type', 'ftf_resource', $args );
 }
 add_action( 'init', 'ftf_register_resource_cpt' );
 
