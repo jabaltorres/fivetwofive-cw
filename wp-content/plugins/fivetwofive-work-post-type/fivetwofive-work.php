@@ -110,7 +110,7 @@ function ftf_work_register_cpt() {
 		'update_item'       => __( 'Update Work Category', 'fivetwofive-work' ),
 		'add_new_item'      => __( 'Add New Work Category', 'fivetwofive-work' ),
 		'new_item_name'     => __( 'New Work Category Name', 'fivetwofive-work' ),
-		'menu_name'         => __( 'Work Category', 'fivetwofive-work' ),
+		'menu_name'         => __( 'Work Categories', 'fivetwofive-work' ),
 	);
 
 	$args = array(
