@@ -3557,6 +3557,21 @@
                             "delay": 0
                         },
                         {
+                            "key": "field_616d5999d93e0",
+                            "label": "Button",
+                            "name": "button",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        },
+                        {
                             "key": "field_60ed09ad795c0",
                             "label": "Media",
                             "name": "",
@@ -3819,6 +3834,32 @@
                                 "start": "Left",
                                 "end": "Right",
                                 "center": "Center"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_616d58b2e7f22",
+                            "label": "Vertical Alignment",
+                            "name": "vertical_alignment",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "start": "Top",
+                                "center": "Center",
+                                "end": "Bottom"
                             },
                             "default_value": false,
                             "allow_null": 0,
@@ -6116,5 +6157,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1634262547
+    "modified": 1634556907
 }

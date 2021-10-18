@@ -11,16 +11,18 @@ wp_enqueue_script( 'fivetwofive-theme-fancybox' );
 wp_enqueue_style( 'fivetwofive-theme-fancybox' );
 
 // Contents.
-$module_title             = get_sub_field( 'title' );
-$module_subtitle          = get_sub_field( 'subtitle' );
-$module_description       = get_sub_field( 'description' );
-$module_image             = get_sub_field( 'image' );
-$module_video             = get_sub_field( 'video' );
-$module_video_placeholder = get_sub_field( 'video_placeholder' );
-$module_media_alignment   = get_sub_field( 'alignment' );
-$module_media_modal       = get_sub_field( 'modal' );
-$module_media_type        = get_sub_field( 'image_or_video' );
-$media_alignment          = '';
+$module_title              = get_sub_field( 'title' );
+$module_subtitle           = get_sub_field( 'subtitle' );
+$module_description        = get_sub_field( 'description' );
+$module_button             = get_sub_field( 'button' );
+$module_vertical_alignment = get_sub_field( 'vertical_alignment' );
+$module_image              = get_sub_field( 'image' );
+$module_video              = get_sub_field( 'video' );
+$module_video_placeholder  = get_sub_field( 'video_placeholder' );
+$module_media_alignment    = get_sub_field( 'alignment' );
+$module_media_modal        = get_sub_field( 'modal' );
+$module_media_type         = get_sub_field( 'image_or_video' );
+$media_alignment           = '';
 
 if ( $module_media_alignment && ( 'right' === $module_media_alignment ) ) {
 	$media_alignment = 'order-last';
@@ -99,7 +101,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 ?>
 <section class="ftf-module ftf-module-content-and-media text-md-<?php echo esc_attr( $text_alignment ); ?> <?php echo esc_attr( $module_classes ); ?>" id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-<?php echo esc_attr( $module_vertical_alignment ); ?>">
 			<?php if ( $module_image || $module_video ) : ?>
 				<div class="col-12 col-md-6 ftf-module-content-and-media__media <?php echo esc_attr( $media_alignment ); ?>">
 					<?php
@@ -129,7 +131,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					?>
 				</div>
 			<?php endif; ?>
-			<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
+			<?php if ( $module_title || $module_subtitle || $module_description || $module_button ) : ?>
 				<div class="col-12 col-md-6 ftf-module-content-and-media__content">
 					<?php if ( $module_title ) : ?>
 						<h2 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
@@ -141,6 +143,17 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 					<?php if ( $module_description ) : ?>
 						<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
+					<?php endif; ?>
+
+					<?php
+					if ( $module_button ) :
+						$link_url    = $module_button['url'];
+						$link_title  = $module_button['title'];
+						$link_target = $module_button['target'] ? $module_button['target'] : '_self';
+						?>
+						<div class="ftf-module__cta-wrap mt-3 mt-md-4">
+							<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						</div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
