@@ -141,9 +141,9 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					$link_title  = $module_button['title'];
 					$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 					?>
-					<footer class="ftf-module__footer mt-3 mt-md-5 text-center">
+					<div class="ftf-module__cta-wrap mt-3 mt-md-5 text-center">
 						<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-					</footer>
+					</div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
