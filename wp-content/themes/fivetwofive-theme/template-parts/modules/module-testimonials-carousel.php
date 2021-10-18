@@ -16,10 +16,11 @@ $module_subtitle    = get_sub_field( 'subtitle' );
 $module_description = get_sub_field( 'description' );
 
 // Styles.
-$background_image = get_sub_field( 'background_image' );
-$background_color = get_sub_field( 'background_color' );
-$text_color       = get_sub_field( 'text_color' );
-$module_classes   = '';
+$background_image                = get_sub_field( 'background_image' );
+$background_color                = get_sub_field( 'background_color' );
+$text_color                      = get_sub_field( 'text_color' );
+$pagination_and_navigation_color = get_sub_field( 'pagination_and_navigation_color' );
+$module_classes                  = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
@@ -39,6 +40,10 @@ if ( $background_image ) {
 if ( $text_color ) {
 	$styles                 .= sprintf( 'color:%1$s;', $text_color );
 	$text_color_inline_style = sprintf( 'color:%1$s;', $text_color );
+}
+
+if ( $pagination_and_navigation_color ) {
+	$styles .= sprintf( '--swiper-pagination-color:%1$s;--swiper-navigation-color:%1$s;', $pagination_and_navigation_color );
 }
 
 // Animations.
