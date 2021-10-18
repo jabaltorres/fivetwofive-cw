@@ -134,6 +134,17 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php if ( $module_description ) : ?>
 					<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
+
+				<?php
+				if ( $module_button ) :
+					$link_url    = $module_button['url'];
+					$link_title  = $module_button['title'];
+					$link_target = $module_button['target'] ? $module_button['target'] : '_self';
+					?>
+					<footer class="ftf-module__footer mt-3 mt-md-5 text-center">
+						<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+					</footer>
+				<?php endif; ?>
 			</header>
 		<?php endif; ?>
 
@@ -141,15 +152,15 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			<?php
 			while ( have_rows( 'columns' ) ) :
 				the_row();
-				$column_image     = get_sub_field( 'image' );
-				$column_dimension = get_sub_field( 'image_dimension' );
-				$column_title     = get_sub_field( 'title' );
-				$column_text      = get_sub_field( 'text' );
-				$column_button    = get_sub_field( 'button' );
-				$column_width     = get_sub_field( 'width' );
-				$column_classes   = get_sub_field( 'column_classes' );
-				$image_dimension  = 'full';
-				$column_width_classes   = array( 'column', 'col-12' );
+				$column_image         = get_sub_field( 'image' );
+				$column_dimension     = get_sub_field( 'image_dimension' );
+				$column_title         = get_sub_field( 'title' );
+				$column_text          = get_sub_field( 'text' );
+				$column_button        = get_sub_field( 'button' );
+				$column_width         = get_sub_field( 'width' );
+				$column_classes       = get_sub_field( 'column_classes' );
+				$image_dimension      = 'full';
+				$column_width_classes = array( 'column', 'col-12' );
 
 				if ( $column_dimension ) {
 					// check if the dimension set it width and height.
@@ -166,14 +177,14 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					$column_width_classes[] = $default_column_width;
 				}
 
-				if ( !$column_classes ) {
+				if ( ! $column_classes ) {
 					$column_module_classes = '';
-                } else {
+				} else {
 					$column_module_classes = $column_classes;
-                }
+				}
 
 				?>
-				<div class="<?php echo esc_attr( implode( ' ', $column_width_classes ) ); ?> <?= $column_module_classes; ?>">
+				<div class="<?php echo esc_attr( implode( ' ', $column_width_classes ) ); ?> <?php echo esc_attr( $column_module_classes ); ?>">
 					<?php
 					if ( $column_image ) :
 						echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
@@ -184,7 +195,6 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					<?php endif; ?>
 
 					<?php if ( $column_text ) : ?>
-<!--						<div class="column-text mb-3 mb-md-4" style="--><?php //echo esc_attr( $text_color_inline_style ); ?><!--">--><?php //echo wp_kses( $column_text, fivetwofive_kses_extended_ruleset() ); ?><!--</div>-->
 						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo $column_text; ?></div>
 					<?php endif; ?>
 
@@ -200,15 +210,6 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			<?php endwhile; ?>
 		</div>
 
-		<?php
-		if ( $module_button ) :
-			$link_url    = $module_button['url'];
-			$link_title  = $module_button['title'];
-			$link_target = $module_button['target'] ? $module_button['target'] : '_self';
-			?>
-			<footer class="ftf-module__footer mt-3 mt-md-5 text-center">
-				<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-			</footer>
-		<?php endif; ?>
+
 	</div>
 </section>
