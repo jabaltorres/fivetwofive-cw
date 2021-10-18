@@ -53,6 +53,11 @@ function fivetwofive_kses_extended_ruleset() {
 			'frameborder'     => true,
 			'allowfullscreen' => true,
 		),
+		'script' => array(
+			'charset' => true,
+			'type'    => true,
+			'src'     => true,
+		),
 		'time'   => array(
 			'class'    => true,
 			'datetime' => true,
