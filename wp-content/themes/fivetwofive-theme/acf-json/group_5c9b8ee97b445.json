@@ -2755,6 +2755,21 @@
                             "return_format": "string"
                         },
                         {
+                            "key": "field_616d604404d0f",
+                            "label": "Pagination And Navigation Color",
+                            "name": "pagination_and_navigation_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "#0A7FFF"
+                        },
+                        {
                             "key": "field_60933a1118746",
                             "label": "Text Color",
                             "name": "text_color",
@@ -6157,5 +6172,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1634556907
+    "modified": 1634558186
 }
