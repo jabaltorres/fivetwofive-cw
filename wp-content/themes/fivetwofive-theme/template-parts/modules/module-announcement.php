@@ -9,24 +9,29 @@
 
 wp_enqueue_script( 'fivetwofive-theme-module-announcement' );
 
-$sticky           = get_sub_field( 'sticky' );
-$background_image = get_sub_field( 'background_image' );
-$background_color = get_sub_field( 'background_color' );
-$border_color     = get_sub_field( 'border_color' );
-$text_color       = get_sub_field( 'text_color' );
-$module_title     = get_sub_field( 'title' );
-$module_content   = get_sub_field( 'content' );
-$module_button    = get_sub_field( 'button' );
-$module_classes   = '';
+$sticky            = get_sub_field( 'sticky' );
+$background_toggle = get_sub_field( 'background_toggle' );
+$background_image  = get_sub_field( 'background_image' );
+$background_color  = get_sub_field( 'background_color' );
+$border_color      = get_sub_field( 'border_color' );
+$text_color        = get_sub_field( 'text_color' );
+$module_title      = get_sub_field( 'title' );
+$module_content    = get_sub_field( 'content' );
+$module_button     = get_sub_field( 'button' );
+$module_classes    = '';
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
 }
 
-if ( $background_image ) {
-	$module_background = 'background-image:url(' . $background_image['sizes']['large'] . ');';
+if ( $background_toggle ) {
+	if ( $background_image ) {
+		$module_background = 'background-image:url(' . $background_image['sizes']['large'] . ');';
+	}
 } else {
-	$module_background = 'background:' . $background_color . ';';
+	if ( $background_color ) {
+		$module_background = 'background:' . $background_color . ';';
+	}
 }
 
 if ( $border_color ) {

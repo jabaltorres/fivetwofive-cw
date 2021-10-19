@@ -8,6 +8,7 @@
  */
 
 $show_logo         = get_sub_field( 'show_logo' );
+$background_toggle = get_sub_field( 'background_toggle' );
 $background_color  = get_sub_field( 'background_color' );
 $background_image  = get_sub_field( 'background_image' );
 $module_title      = get_sub_field( 'title' );
@@ -21,10 +22,14 @@ if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
 }
 
-if ( $background_image ) {
-	$background = "url('" . wp_get_attachment_image_url( $background_image, 'large' ) . "') center center no-repeat";
+if ( $background_toggle ) {
+	if ( $background_image ) {
+		$background = "url('" . wp_get_attachment_image_url( $background_image, 'large' ) . "') center center no-repeat";
+	}
 } else {
-	$background = $background_color;
+	if ( $background_color ) {
+		$background = $background_color;
+	}
 }
 
 if ( get_sub_field( 'text_color' ) ) {

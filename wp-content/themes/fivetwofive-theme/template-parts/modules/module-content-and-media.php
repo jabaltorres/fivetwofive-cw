@@ -29,10 +29,11 @@ if ( $module_media_alignment && ( 'right' === $module_media_alignment ) ) {
 }
 
 // Styles.
-$background_image = get_sub_field( 'background_image' );
-$background_color = get_sub_field( 'background_color' );
-$text_color       = get_sub_field( 'text_color' );
-$text_alignment   = get_sub_field( 'text_alignment' );
+$background_toggle = get_sub_field( 'background_toggle' );
+$background_image  = get_sub_field( 'background_image' );
+$background_color  = get_sub_field( 'background_color' );
+$text_color        = get_sub_field( 'text_color' );
+$text_alignment    = get_sub_field( 'text_alignment' );
 
 $module_classes          = '';
 $styles                  = '';
@@ -42,12 +43,14 @@ if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
 }
 
-if ( $background_color ) {
-	$styles .= sprintf( 'background-color: %1$s;', $background_color );
-}
-
-if ( $background_image ) {
-	$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+if ( $background_toggle ) {
+	if ( $background_image ) {
+		$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+	}
+} else {
+	if ( $background_color ) {
+		$styles .= sprintf( 'background-color: %1$s;', $background_color );
+	}
 }
 
 if ( $text_color ) {
