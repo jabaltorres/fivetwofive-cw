@@ -9,18 +9,65 @@
 
 @import "../../../node_modules/bootstrap/scss/vendor/rfs";
 
+//
+// Headings
+//
+.h1 {
+  @extend h1;
+}
+
+.h2 {
+  @extend h2;
+}
+
+.h3 {
+  @extend h3;
+}
+
+.h4 {
+  @extend h4;
+}
+
+.h5 {
+  @extend h5;
+}
+
+.h6 {
+  @extend h6;
+}
+
 $spacer: 1rem !default;
 $spacers: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $spacers: map-merge(
   (
     0: 0,
-    1: ($spacer * .25),    //4px
-    2: ($spacer * .5),     //8px
-    3: $spacer,            //16px
-    4: ($spacer * 1.5),    //24px
-    5: ($spacer * 3),      //48px
-    6: ($spacer * 4),      //64px
+    1: (
+      $spacer * 0.25,
+    ),
+    //4px
+    2:
+      (
+        $spacer * 0.5,
+      ),
+    //8px
+    3: $spacer,
+    //16px
+    4:
+      (
+        $spacer * 1.5,
+      ),
+    //24px
+    5:
+      (
+        $spacer * 3,
+      ),
+    //48px
+    6:
+      (
+        $spacer * 4,
+      ),
+    //64px
   ),
   $spacers
 );
@@ -59,7 +106,7 @@ $utilities: map-get-multiple(
     "padding-top",
     "padding-end",
     "padding-bottom",
-    "padding-start",
+    "padding-start"
   )
 );
 
