@@ -224,15 +224,42 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_616eb932aafd0",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_5de7dcb17f904",
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616eb932aafd0",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "15",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -254,15 +281,21 @@
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616eb932aafd0",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "15",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#FFFFFF",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": "#FFFFFF"
                         },
                         {
                             "key": "field_5de7dcdb7f906",
@@ -1131,15 +1164,42 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_616eba82dccfd",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_6093329f51032",
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616eba82dccfd",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -1161,15 +1221,21 @@
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616eba82dccfd",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60d91d4b55f35",
@@ -1529,6 +1595,80 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_616ebb8a7a5ef",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_5f74b5e665a9c",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebb8a7a5ef",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_5f74b71cf490c",
+                            "label": "Background image",
+                            "name": "background_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebb8a7a5ef",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
                             "key": "field_60e3acfeebe7f",
                             "label": "Text Color",
                             "name": "text_color",
@@ -1544,47 +1684,6 @@
                             "default_value": "",
                             "enable_opacity": false,
                             "return_format": "string"
-                        },
-                        {
-                            "key": "field_5f74b5e665a9c",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_5f74b71cf490c",
-                            "label": "Background image",
-                            "name": "background_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
                         },
                         {
                             "key": "field_60d91d5355f36",
@@ -2112,15 +2211,42 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_616ebd3ad4185",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_609327c4ed7a9",
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebd3ad4185",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -2142,15 +2268,21 @@
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebd3ad4185",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_5dd5508868938",
@@ -2714,15 +2846,42 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_616ebe3aa5050",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_609339e718744",
                             "label": "Background Image",
                             "name": "background_image",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebe3aa5050",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "33.33",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
@@ -2744,15 +2903,21 @@
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebe3aa5050",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
-                                "width": "33.33",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_616d604404d0f",
@@ -2778,13 +2943,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "33.33",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60d91d6755f38",
@@ -3181,10 +3344,10 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_60e501de07bd7",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
+                            "key": "field_616ebeec5997d",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -3193,9 +3356,34 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_60e501de07bd7",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebeec5997d",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
                         },
                         {
                             "key": "field_60e501ca07bd6",
@@ -3204,7 +3392,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ebeec5997d",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -3775,10 +3971,10 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_60ed0bbb795c8",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
+                            "key": "field_616ec16adb926",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -3787,9 +3983,34 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_60ed0bbb795c8",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec16adb926",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
                         },
                         {
                             "key": "field_60ed0bc3795c9",
@@ -3798,7 +4019,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec16adb926",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -4283,10 +4512,10 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_60f4d0efc8b9c",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
+                            "key": "field_616ec28d15d8f",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -4295,9 +4524,34 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_60f4d0efc8b9c",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec28d15d8f",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
                         },
                         {
                             "key": "field_60f4d0f9c8b9d",
@@ -4306,7 +4560,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec28d15d8f",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -4743,10 +5005,10 @@
                             "placeholder": ""
                         },
                         {
-                            "key": "field_6154fb6989b75",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
+                            "key": "field_616ec36e8ec18",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -4755,9 +5017,34 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_6154fb6989b75",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec36e8ec18",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
                         },
                         {
                             "key": "field_6154fb6989b76",
@@ -4766,7 +5053,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec36e8ec18",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -5294,10 +5589,10 @@
                             "placeholder": ""
                         },
                         {
-                            "key": "field_615ba7f74184f",
-                            "label": "Background color",
-                            "name": "background_color",
-                            "type": "color_picker",
+                            "key": "field_616ec4abbbeeb",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -5306,9 +5601,34 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
+                            "key": "field_615ba7f74184f",
+                            "label": "Background color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec4abbbeeb",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
                         },
                         {
                             "key": "field_615ba7f741850",
@@ -5317,7 +5637,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec4abbbeeb",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -5840,13 +6168,40 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_616ec59b321a0",
+                            "label": "Background",
+                            "name": "background_toggle",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "Image",
+                            "ui_off_text": "Color"
+                        },
+                        {
                             "key": "field_6167717fd957e",
                             "label": "Background color",
                             "name": "background_color",
                             "type": "color_picker",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec59b321a0",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -5861,7 +6216,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_616ec59b321a0",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -6172,5 +6535,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1634558186
+    "modified": 1634649547
 }

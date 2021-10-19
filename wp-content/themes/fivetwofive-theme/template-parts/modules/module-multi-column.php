@@ -12,7 +12,6 @@ $module_title         = get_sub_field( 'title' );
 $module_subtitle      = get_sub_field( 'subtitle' );
 $module_description   = get_sub_field( 'description' );
 $module_button        = get_sub_field( 'button' );
-$background_color     = get_sub_field( 'background_color' );
 $column_count         = count( get_sub_field( 'columns' ) );
 $default_column_width = '';
 
@@ -32,6 +31,7 @@ switch ( $column_count ) {
 }
 
 // Styles.
+$background_toggle       = get_sub_field( 'background_toggle' );
 $background_image        = get_sub_field( 'background_image' );
 $background_color        = get_sub_field( 'background_color' );
 $text_color              = get_sub_field( 'text_color' );
@@ -50,12 +50,14 @@ $styles                  = '';
 $text_color_inline_style = '';
 $button_styles           = '';
 
-if ( $background_color ) {
-	$styles .= sprintf( 'background-color: %1$s;', $background_color );
-}
-
-if ( $background_image ) {
-	$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+if ( $background_toggle ) {
+	if ( $background_image ) {
+		$styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url_raw( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+	}
+} else {
+	if ( $background_color ) {
+		$styles .= sprintf( 'background-color: %1$s;', $background_color );
+	}
 }
 
 if ( $text_color ) {
