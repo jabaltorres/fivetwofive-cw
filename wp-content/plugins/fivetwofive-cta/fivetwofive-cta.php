@@ -3,19 +3,19 @@
  * FiveTwoFive CTA
  *
  * @package           FiveTwoFive
- * @author            Jabal Torres
+ * @author            FiveTwoFive Creative Team
  * @copyright         2021 FiveTwoFive
  * @license           GPL-2.0-or-later
  *
  * @fivetwofive-cta
- * Plugin Name:       FiveTwoFive CTA
+ * Plugin Name:       FiveTwoFive - CTA
  * Plugin URI:        https://fivetwofive.com/
  * Description:       Add call to action shortcode with menu options.
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Author:            Jabal Torres
- * Author URI:        https://jabaltorres.com/
+ * Author:            FiveTwoFive Creative Team
+ * Author URI:        https://fivetwofive.com/
  * Text Domain:       fivetwofive-cta
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
