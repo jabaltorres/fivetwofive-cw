@@ -1,15 +1,17 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive LP Custom Post Type
+ * Plugin Name: FiveTwoFive - Landing Page Custom Post Type
+ * Plugin URI: https://fivetwofive.com/
  * Description: A simple plug in that adds an lp custom post type
  * Version: 0.1
- * Author:  Jabal Torres
+ * Author: FiveTwoFive Creative Team
+ * Author URI: https://fivetwofive.com/
  * License: GPL2
  * Text Domain: ftf-lps
  */
 
 /*
-	Copyright 2020: Jabal Torres
+	Copyright 2020: FiveTwoFive Creative Team
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
