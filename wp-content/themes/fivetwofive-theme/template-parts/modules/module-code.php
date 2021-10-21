@@ -73,5 +73,5 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 ?>
 <div id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-code <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
-	<?php echo wp_kses( get_sub_field( 'code', false ), fivetwofive_kses_extended_ruleset() ); ?>
+	<?php echo do_shortcode( wp_kses( get_sub_field( 'code', false ), fivetwofive_kses_extended_ruleset() ) ); ?>
 </div>
