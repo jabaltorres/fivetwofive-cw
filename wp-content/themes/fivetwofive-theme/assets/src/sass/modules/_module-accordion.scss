@@ -10,11 +10,40 @@
 
     &-title {
       cursor: pointer;
+      display: flex;
+      align-items: center;
     }
 
     &-content {
       p:last-child {
         margin: 0;
+      }
+    }
+  }
+
+  .ui-accordion-header-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    position: relative;
+    margin-right: rem(15px);
+
+    &:before,
+    &:after {
+      content: "";
+      width: 1em;
+      height: 5px;
+      background-color: currentColor;
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.ftf-module-accordion-icon-default {
+      &:before {
+        transform: translate(-50%, -50%) rotate(90deg);
       }
     }
   }
