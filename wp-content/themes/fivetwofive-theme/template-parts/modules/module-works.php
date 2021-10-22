@@ -98,7 +98,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<p class="ftf-module__subtitle"><?php echo esc_html( $module_subtitle ); ?></p>
+					<p class="ftf-module__subtitle h3"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
