@@ -141,7 +141,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
-					<p class="ftf-module__subtitle" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+					<p class="ftf-module__subtitle h3" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>

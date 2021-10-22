@@ -89,7 +89,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 		<?php if ( ! $module_button && ( $module_title || $module_content ) ) : ?>
 
 			<?php if ( $module_title ) : ?>
-				<h2 class="ftf-module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
+				<h2 class="ftf-module__title mb-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
 			<?php endif; ?>
 
 			<?php if ( $module_content ) : ?>
@@ -102,7 +102,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			<div class="row align-items-center">
 				<div class="col-12 col-sm-9">
 					<?php if ( $module_title ) : ?>
-						<h2 class="ftf-module__title" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
+						<h2 class="ftf-module__title mb-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
 					<?php endif; ?>
 
 					<?php if ( $module_content ) : ?>
