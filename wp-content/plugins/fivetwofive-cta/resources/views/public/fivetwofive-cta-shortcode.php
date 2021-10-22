@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="ftf-cta__column-1">
 
 			<?php if ( ! empty( $cta_title ) ) : ?>
-				<h2 class="fta-cta__title"><?php echo esc_html( $cta_title ); ?></h2>
+				<h2 class="fta-cta__title mb-2"><?php echo esc_html( $cta_title ); ?></h2>
 			<?php endif; ?>
 
 			<div class="fta-cta__content">
