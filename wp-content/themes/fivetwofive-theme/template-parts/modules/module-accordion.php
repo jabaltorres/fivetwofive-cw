@@ -112,10 +112,11 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			<div class="ftf-module-accordion__panels">
 				<?php
 				foreach ( $module_panels as $module_panel ) :
+					$panel_id      = $module_panel['panel_id'];
 					$panel_title   = $module_panel['title'];
 					$panel_content = $module_panel['content'];
 					?>
-					<div class="ftf-module-accordion__panel">
+					<div id="<?php echo esc_html( $panel_id ); ?>" class="ftf-module-accordion__panel">
 						<?php if ( $panel_title ) : ?>
 							<h3 class="ftf-module-accordion__panel-title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo wp_kses( $panel_title, fivetwofive_kses_extended_ruleset() ); ?></h3>
 						<?php endif; ?>
