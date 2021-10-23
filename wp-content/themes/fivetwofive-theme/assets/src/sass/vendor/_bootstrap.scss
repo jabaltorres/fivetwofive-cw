@@ -81,6 +81,8 @@ $spacers: map-merge(
 $utilities: map-get-multiple(
   $utilities,
   (
+    "border",
+    "rounded",
     "display",
     "text-align",
     "order",
