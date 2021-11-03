@@ -9,7 +9,7 @@
 
 if ( ! defined( 'FIVETWOFIVE_THEME_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( 'FIVETWOFIVE_THEME_VERSION', '0.7.0' );
+	define( 'FIVETWOFIVE_THEME_VERSION', '0.7.1' );
 }
 
 /**
@@ -56,3 +56,8 @@ require get_template_directory() . '/inc/public/svg-icons.php';
  * Share Buttons
  */
 require get_template_directory() . '/inc/public/share-buttons.php';
+
+/**
+ * WP Rest API
+ */
+require get_template_directory() . '/inc/public/rest-api.php';

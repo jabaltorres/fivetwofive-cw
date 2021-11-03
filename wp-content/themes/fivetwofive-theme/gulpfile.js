@@ -12,6 +12,7 @@ const { src, dest, watch, series } = require('gulp'),
     config                         = require('./gulpfile-config');
     imagemin                       = require('gulp-imagemin'),
     log                            = require('fancy-log'),
+    babel                          = require('gulp-babel'),
     browserSync                    = require("browser-sync").create();
 
 sass.compiler = require('sass');
@@ -25,6 +26,7 @@ const paths = {
   scripts:{
     src: "assets/src/js/**/*.js",
     dest: "assets/dist/js",
+    maps: "../maps"
   },
   images:{
     src: "assets/src/images/*",
@@ -71,9 +73,11 @@ const lint = () => src(paths.scripts.src)
  */
 const scripts = () => src(paths.scripts.src)
   .pipe(sourcemaps.init())
+  .pipe(babel())
   .pipe(dest(paths.scripts.dest))
   .pipe(rename({ suffix: '.min' }))
   .pipe(uglify().on('error', (e) => { log(e); }))
+  .pipe(sourcemaps.write(paths.scripts.maps))
   .pipe(dest(paths.scripts.dest))
   .pipe(browserSync.stream())
   .on('end', () => { log('Scripts Done!'); });

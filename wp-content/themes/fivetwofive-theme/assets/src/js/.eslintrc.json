@@ -1,8 +1,14 @@
 {
-    "extends": [
-        "plugin:@wordpress/eslint-plugin/esnext"
-    ],
-    "env": {
-        "browser": true
-    }
+  "globals": {
+    "jQuery": "readonly",
+    "ScrollReveal": "readonly",
+    "FiveTwoFive": "readonly"
+  },
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/esnext"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  }
 }

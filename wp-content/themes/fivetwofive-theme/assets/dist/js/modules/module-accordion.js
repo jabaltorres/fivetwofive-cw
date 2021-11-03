@@ -1,27 +1,30 @@
-( function( $ ) {
-	'use strict';
+"use strict";
 
-	const accordionModule = ( function() {
-		function init() {
-			$( '.ftf-module-accordion' ).each( function( i, module ) {
-				const accordionModuleInstance = $( module );
-				accordionModuleInstance.find( '.ftf-module-accordion__panels' ).accordion( {
-					header: '.ftf-module-accordion__panel-title',
-					collapsible: true,
-					active: false,
-					icons: { header: 'ftf-module-accordion-icon-default', activeHeader: 'ftf-module-accordion-icon-active' },
-				} );
-			} );
-		}
+(function ($) {
+  'use strict';
 
-		return {
-			init,
-		};
-	}() );
+  var accordionModule = function () {
+    function init() {
+      $('.ftf-module-accordion').each(function (i, module) {
+        var accordionModuleInstance = $(module);
+        accordionModuleInstance.find('.ftf-module-accordion__panels').accordion({
+          header: '.ftf-module-accordion__panel-title',
+          collapsible: true,
+          active: false,
+          icons: {
+            header: 'ftf-module-accordion-icon-default',
+            activeHeader: 'ftf-module-accordion-icon-active'
+          }
+        });
+      });
+    }
 
-	$( function() {
-		accordionModule.init();
-	} );
+    return {
+      init: init
+    };
+  }();
 
-// eslint-disable-next-line no-undef
-}( jQuery ) );
+  $(function () {
+    accordionModule.init();
+  }); // eslint-disable-next-line no-undef
+})(jQuery);

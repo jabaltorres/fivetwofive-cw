@@ -7,23 +7,23 @@
  * @package FiveTwoFive_Theme
  */
 
-$module_title            = get_sub_field( 'title' );
-$module_subtitle         = get_sub_field( 'subtitle' );
-$module_description      = get_sub_field( 'description' );
-$background_toggle       = get_sub_field( 'background_toggle' );
-$background_color        = get_sub_field( 'background_color' );
-$background_image        = get_sub_field( 'background_image' );
-$module_text_color       = get_sub_field( 'text_color' );
-$module_text_alignment   = get_sub_field( 'text_alignment' );
-$module_id               = uniqid( 'ftf-module-resources' );
-$module_resources        = get_sub_field( 'resources' );
-$module_static_resources = get_sub_field( 'static_resources' );
-$module_resources_type   = get_sub_field( 'resources_type' );
-$module_resources_limit  = get_sub_field( 'resources_limit' );
-$module_display          = get_sub_field( 'display' );
-$module_classes          = '';
-$module_styles           = '';
-$inline_text_color       = '';
+wp_enqueue_script( 'fivetwofive-theme-module-resources' );
+
+$module_title          = get_sub_field( 'title' );
+$module_subtitle       = get_sub_field( 'subtitle' );
+$module_description    = get_sub_field( 'description' );
+$background_toggle     = get_sub_field( 'background_toggle' );
+$background_color      = get_sub_field( 'background_color' );
+$background_image      = get_sub_field( 'background_image' );
+$module_text_color     = get_sub_field( 'text_color' );
+$module_text_alignment = get_sub_field( 'text_alignment' );
+$module_id             = uniqid( 'ftf-module-resources' );
+$module_resources      = get_sub_field( 'resources' );
+$module_resources_type = get_sub_field( 'resources_type' );
+$module_item_per_page  = get_sub_field( 'item_per_page' );
+$module_classes        = '';
+$module_styles         = '';
+$inline_text_color     = '';
 
 // Animations.
 $module_animation_desktop  = get_sub_field( 'animation_desktop' );
@@ -90,12 +90,37 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 	$module_classes .= ' ftf-module-hidden';
 }
 
+$posts_per_page = 6;
+
+if ( $module_item_per_page ) {
+	$posts_per_page = intval( $module_item_per_page );
+}
+
+$resource_query_args = array(
+	'post_type'      => 'ftf_resource',
+	'posts_per_page' => $posts_per_page,
+);
+
+if ( $module_resources_type ) {
+	$resource_query_args['tax_query'] = array(
+		array(
+			'taxonomy' => 'ftf_resource_type',
+			'field'    => 'term_id',
+			'terms'    => $module_resources_type,
+		),
+	);
+}
+
+$resources_query  = new WP_Query( $resource_query_args );
+$resource_counter = 0;
+
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-resources <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>" data-item-per-page="<?php echo esc_attr( $posts_per_page ); ?>" data-current-page="1" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-resources <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="ftf-module__header mb-md-5">
+			<header class="ftf-module__header mb-3 mb-md-5">
+
 				<?php if ( $module_title ) : ?>
 					<h2 class="ftf-module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
@@ -107,147 +132,73 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php if ( $module_description ) : ?>
 					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
+
+				<form class="ftf-form">
+
+					<fieldset class="ftf-fieldset">
+						<input type="search" class="ftf-input ftf-input--search" name="ftf-search-resource" placeholder="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>" aria-label="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>">
+					</fieldset>
+
+					<?php if ( ! $module_resources_type ) : ?>
+						<fieldset class="ftf-fieldset">
+							<?php
+							wp_dropdown_categories(
+								array(
+									'show_option_all' => __( 'All Types', 'fivetwofive-theme' ),
+									'orderby'         => 'name',
+									'class'           => 'ftf-select',
+									'name'            => 'ftf-type-resource',
+									'value_field'     => 'term_id',
+									'taxonomy'        => 'ftf_resource_type',
+								)
+							);
+							?>
+						</fieldset>
+					<?php endif; ?>
+
+					<fieldset class="ftf-fieldset">
+						<input type="submit" class="ftf-button" value="<?php echo esc_html__( 'Search', 'fivetwofive-theme' ); ?>">
+					</fieldset>
+
+				</form>
+
 			</header>
 		<?php endif; ?>
 
-		<?php if ( $module_resources ) : ?>
+		<?php if ( $resources_query->have_posts() ) : ?>
 
-			<?php
-			if ( $module_static_resources ) :
-				$resource_counter = 0;
-
-				if ( 'grid' === $module_display ) :
-					?>
-						<div class="row">
-					<?php
-				endif;
-
-				foreach ( $module_static_resources as $post ) :
-					setup_postdata( $post );
-
-					if ( 'stacked-alternate' === $module_display ) {
-						$resource_counter++;
-
-						if ( 0 !== $resource_counter % 2 ) {
-							get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
-						} else {
-							get_template_part(
-								'template-parts/post-type/post-item',
-								null,
-								array(
-									'id'                 => get_the_ID(),
-									'thumbnail-position' => 'right',
-								)
-							);
-						}
-					}
-
-					if ( 'stacked' === $module_display ) {
-						get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
-					}
-
-					if ( 'grid' === $module_display ) :
-						?>
-
-						<div class="col-md-4 mb-3 mb-md-5">
-							<?php get_template_part( 'template-parts/post-type/post-card', null, array( 'id' => get_the_ID() ) ); ?>
-						</div>
-
-						<?php
-					endif;
-
-				endforeach;
-
-				wp_reset_postdata();
-				if ( 'grid' === $module_display ) :
-					?>
-						</div>
-					<?php
-				endif;
-			endif;
-			?>
-
-		<?php else : ?>
-
-			<?php
-			$posts_per_page = 5;
-
-			if ( $module_resources_limit ) {
-				$posts_per_page = intval( $module_resources_limit );
-			}
-
-			$resource_query_args = array(
-				'post_type'      => 'ftf_resource',
-				'posts_per_page' => $posts_per_page,
-			);
-
-			if ( $module_resources_type ) {
-				$resource_query_args['tax_query'] = array(
-					array(
-						'taxonomy' => 'ftf_resource_type',
-						'field'    => 'term_id',
-						'terms'    => $module_resources_type,
-					),
-				);
-			}
-
-			$resources_query  = new WP_Query( $resource_query_args );
-			$resource_counter = 0;
-
-			?>
-
-			<?php if ( $resources_query->have_posts() ) : ?>
-
-				<?php if ( 'grid' === $module_display ) : ?>
-					<div class="row">
-				<?php endif; ?>
+			<div class="row ftf-resources-wrap">
 
 				<?php
 				while ( $resources_query->have_posts() ) :
 					$resources_query->the_post();
 					?>
 
-					<?php if ( 'grid' === $module_display ) : ?>
 						<div class="col-md-4 mb-3 mb-md-5">
-							<?php get_template_part( 'template-parts/post-type/post-card', null, array( 'id' => get_the_ID() ) ); ?>
+							<?php
+								get_template_part(
+									'template-parts/post-type/post-card',
+									null,
+									array(
+										'id'         => get_the_ID(),
+										'image_size' => 'ftf-resource-thumb',
+									)
+								);
+							?>
 						</div>
-					<?php endif; ?>
-
-					<?php if ( 'stacked' === $module_display ) : ?>
-						<?php get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) ); ?>
-					<?php endif; ?>
-
-					<?php
-					if ( 'stacked-alternate' === $module_display ) :
-						$resource_counter++;
-						if ( 0 !== $resource_counter % 2 ) {
-							get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
-						} else {
-							get_template_part(
-								'template-parts/post-type/post-item',
-								null,
-								array(
-									'id'                 => get_the_ID(),
-									'thumbnail-position' => 'right',
-								)
-							);
-						}
-					endif;
-					?>
 
 					<?php
 				endwhile;
+				wp_reset_postdata();
 				?>
 
-				<?php if ( 'grid' === $module_display ) : ?>
-					</div>
-				<?php endif; ?>
+			</div>
 
-				<?php wp_reset_postdata(); ?>
+			<div class="ftf-module__pagination-container"></div>
 
-			<?php else : ?>
-				<p><?php _e( 'Sorry, no resources matched your criteria.' ); ?></p>
-			<?php endif; ?>
+		<?php else : ?>
+
+			<p><?php _e( 'Sorry, no resources matched your criteria.' ); ?></p>
 
 		<?php endif; ?>
 	</div>
