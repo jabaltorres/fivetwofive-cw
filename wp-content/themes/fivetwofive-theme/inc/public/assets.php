@@ -117,6 +117,9 @@ function fivetwofive_theme_assets() {
 		wp_register_script( 'fivetwofive-theme-module-testimonials-carousel', get_template_directory_uri() . '/assets/dist/js/modules/module-testimonials-carousel.min.js', array( 'jquery', 'fivetwofive-theme-swiper' ), FIVETWOFIVE_THEME_VERSION, true );
 		// Accordion Carousel module.
 		wp_register_script( 'fivetwofive-theme-module-accordion', get_template_directory_uri() . '/assets/dist/js/modules/module-accordion.min.js', array( 'jquery', 'jquery-ui-accordion' ), FIVETWOFIVE_THEME_VERSION, true );
+		// Resources module.
+		wp_register_script( 'fivetwofive-theme-module-resources', get_template_directory_uri() . '/assets/dist/js/modules/module-resource.min.js', array( 'jquery', 'fivetwofive-theme-scrollreveal' ), FIVETWOFIVE_THEME_VERSION, true );
+		wp_add_inline_script( 'fivetwofive-theme-module-resources', 'const FiveTwoFive = ' . wp_json_encode( array( 'restBase' => home_url( '/wp-json/wp/v2/ftf-resources' ) ) ), 'before' );
 
 		// Enqueue module style and script.
 		wp_enqueue_style( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/css/template-modules.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );

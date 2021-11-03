@@ -1,15 +1,11 @@
 .page-numbers {
   border: 1px solid;
-  padding: rem(10px) rem(15px);
+  padding: rem(5px) rem(10px);
   border-radius: 100px;
   display: inline-block;
   margin-right: rem(10px);
-  min-width: 50px;
+  min-width: 33px;
   text-align: center;
   transition: all 300ms ease-in-out;
-
-  &.next,
-  &.prev {
-    padding: rem(10px) rem(25px);
-  }
+  font-size: rem(15px);
 }

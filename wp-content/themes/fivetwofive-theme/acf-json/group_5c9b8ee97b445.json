@@ -2054,7 +2054,7 @@
                             },
                             "collapsed": "field_5d2cf7e19e264",
                             "min": 0,
-                            "max": 4,
+                            "max": 0,
                             "layout": "row",
                             "button_label": "Add Column",
                             "sub_fields": [
@@ -6066,70 +6066,16 @@
                             "delay": 0
                         },
                         {
-                            "key": "field_6167717fd9578",
-                            "label": "Resources",
-                            "name": "resources",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 1,
-                            "ui_on_text": "Static resources",
-                            "ui_off_text": "Dynamic resources"
-                        },
-                        {
-                            "key": "field_6167717fd9579",
-                            "label": "Static Resources",
-                            "name": "static_resources",
-                            "type": "relationship",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6167717fd9578",
-                                        "operator": "==",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "ftf_resource"
-                            ],
-                            "taxonomy": "",
-                            "filters": [
-                                "search"
-                            ],
-                            "elements": [
-                                "featured_image"
-                            ],
-                            "min": "",
-                            "max": "",
-                            "return_format": "id"
-                        },
-                        {
                             "key": "field_61677238d958e",
-                            "label": "Resources Type",
+                            "label": "Type",
                             "name": "resources_type",
                             "type": "taxonomy",
-                            "instructions": "Filter resources by category",
+                            "instructions": "Filter resources by type or select none to show all",
                             "required": 0,
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_6167717fd9578",
+                                        "field": "field_615eed4f4683d",
                                         "operator": "!=",
                                         "value": "1"
                                     }
@@ -6142,7 +6088,7 @@
                             },
                             "taxonomy": "ftf_resource_type",
                             "field_type": "checkbox",
-                            "add_term": 1,
+                            "add_term": 0,
                             "save_terms": 0,
                             "load_terms": 0,
                             "return_format": "id",
@@ -6151,20 +6097,12 @@
                         },
                         {
                             "key": "field_6167717fd957b",
-                            "label": "Resources Limit",
-                            "name": "resources_limit",
+                            "label": "Item per page",
+                            "name": "item_per_page",
                             "type": "number",
                             "instructions": "default is 6",
                             "required": 0,
-                            "conditional_logic": [
-                                [
-                                    {
-                                        "field": "field_6167717fd9578",
-                                        "operator": "!=",
-                                        "value": "1"
-                                    }
-                                ]
-                            ],
+                            "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -6193,32 +6131,6 @@
                             },
                             "placement": "top",
                             "endpoint": 0
-                        },
-                        {
-                            "key": "field_6167717fd957d",
-                            "label": "Display",
-                            "name": "display",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "grid": "Grid",
-                                "stacked": "Stacked",
-                                "stacked-alternate": "Stacked Alternate"
-                            },
-                            "default_value": false,
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
                         },
                         {
                             "key": "field_616ec59b321a0",
@@ -6592,5 +6504,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1634973100
+    "modified": 1635995037
 }

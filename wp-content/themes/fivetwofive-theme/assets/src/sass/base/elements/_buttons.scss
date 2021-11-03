@@ -5,11 +5,12 @@ input[type="reset"],
 input[type="submit"] {
 	display: inline-block;
 	border: 1px solid;
-	border-radius: 3px;
-	line-height: 1;
+	border-radius: 25px;
+	line-height: 1.8;
 	cursor: pointer;
-	padding: rem(10px) rem(20px);
+	padding: rem(5px) rem(20px);
 	transition: all 300ms ease-in-out;
+  font-size: rem(14px);
 }
 
 .button {

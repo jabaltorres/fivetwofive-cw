@@ -111,20 +111,18 @@ function ftf_events_post_meta( $post_item_id, $post_type ) {
 		$event_start_time = get_field( 'ftf_event_start_time', $post_item_id );
 		ob_start();
 		?>
-		<div class="ftf-post-meta">
-			<p class="ftf-event-meta">
-				<span class="ftf-event-type"><?php echo esc_html( $event_type ); ?></span>
-				<span class="ftf-event-date"><?php echo esc_html( $event_start_date ); ?> - <?php echo esc_html( $event_end_date ); ?></span>
-				<?php if ( $event_start_time ) : ?>
-					<span class="ftf-event-time"><?php echo esc_html( $event_start_time ); ?></span>
-				<?php endif; ?>
-			</p>
-		</div>		
+		<p class="ftf-event-meta">
+			<span class="ftf-event-type"><?php echo esc_html( $event_type ); ?></span>
+			<span class="ftf-event-date"><?php echo esc_html( $event_start_date ); ?> - <?php echo esc_html( $event_end_date ); ?></span>
+			<?php if ( $event_start_time ) : ?>
+				<span class="ftf-event-time"><?php echo esc_html( $event_start_time ); ?></span>
+			<?php endif; ?>
+		</p>
 		<?php
 		echo wp_kses_post( ob_get_clean() );
 	}
 }
-add_action( 'fivetwofive_theme_post_meta', 'ftf_events_post_meta', 10, 2 );
+add_action( 'fivetwofive_theme_after_post_meta', 'ftf_events_post_meta', 10, 2 );
 
 /**
  * Make the events archive full width.

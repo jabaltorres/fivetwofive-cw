@@ -187,27 +187,29 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 				?>
 				<div class="<?php echo esc_attr( implode( ' ', $column_width_classes ) ); ?> <?php echo esc_attr( $column_module_classes ); ?>">
-					<?php
-					if ( $column_image ) :
-						echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
-					endif;
-					?>
-					<?php if ( $column_title ) : ?>
-						<h3 class="column-title mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $column_title ); ?></h3>
-					<?php endif; ?>
-
-					<?php if ( $column_text ) : ?>
-						<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo $column_text; ?></div>
-					<?php endif; ?>
-
-					<?php
-					if ( $column_button ) :
-						$link_url    = $column_button['url'];
-						$link_title  = $column_button['title'];
-						$link_target = $column_button['target'] ? $column_button['target'] : '_self';
+					<div class="column__content-wrap">
+						<?php
+						if ( $column_image ) :
+							echo wp_get_attachment_image( $column_image, $image_dimension, false, array( 'class' => 'column-image mb-3 mb-md-4' ) );
+						endif;
 						?>
-						<a class="button column-button" role="button" href="<?php echo esc_url( $link_url ); ?>" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-					<?php endif; ?>
+						<?php if ( $column_title ) : ?>
+							<h3 class="column-title mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $column_title ); ?></h3>
+						<?php endif; ?>
+
+						<?php if ( $column_text ) : ?>
+							<div class="column-text mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo $column_text; ?></div>
+						<?php endif; ?>
+
+						<?php
+						if ( $column_button ) :
+							$link_url    = $column_button['url'];
+							$link_title  = $column_button['title'];
+							$link_target = $column_button['target'] ? $column_button['target'] : '_self';
+							?>
+							<a class="button column-button" role="button" href="<?php echo esc_url( $link_url ); ?>" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<?php endif; ?>
+					</div>
 				</div>
 			<?php endwhile; ?>
 		</div>
