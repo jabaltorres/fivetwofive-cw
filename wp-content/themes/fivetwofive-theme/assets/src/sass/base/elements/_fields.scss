@@ -13,21 +13,21 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
+select,
 textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
 	border-radius: 3px;
 	padding: rem(8px) rem(10px);
+  width: 100%;
+  height: rem(45px);
 
 	&:focus {
 		color: $color__text-input-focus;
 	}
 }
 
-select {
-	border: 1px solid $color__border-input;
-}
-
-textarea {
-	width: 100%;
+fieldset {
+  padding: 0;
+  border: initial;
 }

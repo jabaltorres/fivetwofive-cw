@@ -1,42 +1,42 @@
-( function( $ ) {
-	'use strict';
+"use strict";
 
-	const announcementModule = ( function() {
-		const makeSticky = function() {
-			if ( $( '.ftf-module-announcement' ).hasClass( 'js-is-sticky-yes' ) ) {
-				const height = $( '.ftf-module-announcement' ).outerHeight( true );
-				$( '.ftf-module-announcement' ).wrap( '<div class="sticky-announcement-spacer"></div>' );
-				$( '.sticky-announcement-spacer' ).css( {
-					height,
-				} );
-				$( 'body' ).prepend( $( '.sticky-announcement-spacer' ) );
-			}
-		};
+(function ($) {
+  'use strict';
 
-		const closeModule = function() {
-			$( '.ftf-module-announcement__close' ).on( 'click', function( e ) {
-				e.preventDefault();
-				$( this ).parent( '.ftf-module-announcement' ).slideUp( 400 );
+  var announcementModule = function () {
+    var makeSticky = function makeSticky() {
+      if ($('.ftf-module-announcement').hasClass('js-is-sticky-yes')) {
+        var height = $('.ftf-module-announcement').outerHeight(true);
+        $('.ftf-module-announcement').wrap('<div class="sticky-announcement-spacer"></div>');
+        $('.sticky-announcement-spacer').css({
+          height: height
+        });
+        $('body').prepend($('.sticky-announcement-spacer'));
+      }
+    };
 
-				if ( $( '.sticky-announcement-spacer' ).length ) {
-					$( '.sticky-announcement-spacer' ).slideUp( 400 );
-				}
-			} );
-		};
+    var closeModule = function closeModule() {
+      $('.ftf-module-announcement__close').on('click', function (e) {
+        e.preventDefault();
+        $(this).parent('.ftf-module-announcement').slideUp(400);
 
-		function init() {
-			makeSticky();
-			closeModule();
-		}
+        if ($('.sticky-announcement-spacer').length) {
+          $('.sticky-announcement-spacer').slideUp(400);
+        }
+      });
+    };
 
-		return {
-			init,
-		};
-	}() );
+    function init() {
+      makeSticky();
+      closeModule();
+    }
 
-	$( function() {
-		announcementModule.init();
-	} );
+    return {
+      init: init
+    };
+  }();
 
-// eslint-disable-next-line no-undef
-}( jQuery ) );
+  $(function () {
+    announcementModule.init();
+  }); // eslint-disable-next-line no-undef
+})(jQuery);

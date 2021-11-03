@@ -13,16 +13,21 @@ if ( ! $args['id'] ) {
 }
 
 $post_item_id = $args['id'];
+$image_size   = 'post-thumbnail';
+
+if ( array_key_exists( 'image_size', $args ) ) {
+	$image_size = $args['image_size'];
+}
 
 ?>
 
-<article id="card-<?php esc_attr( $post_item_id ); ?>" <?php post_class( 'card', $post_item_id ); ?>>
-	<div class="card__image-wrap mb-4">
-		<a class="card__image-link" href="<?php echo esc_url( get_the_permalink( $post_item_id ) ); ?>" aria-hidden="true" tabindex="-1">
+<article id="card-<?php echo esc_attr( $post_item_id ); ?>" <?php post_class( 'card', $post_item_id ); ?>>
+	<div class="card__top">
+		<a class="card__image-link" href="<?php echo esc_url( get_the_permalink( $post_item_id ) ); ?>">
 			<?php
 			echo get_the_post_thumbnail(
 				$post_item_id,
-				'large',
+				$image_size,
 				array(
 					'alt' => the_title_attribute(
 						array(
@@ -34,16 +39,23 @@ $post_item_id = $args['id'];
 				)
 			);
 			?>
-			<div class="card__image-overlay">
-				<button class="button card__image-link" aria-hidden="true" tabindex="-1"><?php echo esc_html__( 'Read More', 'fivetwofive-theme' ); ?></button>
-			</div>
 		</a>
 	</div>
-	<header class="card__header">
-		<h3 class="card__title"><a href="<?php echo esc_url( get_permalink( $post_item_id ) ); ?>"><?php echo esc_html( get_the_title( $post_item_id ) ); ?></a></h3>
-		<?php fivetwofive_theme_post_meta( $post_item_id ); ?>
-	</header><!-- .card-header -->
-	<div class="card__content">
-		<?php echo wp_kses_post( get_the_excerpt( $post_item_id ) ); ?>
+
+	<div class="card__bottom">
+		<header class="card__header m-0">
+			<?php fivetwofive_theme_post_meta( $post_item_id ); ?>
+			<h3 class="card__title mt-2"><a href="<?php echo esc_url( get_permalink( $post_item_id ) ); ?>"><?php echo esc_html( get_the_title( $post_item_id ) ); ?></a></h3>
+		</header><!-- .card-header -->
+
+		<?php if ( has_excerpt( $post_item_id ) ) : ?>
+			<div class="card__content mt-2">
+				<?php echo wp_kses_post( get_the_excerpt( $post_item_id ) ); ?>
+			</div>
+		<?php endif; ?>
+
+		<footer class="card__footer mt-4">
+			<a class="button card__button" href="<?php echo esc_url( get_the_permalink( $post_item_id ) ); ?>" aria-hidden="true" tabindex="-1"><?php echo esc_html__( 'Read More', 'fivetwofive-theme' ); ?></a>
+		</footer>
 	</div>
 </article><!-- #card-<?php echo esc_html( $post_item_id ); ?> -->

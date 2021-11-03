@@ -74,8 +74,8 @@ function ftf_register_resource_cpt() {
 		'public'              => true,
 		'publicly_queryable'  => true,
 		'show_ui'             => true,
-		'show_in_rest'        => false,
-		'rest_base'           => '',
+		'show_in_rest'        => true,
+		'rest_base'           => 'ftf-resources',
 		'has_archive'         => false,
 		'show_in_menu'        => true,
 		'menu_position'       => 5,
@@ -90,7 +90,7 @@ function ftf_register_resource_cpt() {
 			'with_front' => false,
 		),
 		'query_var'           => true,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 	);
 
 	register_post_type( 'ftf_resource', $args );
@@ -118,6 +118,8 @@ function ftf_register_resource_cpt() {
 		'show_ui'           => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
+		'show_in_rest'      => true,
+		'rest_base'         => 'ftf-resource-types',
 		'rewrite'           => array(
 			'slug'       => 'type',
 			'with_front' => false,
@@ -154,3 +156,39 @@ function ftf_unregister_resource_custom_post_type() {
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'ftf_unregister_resource_custom_post_type' );
+
+/**
+ * Add resource item thumbnail.
+ */
+function ftf_resource_image_size() {
+	add_image_size( 'ftf-resource-thumb', 415, 245, true );
+}
+add_action( 'after_setup_theme', 'ftf_resource_image_size' );
+
+/**
+ * Add resource post meta in fivetwofive theme.
+ *
+ * @param int    $post_item_id post item id.
+ * @param string $post_type post type.
+ * @return void
+ */
+function ftf_resource_post_meta( $post_item_id, $post_type ) {
+	if ( 'ftf_resource' === $post_type ) {
+		ob_start();
+		fivetwofive_theme_posted_on( $post_item_id );
+		echo ob_get_clean();
+	}
+}
+add_action( 'fivetwofive_theme_after_post_meta', 'ftf_resource_post_meta', 10, 2 );
+
+/**
+ * Add ftf_resource post type to have formatted date field in rest API.
+ *
+ * @param array $post_array post array.
+ * @return array $post_array post array.
+ */
+function ftf_resource_rest_api_formatted_date_field( $post_array ) {
+	$post_array[] = 'ftf_resource';
+	return $post_array;
+}
+add_filter( 'fivetwofive_rest_api_formatted_date', 'ftf_resource_rest_api_formatted_date_field' );

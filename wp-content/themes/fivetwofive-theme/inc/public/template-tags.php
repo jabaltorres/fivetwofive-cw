@@ -33,7 +33,7 @@ if ( ! function_exists( 'fivetwofive_theme_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'fivetwofive-theme' ),
+			esc_html_x( '%s', 'post date', 'fivetwofive-theme' ),
 			'<a href="' . esc_url( get_permalink( $post_item_id ) ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -190,14 +190,18 @@ if ( ! function_exists( 'fivetwofive_theme_post_meta' ) ) :
 
 		ob_start();
 
+		echo '<div class="ftf-post-meta entry-meta">';
+
+		do_action( 'fivetwofive_theme_before_post_meta', $post_item_id, $post_type );
+
 		if ( 'post' === $post_type ) {
-			echo '<div class="ftf-post-meta entry-meta">';
 			fivetwofive_theme_posted_on( $post_item_id );
 			fivetwofive_theme_posted_by( get_post_field( 'post_author', $post_item_id ) );
-			echo '</div>';
 		}
 
-		do_action( 'fivetwofive_theme_post_meta', $post_item_id, $post_type );
+		do_action( 'fivetwofive_theme_after_post_meta', $post_item_id, $post_type );
+
+		echo '</div>';
 
 		if ( ! $output ) {
 			return ob_get_clean();

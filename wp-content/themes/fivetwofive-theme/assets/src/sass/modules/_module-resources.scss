@@ -1,0 +1,49 @@
+.ftf-module-resources {
+  &.text-md-center  {
+    .ftf-form {
+      margin: 0 auto;
+    }
+  }
+
+  &.text-md-end {
+    .ftf-form {
+      margin-left: auto;
+    }
+  }
+
+  .ftf-form {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .ftf-fieldset {
+      width: 100%;
+      margin-bottom: rem(15px);
+      &:last-child {
+        width: auto;
+      }
+
+      &:not(:first-child) {
+        padding-left: rem(20px);
+      }
+    }
+
+    .ftf-button {
+      font-size: rem(16px);
+      min-height: rem(45px);
+      min-width: rem(150px);
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .ftf-module-resources {
+    .ftf-form {
+      flex-direction: row;
+      .ftf-fieldset {
+        margin: 0;
+      }
+    }
+  }
+}
