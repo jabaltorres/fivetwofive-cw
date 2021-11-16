@@ -12,7 +12,8 @@ $module_title         = get_sub_field( 'title' );
 $module_subtitle      = get_sub_field( 'subtitle' );
 $module_description   = get_sub_field( 'description' );
 $module_button        = get_sub_field( 'button' );
-$column_count         = count( get_sub_field( 'columns' ) );
+//$column_count         = count( get_sub_field( 'columns' ) );
+$column_count         = count( ( is_countable(get_sub_field( 'columns' ) ) ? get_sub_field( 'columns' ) :[] ) );
 $default_column_width = '';
 
 switch ( $column_count ) {
