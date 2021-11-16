@@ -31,7 +31,7 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 	<header id="masthead" class="site-header">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="site-branding col-6 col-md-3">
+				<div class="site-branding col-12 col-md-3">
 					<div class="site-branding__logo">
 						<?php the_custom_logo(); ?>
 					</div>
@@ -58,8 +58,8 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 					<?php endif; ?>
 				</div><!-- .site-branding -->
 				<?php if ( has_nav_menu( 'primary_menu' ) ) : ?>
-					<nav id="site-navigation" class="main-navigation col-6 col-md-9">
-						<button class="menu-toggle hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+					<nav id="site-navigation" class="main-navigation col-12 col-md-9">
+						<button class="menu-toggle hamburger hamburger--slider d-none" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
 							<span class="menu-toggle__text screen-reader-text"><?php esc_html_e( 'Menu', 'fivetwofive' ); ?></span>
 							<span class="hamburger-box">
 								<span class="hamburger-inner"></span>

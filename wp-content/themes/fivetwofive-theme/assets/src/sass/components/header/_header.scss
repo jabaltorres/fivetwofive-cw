@@ -3,6 +3,31 @@
     position: relative;
 }
 
+.custom-logo-link{
+    position: relative;
+    z-index: 100;
+}
+
+#site-navigation{
+    //border: solid thin red;
+    margin-top: -49px;
+}
+
+ul#mega-menu-primary_menu{
+    //border: solid thin red !important;
+    margin-top: 10px !important;
+}
+
+
+@media only screen and (min-width: 753px) {
+    #site-navigation{
+        margin-top: 0;
+    }
+    ul#mega-menu-primary_menu{
+        margin-top: 0 !important;
+    }
+}
+
 @media only screen and (min-width: 992px) {
     .site-header {
         padding: 1.5625rem 0;
