@@ -1,0 +1,55 @@
+.fivetwofive-spinner {
+  display: inline-block;
+  position: relative;
+  width: 5em;
+  height: 5em;
+  font-size: rem(16px);
+
+  div {
+    position: absolute;
+    border: 4px solid #444444;
+    opacity: 1;
+    border-radius: 50%;
+    -webkit-animation: fivetwofive-spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+            animation: fivetwofive-spinner 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+
+  div:nth-child(2) {
+    -webkit-animation-delay: -0.5s;
+            animation-delay: -0.5s;
+  }
+}
+
+@-webkit-keyframes fivetwofive-spinner {
+  0% {
+    top: 2.25em;
+    left: 2.25em;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 4.5em;
+    height: 4.5em;
+    opacity: 0;
+  }
+}
+
+@keyframes fivetwofive-spinner {
+  0% {
+    top: 2.25em;
+    left: 2.25em;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 4.5em;
+    height: 4.5em;
+    opacity: 0;
+  }
+}

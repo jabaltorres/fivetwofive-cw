@@ -8,14 +8,14 @@
  * @package FiveTwoFive_Theme
  */
 
-if ( ! $args['id'] ) {
+if ( ! array_key_exists( 'id', $args ) && ! isset( $args['id'] ) ) {
 	return;
 }
 
 $post_item_id = $args['id'];
 $image_size   = 'post-thumbnail';
 
-if ( array_key_exists( 'image_size', $args ) ) {
+if ( array_key_exists( 'image_size', $args ) && isset( $args['image_size'] ) ) {
 	$image_size = $args['image_size'];
 }
 

@@ -35,6 +35,12 @@
       min-width: rem(150px);
     }
   }
+
+  .ftf-resources-wrap {
+    .fivetwofive-spinner {
+      margin: 0 auto;
+    }
+  }
 }
 
 @media screen and (min-width: 769px) {

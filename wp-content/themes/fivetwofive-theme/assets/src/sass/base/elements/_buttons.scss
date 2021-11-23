@@ -18,4 +18,9 @@ input[type="submit"] {
 		display: block;
 		text-align: center;
 	}
+
+  &--lg {
+    padding: rem(10px) rem(30px);
+    font-size: rem(16px);
+  }
 }

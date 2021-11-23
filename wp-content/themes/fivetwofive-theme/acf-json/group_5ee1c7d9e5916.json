@@ -3,76 +3,6 @@
     "title": "Resource fields",
     "fields": [
         {
-            "key": "field_61678b7423973",
-            "label": "Source",
-            "name": "ftf_resource_source",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "File Attachment",
-            "ui_off_text": "URL"
-        },
-        {
-            "key": "field_5ee3d680a65ac",
-            "label": "File attachment",
-            "name": "ftf_resource_file_attachment",
-            "type": "file",
-            "instructions": "Upload a file here",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_61678b7423973",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_61678be823974",
-            "label": "URL",
-            "name": "ftf_resource_url",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_61678b7423973",
-                        "operator": "!=",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_6181f63db1060",
             "label": "Type",
             "name": "ftf_resource_type",
@@ -87,8 +17,7 @@
             },
             "choices": {
                 "file": "File",
-                "video": "Video",
-                "image": "Image"
+                "video": "Video"
             },
             "default_value": false,
             "allow_null": 0,
@@ -99,11 +28,35 @@
             "placeholder": ""
         },
         {
-            "key": "field_6181f6d2b1062",
-            "label": "Preview",
-            "name": "ftf_resource_preview",
-            "type": "image",
-            "instructions": "Image preview of the resource",
+            "key": "field_619c39dc6af47",
+            "label": "Video",
+            "name": "ftf_resource_video",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6181f63db1060",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
+            "key": "field_5ee3d680a65ac",
+            "label": "File attachment",
+            "name": "ftf_resource_file_attachment",
+            "type": "file",
+            "instructions": "Upload a file here",
             "required": 0,
             "conditional_logic": [
                 [
@@ -112,12 +65,32 @@
                         "operator": "==",
                         "value": "file"
                     }
-                ],
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_619c809ad5b54",
+            "label": "File attachment preview",
+            "name": "ftf_resource_file_attachment_preview",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
                 [
                     {
                         "field": "field_6181f63db1060",
                         "operator": "==",
-                        "value": "video"
+                        "value": "file"
                     }
                 ]
             ],
@@ -138,10 +111,10 @@
             "mime_types": ""
         },
         {
-            "key": "field_6181f446402c6",
-            "label": "Author",
-            "name": "ftf_resource_author",
-            "type": "group",
+            "key": "field_619c8ecf53b17",
+            "label": "Creative",
+            "name": "ftf_resource_creative",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -150,87 +123,19 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_6181f49e402c8",
-                    "label": "Avatar",
-                    "name": "avatar",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "medium",
-                    "library": "all",
-                    "min_width": 0,
-                    "min_height": 0,
-                    "min_size": 0,
-                    "max_width": 0,
-                    "max_height": 0,
-                    "max_size": 0,
-                    "mime_types": ""
-                },
-                {
-                    "key": "field_6181f487402c7",
-                    "label": "Name",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_6181f4b4402c9",
-                    "label": "Link",
-                    "name": "link",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_6181f4cf402ca",
-                    "label": "Bio",
-                    "name": "bio",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
-                }
-            ]
+            "post_type": [
+                "ftf_creative"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": 1,
+            "return_format": "id"
         }
     ],
     "location": [
@@ -250,5 +155,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635920709
+    "modified": 1637650552
 }

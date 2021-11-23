@@ -6067,10 +6067,10 @@
                         },
                         {
                             "key": "field_61677238d958e",
-                            "label": "Type",
-                            "name": "resources_type",
+                            "label": "Categories",
+                            "name": "resources_categories",
                             "type": "taxonomy",
-                            "instructions": "Filter resources by type or select none to show all",
+                            "instructions": "Filter resources by category or select none to show all",
                             "required": 0,
                             "conditional_logic": [
                                 [
@@ -6086,7 +6086,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "taxonomy": "ftf_resource_type",
+                            "taxonomy": "ftf_resource_category",
                             "field_type": "checkbox",
                             "add_term": 0,
                             "save_terms": 0,
@@ -6504,5 +6504,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1635995037
+    "modified": 1637631105
 }

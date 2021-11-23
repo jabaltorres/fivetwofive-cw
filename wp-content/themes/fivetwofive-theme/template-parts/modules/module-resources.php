@@ -9,21 +9,21 @@
 
 wp_enqueue_script( 'fivetwofive-theme-module-resources' );
 
-$module_title          = get_sub_field( 'title' );
-$module_subtitle       = get_sub_field( 'subtitle' );
-$module_description    = get_sub_field( 'description' );
-$background_toggle     = get_sub_field( 'background_toggle' );
-$background_color      = get_sub_field( 'background_color' );
-$background_image      = get_sub_field( 'background_image' );
-$module_text_color     = get_sub_field( 'text_color' );
-$module_text_alignment = get_sub_field( 'text_alignment' );
-$module_id             = uniqid( 'ftf-module-resources' );
-$module_resources      = get_sub_field( 'resources' );
-$module_resources_type = get_sub_field( 'resources_type' );
-$module_item_per_page  = get_sub_field( 'item_per_page' );
-$module_classes        = '';
-$module_styles         = '';
-$inline_text_color     = '';
+$module_title                = get_sub_field( 'title' );
+$module_subtitle             = get_sub_field( 'subtitle' );
+$module_description          = get_sub_field( 'description' );
+$background_toggle           = get_sub_field( 'background_toggle' );
+$background_color            = get_sub_field( 'background_color' );
+$background_image            = get_sub_field( 'background_image' );
+$module_text_color           = get_sub_field( 'text_color' );
+$module_text_alignment       = get_sub_field( 'text_alignment' );
+$module_id                   = uniqid( 'ftf-module-resources' );
+$module_resources            = get_sub_field( 'resources' );
+$module_resources_categories = get_sub_field( 'resources_categories' );
+$module_item_per_page        = get_sub_field( 'item_per_page' );
+$module_classes              = '';
+$module_styles               = '';
+$inline_text_color           = '';
 
 // Animations.
 $module_animation_desktop  = get_sub_field( 'animation_desktop' );
@@ -99,20 +99,21 @@ if ( $module_item_per_page ) {
 $resource_query_args = array(
 	'post_type'      => 'ftf_resource',
 	'posts_per_page' => $posts_per_page,
+	'paged'          => get_query_var( 'paged', 1 ),
 );
 
-if ( $module_resources_type ) {
+if ( $module_resources_categories ) {
 	$resource_query_args['tax_query'] = array(
 		array(
-			'taxonomy' => 'ftf_resource_type',
+			'taxonomy' => 'ftf_resource_category',
 			'field'    => 'term_id',
-			'terms'    => $module_resources_type,
+			'terms'    => $module_resources_categories,
 		),
 	);
 }
 
 $resources_query  = new WP_Query( $resource_query_args );
-$resource_counter = 0;
+$pagination_links = fivetwofive_get_paginated_links( $resources_query );
 
 ?>
 
@@ -139,17 +140,19 @@ $resource_counter = 0;
 						<input type="search" class="ftf-input ftf-input--search" name="ftf-search-resource" placeholder="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>" aria-label="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>">
 					</fieldset>
 
-					<?php if ( ! $module_resources_type ) : ?>
+					<?php if ( $module_resources_categories ) : ?>
+						<input type="hidden" name="ftf-category-resource" value="<?php echo esc_attr( implode( ',', $module_resources_categories ) ); ?>">
+					<?php else : ?>
 						<fieldset class="ftf-fieldset">
 							<?php
 							wp_dropdown_categories(
 								array(
-									'show_option_all' => __( 'All Types', 'fivetwofive-theme' ),
+									'show_option_all' => __( 'All Categories', 'fivetwofive-theme' ),
 									'orderby'         => 'name',
 									'class'           => 'ftf-select',
-									'name'            => 'ftf-type-resource',
+									'name'            => 'ftf-category-resource',
 									'value_field'     => 'term_id',
-									'taxonomy'        => 'ftf_resource_type',
+									'taxonomy'        => 'ftf_resource_category',
 								)
 							);
 							?>
@@ -189,16 +192,35 @@ $resource_counter = 0;
 
 					<?php
 				endwhile;
-				wp_reset_postdata();
 				?>
 
 			</div>
 
-			<div class="ftf-module__pagination-container"></div>
+			<div class="ftf-module__pagination-container">
+				<?php if ( count( $pagination_links ) > 1 ) : ?>
+				<nav class="navigation pagination" role="navigation" aria-label="<?php echo esc_attr__( 'Resources', 'fivetwofive-theme' ); ?>">
+					<h2 class="screen-reader-text"><?php echo esc_html__( 'Resources navigation', 'fivetwofive-theme' ); ?></h2>
+					<div class="nav-links">
+						<?php
+						foreach ( $pagination_links as $pagination_link ) :
+							if ( $pagination_link->is_current ) {
+								echo sprintf( '<span aria-current="page" class="page-numbers current">%1$s</span>', esc_attr( $pagination_link->page ) );
+							} else {
+								echo sprintf( '<a class="page-numbers" data-page="%1$s" href="#">%1$s</a>', esc_attr( $pagination_link->page ) );
+							}
+						endforeach;
+						?>
+					</div>
+				</nav>
+				<?php endif; ?>
+			</div>
 
-		<?php else : ?>
+			<?php
+			wp_reset_postdata();
+		else :
+			?>
 
-			<p><?php _e( 'Sorry, no resources matched your criteria.' ); ?></p>
+			<p><?php echo esc_html__( 'Sorry, no resources matched your criteria.', 'fivetwofive-theme' ); ?></p>
 
 		<?php endif; ?>
 	</div>
