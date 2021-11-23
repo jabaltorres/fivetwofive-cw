@@ -1,0 +1,23 @@
+.ftf-avatar {
+  display: flex;
+  align-items: center;
+
+  &__image {
+    border-radius: 50%;
+    display: block;
+
+    &-col {
+      margin-right: rem(20px)
+    }
+  }
+
+  &__text {
+    font-size: rem(14px);
+    margin-bottom: rem(5px);
+  }
+
+  &__name {
+    font-size: rem(18px);
+    margin: 0;
+  }
+}

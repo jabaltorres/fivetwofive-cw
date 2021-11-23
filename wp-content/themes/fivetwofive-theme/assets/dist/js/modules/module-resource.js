@@ -28,8 +28,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     _createClass(resourceModule, [{
       key: "init",
       value: function init() {
-        this.fetchResources();
         this.formInit();
+        this.paginationInit();
       }
     }, {
       key: "animateResources",
@@ -44,30 +44,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.module.querySelector('.ftf-form').addEventListener('submit', function (event) {
           event.preventDefault();
 
-          _this.fetchResources();
+          _this.fetchResources(1);
         });
       }
     }, {
       key: "fetchResources",
-      value: function fetchResources() {
-        var _this2 = this;
+      value: function fetchResources(page) {
+        var _this$module$querySel,
+            _this$module$querySel2,
+            _this2 = this;
 
         var requestURL = new URL(FTF.restBase);
         requestURL.searchParams.append('_fields', 'id,date_gmt,ftf_formatted_date,title,link,_links,_embedded');
         requestURL.searchParams.append('per_page', this.itemPerPage);
-        requestURL.searchParams.append('page', this.module.dataset.currentPage);
+        requestURL.searchParams.append('page', page);
         requestURL.searchParams.append('_embed', 'wp:featuredmedia');
         var search = this.module.querySelector('[name="ftf-search-resource"]').value;
-        var type = this.module.querySelector('[name="ftf-type-resource"]').value;
+        var category = (_this$module$querySel = (_this$module$querySel2 = this.module.querySelector('[name="ftf-category-resource"]')) === null || _this$module$querySel2 === void 0 ? void 0 : _this$module$querySel2.value) !== null && _this$module$querySel !== void 0 ? _this$module$querySel : null;
 
         if (search) {
           requestURL.searchParams.append('search', search);
         }
 
-        if (type && type !== '0') {
-          requestURL.searchParams.append('ftf-resource-types', type);
+        if (category && category !== '0') {
+          requestURL.searchParams.append('ftf-resource-categories', category);
         }
 
+        this.isLoading();
         $.ajax({
           url: requestURL.href
         }).done(function (data, textStatus, request) {
@@ -76,6 +79,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             _this2.generatePagination(request.getResponseHeader('X-WP-TotalPages'));
           }
+        }).always(function () {
+          _this2.isComplete();
         });
       }
     }, {
@@ -98,7 +103,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (resource) {
           var _resource$_embedded, _resource$_embedded$w, _resource$_embedded$w2, _resource$_embedded$w3, _resource$_embedded$w4, _resource$_embedded$w5;
 
-          resourceHTML = "\n          <div class=\"col-md-4 mb-3 mb-md-5\">\n            <article id=\"card-".concat(resource.id, "\" class=\"card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry ftf_resource_type-uncategorized\">");
+          resourceHTML = "\n          <div class=\"col-md-4 mb-3 mb-md-5\">\n            <article id=\"card-".concat(resource.id, "\" class=\"card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry load-hidden\">");
 
           if ((_resource$_embedded = resource._embedded) !== null && _resource$_embedded !== void 0 && (_resource$_embedded$w = _resource$_embedded['wp:featuredmedia']) !== null && _resource$_embedded$w !== void 0 && (_resource$_embedded$w2 = _resource$_embedded$w[0]) !== null && _resource$_embedded$w2 !== void 0 && (_resource$_embedded$w3 = _resource$_embedded$w2.media_details) !== null && _resource$_embedded$w3 !== void 0 && (_resource$_embedded$w4 = _resource$_embedded$w3.sizes) !== null && _resource$_embedded$w4 !== void 0 && (_resource$_embedded$w5 = _resource$_embedded$w4['ftf-resource-thumb']) !== null && _resource$_embedded$w5 !== void 0 && _resource$_embedded$w5.source_url) {
             resourceHTML += "\n            <div class=\"card__top\">\n              <a class=\"card__image-link\" href=\"".concat(resource.link, "\" aria-hidden=\"true\" tabindex=\"-1\">\n                <img width=\"415\" height=\"245\" src=\"").concat(resource._embedded['wp:featuredmedia'][0].media_details.sizes['ftf-resource-thumb'].source_url, "\" class=\"card__image img-responsive wp-post-image\" alt=\"").concat(resource.title.rendered, "\" loading=\"lazy\">\n              </a>\n            </div>");
@@ -112,8 +117,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       key: "generatePagination",
       value: function generatePagination(totalPages) {
-        var _this4 = this;
-
         this.paginationContainer.innerHTML = '';
 
         if (totalPages <= 1) {
@@ -124,14 +127,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         var paginationNav = this.setupPaginationNav();
         paginationNav.querySelector('.nav-links').innerHTML = this.generatePaginationLinks(currentPage, totalPages);
         this.paginationContainer.insertAdjacentElement('beforeend', paginationNav);
-        this.module.querySelectorAll('.page-numbers').forEach(function (link) {
-          link.addEventListener('click', function (event) {
-            event.preventDefault();
-            _this4.module.dataset.currentPage = Number.parseInt(event.currentTarget.dataset.page, 10);
-
-            _this4.fetchResources();
-          });
-        });
+        this.paginationInit();
       }
     }, {
       key: "setupPaginationNav",
@@ -166,6 +162,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
 
         return paginationLinks;
+      }
+    }, {
+      key: "paginationInit",
+      value: function paginationInit() {
+        var _this4 = this;
+
+        this.module.querySelectorAll('.page-numbers').forEach(function (link) {
+          link.addEventListener('click', function (event) {
+            event.preventDefault();
+            var currentPage = Number.parseInt(event.currentTarget.dataset.page, 10);
+            _this4.module.dataset.currentPage = currentPage;
+
+            _this4.fetchResources(currentPage);
+          });
+        });
+      }
+    }, {
+      key: "generateSpinner",
+      value: function generateSpinner() {
+        return "<div class=\"fivetwofive-spinner\"><div></div><div></div></div>";
+      }
+    }, {
+      key: "isLoading",
+      value: function isLoading() {
+        var resourcesWrap = this.module.querySelector('.ftf-resources-wrap');
+        this.module.querySelector('input[type="submit"]').setAttribute('disabled', 'disabled');
+        resourcesWrap.innerHTML = this.generateSpinner();
+      }
+    }, {
+      key: "isComplete",
+      value: function isComplete() {
+        this.module.querySelector('input[type="submit"]').removeAttribute('disabled');
       }
     }]);
 

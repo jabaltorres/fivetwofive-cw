@@ -9,6 +9,7 @@
 	- Elements
 	- Links
 	- Forms
+# Vendors
 # Layouts
 # Components
 	- Navigation
@@ -21,6 +22,7 @@
 # Utilities
 	- Accessibility
 	- Alignments
+  - Backgrounds
 
 --------------------------------------------------------------*/
 
@@ -45,9 +47,14 @@
 @import "base/base";
 
 /*--------------------------------------------------------------
+# Vendors
+--------------------------------------------------------------*/
+@import "vendors/bootstrap";
+@import "vendors/scroll-reveal";
+
+/*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-@import "vendor/bootstrap";
 @import "layouts/page-layout";
 
 /*--------------------------------------------------------------
@@ -66,3 +73,7 @@
 /* Alignments
 --------------------------------------------- */
 @import "utilities/alignments";
+
+/* Backgrounds
+--------------------------------------------- */
+@import "utilities/backgrounds";

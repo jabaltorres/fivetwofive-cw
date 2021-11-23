@@ -16,8 +16,8 @@
 		}
 
 		init() {
-			this.fetchResources();
 			this.formInit();
+			this.paginationInit();
 		}
 
 		animateResources() {
@@ -27,34 +27,37 @@
 		formInit() {
 			this.module.querySelector( '.ftf-form' ).addEventListener( 'submit', ( event ) => {
 				event.preventDefault();
-				this.fetchResources();
+				this.fetchResources( 1 );
 			} );
 		}
 
-		fetchResources() {
+		fetchResources( page ) {
 			const requestURL = new URL( FTF.restBase );
 			requestURL.searchParams.append( '_fields', 'id,date_gmt,ftf_formatted_date,title,link,_links,_embedded' );
 			requestURL.searchParams.append( 'per_page', this.itemPerPage );
-			requestURL.searchParams.append( 'page', this.module.dataset.currentPage );
+			requestURL.searchParams.append( 'page', page );
 			requestURL.searchParams.append( '_embed', 'wp:featuredmedia' );
 
 			const search = this.module.querySelector( '[name="ftf-search-resource"]' ).value;
-			const type = this.module.querySelector( '[name="ftf-type-resource"]' ).value;
+			const category = this.module.querySelector( '[name="ftf-category-resource"]' )?.value ?? null;
 
 			if ( search ) {
 				requestURL.searchParams.append( 'search', search );
 			}
 
-			if ( type && type !== '0' ) {
-				requestURL.searchParams.append( 'ftf-resource-types', type );
+			if ( category && category !== '0' ) {
+				requestURL.searchParams.append( 'ftf-resource-categories', category );
 			}
 
+			this.isLoading();
 			$.ajax( { url: requestURL.href } )
 				.done( ( data, textStatus, request ) => {
 					if ( 'success' === textStatus ) {
 						this.updateResources( data );
 						this.generatePagination( request.getResponseHeader( 'X-WP-TotalPages' ) );
 					}
+				} ).always( () => {
+					this.isComplete();
 				} );
 		}
 
@@ -75,7 +78,7 @@
 			if ( resource ) {
 				resourceHTML = `
           <div class="col-md-4 mb-3 mb-md-5">
-            <article id="card-${ resource.id }" class="card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry ftf_resource_type-uncategorized">`;
+            <article id="card-${ resource.id }" class="card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry load-hidden">`;
 
 				if ( resource._embedded?.[ 'wp:featuredmedia' ]?.[ 0 ]?.media_details?.sizes?.[ 'ftf-resource-thumb' ]?.source_url ) {
 					resourceHTML += `
@@ -117,13 +120,7 @@
 
 			this.paginationContainer.insertAdjacentElement( 'beforeend', paginationNav );
 
-			this.module.querySelectorAll( '.page-numbers' ).forEach( ( link ) => {
-				link.addEventListener( 'click', ( event ) => {
-					event.preventDefault();
-					this.module.dataset.currentPage = Number.parseInt( event.currentTarget.dataset.page, 10 );
-					this.fetchResources();
-				} );
-			} );
+			this.paginationInit();
 		}
 
 		setupPaginationNav() {
@@ -157,6 +154,32 @@
 				}
 			}
 			return paginationLinks;
+		}
+
+		paginationInit() {
+			this.module.querySelectorAll( '.page-numbers' ).forEach( ( link ) => {
+				link.addEventListener( 'click', ( event ) => {
+					event.preventDefault();
+					const currentPage = Number.parseInt( event.currentTarget.dataset.page, 10 );
+					this.module.dataset.currentPage = currentPage;
+					this.fetchResources( currentPage );
+				} );
+			} );
+		}
+
+		generateSpinner() {
+			return `<div class="fivetwofive-spinner"><div></div><div></div></div>`;
+		}
+
+		isLoading() {
+			const resourcesWrap = this.module.querySelector( '.ftf-resources-wrap' );
+
+			this.module.querySelector( 'input[type="submit"]' ).setAttribute( 'disabled', 'disabled' );
+			resourcesWrap.innerHTML = this.generateSpinner();
+		}
+
+		isComplete() {
+			this.module.querySelector( 'input[type="submit"]' ).removeAttribute( 'disabled' );
 		}
 	}
 
