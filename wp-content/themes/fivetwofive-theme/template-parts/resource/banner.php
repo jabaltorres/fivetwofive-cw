@@ -29,7 +29,7 @@ $creative = get_field( 'ftf_resource_creative' );
 				<?php endif; ?>
 				<div class="ftf-avatar__details-col">
 					<p class="ftf-avatar__text"><?php echo esc_html__( 'Author', 'fivetwofive-theme' ); ?></p>
-					<h2 class="ftf-avatar__name"><?php echo esc_html( $creative_name ); ?></h2>
+					<h2 class="ftf-avatar__name"><a href="<?php echo esc_url( $creative_link ); ?>" target="_blank"><?php echo esc_html( $creative_name ); ?></a></h2>
 				</div>
 			</div>
 
