@@ -1,6 +1,5 @@
 const { src, dest, watch, series } = require('gulp'),
-    sass                           = require('gulp-sass'),
-    Fiber                          = require('fibers'),
+    sass                           = require('gulp-sass')(require('sass')),
     postcss                        = require('gulp-postcss'),
     autoprefixer                   = require('autoprefixer'),
     cssnano                        = require('cssnano'),
@@ -8,14 +7,11 @@ const { src, dest, watch, series } = require('gulp'),
     eslint                         = require('gulp-eslint'),
     rename                         = require('gulp-rename'),
     uglify                         = require('gulp-uglify'),
-    concat                         = require('gulp-concat'),
     config                         = require('./gulpfile-config');
     imagemin                       = require('gulp-imagemin'),
     log                            = require('fancy-log'),
     babel                          = require('gulp-babel'),
-    browserSync                    = require("browser-sync").create();
-
-sass.compiler = require('sass');
+    browserSync                    = require('browser-sync').create();
 
 const paths = {
   styles: {
@@ -40,8 +36,7 @@ const paths = {
  */
  const styles = () => src(paths.styles.src)
   .pipe(sourcemaps.init())
-  .pipe(sass({fiber: Fiber})
-  .on('error', sass.logError))
+  .pipe(sass().on('error', sass.logError))
   .pipe(postcss([autoprefixer(), cssnano()]))
   .pipe(sourcemaps.write(paths.styles.maps))
   .pipe(dest(paths.styles.dest))
@@ -68,7 +63,7 @@ const lint = () => src(paths.scripts.src)
 
 /**
  * @task scripts
- * Concatenate, minify, and send scripts
+ * minify, and send scripts
  * `scripts` depends on `lint`
  */
 const scripts = () => src(paths.scripts.src)
