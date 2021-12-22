@@ -8,6 +8,7 @@
 # based on https://gist.github.com/jdbartlett/444295
 /*
 !.gitignore
+!robots.txt
 !wp-content
 
 wp-content/*
