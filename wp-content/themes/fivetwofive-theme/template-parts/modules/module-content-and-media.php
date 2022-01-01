@@ -25,7 +25,7 @@ $module_media_type         = get_sub_field( 'image_or_video' );
 $media_alignment           = '';
 
 if ( $module_media_alignment && ( 'right' === $module_media_alignment ) ) {
-	$media_alignment = 'order-last';
+	$media_alignment = 'order-md-last';
 }
 
 // Styles.
