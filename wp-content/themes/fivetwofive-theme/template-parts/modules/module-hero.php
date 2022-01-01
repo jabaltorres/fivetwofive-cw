@@ -115,7 +115,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 <section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-hero <?php echo ( $video ) ? 'with-video' : 'without-video'; ?> <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>">
 	<div class="container">
-		<div class="row">
+		<div class="row align-items-center">
 
 			<?php if ( $video ) : ?>
 				<div class="col-12 col-md-5 mb-2 mb-md-0 order-md-2">
@@ -145,7 +145,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php endif; ?>
 
 				<?php if ( $module_content ) : ?>
-					<div class="ftf-module__content mb-3 mb-md-4" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_content, fivetwofive_kses_extended_ruleset() ); ?></div>
+					<div class="ftf-module__content" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_content, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 
 				<?php
