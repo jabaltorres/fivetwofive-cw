@@ -110,7 +110,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					<?php
 					if ( $module_media_type ) {
 						if ( $module_image ) {
-							$image = wp_get_attachment_image( $module_image, 'full', false, array( 'class' => 'ftf-module-content-and-media__media-image' ) );
+							$image = wp_get_attachment_image( $module_image, 'full', false, array( 'class' => 'ftf-module-content-and-media__media-image mx-auto d-block' ) );
 
 							if ( $module_media_modal ) {
 								$image = sprintf( '<a href="%2$s" data-fancybox class="ftf-module-content-and-media__media-image-link">%1$s</a>', $image, esc_url( wp_get_attachment_image_url( $module_image, 'full' ) ) );
