@@ -21,6 +21,11 @@ $inline_text_color     = '';
 $module_id             = uniqid( 'ftf-module-works' );
 $module_works          = get_sub_field( 'works' );
 $module_display        = get_sub_field( 'display' );
+$module_id_field       = get_sub_field( 'module_id' );
+
+if ( $module_id_field ) {
+	$module_id = $module_id_field;
+}
 
 // Animations.
 $module_animation_desktop  = get_sub_field( 'animation_desktop' );

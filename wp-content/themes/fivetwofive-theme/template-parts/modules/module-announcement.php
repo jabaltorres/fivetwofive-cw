@@ -51,6 +51,11 @@ $module_animation_duration = get_sub_field( 'animation_duration' );
 $module_animation_opacity  = get_sub_field( 'animation_opacity' );
 $module_animation_origin   = get_sub_field( 'animation_origin' );
 $module_animation_scale    = get_sub_field( 'animation_scale' );
+$module_id_field           = get_sub_field( 'module_id' );
+
+if ( $module_id_field ) {
+	$module_id = $module_id_field;
+}
 
 $module_animation_options = array(
 	'reset'   => $module_animation_reset,
