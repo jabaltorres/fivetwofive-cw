@@ -24,6 +24,11 @@ $module_events_limit   = get_sub_field( 'events_limit' );
 $module_classes        = '';
 $module_styles         = '';
 $inline_text_color     = '';
+$module_id_field       = get_sub_field( 'module_id' );
+
+if ( $module_id_field ) {
+	$module_id = $module_id_field;
+}
 
 // Animations.
 $module_animation_desktop  = get_sub_field( 'animation_desktop' );

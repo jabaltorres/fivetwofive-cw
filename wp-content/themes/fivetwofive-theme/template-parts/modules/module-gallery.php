@@ -24,6 +24,11 @@ $module_classes        = '';
 $module_styles         = '';
 $inline_text_color     = '';
 $module_id             = uniqid( 'ftf-module', true );
+$module_id_field       = get_sub_field( 'module_id' );
+
+if ( $module_id_field ) {
+	$module_id = $module_id_field;
+}
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
