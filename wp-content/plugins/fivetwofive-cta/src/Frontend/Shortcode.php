@@ -59,7 +59,7 @@ class Shortcode {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_register_style( $this->plugin_name, plugins_url( 'resources/assets/styles/fivetwofive-cta.css', FTF_CTA_PLUGIN_FILE ), array(), $this->version );
+		wp_register_style( $this->plugin_name, plugins_url( 'resources/assets/frontend/styles/fivetwofive-cta.css', FTF_CTA_PLUGIN_FILE ), array(), $this->version );
 	}
 
 	/**
@@ -85,6 +85,10 @@ class Shortcode {
 		$cta_button_text   = '';
 		$cta_button_link   = '';
 		$cta_button_target = '';
+		$cta_style         = '';
+		$cta_title_style   = '';
+		$cta_message_style = '';
+		$cta_button_style  = '';
 
 		wp_enqueue_style( $this->plugin_name ); // Only enqueue the shortcode styles when the shortcode is called.
 
@@ -131,8 +135,37 @@ class Shortcode {
 			$cta_button_target = sanitize_text_field( $a['button_target'] );
 		}
 
+		if ( $options['cta_background_image'] ) {
+			$cta_style .= sprintf( 'background-image:url(\'%1$s\');', esc_url( wp_get_attachment_image_url( $options['cta_background_image'], 'full' ) ) );
+		}
+
+		if ( $options['cta_background_color'] ) {
+			$cta_style .= sprintf( 'background-color:%1$s;', esc_attr( $options['cta_background_color'] ) );
+		}
+
+		if ( $options['cta_text_alignment'] ) {
+			$cta_style .= sprintf( 'text-align:%1$s;', esc_attr( $options['cta_text_alignment'] ) );
+		}
+
+		if ( $options['cta_title_color'] ) {
+			$cta_title_style .= sprintf( 'color:%1$s;', esc_attr( $options['cta_title_color'] ) );
+		}
+
+		if ( $options['cta_message_color'] ) {
+			$cta_message_style .= sprintf( 'color:%1$s;', esc_attr( $options['cta_message_color'] ) );
+		}
+
+
+		if ( $options['cta_button_text_color'] ) {
+			$cta_button_style .= sprintf( 'color:%1$s;', esc_attr( $options['cta_button_text_color'] ) );
+		}
+
+		if ( $options['cta_button_background_color'] ) {
+			$cta_button_style .= sprintf( 'background-color:%1$s;', esc_attr( $options['cta_button_background_color'] ) );
+		}
+
 		ob_start();
-		include_once dirname( FTF_CTA_PLUGIN_FILE ) . '/resources/views/public/fivetwofive-cta-shortcode.php';
+		include_once dirname( FTF_CTA_PLUGIN_FILE ) . '/resources/views/frontend/fivetwofive-cta-shortcode.php';
 		return ob_get_clean();
 	}
 }

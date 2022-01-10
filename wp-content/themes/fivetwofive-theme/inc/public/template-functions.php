@@ -53,9 +53,6 @@ function fivetwofive_kses_extended_ruleset() {
 			'frameborder'     => true,
 			'allowfullscreen' => true,
 		),
-		'style'  => array(
-			'src' => true,
-		),
 		'link'   => array(
 			'rel'  => true,
 			'href' => true,
