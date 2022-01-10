@@ -33,10 +33,10 @@ settings_errors( 'fivetwofive_cta_messages' );
 <div class="wrap">
 	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 	<form action="options.php" method="post">
-		<?php
-			settings_fields( 'fivetwofive_cta' );
-			do_settings_sections( 'fivetwofive_cta' );
-			submit_button();
-		?>
+		<?php settings_fields( 'fivetwofive_cta' ); ?>
+
+		<?php do_settings_sections( 'fivetwofive_cta' ); ?>
+
+		<?php submit_button(); ?>
 	</form>
 </div>

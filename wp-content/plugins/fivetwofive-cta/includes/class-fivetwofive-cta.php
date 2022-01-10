@@ -103,6 +103,7 @@ class FiveTwoFive_CTA {
 
 		add_action( 'admin_menu', array( $settings, 'add_menu' ) );
 		add_action( 'admin_init', array( $settings, 'register_settings' ) );
+		add_action( 'admin_enqueue_scripts', array( $settings, 'enqueue_scripts' ) );
 	}
 
 	/**

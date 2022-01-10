@@ -11,7 +11,7 @@
  * Plugin Name:       FiveTwoFive - CTA
  * Plugin URI:        https://fivetwofive.com/
  * Description:       Add call to action shortcode with menu options.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            FiveTwoFive Creative Team
@@ -26,7 +26,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Current plugin version.
  */
-define( 'FTF_CTA_VERSION', '1.0.0' );
+define( 'FTF_CTA_VERSION', '1.0.1' );
 
 if ( ! defined( 'FTF_CTA_PLUGIN_FILE' ) ) {
 	define( 'FTF_CTA_PLUGIN_FILE', __FILE__ );
