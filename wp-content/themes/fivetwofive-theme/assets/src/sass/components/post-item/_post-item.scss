@@ -11,6 +11,14 @@
   .ftf-post-item__title, a:not(.button) {
     color: inherit;
   }
+
+  &__thumbnail {
+    width: 100%;
+  }
+
+  &__link {
+    display: block;
+  }
 }
 
 .ftf-event-meta {
