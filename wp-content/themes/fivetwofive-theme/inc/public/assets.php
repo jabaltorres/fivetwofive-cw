@@ -97,8 +97,7 @@ function fivetwofive_theme_fonts_url() {
  */
 function fivetwofive_theme_assets() {
 	wp_enqueue_style( 'fivetwofive-theme-fonts', fivetwofive_theme_fonts_url(), array(), null );
-	wp_enqueue_style( 'fivetwofive-theme-style', get_stylesheet_uri(), array( 'fivetwofive-theme-fonts' ), FIVETWOFIVE_THEME_VERSION );
-	wp_enqueue_style( 'fivetwofive-theme-main', get_template_directory_uri() . '/assets/dist/css/main.css', array( 'fivetwofive-theme-style', 'fivetwofive-theme-fonts' ), FIVETWOFIVE_THEME_VERSION );
+	wp_enqueue_style( 'fivetwofive-theme-main', get_template_directory_uri() . '/assets/dist/css/main.css', array( 'fivetwofive-theme-fonts' ), FIVETWOFIVE_THEME_VERSION );
 
 	wp_enqueue_script( 'fivetwofive-theme-navigation', get_template_directory_uri() . '/assets/dist/js/navigation.js', array(), FIVETWOFIVE_THEME_VERSION, true );
 
