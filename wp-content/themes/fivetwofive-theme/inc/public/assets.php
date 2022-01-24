@@ -21,7 +21,6 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 	}
 
 	foreach ( $fonts as $font ) {
-		$font_uri          = '';
 		$font_uri_variants = array();
 		$has_italic        = false;
 
@@ -160,3 +159,24 @@ function fivetwofive_theme_preconnect() {
 	}
 }
 add_action( 'wp_head', 'fivetwofive_theme_preconnect', 5 );
+
+function fivetwofive_theme_defer_scripts( $tag, $handle, $src ) {
+	if ( is_admin() ) {
+		return $tag;
+	}
+
+	// The handles of the enqueued scripts we want to defer
+	$defer_scripts = array(
+		'fivetwofive-theme-template-module',
+		'fivetwofive-theme-swiper',
+		'fivetwofive-theme-fancybox',
+		'fivetwofive-theme-scrollreveal',
+	);
+
+	if ( in_array( $handle, $defer_scripts ) ) {
+		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+	}
+
+	return $tag;
+}
+add_filter( 'script_loader_tag', 'fivetwofive_theme_defer_scripts', 10, 3 );
