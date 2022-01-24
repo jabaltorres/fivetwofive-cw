@@ -143,6 +143,10 @@ function fivetwofive_theme_assets() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( ! is_admin() ) {
+		wp_dequeue_style( 'dashicons' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'fivetwofive_theme_assets' );
 
