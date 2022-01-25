@@ -1,0 +1,34 @@
+.fivetwovive-skip-link {
+  margin: 0;
+  > li {
+    height: 0;
+    list-style: none;
+    width: 0;
+  }
+}
+
+.screen-reader-shortcut {
+  border: 0;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute!important;
+  width: 1px;
+  word-wrap: normal!important;
+
+  &:focus {
+    background: #fff;
+    -webkit-box-shadow: 0 0 2px 2px rgb(0 0 0 / 60%);
+    box-shadow: 0 0 2px 2px rgb(0 0 0 / 60%);
+    clip: auto!important;
+    color: #333;
+    display: block;
+    font-size: 1em;
+    font-weight: 700;
+    height: auto;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    width: auto;
+    z-index: 100000;
+  }
+}

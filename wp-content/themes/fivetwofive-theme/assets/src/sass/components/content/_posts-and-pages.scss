@@ -50,6 +50,12 @@
 		padding: 1.5625rem;
 		border-radius: 5px;
 	}
+
+    &-content {
+      a {
+        text-decoration: underline;
+      }
+    }
 }
 
 .updated:not(.published) {
