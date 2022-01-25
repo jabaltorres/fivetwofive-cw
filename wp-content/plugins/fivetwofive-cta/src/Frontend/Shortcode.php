@@ -161,7 +161,7 @@ class Shortcode {
 		}
 
 		if ( $options['cta_button_background_color'] ) {
-			$cta_button_style .= sprintf( 'background-color:%1$s;', esc_attr( $options['cta_button_background_color'] ) );
+			$cta_button_style .= sprintf( 'background-color:%1$s;border-color:%1$s;', esc_attr( $options['cta_button_background_color'] ) );
 		}
 
 		ob_start();
