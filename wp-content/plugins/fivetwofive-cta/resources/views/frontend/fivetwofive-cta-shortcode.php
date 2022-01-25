@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( ! empty( $cta_button_text ) ) : ?>
 			<div class="ftf-cta__column-2">
-				<a class="ftf-cta__btn" style="<?php echo $cta_button_style; ?>" href="<?php echo esc_url( $cta_button_link ); ?>" target="<?php echo esc_attr( $cta_button_target ); ?>"><?php echo wp_kses_post( $cta_button_text ); ?></a>
+				<a class="ftf-cta__btn button" style="<?php echo $cta_button_style; ?>" href="<?php echo esc_url( $cta_button_link ); ?>" target="<?php echo esc_attr( $cta_button_target ); ?>"><?php echo wp_kses_post( $cta_button_text ); ?></a>
 			</div><!-- end .cta-column-2 -->
 		<?php endif; ?>
 

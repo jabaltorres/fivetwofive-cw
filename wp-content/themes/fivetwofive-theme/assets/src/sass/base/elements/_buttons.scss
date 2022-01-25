@@ -3,14 +3,24 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	display: inline-block;
-	border: 1px solid;
-	border-radius: 25px;
-	line-height: 1.8;
-	cursor: pointer;
-	padding: rem(5px) rem(20px);
-	transition: all 300ms ease-in-out;
-  font-size: rem(14px);
+  display: inline-block;
+  border: 1px solid;
+  border-radius: 25px;
+  line-height: 1.8;
+  cursor: pointer;
+  padding: rem(10px) rem(25px);
+  transition: all 300ms ease-in-out;
+  font-size: rem(16px);
+  font-weight: 600;
+  position: relative;
+  transform: translateY(0);
+
+  &:hover,
+  &:active,
+  &:focus {
+    transform: translateY(-2px);
+    filter: brightness(85%);
+  }
 }
 
 .button {
