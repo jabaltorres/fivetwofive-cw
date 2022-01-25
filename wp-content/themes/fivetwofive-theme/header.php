@@ -40,7 +40,11 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'fivetwofive-theme' ); ?></a>
+	<ul class="fivetwovive-skip-link">
+		<li><a href="#masthead" class="screen-reader-shortcut"> Skip to primary navigation</a></li>
+		<li><a href="#primary" class="screen-reader-shortcut"> Skip to main content</a></li>
+		<li><a href="#colophon" class="screen-reader-shortcut"> Skip to footer</a></li>
+	</ul>
 
 	<header id="masthead" class="site-header">
 		<div class="container">
