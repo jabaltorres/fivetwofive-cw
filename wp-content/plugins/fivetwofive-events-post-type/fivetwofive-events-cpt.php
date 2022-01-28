@@ -63,7 +63,6 @@ function ftf_register_events_cpt() {
 		'items_list_navigation' => __( 'Events list navigation', 'fivetwofive-event' ),
 		'items_list'            => __( 'Events list', 'fivetwofive-event' ),
 		'attributes'            => __( 'Events Attributes', 'fivetwofive-event' ),
-		'parent_item_colon'     => __( 'Parent Event', 'fivetwofive-event' ),
 	);
 
 	$args = array(
@@ -89,7 +88,7 @@ function ftf_register_events_cpt() {
 			'with_front' => false,
 		),
 		'query_var'           => true,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		'supports'            => array( 'title', 'author', 'thumbnail', 'excerpt' ),
 	);
 
 	register_post_type( 'ftf_event', $args );
@@ -137,6 +136,23 @@ function ftf_events_archive_disable_sidebar( $enable_sidebar ) {
 	return $enable_sidebar;
 }
 add_filter( 'fivetwofive_theme_enable_sidebar', 'ftf_events_archive_disable_sidebar' );
+
+/**
+ *
+ * Make a page content full width or contained.
+ *
+ * @param $is_contained
+ *
+ * @return bool|mixed
+ */
+function ftf_events_single_fullwidth( $is_contained ) {
+	if ( is_singular( 'ftf_event' ) ) {
+		$is_contained = false;
+	}
+
+	return $is_contained;
+}
+add_filter( 'fivetwofive_theme_is_contained', 'ftf_events_single_fullwidth' );
 
 /**
  * Register custom post type on plugin activation.

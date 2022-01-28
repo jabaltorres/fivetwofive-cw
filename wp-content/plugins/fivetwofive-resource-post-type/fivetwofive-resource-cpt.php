@@ -202,7 +202,6 @@ function ftf_register_creative_cpt() {
 		'items_list_navigation' => __( 'Creatives list navigation', 'ftf-resources' ),
 		'items_list'            => __( 'Creatives list', 'ftf-resources' ),
 		'attributes'            => __( 'Creatives Attributes', 'ftf-resources' ),
-		'parent_item_colon'     => __( 'Parent Creative', 'ftf-resources' ),
 	);
 
 	$args = array(
