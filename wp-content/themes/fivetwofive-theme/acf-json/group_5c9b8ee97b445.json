@@ -6720,6 +6720,13 @@
                 "operator": "==",
                 "value": "page-templates\/template-module.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ftf_event"
+            }
         ]
     ],
     "menu_order": 0,
@@ -6732,5 +6739,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1641468735
+    "modified": 1643245281
 }

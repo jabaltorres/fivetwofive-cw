@@ -3,6 +3,25 @@
     "title": "Event Fields",
     "fields": [
         {
+            "key": "field_61f2036ae4b64",
+            "label": "Subtitle",
+            "name": "ftf_event_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5eb30ca8b54a1",
             "label": "Type",
             "name": "ftf_event_type",
@@ -16,8 +35,8 @@
                 "id": ""
             },
             "choices": {
-                "Webinars": "Webinars",
-                "Tradeshows": "Tradeshows",
+                "Webinar": "Webinar",
+                "Tradeshow": "Tradeshow",
                 "Regional": "Regional",
                 "Customer Event": "Customer Event"
             },
@@ -94,6 +113,103 @@
             },
             "display_format": "g:i a",
             "return_format": "g:i a"
+        },
+        {
+            "key": "field_61f1f0b2d0b1d",
+            "label": "Details",
+            "name": "ftf_event_details",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_61f1f0c9d0b1e",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61f1f0d3d0b1f",
+                    "label": "Value",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        },
+        {
+            "key": "field_61f20264cbd1e",
+            "label": "Form",
+            "name": "ftf_event_form",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_61f2056c5e5cf",
+            "label": "Description",
+            "name": "ftf_event_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [
@@ -113,5 +229,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1633570763
+    "modified": 1643326084
 }

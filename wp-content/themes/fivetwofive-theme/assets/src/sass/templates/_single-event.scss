@@ -1,0 +1,34 @@
+.event {
+  &__meta-list {
+    > div {
+      display: flex;
+    }
+
+    dt {
+      margin-right: rem(5px);
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+}
+
+.single-ftf_event {
+  .entry-header {
+    background-color: #EFEFEF;
+  }
+
+  .entry-excerpt {
+    @media (min-width: 992px) {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+

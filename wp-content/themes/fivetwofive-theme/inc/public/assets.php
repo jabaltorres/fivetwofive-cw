@@ -101,6 +101,10 @@ function fivetwofive_theme_assets() {
 
 	wp_enqueue_script( 'fivetwofive-theme-navigation', get_template_directory_uri() . '/assets/dist/js/navigation.js', array(), FIVETWOFIVE_THEME_VERSION, true );
 
+	if ( is_singular( 'ftf_event' ) ) {
+		wp_enqueue_style( 'fivetwofive-theme-single-event', get_template_directory_uri() . '/assets/dist/css/single-event.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
+	}
+
 	if ( is_page_template( 'page-templates/template-module.php' ) ) {
 		// Register 3rd party modules dependencies.
 		wp_register_style( 'fivetwofive-theme-fancybox', get_template_directory_uri() . '/assets/dist/js/plugins/fancybox/jquery.fancybox.min.css', array(), FIVETWOFIVE_THEME_VERSION );
@@ -177,7 +181,7 @@ function fivetwofive_theme_defer_scripts( $tag, $handle, $src ) {
 	);
 
 	if ( in_array( $handle, $defer_scripts ) ) {
-		return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+		$tag = str_replace( '></script>', ' defer></script>', $tag );
 	}
 
 	return $tag;
