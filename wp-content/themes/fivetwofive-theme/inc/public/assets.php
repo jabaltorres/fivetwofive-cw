@@ -105,7 +105,7 @@ function fivetwofive_theme_assets() {
 		wp_enqueue_style( 'fivetwofive-theme-single-event', get_template_directory_uri() . '/assets/dist/css/single-event.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
 	}
 
-	if ( is_page_template( 'page-templates/template-module.php' ) ) {
+	if ( is_page_template( 'page-templates/template-module.php' ) || is_singular( 'ftf_event' ) ) {
 		// Register 3rd party modules dependencies.
 		wp_register_style( 'fivetwofive-theme-fancybox', get_template_directory_uri() . '/assets/dist/js/plugins/fancybox/jquery.fancybox.min.css', array(), FIVETWOFIVE_THEME_VERSION );
 		wp_register_style( 'fivetwofive-theme-swiper', get_template_directory_uri() . '/assets/dist/js/plugins/swiper/swiper-bundle.min.css', array(), FIVETWOFIVE_THEME_VERSION );
