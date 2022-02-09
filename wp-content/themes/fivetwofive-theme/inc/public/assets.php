@@ -172,15 +172,17 @@ function fivetwofive_theme_defer_scripts( $tag, $handle, $src ) {
 		return $tag;
 	}
 
-	// The handles of the enqueued scripts we want to defer
+	// The handles of the enqueued scripts we want to defer.
 	$defer_scripts = array(
 		'fivetwofive-theme-template-module',
 		'fivetwofive-theme-swiper',
 		'fivetwofive-theme-fancybox',
 		'fivetwofive-theme-scrollreveal',
+		'fivetwofive-theme-module-resources',
+		'fivetwofive-theme-module-testimonials-carousel',
 	);
 
-	if ( in_array( $handle, $defer_scripts ) ) {
+	if ( in_array( $handle, $defer_scripts, true ) ) {
 		$tag = str_replace( '></script>', ' defer></script>', $tag );
 	}
 

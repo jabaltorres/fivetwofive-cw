@@ -82,27 +82,27 @@
 
 				if ( resource._embedded?.[ 'wp:featuredmedia' ]?.[ 0 ]?.media_details?.sizes?.[ 'ftf-resource-thumb' ]?.source_url ) {
 					resourceHTML += `
-            <div class="card__top">
-              <a class="card__image-link" href="${ resource.link }" aria-hidden="true" tabindex="-1">
-                <img width="415" height="245" src="${ resource._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes[ 'ftf-resource-thumb' ].source_url }" class="card__image img-responsive wp-post-image" alt="${ resource.title.rendered }" loading="lazy">
-              </a>
-            </div>`;
+						<div class="card__top">
+						  <a class="card__image-link" href="${ resource.link }" aria-hidden="true" tabindex="-1">
+							<img width="415" height="245" src="${ resource._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes[ 'ftf-resource-thumb' ].source_url }" class="card__image img-responsive wp-post-image" alt="${ resource.title.rendered }" loading="lazy">
+						  </a>
+						</div>`;
 				}
 
 				resourceHTML += `
-              <div class="card__bottom">
-                <header class="card__header m-0">
-                  <div class="ftf-post-meta entry-meta"><span class="posted-on"><a href="${ resource.link }" rel="bookmark"><time class="entry-date published" datetime="${ resource.date }">${ resource.ftf_formatted_date }</time></a></span></div>
-                  <h3 class="card__title mt-2"><a href="${ resource.link }">${ resource.title.rendered }</a></h3>
-                </header>
-
-                <footer class="card__footer mt-4">
-                  <a class="button card__button" href="${ resource.link }" aria-hidden="true" tabindex="-1">Read More</a>
-                </footer>
-              </div>
-            </article>
-          </div>
-        `;
+					  <div class="card__bottom">
+						<header class="card__header m-0">
+						  <div class="ftf-post-meta entry-meta"><span class="posted-on"><a href="${ resource.link }" rel="bookmark"><time class="entry-date published" datetime="${ resource.date }">${ resource.ftf_formatted_date }</time></a></span></div>
+						  <h3 class="card__title mt-2"><a href="${ resource.link }">${ resource.title.rendered }</a></h3>
+						</header>
+		
+						<footer class="card__footer mt-4">
+						  <a class="button card__button" href="${ resource.link }" aria-hidden="true" tabindex="-1">Read More</a>
+						</footer>
+					  </div>
+					</article>
+				  </div>
+				`;
 			}
 			return resourceHTML;
 		}
