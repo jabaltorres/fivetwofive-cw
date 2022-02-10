@@ -1,0 +1,42 @@
+.tooltip {
+  background: #292929;
+  padding: 8px 10px;
+  border-radius: 5px;
+  display: none;
+  margin-bottom: 5px;
+
+  &[data-show] {
+    display: block;
+  }
+
+  &:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-width: 5px 5px 0 5px;
+    border-color: #292929 transparent transparent transparent;
+    border-style: solid;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: rem(14px);
+    color: #fff !important;
+    text-decoration: none;
+
+    svg {
+      display: block;
+      margin-right: rem(5px);
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

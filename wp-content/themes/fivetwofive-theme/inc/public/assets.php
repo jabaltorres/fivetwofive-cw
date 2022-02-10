@@ -98,11 +98,15 @@ function fivetwofive_theme_fonts_url() {
 function fivetwofive_theme_assets() {
 	wp_enqueue_style( 'fivetwofive-theme-fonts', fivetwofive_theme_fonts_url(), array(), null );
 	wp_enqueue_style( 'fivetwofive-theme-main', get_template_directory_uri() . '/assets/dist/css/main.css', array( 'fivetwofive-theme-fonts' ), FIVETWOFIVE_THEME_VERSION );
-
+	wp_register_script( 'fivetwofive-theme-popperjs', 'https://unpkg.com/@popperjs/core@2', array(), FIVETWOFIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'fivetwofive-theme-navigation', get_template_directory_uri() . '/assets/dist/js/navigation.js', array(), FIVETWOFIVE_THEME_VERSION, true );
 
 	if ( is_singular( 'ftf_event' ) ) {
 		wp_enqueue_style( 'fivetwofive-theme-single-event', get_template_directory_uri() . '/assets/dist/css/single-event.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
+	}
+
+	if ( is_singular( 'post' ) ) {
+		wp_enqueue_script( 'fivetwofive-theme-single-post', get_template_directory_uri() . '/assets/dist/js/single-post.js', array( 'fivetwofive-theme-popperjs' ), FIVETWOFIVE_THEME_VERSION, true );
 	}
 
 	if ( is_page_template( 'page-templates/template-module.php' ) || is_singular( 'ftf_event' ) ) {
