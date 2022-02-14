@@ -6342,6 +6342,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d33049505",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words.<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6167717fd9582",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "Separate multiple classes with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ec59b321a0",
                             "label": "Background",
                             "name": "background_toggle",
@@ -6350,7 +6388,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -6377,12 +6415,12 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
                             "default_value": "",
-                            "enable_opacity": false,
+                            "enable_opacity": 0,
                             "return_format": "string"
                         },
                         {
@@ -6402,7 +6440,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -6426,12 +6464,12 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
                             "default_value": "",
-                            "enable_opacity": false,
+                            "enable_opacity": 0,
                             "return_format": "string"
                         },
                         {
@@ -6443,7 +6481,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -6456,47 +6494,9 @@
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
-                            "ajax": 0,
                             "return_format": "value",
+                            "ajax": 0,
                             "placeholder": ""
-                        },
-                        {
-                            "key": "field_6167717fd9582",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d33049505",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6167717fd9583",
@@ -6739,5 +6739,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1643245281
+    "modified": 1644804777
 }
