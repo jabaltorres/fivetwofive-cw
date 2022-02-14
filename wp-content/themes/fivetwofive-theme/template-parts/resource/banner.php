@@ -10,7 +10,7 @@
 $creative = get_field( 'ftf_resource_creative' );
 ?>
 
-<header class="ftf-resource__header bg-gray py-4 py-sm-6">
+<header class="ftf-resource__header bg-gray py-4 py-sm-6 text-center">
 	<div class="container">
 		<?php the_title( '<h1 class="ftf-resource__title">', '</h1>' ); ?>
 
@@ -21,7 +21,7 @@ $creative = get_field( 'ftf_resource_creative' );
 			$creative_avatar = get_the_post_thumbnail( $creative[0], array( 80, 80 ), array( 'class' => 'ftf-avatar__image' ) );
 			?>
 
-			<div class="ftf-avatar">
+			<div class="ftf-avatar justify-content-center">
 				<?php if ( has_post_thumbnail( $creative[0] ) ) : ?>
 					<div class="ftf-avatar__image-col">
 						<?php echo wp_kses_post( $creative_avatar ); ?>
