@@ -12,34 +12,47 @@ if ( ! array_key_exists( 'id', $args ) && ! isset( $args['id'] ) ) {
 	return;
 }
 
-$post_item_id = $args['id'];
-$image_size   = 'post-thumbnail';
+$post_item_id  = $args['id'];
+$image_size    = 'post-thumbnail';
+$post_taxonomy = 'category';
 
 if ( array_key_exists( 'image_size', $args ) && isset( $args['image_size'] ) ) {
 	$image_size = $args['image_size'];
 }
 
+if ( array_key_exists( 'taxonomy', $args ) && isset( $args['taxonomy'] ) ) {
+	$post_taxonomy = $args['taxonomy'];
+}
+
+$post_categories = get_the_terms( $post_item_id, $post_taxonomy );
+
 ?>
 
 <article id="card-<?php echo esc_attr( $post_item_id ); ?>" <?php post_class( 'card', $post_item_id ); ?>>
 	<div class="card__top">
-		<a class="card__image-link" href="<?php echo esc_url( get_the_permalink( $post_item_id ) ); ?>">
-			<?php
-			echo get_the_post_thumbnail(
-				$post_item_id,
-				$image_size,
-				array(
-					'alt' => the_title_attribute(
-						array(
-							'echo' => false,
-							'post' => $post_item_id,
-						)
-					),
-					'class' => 'card__image img-responsive',
-				)
-			);
-			?>
-		</a>
+		<?php if ( $post_categories ) : ?>
+			<ul class="card__categories">
+				<?php foreach ( $post_categories as $post_category ) : ?>
+					<li><a href="<?php echo esc_url( get_category_link( $post_category->term_id ) ); ?>"><?php echo esc_html( $post_category->name ); ?></a></li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
+		<?php
+		echo get_the_post_thumbnail(
+			$post_item_id,
+			$image_size,
+			array(
+				'alt'   => the_title_attribute(
+					array(
+						'echo' => false,
+						'post' => $post_item_id,
+					)
+				),
+				'class' => 'card__image img-responsive',
+			)
+		);
+		?>
 	</div>
 
 	<div class="card__bottom">
@@ -53,9 +66,5 @@ if ( array_key_exists( 'image_size', $args ) && isset( $args['image_size'] ) ) {
 				<?php echo wp_kses_post( get_the_excerpt( $post_item_id ) ); ?>
 			</div>
 		<?php endif; ?>
-
-		<footer class="card__footer mt-4">
-			<a class="button card__button" href="<?php echo esc_url( get_the_permalink( $post_item_id ) ); ?>" aria-hidden="true" tabindex="-1"><?php echo esc_html__( 'Read More', 'fivetwofive-theme' ); ?></a>
-		</footer>
 	</div>
 </article><!-- #card-<?php echo esc_html( $post_item_id ); ?> -->

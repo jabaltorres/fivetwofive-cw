@@ -83,12 +83,12 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$css->set_selector( '.site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6' );
 			$css->add_property( 'color', $theme_mods['colors_footer_heading_color'] );
 
-			$css->set_selector( '.button, button, input[type="button"], input[type="reset"], input[type="submit"]' );
+			$css->set_selector( '.button, button, input[type="button"], input[type="reset"], input[type="submit"], .page-numbers.current, .card__categories a' );
 			$css->add_property( 'background-color', $theme_mods['colors_button_background_color'] );
 			$css->add_property( 'color', $theme_mods['colors_button_text_color'] );
 			$css->add_property( 'border-color', $theme_mods['colors_button_border_color'] );
 
-			$css->set_selector( '.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover' );
+			$css->set_selector( '.button:hover, button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .page-numbers:hover, .card__categories a:hover' );
 			$css->add_property( 'background-color', $theme_mods['colors_button_background_color_hover'] );
 			$css->add_property( 'color', $theme_mods['colors_button_text_color_hover'] );
 			$css->add_property( 'border-color', $theme_mods['colors_button_border_color_hover'] );
@@ -98,10 +98,6 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 			$css->add_property( 'color', $theme_mods['colors_button_text_color_hover'] );
 			$css->add_property( 'border-color', $theme_mods['colors_button_border_color_hover'] );
 			$css->add_property( 'box-shadow', '0 0 0 0.25rem ' . $theme_mods['colors_button_border_color_hover'] . '7d' );
-
-			$css->set_selector( '.page-numbers.current, .page-numbers:hover' );
-			$css->add_property( 'background-color', $theme_mods['colors_button_background_color'] );
-			$css->add_property( 'color', $theme_mods['colors_button_text_color'] );
 
 			if ( $css ) {
 				wp_add_inline_style( 'fivetwofive-theme-main', $css->css_output() );

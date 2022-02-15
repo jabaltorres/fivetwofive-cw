@@ -55,7 +55,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             _this2 = this;
 
         var requestURL = new URL(FTF.restBase);
-        requestURL.searchParams.append('_fields', 'id,date_gmt,ftf_formatted_date,title,link,_links,_embedded');
+        requestURL.searchParams.append('_fields', 'id,date_gmt,ftf_formatted_date,ftf_resource_categories,title,link,_links,_embedded');
         requestURL.searchParams.append('per_page', this.itemPerPage);
         requestURL.searchParams.append('page', page);
         requestURL.searchParams.append('_embed', 'wp:featuredmedia');
@@ -98,18 +98,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       key: "createResource",
       value: function createResource(resource) {
+        console.log(resource);
         var resourceHTML = '';
 
         if (resource) {
           var _resource$_embedded, _resource$_embedded$w, _resource$_embedded$w2, _resource$_embedded$w3, _resource$_embedded$w4, _resource$_embedded$w5;
 
           resourceHTML = "\n          <div class=\"col-md-4 mb-3 mb-md-5\">\n            <article id=\"card-".concat(resource.id, "\" class=\"card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry load-hidden\">");
+          resourceHTML += '<div class="card__top">';
 
-          if ((_resource$_embedded = resource._embedded) !== null && _resource$_embedded !== void 0 && (_resource$_embedded$w = _resource$_embedded['wp:featuredmedia']) !== null && _resource$_embedded$w !== void 0 && (_resource$_embedded$w2 = _resource$_embedded$w[0]) !== null && _resource$_embedded$w2 !== void 0 && (_resource$_embedded$w3 = _resource$_embedded$w2.media_details) !== null && _resource$_embedded$w3 !== void 0 && (_resource$_embedded$w4 = _resource$_embedded$w3.sizes) !== null && _resource$_embedded$w4 !== void 0 && (_resource$_embedded$w5 = _resource$_embedded$w4['ftf-resource-thumb']) !== null && _resource$_embedded$w5 !== void 0 && _resource$_embedded$w5.source_url) {
-            resourceHTML += "\n\t\t\t\t\t\t<div class=\"card__top\">\n\t\t\t\t\t\t  <a class=\"card__image-link\" href=\"".concat(resource.link, "\" aria-hidden=\"true\" tabindex=\"-1\">\n\t\t\t\t\t\t\t<img width=\"415\" height=\"245\" src=\"").concat(resource._embedded['wp:featuredmedia'][0].media_details.sizes['ftf-resource-thumb'].source_url, "\" class=\"card__image img-responsive wp-post-image\" alt=\"").concat(resource.title.rendered, "\" loading=\"lazy\">\n\t\t\t\t\t\t  </a>\n\t\t\t\t\t\t</div>");
+          if (resource !== null && resource !== void 0 && resource.ftf_resource_categories) {
+            resourceHTML += "<ul class=\"card__categories\">";
+            resource.ftf_resource_categories.forEach(function (category) {
+              resourceHTML += "<li><a href=\"".concat(category.link, "\">").concat(category.name, "</a></li>");
+            });
+            resourceHTML += "</ul>";
           }
 
-          resourceHTML += "\n\t\t\t\t\t  <div class=\"card__bottom\">\n\t\t\t\t\t\t<header class=\"card__header m-0\">\n\t\t\t\t\t\t  <div class=\"ftf-post-meta entry-meta\"><span class=\"posted-on\"><a href=\"".concat(resource.link, "\" rel=\"bookmark\"><time class=\"entry-date published\" datetime=\"").concat(resource.date, "\">").concat(resource.ftf_formatted_date, "</time></a></span></div>\n\t\t\t\t\t\t  <h3 class=\"card__title mt-2\"><a href=\"").concat(resource.link, "\">").concat(resource.title.rendered, "</a></h3>\n\t\t\t\t\t\t</header>\n\t\t\n\t\t\t\t\t\t<footer class=\"card__footer mt-4\">\n\t\t\t\t\t\t  <a class=\"button card__button\" href=\"").concat(resource.link, "\" aria-hidden=\"true\" tabindex=\"-1\">Read More</a>\n\t\t\t\t\t\t</footer>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</article>\n\t\t\t\t  </div>\n\t\t\t\t");
+          if ((_resource$_embedded = resource._embedded) !== null && _resource$_embedded !== void 0 && (_resource$_embedded$w = _resource$_embedded['wp:featuredmedia']) !== null && _resource$_embedded$w !== void 0 && (_resource$_embedded$w2 = _resource$_embedded$w[0]) !== null && _resource$_embedded$w2 !== void 0 && (_resource$_embedded$w3 = _resource$_embedded$w2.media_details) !== null && _resource$_embedded$w3 !== void 0 && (_resource$_embedded$w4 = _resource$_embedded$w3.sizes) !== null && _resource$_embedded$w4 !== void 0 && (_resource$_embedded$w5 = _resource$_embedded$w4['ftf-resource-thumb']) !== null && _resource$_embedded$w5 !== void 0 && _resource$_embedded$w5.source_url) {
+            resourceHTML += "<img width=\"415\" height=\"245\" src=\"".concat(resource._embedded['wp:featuredmedia'][0].media_details.sizes['ftf-resource-thumb'].source_url, "\" class=\"card__image img-responsive wp-post-image\" alt=\"").concat(resource.title.rendered, "\" loading=\"lazy\">");
+          }
+
+          resourceHTML += '</div>';
+          resourceHTML += "\n\t\t\t\t\t  <div class=\"card__bottom\">\n\t\t\t\t\t\t<header class=\"card__header m-0\">\n\t\t\t\t\t\t  <div class=\"ftf-post-meta entry-meta\"><span class=\"posted-on\"><a href=\"".concat(resource.link, "\" rel=\"bookmark\"><time class=\"entry-date published\" datetime=\"").concat(resource.date, "\">").concat(resource.ftf_formatted_date, "</time></a></span></div>\n\t\t\t\t\t\t  <h3 class=\"card__title mt-2\"><a href=\"").concat(resource.link, "\">").concat(resource.title.rendered, "</a></h3>\n\t\t\t\t\t\t</header>\n\t\t\t\t\t  </div>\n\t\t\t\t\t</article>\n\t\t\t\t  </div>\n\t\t\t\t");
         }
 
         return resourceHTML;
