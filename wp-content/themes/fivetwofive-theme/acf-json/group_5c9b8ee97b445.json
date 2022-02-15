@@ -224,6 +224,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d251494fa",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91d3c55f34",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616eb932aafd0",
                             "label": "Background",
                             "name": "background_toggle",
@@ -232,7 +270,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -259,7 +297,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -291,13 +329,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#FFFFFF",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": "#FFFFFF"
                         },
                         {
                             "key": "field_5de7dcdb7f906",
@@ -308,13 +344,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "15",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#e62f24",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": "#e62f24"
                         },
                         {
                             "key": "field_5de7dce57f907",
@@ -325,51 +359,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "15",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#000000",
-                            "enable_opacity": false,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91d3c55f34",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d251494fa",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "default_value": "#000000"
                         },
                         {
                             "key": "field_6108c95b4c4c3",
@@ -766,6 +760,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d266494fb",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91ce155f33",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_6166c5119a3af",
                             "label": "Background",
                             "name": "background_toggle",
@@ -774,7 +806,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "100",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -801,7 +833,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -833,13 +865,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_6093221add0dd",
@@ -908,44 +938,6 @@
                             "default_value": "",
                             "enable_opacity": false,
                             "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91ce155f33",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d266494fb",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6108c786c0d5b",
@@ -1214,6 +1206,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d275494fc",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91d4b55f35",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616eba82dccfd",
                             "label": "Background",
                             "name": "background_toggle",
@@ -1222,7 +1252,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -1249,7 +1279,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -1281,51 +1311,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91d4b55f35",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d275494fc",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "default_value": ""
                         },
                         {
                             "key": "field_6108c5a381e75",
@@ -1666,6 +1656,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d282494fd",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91d5355f36",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ebb8a7a5ef",
                             "label": "Background",
                             "name": "background_toggle",
@@ -1674,7 +1702,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -1701,13 +1729,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_5f74b71cf490c",
@@ -1726,7 +1752,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -1757,44 +1783,6 @@
                             "default_value": "",
                             "enable_opacity": false,
                             "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91d5355f36",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d282494fd",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6108c209294f1",
@@ -2303,6 +2291,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d28e494fe",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91d5c55f37",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ebd3ad4185",
                             "label": "Background",
                             "name": "background_toggle",
@@ -2311,7 +2337,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -2338,7 +2364,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -2370,13 +2396,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_5dd5508868938",
@@ -2497,44 +2521,6 @@
                             "default_value": "",
                             "enable_opacity": false,
                             "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91d5c55f37",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d28e494fe",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6108bdc3c0091",
@@ -2959,6 +2945,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d29a494ff",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60d91d6755f38",
+                            "label": "Module Classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ebe3aa5050",
                             "label": "Background",
                             "name": "background_toggle",
@@ -2967,7 +2991,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -2994,7 +3018,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -3026,13 +3050,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_616d604404d0f",
@@ -3043,13 +3065,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#0A7FFF",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": "#0A7FFF"
                         },
                         {
                             "key": "field_60933a1118746",
@@ -3060,51 +3080,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
-                        },
-                        {
-                            "key": "field_60d91d6755f38",
-                            "label": "Module Classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d29a494ff",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "default_value": ""
                         },
                         {
                             "key": "field_6108bdd3c0092",
@@ -3482,6 +3462,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d2ad49500",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60e501fd07bd9",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ebeec5997d",
                             "label": "Background",
                             "name": "background_toggle",
@@ -3490,7 +3508,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -3517,13 +3535,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60e501ca07bd6",
@@ -3542,7 +3558,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -3566,13 +3582,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60e504f44a5c0",
@@ -3583,7 +3597,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -3599,44 +3613,6 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
-                        },
-                        {
-                            "key": "field_60e501fd07bd9",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d2ad49500",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6108bb97f1398",
@@ -4130,6 +4106,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d2ba49501",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60ed0ba0795c7",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ec16adb926",
                             "label": "Background",
                             "name": "background_toggle",
@@ -4138,7 +4152,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4165,13 +4179,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60ed0bc3795c9",
@@ -4190,7 +4202,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4214,13 +4226,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60ed0be0795cb",
@@ -4231,7 +4241,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4273,44 +4283,6 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
-                        },
-                        {
-                            "key": "field_60ed0ba0795c7",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d2ba49501",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_6108b7fd0069c",
@@ -4711,6 +4683,44 @@
                             "endpoint": 0
                         },
                         {
+                            "key": "field_61d6d2d649502",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_60f4d1c3c8ba0",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_616ec28d15d8f",
                             "label": "Background",
                             "name": "background_toggle",
@@ -4719,7 +4729,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4746,13 +4756,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60f4d0f9c8b9d",
@@ -4771,7 +4779,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4795,13 +4803,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_60f4d105c8b9e",
@@ -4812,7 +4818,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4828,44 +4834,6 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
-                        },
-                        {
-                            "key": "field_60f4d1c3c8ba0",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d2d649502",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         },
                         {
                             "key": "field_610376c1f3b5b",
@@ -5199,30 +5167,42 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_6154fba589b85",
-                            "label": "Display",
-                            "name": "display",
-                            "type": "select",
-                            "instructions": "",
+                            "key": "field_61d6d2e149503",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "grid": "Grid",
-                                "stacked": "Stacked",
-                                "stacked-alternate": "Stacked Alternate"
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6154fb6989b79",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
                             },
-                            "default_value": false,
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_616ec36e8ec18",
@@ -5233,7 +5213,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5260,13 +5240,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_6154fb6989b76",
@@ -5285,7 +5263,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5309,13 +5287,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_6154fb6989b78",
@@ -5326,7 +5302,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5339,34 +5315,15 @@
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
-                            "ajax": 0,
                             "return_format": "value",
+                            "ajax": 0,
                             "placeholder": ""
                         },
                         {
-                            "key": "field_6154fb6989b79",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d2e149503",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
+                            "key": "field_6154fba589b85",
+                            "label": "Display",
+                            "name": "display",
+                            "type": "select",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -5375,11 +5332,18 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "choices": {
+                                "grid": "Grid",
+                                "stacked": "Stacked",
+                                "stacked-alternate": "Stacked Alternate"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
                         },
                         {
                             "key": "field_6154fb6989b7a",
@@ -5804,30 +5768,42 @@
                             "endpoint": 0
                         },
                         {
-                            "key": "field_615ba7f74184e",
-                            "label": "Display",
-                            "name": "display",
-                            "type": "select",
-                            "instructions": "",
+                            "key": "field_61d6d2eb49504",
+                            "label": "Module ID",
+                            "name": "module_id",
+                            "type": "text",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "grid": "Grid",
-                                "stacked": "Stacked",
-                                "stacked-alternate": "Stacked Alternate"
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_615ba7f741853",
+                            "label": "Module classes",
+                            "name": "module_classes",
+                            "type": "text",
+                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
                             },
-                            "default_value": false,
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "return_format": "value",
-                            "placeholder": ""
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         },
                         {
                             "key": "field_616ec4abbbeeb",
@@ -5838,7 +5814,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5865,13 +5841,11 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_615ba7f741850",
@@ -5890,7 +5864,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5914,13 +5888,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": false,
-                            "return_format": "string"
+                            "default_value": ""
                         },
                         {
                             "key": "field_615ba7f741852",
@@ -5931,7 +5903,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -5944,34 +5916,15 @@
                             "allow_null": 0,
                             "multiple": 0,
                             "ui": 0,
-                            "ajax": 0,
                             "return_format": "value",
+                            "ajax": 0,
                             "placeholder": ""
                         },
                         {
-                            "key": "field_615ba7f741853",
-                            "label": "Module classes",
-                            "name": "module_classes",
-                            "type": "text",
-                            "instructions": "To add multiple classes just separate with comma. e.g. first-class,second-class",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
-                        },
-                        {
-                            "key": "field_61d6d2eb49504",
-                            "label": "Module ID",
-                            "name": "module_id",
-                            "type": "text",
+                            "key": "field_615ba7f74184e",
+                            "label": "Display",
+                            "name": "display",
+                            "type": "select",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -5980,11 +5933,18 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "choices": {
+                                "grid": "Grid",
+                                "stacked": "Stacked",
+                                "stacked-alternate": "Stacked Alternate"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
                         },
                         {
                             "key": "field_615ba7f741854",
@@ -6346,7 +6306,7 @@
                             "label": "Module ID",
                             "name": "module_id",
                             "type": "text",
-                            "instructions": "Use a single, or hyphen separated words.<a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
+                            "instructions": "Use a single, or hyphen separated words. <a href=\"https:\/\/developer.mozilla.org\/en-US\/docs\/Web\/HTML\/Global_attributes\/id\" target=\"_blank\">Mozilla documentation<\/a>",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -6739,5 +6699,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1644804777
+    "modified": 1644883453
 }
