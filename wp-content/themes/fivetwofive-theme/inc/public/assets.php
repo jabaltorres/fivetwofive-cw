@@ -150,6 +150,10 @@ function fivetwofive_theme_assets() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( ! is_user_logged_in() ) {
+		wp_dequeue_style( 'dashicons' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'fivetwofive_theme_assets' );
 
@@ -162,7 +166,7 @@ function fivetwofive_theme_preconnect() {
 	$preconnect_urls = array( 'https://fonts.gstatic.com' );
 
 	foreach ( $preconnect_urls as $preconnect_url ) {
-		echo sprintf( '<link rel="preconnect" href="1$%s">', esc_url( $preconnect_url ) );
+		echo sprintf( '<link rel="preconnect" href="%1$s">', esc_url( $preconnect_url ) );
 	}
 }
 add_action( 'wp_head', 'fivetwofive_theme_preconnect', 5 );
