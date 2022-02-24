@@ -27,7 +27,7 @@ $post_item_id = $args['id'];
 	<?php if ( has_post_thumbnail( $post_item_id ) ) : ?>
 		<div class="col-12 col-md-7 ftf-post-item__thumbnail-col <?php echo esc_attr( $thumbnail_col_position_class ); ?>">
 			<a class="ftf-post-item__link" href="<?php echo esc_url( get_permalink( $post_item_id ) ); ?>" title="<?php echo esc_attr( get_the_title( $post_item_id ) ); ?>">
-				<img class="ftf-post-item__thumbnail" src="<?php echo esc_url( get_the_post_thumbnail_url( $post_item_id ) ); ?>" alt="<?php echo esc_attr( get_the_post_thumbnail_caption( $post_item_id ) ); ?>" />
+				<img class="ftf-post-item__thumbnail" src="<?php echo esc_url( get_the_post_thumbnail_url( $post_item_id, array( '746', '420' ) ) ); ?>" width="746" height="420" alt="<?php echo esc_attr( get_the_post_thumbnail_caption( $post_item_id ) ); ?>" />
 			</a>
 		</div>
 	<?php endif; ?>
