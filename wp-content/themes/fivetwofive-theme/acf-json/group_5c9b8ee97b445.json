@@ -99,7 +99,7 @@
             "label": "Modules",
             "name": "modules",
             "type": "flexible_content",
-            "instructions": "",
+            "instructions": "Flexible and Modular Page Sections",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -333,7 +333,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#FFFFFF"
+                            "default_value": "#FFFFFF",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_5de7dcdb7f906",
@@ -348,7 +350,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#e62f24"
+                            "default_value": "#e62f24",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_5de7dce57f907",
@@ -363,7 +367,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#000000"
+                            "default_value": "#000000",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6108c95b4c4c3",
@@ -869,7 +875,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6093221add0dd",
@@ -1315,7 +1323,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6108c5a381e75",
@@ -1733,7 +1743,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_5f74b71cf490c",
@@ -2400,7 +2412,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_5dd5508868938",
@@ -3054,7 +3068,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_616d604404d0f",
@@ -3069,7 +3085,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#0A7FFF"
+                            "default_value": "#0A7FFF",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60933a1118746",
@@ -3084,7 +3102,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6108bdd3c0092",
@@ -3539,7 +3559,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60e501ca07bd6",
@@ -3586,7 +3608,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60e504f44a5c0",
@@ -4183,7 +4207,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60ed0bc3795c9",
@@ -4230,7 +4256,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60ed0be0795cb",
@@ -4760,7 +4788,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60f4d0f9c8b9d",
@@ -4807,7 +4837,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_60f4d105c8b9e",
@@ -5244,7 +5276,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6154fb6989b76",
@@ -5291,7 +5325,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_6154fb6989b78",
@@ -5845,7 +5881,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_615ba7f741850",
@@ -5892,7 +5930,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": ""
+                            "default_value": "",
+                            "enable_opacity": false,
+                            "return_format": "string"
                         },
                         {
                             "key": "field_615ba7f741852",
@@ -6690,7 +6730,7 @@
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
@@ -6699,5 +6739,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1644883453
+    "modified": 1647037004
 }
