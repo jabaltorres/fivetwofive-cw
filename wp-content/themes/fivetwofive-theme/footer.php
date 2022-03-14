@@ -9,6 +9,7 @@
  * @package FiveTwoFive_Theme
  */
 
+$fivetwofive_theme_mods = fivetwofive_theme_mods();
 ?>
 	<?php do_action( 'fivetwofive_after_content' ); ?>
 	</div><!-- .content-sidebar-wrap -->
@@ -49,6 +50,8 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+
+<?php echo wp_kses( $fivetwofive_theme_mods['scripts_body_closing'], fivetwofive_kses_extended_ruleset() ); ?>
 
 </body>
 </html>

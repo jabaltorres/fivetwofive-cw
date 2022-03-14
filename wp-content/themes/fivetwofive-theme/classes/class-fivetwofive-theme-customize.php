@@ -118,6 +118,7 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 
 			$this->add_site_identity_options( $wp_customize, $defaults );
 			$this->add_typography_options( $wp_customize, $defaults, $config );
+			$this->add_head_and_body_scripts_options( $wp_customize, $defaults, $config );
 			$this->add_color_options( $wp_customize, $defaults );
 			$this->add_color_buttons_options( $wp_customize, $defaults );
 			$this->add_color_header_options( $wp_customize, $defaults );
@@ -409,6 +410,102 @@ if ( ! class_exists( 'Fivetwofive_Theme_Customize' ) ) {
 						'description' => __( 'Font weight', 'fivetwofive' ),
 						'choices'     => $config['font_weights'],
 					)
+				)
+			);
+		}
+
+		/**
+		 * Add Header and footer scripts fields in the customizer api.
+		 *
+		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 * @param array                $defaults default theme mods.
+		 * @param array                $config Theme Configuration.
+		 * @return void
+		 */
+		public function add_head_and_body_scripts_options( $wp_customize, $defaults, $config ) {
+			$wp_customize->add_section(
+				'fivetwofive_head_and_body_scripts_section',
+				array(
+					'title'          => __( 'Head/Body Scripts', 'fivetwofive' ),
+					'panel'          => '', // Not typically needed.
+					'capability'     => 'edit_theme_options',
+					'theme_supports' => '', // Rarely needed.
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[scripts_head_opening]',
+				array(
+					'type'       => 'theme_mod',
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_control(
+				'fivetwofive_theme_mods[scripts_head_opening]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_head_and_body_scripts_section',
+					'label'       => __( 'Head Opening Scripts', 'fivetwofive' ),
+					'description' => __( 'This code will output immediately after the opening <code>&lt;head&gt;</code> tag in the document source.', 'fivetwofive' ),
+					'type'        => 'textarea',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[scripts_head_closing]',
+				array(
+					'type'       => 'theme_mod',
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_control(
+				'fivetwofive_theme_mods[scripts_head_closing]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_head_and_body_scripts_section',
+					'label'       => __( 'Head Closing Scripts', 'fivetwofive' ),
+					'description' => __( 'This code will output immediately before the closing <code>&lt;/head&gt;</code> tag in the document source.', 'fivetwofive' ),
+					'type'        => 'textarea',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[scripts_body_opening]',
+				array(
+					'type'       => 'theme_mod',
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_control(
+				'fivetwofive_theme_mods[scripts_body_opening]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_head_and_body_scripts_section',
+					'label'       => __( 'Body Opening Scripts', 'fivetwofive' ),
+					'description' => __( 'This code will output immediately after the opening <code>&lt;body&gt;</code> tag in the document source.', 'fivetwofive' ),
+					'type'        => 'textarea',
+				)
+			);
+
+			$wp_customize->add_setting(
+				'fivetwofive_theme_mods[scripts_body_closing]',
+				array(
+					'type'       => 'theme_mod',
+					'capability' => 'edit_theme_options',
+				)
+			);
+
+			$wp_customize->add_control(
+				'fivetwofive_theme_mods[scripts_body_closing]',
+				array(
+					'priority'    => 10,
+					'section'     => 'fivetwofive_head_and_body_scripts_section',
+					'label'       => __( 'Body Closing Scripts', 'fivetwofive' ),
+					'description' => __( 'This code will output immediately before the closing <code>&lt;/body&gt;</code> tag in the document source.', 'fivetwofive' ),
+					'type'        => 'textarea',
 				)
 			);
 		}
