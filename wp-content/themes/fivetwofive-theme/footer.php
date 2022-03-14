@@ -51,7 +51,11 @@ $fivetwofive_theme_mods = fivetwofive_theme_mods();
 
 <?php wp_footer(); ?>
 
-<?php echo wp_kses( $fivetwofive_theme_mods['scripts_body_closing'], fivetwofive_kses_extended_ruleset() ); ?>
+<?php
+if ( ! empty( $fivetwofive_theme_mods['scripts_head_opening'] ) ) {
+	echo wp_kses( $fivetwofive_theme_mods['scripts_body_closing'], fivetwofive_kses_extended_ruleset() );
+}
+?>
 
 </body>
 </html>
