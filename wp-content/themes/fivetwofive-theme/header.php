@@ -16,7 +16,11 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<?php echo wp_kses( $fivetwofive_theme_mods['scripts_head_opening'], fivetwofive_kses_extended_ruleset() ); ?>
+	<?php
+	if ( ! empty( $fivetwofive_theme_mods['scripts_head_opening'] ) ) {
+		echo wp_kses( $fivetwofive_theme_mods['scripts_head_opening'], fivetwofive_kses_extended_ruleset() );
+	}
+	?>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,12 +28,20 @@ $hide_site_description  = $fivetwofive_theme_mods['site_identity_hide_blogdescri
 
 	<?php wp_head(); ?>
 
-	<?php echo wp_kses( $fivetwofive_theme_mods['scripts_head_closing'], fivetwofive_kses_extended_ruleset() ); ?>
+	<?php
+	if ( isset( $fivetwofive_theme_mods['scripts_head_closing'] ) && ! empty( $fivetwofive_theme_mods['scripts_head_closing'] ) ) {
+		echo wp_kses( $fivetwofive_theme_mods['scripts_head_closing'], fivetwofive_kses_extended_ruleset() );
+	}
+	?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<?php echo wp_kses( $fivetwofive_theme_mods['scripts_body_opening'], fivetwofive_kses_extended_ruleset() ); ?>
+<?php
+if ( ! empty( $fivetwofive_theme_mods['scripts_body_opening'] ) ) {
+	echo wp_kses( $fivetwofive_theme_mods['scripts_body_opening'], fivetwofive_kses_extended_ruleset() );
+}
+?>
 
 <?php wp_body_open(); ?>
 <div id="page" class="site">
