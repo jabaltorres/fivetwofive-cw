@@ -35,7 +35,24 @@ settings_errors( 'fivetwofive_cta_messages' );
 	<form action="options.php" method="post">
 		<?php settings_fields( 'fivetwofive_cta' ); ?>
 
-		<?php do_settings_sections( 'fivetwofive_cta' ); ?>
+		<div id="ftfCtaTabs">
+			<ul class="nav-tab-wrapper">
+				<li style="margin: 0;"><a class="nav-tab nav-tab-active" href="#ftfCtaContent">Content</a></li>
+				<li style="margin: 0;"><a class="nav-tab" href="#ftfCtaAppearance">Appearance</a></li>
+			</ul>
+
+			<div id="ftfCtaContent">
+				<table class="form-table">
+					<?php do_settings_fields( 'fivetwofive_cta', 'fivetwofive_cta_content_section' ); ?>
+				</table>
+			</div>
+
+			<div id="ftfCtaAppearance">
+				<table class="form-table">
+					<?php do_settings_fields( 'fivetwofive_cta', 'fivetwofive_cta_appearance_section' ); ?>
+				</table>
+			</div>
+		</div>
 
 		<?php submit_button(); ?>
 	</form>
