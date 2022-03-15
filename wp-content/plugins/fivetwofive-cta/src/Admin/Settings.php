@@ -116,10 +116,12 @@ class Settings {
 	 * @return void
 	 */
 	public function enqueue_scripts( $hook ) {
-		if ( 'toplevel_page_fivetwofive_cta' !== $hook ) { return; }
+		if ( 'toplevel_page_fivetwofive_cta' !== $hook ) {
+			return;
+		}
 
 		wp_enqueue_media();
-		wp_enqueue_script( $this->plugin_name . '-admin', plugins_url( 'resources/assets/admin/scripts/fivetwofive-cta-admin.js', FTF_CTA_PLUGIN_FILE ), array( 'jquery', 'iris' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name . '-admin', plugins_url( 'resources/assets/admin/scripts/fivetwofive-cta-admin.js', FTF_CTA_PLUGIN_FILE ), array( 'jquery', 'jquery-ui-tabs', 'iris' ), $this->version, true );
 	}
 
 	/**
@@ -140,7 +142,7 @@ class Settings {
 
 	public function register_content_settings() {
 		add_settings_section(
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			__( 'Content', 'fivetwofive-cta' ),
 			array( $this, 'settings_content_section' ),
 			$this->plugin_name
@@ -151,7 +153,7 @@ class Settings {
 			__( 'Title', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			array(
 				'id'    => 'cta_title',
 				'label' => __( 'Custom title attribute for the CTA', 'fivetwofive-cta' ),
@@ -163,7 +165,7 @@ class Settings {
 			__( 'Message', 'fivetwofive-cta' ),
 			array( $this, 'field_wysiwyg' ),
 			$this->plugin_name,
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			array(
 				'id'    => 'cta_message',
 				'label' => __( 'Custom text and/or markup', 'fivetwofive-cta' ),
@@ -175,7 +177,7 @@ class Settings {
 			__( 'Button Text', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			array(
 				'id'    => 'cta_button_text',
 				'label' => __( 'Custom button text for the CTA', 'fivetwofive-cta' ),
@@ -187,7 +189,7 @@ class Settings {
 			__( 'Button URL', 'fivetwofive-cta' ),
 			array( $this, 'field_text' ),
 			$this->plugin_name,
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			array(
 				'id'    => 'cta_button_link',
 				'label' => __( 'Custom URL for the CTA link', 'fivetwofive-cta' ),
@@ -199,7 +201,7 @@ class Settings {
 			__( 'Button Target', 'fivetwofive-cta' ),
 			array( $this, 'field_radio' ),
 			$this->plugin_name,
-			$this->plugin_name . 'content-section',
+			$this->plugin_name . '_content_section',
 			array(
 				'id'    => 'cta_button_target',
 				'label' => __( 'Custom target for the CTA', 'fivetwofive-cta' ),
@@ -209,7 +211,7 @@ class Settings {
 
 	public function register_appearance_settings() {
 		add_settings_section(
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			__( 'Appearance', 'fivetwofive-cta' ),
 			array( $this, 'settings_appearance_section' ),
 			$this->plugin_name
@@ -220,7 +222,7 @@ class Settings {
 			__( 'Text alignment', 'fivetwofive-cta' ),
 			array( $this, 'field_dropdown' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id'      => 'cta_text_alignment',
 				'options' => array(
@@ -236,7 +238,7 @@ class Settings {
 			__( 'Background image', 'fivetwofive-cta' ),
 			array( $this, 'field_media_upload' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_background_image',
 			)
@@ -247,7 +249,7 @@ class Settings {
 			__( 'Background color', 'fivetwofive-cta' ),
 			array( $this, 'field_colorpicker' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_background_color',
 			)
@@ -258,7 +260,7 @@ class Settings {
 			__( 'Title color', 'fivetwofive-cta' ),
 			array( $this, 'field_colorpicker' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_title_color',
 			)
@@ -269,7 +271,7 @@ class Settings {
 			__( 'Message color', 'fivetwofive-cta' ),
 			array( $this, 'field_colorpicker' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_message_color',
 			)
@@ -280,7 +282,7 @@ class Settings {
 			__( 'Button background color', 'fivetwofive-cta' ),
 			array( $this, 'field_colorpicker' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_button_background_color',
 			)
@@ -291,7 +293,7 @@ class Settings {
 			__( 'Button text color', 'fivetwofive-cta' ),
 			array( $this, 'field_colorpicker' ),
 			$this->plugin_name,
-			$this->plugin_name . 'appearance-section',
+			$this->plugin_name . '_appearance_section',
 			array(
 				'id' => 'cta_button_text_color',
 			)

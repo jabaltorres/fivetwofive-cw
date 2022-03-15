@@ -65,8 +65,18 @@
         });
     }
 
+	const adminTabsInit = function() {
+		$("#ftfCtaTabs").tabs({
+			beforeActivate: function( event, ui ) {
+				ui.oldTab.find('.nav-tab').removeClass('nav-tab-active');
+				ui.newTab.find('.nav-tab').addClass('nav-tab-active');
+			}
+		});
+	}
+
     $(function(){
         colorPickerInit();
         mediaUploadInit();
+		adminTabsInit();
     });
 })(jQuery);
