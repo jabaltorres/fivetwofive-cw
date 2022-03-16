@@ -69,7 +69,7 @@ $event_start_time  = get_field( 'ftf_event_start_time' );
 				<div class="col-md-5 event-form-col">
 					<?php
 					if ( $event_form ) :
-						echo wp_kses( $event_form, fivetwofive_kses_extended_ruleset() );
+						echo do_shortcode( wp_kses( $event_form, fivetwofive_kses_extended_ruleset() ) );
 					endif;
 					?>
 				</div>
