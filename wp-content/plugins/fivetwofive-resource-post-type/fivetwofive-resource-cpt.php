@@ -328,3 +328,55 @@ function ftf_resource_single_page_container( $is_contained ) {
 	return $is_contained;
 }
 add_filter( 'fivetwofive_theme_is_contained', 'ftf_resource_single_page_container' );
+
+/**
+ * Add a Formatted Date to the WordPress REST API JSON Post Object
+ */
+function ftf_resource_rest_api_init() {
+	register_rest_field(
+		apply_filters( 'ftf_resource_rest_api_categories', array( 'ftf_resource' ) ),
+		'ftf_resource_categories',
+		array(
+			'get_callback'    => function() {
+				$resource_categories = get_the_terms( get_the_ID(), 'ftf_resource_category' );
+				$categories          = array();
+
+				foreach ( $resource_categories as $resource_category ) {
+					$categories[] = array(
+						'name' => esc_html( $resource_category->name ),
+						'link' => esc_url( get_category_link( $resource_category->term_id ) ),
+					);
+				}
+
+				return $categories;
+			},
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+
+	register_rest_field(
+		apply_filters( 'ftf_resource_rest_api_tags', array( 'ftf_resource' ) ),
+		'ftf_resource_tags',
+		array(
+			'get_callback'    => function() {
+				$resource_tags = get_the_terms( get_the_ID(), 'ftf_resource_tag' );
+				$tags    = array();
+
+				if ( $resource_tags ) {
+					foreach ( $resource_tags as $tag ) {
+						$tags[] = array(
+							'name' => esc_html( $tag->name ),
+							'link' => esc_url( get_category_link( $tag->term_id ) ),
+						);
+					}
+				}
+
+				return $tags;
+			},
+			'update_callback' => null,
+			'schema'          => null,
+		)
+	);
+}
+add_action( 'rest_api_init', 'ftf_resource_rest_api_init' );

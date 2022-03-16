@@ -33,7 +33,7 @@
 
 		fetchResources( page ) {
 			const requestURL = new URL( FTF.restBase );
-			requestURL.searchParams.append( '_fields', 'id,date_gmt,ftf_formatted_date,ftf_resource_categories,title,link,_links,_embedded' );
+			requestURL.searchParams.append( '_fields', 'id,date_gmt,ftf_formatted_date,ftf_resource_categories,ftf_resource_tags,title,link,_links,_embedded' );
 			requestURL.searchParams.append( 'per_page', this.itemPerPage );
 			requestURL.searchParams.append( 'page', page );
 			requestURL.searchParams.append( '_embed', 'wp:featuredmedia' );
@@ -75,36 +75,51 @@
 		}
 
 		createResource( resource ) {
-			console.log(resource);
 			let resourceHTML = '';
+			let categories = '';
+			let tags = '';
+			let image = '';
+
 			if ( resource ) {
-				resourceHTML = `
-          <div class="col-md-4 mb-3 mb-md-5">
-            <article id="card-${ resource.id }" class="card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry load-hidden">`;
-
-				resourceHTML += '<div class="card__top">';
-
 				if ( resource?.ftf_resource_categories ) {
-					resourceHTML += `<ul class="card__categories">`;
+					categories += '<ul class="card__categories">';
 
 					resource.ftf_resource_categories.forEach( ( category ) => {
-						resourceHTML += `<li><a href="${ category.link }">${ category.name }</a></li>`;
+						categories += `<li><a href="${ category.link }">${ category.name }</a></li>`;
 					} );
 
-					resourceHTML += `</ul>`;
+					categories += '</ul>';
+				}
+
+				if ( resource?.ftf_resource_tags && resource.ftf_resource_tags.length > 0 ) {
+					tags += '<p class="card__tags"><strong>Tags:</strong> ';
+
+					resource.ftf_resource_tags.forEach( ( tag, i ) => {
+						if ( i !== 0 ) {
+							tags += ',';
+						}
+						tags += ` <a rel="tag" href="${ tag.link }">${ tag.name }</a>`;
+					} );
+
+					tags += '</p>';
 				}
 
 				if ( resource._embedded?.[ 'wp:featuredmedia' ]?.[ 0 ]?.media_details?.sizes?.[ 'ftf-resource-thumb' ]?.source_url ) {
-					resourceHTML += `<img width="415" height="245" src="${ resource._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes[ 'ftf-resource-thumb' ].source_url }" class="card__image img-responsive wp-post-image" alt="${ resource.title.rendered }" loading="lazy">`;
+					image += `<img width="415" height="245" src="${ resource._embedded[ 'wp:featuredmedia' ][ 0 ].media_details.sizes[ 'ftf-resource-thumb' ].source_url }" class="card__image img-responsive wp-post-image" alt="${ resource.title.rendered }" loading="lazy">`;
 				}
 
-				resourceHTML += '</div>';
-
-				resourceHTML += `
+				resourceHTML = `
+				  <div class="col-md-4 mb-3 mb-md-5">
+					<article id="card-${ resource.id }" class="card post-2990 ftf_resource type-ftf_resource status-publish has-post-thumbnail hentry load-hidden">
+						<div class="card__top">
+							${ categories }
+							${ image }
+						</div>
 					  <div class="card__bottom">
 						<header class="card__header m-0">
 						  <div class="ftf-post-meta entry-meta"><span class="posted-on"><a href="${ resource.link }" rel="bookmark"><time class="entry-date published" datetime="${ resource.date }">${ resource.ftf_formatted_date }</time></a></span></div>
 						  <h3 class="card__title mt-2"><a href="${ resource.link }">${ resource.title.rendered }</a></h3>
+						  ${ tags }
 						</header>
 					  </div>
 					</article>

@@ -191,6 +191,7 @@ $pagination_links = fivetwofive_get_paginated_links( $resources_query );
 										'id'         => get_the_ID(),
 										'image_size' => 'ftf-resource-thumb',
 										'taxonomy'   => 'ftf_resource_category',
+										'tags'       => 'ftf_resource_tag',
 									)
 								);
 							?>
