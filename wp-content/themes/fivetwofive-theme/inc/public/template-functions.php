@@ -45,28 +45,29 @@ add_action( 'wp_head', 'fivetwofive_theme_pingback_header' );
 function fivetwofive_kses_extended_ruleset() {
 	$kses_defaults = wp_kses_allowed_html( 'post' );
 
-	$svg_args = array(
-		'iframe' => array(
+	$args = array(
+		'noscript' => array(),
+		'iframe'   => array(
 			'src'             => true,
 			'height'          => true,
 			'width'           => true,
 			'frameborder'     => true,
 			'allowfullscreen' => true,
 		),
-		'link'   => array(
+		'link'     => array(
 			'rel'  => true,
 			'href' => true,
 		),
-		'script' => array(
+		'script'   => array(
 			'charset' => true,
 			'type'    => true,
 			'src'     => true,
 		),
-		'time'   => array(
+		'time'     => array(
 			'class'    => true,
 			'datetime' => true,
 		),
-		'svg'    => array(
+		'svg'      => array(
 			'class'           => true,
 			'aria-hidden'     => true,
 			'aria-labelledby' => true,
@@ -76,14 +77,15 @@ function fivetwofive_kses_extended_ruleset() {
 			'height'          => true,
 			'viewbox'         => true, // <= Must be lower case!
 		),
-		'g'      => array( 'fill' => true ),
-		'title'  => array( 'title' => true ),
-		'path'   => array(
+		'g'        => array( 'fill' => true ),
+		'title'    => array( 'title' => true ),
+		'path'     => array(
 			'd'    => true,
 			'fill' => true,
 		),
 	);
-	return array_merge( $kses_defaults, $svg_args );
+
+	return array_merge( $kses_defaults, $args );
 }
 
 /**
