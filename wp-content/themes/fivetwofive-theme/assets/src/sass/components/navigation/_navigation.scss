@@ -68,6 +68,11 @@
 	margin-left: auto;
 }
 
+// Hide the menu toggle if mega-menu is active.
+.mega-menu-primary-menu .menu-toggle {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   /* Small menu. */
   .menu-toggle,

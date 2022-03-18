@@ -82,7 +82,7 @@ if ( ! empty( $fivetwofive_theme_mods['scripts_body_opening'] ) ) {
 				</div><!-- .site-branding -->
 				<?php if ( has_nav_menu( 'primary_menu' ) ) : ?>
 					<nav id="site-navigation" class="main-navigation col-12 col-md-9">
-						<button class="menu-toggle hamburger hamburger--slider d-none" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
+						<button class="menu-toggle hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="primary-menu" aria-expanded="false">
 							<span class="menu-toggle__text screen-reader-text"><?php esc_html_e( 'Menu', 'fivetwofive' ); ?></span>
 							<span class="hamburger-box">
 								<span class="hamburger-inner"></span>
