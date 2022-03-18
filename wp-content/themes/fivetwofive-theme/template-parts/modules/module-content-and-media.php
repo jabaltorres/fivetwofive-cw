@@ -160,7 +160,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 						$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 						?>
 						<div class="ftf-module__cta-wrap mt-3 mt-md-4">
-							<a class="button module__button" style="<?php echo esc_attr( $button_styles ? $button_styles : '' ); ?>" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+							<a class="button module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 						</div>
 					<?php endif; ?>
 				</div>

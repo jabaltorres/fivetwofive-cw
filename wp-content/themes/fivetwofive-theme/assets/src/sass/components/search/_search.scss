@@ -1,7 +1,23 @@
 .search-form {
-    margin-bottom: 1.5em;
+  margin-bottom: rem(15px);
+  display: flex;
 
-    .search-field {
-        height: 40px;
-    }
+  label {
+    display: block;
+    width: 80%;
+    flex-basis: 80%;
+  }
+
+  .search-submit {
+    padding: rem(12px) rem(20px);
+    min-width: max-content;
+    width: 20%;
+    flex-basis: 20%;
+    margin-left: rem(15px);
+  }
+
+  .error-404 & {
+    max-width: rem(750px);
+    margin: 0 auto rem(30px);
+  }
 }
