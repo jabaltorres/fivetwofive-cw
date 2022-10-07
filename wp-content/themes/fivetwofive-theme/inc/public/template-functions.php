@@ -47,6 +47,7 @@ function fivetwofive_kses_extended_ruleset() {
 
 	$args = array(
 		'noscript' => array(),
+		'style'    => array(),
 		'iframe'   => array(
 			'src'             => true,
 			'height'          => true,
