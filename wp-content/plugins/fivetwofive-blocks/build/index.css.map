@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA;EACC;AACD,C","sources":["webpack://fivetwofive-blocks/./src/editor.scss"],"sourcesContent":[".wp-block-fivetwofive-blocks-accordion {\n\tborder: 1px dotted #f00;\n}\n"],"names":[],"sourceRoot":""}

@@ -22,6 +22,7 @@ wp-content/plugins/*
 !wp-content/plugins/fivetwofive-lp-post-type
 !wp-content/plugins/fivetwofive-resource-post-type
 !wp-content/plugins/fivetwofive-events-post-type
+!wp-content/plugins/fivetwofive-blocks
 
 wp-content/themes/*
 !wp-content/themes/twentytwenty
