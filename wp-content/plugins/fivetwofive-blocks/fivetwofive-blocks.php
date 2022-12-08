@@ -21,7 +21,8 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_fivetwofive_blocks_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/blocks/accordion' );
+	register_block_type( __DIR__ . '/build/blocks/panel' );
 }
 add_action( 'init', 'create_block_fivetwofive_blocks_block_init' );
 

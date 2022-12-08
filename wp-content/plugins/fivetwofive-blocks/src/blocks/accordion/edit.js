@@ -1,17 +1,4 @@
-/**
- * Retrieves the translation of text.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
- */
-import { __ } from '@wordpress/i18n';
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -31,11 +18,11 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Fivetwofive Blocks – Accordion!',
-				'fivetwofive-blocks'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<InnerBlocks
+				allowedBlocks={ [ 'fivetwofive-blocks/panel' ] }
+				template={ [ [ 'fivetwofive-blocks/panel', {} ] ] }
+			/>
+		</div>
 	);
 }

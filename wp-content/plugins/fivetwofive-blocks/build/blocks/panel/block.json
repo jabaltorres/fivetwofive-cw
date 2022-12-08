@@ -1,17 +1,25 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "fivetwofive-blocks/accordion",
+  "name": "fivetwofive-blocks/panel",
   "version": "0.1.0",
-  "title": "Accordion",
+  "title": "Panel",
   "category": "fivetwofive-blocks",
-  "icon": "insert",
-  "description": "Accordions are useful when you want to toggle between hiding and showing large amount of content",
+  "parent": [
+    "fivetwofive-blocks/accordion"
+  ],
+  "icon": "welcome-add-page",
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
   "supports": {
     "html": false
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css"
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
 }
