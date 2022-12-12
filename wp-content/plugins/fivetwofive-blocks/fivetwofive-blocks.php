@@ -1,16 +1,14 @@
 <?php
 /**
  * Plugin Name:       Fivetwofive Blocks
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Open source block library for everyone
  * Requires at least: 6.1
  * Requires PHP:      7.0
- * Version:           0.1.0
+ * Version:           0.1.1
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       fivetwofive-blocks
- *
- * @package           create-block
  */
 
 /**
@@ -20,11 +18,36 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function create_block_fivetwofive_blocks_block_init() {
-	register_block_type( __DIR__ . '/build/blocks/accordion' );
-	register_block_type( __DIR__ . '/build/blocks/panel' );
+function ftfb_create_block_init() {
+	$ftf_blocks = array(
+		array(
+			'name'            => 'accordion',
+			'render_callback' => true,
+		),
+		array(
+			'name'            => 'panel',
+			'render_callback' => true,
+		)
+	);
+
+	foreach ( $ftf_blocks as $ftf_block ) {
+		$args = array();
+
+		if ( isset( $ftf_block['render_callback'] ) && true === $ftf_block['render_callback'] ) {
+			$render_callback = function( $attributes, $content, $block ) use ( $ftf_block ) {
+				ob_start();
+				require plugin_dir_path( __FILE__ ) . 'src/blocks/' . $ftf_block['name'] . '/render.php';
+				return ob_get_clean();
+			};
+
+			$args['render_callback'] = $render_callback;
+		}
+
+		register_block_type( __DIR__ . '/build/blocks/' . $ftf_block['name'], $args );
+	}
+
 }
-add_action( 'init', 'create_block_fivetwofive_blocks_block_init' );
+add_action( 'init', 'ftfb_create_block_init' );
 
 /**
  * Adding FiveTwoFive Blocks category.

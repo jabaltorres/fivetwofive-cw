@@ -5,10 +5,10 @@
   "version": "0.1.0",
   "title": "Panel",
   "category": "fivetwofive-blocks",
+  "icon": "welcome-add-page",
   "parent": [
     "fivetwofive-blocks/accordion"
   ],
-  "icon": "welcome-add-page",
   "attributes": {
     "title": {
       "type": "string"
@@ -19,7 +19,5 @@
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./style-index.css",
-  "render": "file:./render.php"
+  "editorStyle": "file:./index.css"
 }

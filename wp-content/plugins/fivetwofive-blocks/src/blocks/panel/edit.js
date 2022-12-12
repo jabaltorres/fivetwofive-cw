@@ -23,14 +23,19 @@ export default function Edit(props) {
 	} = props;
 
 	const saveTitle = (newValue) => {
-		console.log(newValue);
 		setAttributes({ title: newValue });
 	}
 
+	const panelTemplate = [
+		[ 'core/paragraph', { placeholder: 'Enter panel content here..' } ],
+	];
+
 	return (
 		<div { ...useBlockProps() }>
-			<RichText placeholder="Enter panel title here.." tagName="h2" value={title} onChange={saveTitle}/>
-			<InnerBlocks />
+			<RichText className="ftfb-panel-title" placeholder="Enter panel title here.." tagName="h3" value={title} onChange={saveTitle}/>
+			<div className="ftfb-panel-content">
+				<InnerBlocks template={ panelTemplate } />
+			</div>
 		</div>
 	);
 }
