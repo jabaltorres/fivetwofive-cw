@@ -21,6 +21,8 @@ if ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) {
 
 ?>
 <div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
-	<h3 class="ftfb-panel-title"><?php echo wp_kses_post( $panel_title ); ?></h3>
+	<h3 class="ftfb-panel-title">
+		<button type="button" class="ftfb-panel-trigger"><?php echo wp_kses_post( $panel_title ); ?></button>
+	</h3>
 	<div class="ftfb-panel-content"><?php echo wp_kses_post( $inner_blocks_html ); ?></div>
 </div>
