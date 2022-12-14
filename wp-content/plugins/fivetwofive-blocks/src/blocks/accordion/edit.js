@@ -1,5 +1,7 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
+import { Button } from '@wordpress/components';
+
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -17,11 +19,13 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
+
 	return (
 		<div { ...useBlockProps() }>
 			<InnerBlocks
 				allowedBlocks={ [ 'fivetwofive-blocks/panel' ] }
 				template={ [ [ 'fivetwofive-blocks/panel', {} ] ] }
+				renderAppender={ InnerBlocks.ButtonBlockAppender }
 			/>
 		</div>
 	);
