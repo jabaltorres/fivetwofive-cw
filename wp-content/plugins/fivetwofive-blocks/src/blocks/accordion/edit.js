@@ -1,6 +1,6 @@
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
-import { Button } from '@wordpress/components';
+import FTFBBlockAppender from '../../components/Appender';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -18,14 +18,16 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( { clientId } ) {
 
 	return (
 		<div { ...useBlockProps() }>
 			<InnerBlocks
 				allowedBlocks={ [ 'fivetwofive-blocks/panel' ] }
 				template={ [ [ 'fivetwofive-blocks/panel', {} ] ] }
-				renderAppender={ InnerBlocks.ButtonBlockAppender }
+				renderAppender={ () => (
+					<FTFBBlockAppender rootClientId={ clientId } text="Add Panel" />
+				) }
 			/>
 		</div>
 	);
