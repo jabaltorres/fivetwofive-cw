@@ -15,7 +15,13 @@ foreach ( $block->inner_blocks as $inner_block ) {
 	$inner_blocks_html .= $inner_block->render();
 }
 
+$block_wrapper_attributes = get_block_wrapper_attributes(
+	array(
+		'style' => "text-align: {$attributes['textAlignment']};",
+	)
+);
+
 ?>
-<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
+<div <?php echo wp_kses_data( $block_wrapper_attributes ); ?>>
 	<?php echo wp_kses_post( $inner_blocks_html ); ?>
 </div>

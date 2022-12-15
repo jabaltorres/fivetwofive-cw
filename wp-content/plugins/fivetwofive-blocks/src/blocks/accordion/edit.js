@@ -1,4 +1,4 @@
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
 
 import FTFBBlockAppender from '../../components/Appender';
 
@@ -18,10 +18,13 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit( { clientId } ) {
+export default function Edit( { clientId, attributes, setAttributes } ) {
 
 	return (
 		<div { ...useBlockProps() }>
+			<BlockControls>
+				<AlignmentToolbar value={ attributes.textAlignment } onChange={x => setAttributes( { textAlignment: x } )}/>
+			</BlockControls>
 			<InnerBlocks
 				allowedBlocks={ [ 'fivetwofive-blocks/panel' ] }
 				template={ [ [ 'fivetwofive-blocks/panel', {} ] ] }

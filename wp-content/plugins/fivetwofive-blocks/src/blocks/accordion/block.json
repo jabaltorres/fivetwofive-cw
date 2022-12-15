@@ -7,14 +7,9 @@
   "category": "fivetwofive-blocks",
   "icon": "admin-page",
   "attributes": {
-    "panels": {
-      "type": "array",
-      "default": [
-        {
-          "title": "",
-          "content": ""
-        }
-      ]
+    "textAlignment": {
+      "type": "string",
+      "default": "left"
     }
   },
   "description": "Accordions are useful when you want to toggle between hiding and showing large amount of content",
