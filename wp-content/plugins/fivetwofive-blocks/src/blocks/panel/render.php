@@ -19,10 +19,16 @@ if ( isset( $attributes['title'] ) && ! empty( $attributes['title'] ) ) {
 	$panel_title = $attributes['title'];
 }
 
+$panel_title_tag = $block->context["fivetwofive-blocks/accordion/panelTitleTag"];
+
 ?>
 <div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
-	<h3 class="ftfb-panel-title">
-		<button type="button" class="ftfb-panel-trigger"><?php echo wp_kses_post( $panel_title ); ?></button>
-	</h3>
+	<?php
+	echo sprintf(
+		'<%1$s class="ftfb-panel-title"><button type="button" class="ftfb-panel-trigger">%2$s</button></%1$s>',
+		esc_attr( $block->context["fivetwofive-blocks/accordion/panelTitleTag"] ),
+		wp_kses_post( $panel_title )
+	);
+	?>
 	<div class="ftfb-panel-content"><?php echo wp_kses_post( $inner_blocks_html ); ?></div>
 </div>

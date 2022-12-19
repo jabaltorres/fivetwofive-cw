@@ -1,6 +1,5 @@
 import { Inserter } from '@wordpress/block-editor';
-import { Button } from '@wordpress/components';
-import { Icon } from '@wordpress/components';
+import { Button, Icon } from '@wordpress/components';
 
 /**
  * Custom block appender based on ButtonBlockAppender

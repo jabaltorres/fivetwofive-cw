@@ -12,10 +12,18 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3"
     }
   },
+  "usesContext": [
+    "fivetwofive-blocks/accordion/panelTitleTag"
+  ],
   "supports": {
-    "html": false
+    "html": false,
+    "anchor": true
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js"

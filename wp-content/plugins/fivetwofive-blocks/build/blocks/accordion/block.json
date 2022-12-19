@@ -10,11 +10,31 @@
     "textAlignment": {
       "type": "string",
       "default": "left"
+    },
+    "collapse": {
+      "type": "boolean",
+      "default": true
+    },
+    "showMultiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "panelTitleTag": {
+      "type": "string",
+      "default": "h3"
     }
+  },
+  "providesContext": {
+    "fivetwofive-blocks/accordion/panelTitleTag": "panelTitleTag"
   },
   "description": "Accordions are useful when you want to toggle between hiding and showing large amount of content",
   "supports": {
-    "html": false
+    "html": false,
+    "customClassName": true,
+    "align": [
+      "center"
+    ],
+    "anchor": true
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js",
