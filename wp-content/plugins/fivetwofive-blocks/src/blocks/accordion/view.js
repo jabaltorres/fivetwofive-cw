@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					onlyChildNodes: true,
 					elementClass: 'wp-block-fivetwofive-blocks-panel',
 					triggerClass: 'ftfb-panel-trigger',
-					panelClass: 'ftfb-panel-content',
+					panelClass: 'ftfb-panel-collapse',
 				}
 			);
 		});

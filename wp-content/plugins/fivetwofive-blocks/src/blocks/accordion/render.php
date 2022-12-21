@@ -9,6 +9,8 @@
  * @package gutenberg-examples
  */
 
+wp_enqueue_style('fivetwofive-blocks/accordion', );
+
 // @link https://github.com/WordPress/gutenberg/issues/26384
 $inner_blocks_html = '';
 foreach ( $block->inner_blocks as $inner_block ) {

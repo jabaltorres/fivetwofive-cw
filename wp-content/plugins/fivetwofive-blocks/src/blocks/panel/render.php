@@ -30,5 +30,9 @@ $panel_title_tag = $block->context["fivetwofive-blocks/accordion/panelTitleTag"]
 		wp_kses_post( $panel_title )
 	);
 	?>
-	<div class="ftfb-panel-content"><?php echo wp_kses_post( $inner_blocks_html ); ?></div>
+	<div class="ftfb-panel-collapse">
+		<div class="ftfb-panel-body">
+			<?php echo wp_kses_post( $inner_blocks_html ); ?>
+		</div>
+	</div>
 </div>

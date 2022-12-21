@@ -88,7 +88,7 @@ export default function Edit(props) {
 			</InspectorControls>
 			<InnerBlocks
 				allowedBlocks={['fivetwofive-blocks/panel']}
-				template={[['fivetwofive-blocks/panel', {}], ['fivetwofive-blocks/panel', {}]]}
+				template={[['fivetwofive-blocks/panel', {}]]}
 				renderAppender={() => (
 					<FTFBBlockAppender rootClientId={clientId} text="Add Panel"/>
 				)}
