@@ -22,6 +22,18 @@
     "panelTitleTag": {
       "type": "string",
       "default": "h3"
+    },
+    "panelIconStyle": {
+      "type": "string",
+      "default": "ftfb_accordion_icon_chevron"
+    },
+    "panelIconDisplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "panelIconPosition": {
+      "type": "string",
+      "default": "right"
     }
   },
   "providesContext": {

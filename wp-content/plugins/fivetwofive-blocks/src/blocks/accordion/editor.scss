@@ -1,3 +1,5 @@
+@use '../../scss/variables' as var;
+
 .wp-admin .wp-block-fivetwofive-blocks-accordion {
   padding: 15px;
   border: 1px dashed hsl(220, 13%, 91%);
@@ -43,5 +45,103 @@
     padding-right: 12px;
     margin-top: 20px;
   }
+
+  &--icon-position-left {
+    .ftfb-panel-title:after {
+      order: -1;
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
+
+  &--icon-display-hidden {
+    .ftfb-panel-title:after {
+        display: none;
+    }
+  }
 }
 
+.rfip.rfip--ftfb-accordion {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.rfipbtn.rfipbtn--ftfb-accordion {
+  width: 100%;
+  border: 1px solid var.$border-color-primary;
+
+  .rfipbtn__button {
+    border-left: 1px solid var.$border-color-primary;
+    background-color: var.$background-color-primary;
+
+    &:hover,
+    &:focus {
+      background-color: var.$background-color-secondary;
+    }
+  }
+
+  .rfipbtn__current {
+    flex-basis: 150px;
+  }
+
+  .rfipbtn__icon {
+    width: 100px;
+    border: 1px solid var.$border-color-secondary;
+  }
+
+  .rfipbtn__elm {
+    width: 100%;
+  }
+
+  .rfipbtn__del {
+    border: 1px solid var.$border-color-secondary;
+    background-color: var.$background-color-primary;
+    padding: 2px;
+
+    &:hover,
+    &:focus {
+      background-color: var.$background-color-secondary;
+    }
+  }
+}
+
+.rfipdropdown.rfipdropdown--ftfb-accordion {
+  background-color: var.$color-light;
+  border: 1px solid var.$border-color-primary;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  border-radius: 2px;
+
+  .rfipicons__pager {
+    display: none;
+  }
+
+  .rfipicons__selector {
+    gap: 5px;
+  }
+
+  .rfipicons__icon {
+    width: 100%;
+    background-color: var.$background-color-primary;
+
+    &--selected,
+    &:hover,
+    &:focus {
+      background-color: var(--wp-admin-theme-color);
+    }
+  }
+
+  .rfipicons__ibox {
+    color: var.$text-color;
+
+    > svg {
+      fill: currentColor;
+    }
+  }
+
+  .rfipicons__icon--selected > .rfipicons__ibox svg,
+  .rfipicons__ibox:hover > svg {
+    transform: scale(1.3);
+    color: var.$color-light;
+  }
+}

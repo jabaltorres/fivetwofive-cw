@@ -19,17 +19,15 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
-	const {
-		attributes: {title}, setAttributes, context,
-		isSelected
-	} = props;
 
+	const {
+		attributes: {title}, setAttributes, context
+	} = props;
 	const saveTitle = (newValue) => {
 		setAttributes({title: newValue});
 	}
 
 	const panelTemplate = [['core/paragraph', {}]];
-
 
 	return (
 		<div {...useBlockProps()}>
