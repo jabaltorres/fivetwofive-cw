@@ -4,9 +4,27 @@ import FontIconPicker from '@fonticonpicker/react-fonticonpicker';
 
 import metadata from './block.json';
 
-import {InnerBlocks, useBlockProps, BlockControls, AlignmentToolbar, InspectorControls} from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	useBlockProps,
+	BlockControls,
+	AlignmentToolbar,
+	InspectorControls,
+	withColors,
+	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
+	useSetting,
+} from '@wordpress/block-editor';
 
-import {PanelBody, PanelRow, ToggleControl, SelectControl, BaseControl} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
+
+import {
+	PanelBody,
+	PanelRow,
+	ToggleControl,
+	SelectControl,
+	BaseControl
+} from '@wordpress/components';
+
 
 import FTFBBlockAppender from '../../components/Appender';
 
@@ -26,20 +44,32 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
+function AccordionEdit(props) {
 	const {
-		attributes: {
-			textAlignment,
-			collapse,
-			showMultiple,
-			panelTitleTag,
-			panelIconStyle,
-			panelIconDisplay,
-			panelIconPosition,
-		},
+		clientId,
+		attributes,
 		setAttributes,
-		clientId
+		panelHeadingColor,
+		panelHeadingBackgroundColor,
+		panelContentColor,
+		panelContentBackgroundColor,
+		setPanelHeadingColor,
+		setPanelHeadingBackgroundColor,
+		setPanelContentColor,
+		setPanelContentBackgroundColor
 	} = props;
+
+	const {
+		textAlignment,
+		panelTitleTag,
+		panelIconStyle,
+		panelIconDisplay,
+		panelIconPosition,
+		panelHeadingColorValue,
+		panelHeadingBackgroundColorValue,
+		panelContentColorValue,
+		panelContentBackgroundColorValue
+	} = attributes;
 
 	const blockName = `wp-block-${metadata.name.replace('/', '-')}`;
 
@@ -61,7 +91,7 @@ export default function Edit(props) {
 	let iconStyle = '';
 
 	if (panelIconDisplay && panelIconStyle) {
-		switch(panelIconStyle) {
+		switch (panelIconStyle) {
 			case 'ftfb_accordion_icon_chevron_circle':
 				iconStyle = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z'/%3E%3C/svg%3E")`;
 				break;
@@ -80,6 +110,59 @@ export default function Edit(props) {
 		className: blockAttributesClasses
 	});
 
+	const colorSettings = [
+		{
+			// Use custom attribute as fallback to prevent loss of named color selection when
+			// switching themes to a new theme that does not have a matching named color.
+			value: panelHeadingColor.color || panelHeadingColorValue,
+			onChange: (colorValue) => {
+				setPanelHeadingColor(colorValue);
+				setAttributes({panelHeadingColorValue: colorValue});
+			},
+			label: __("Panel heading color"),
+			resetAllFilter: () => {
+				setPanelHeadingColor(undefined);
+				setAttributes({panelHeadingColorValue: undefined});
+			},
+		},
+		{
+			value: panelHeadingBackgroundColor.color || panelHeadingBackgroundColorValue,
+			onChange: (colorValue) => {
+				setPanelHeadingBackgroundColor(colorValue);
+				setAttributes({panelHeadingBackgroundColorValue: colorValue});
+			},
+			label: __("Panel heading background color"),
+			resetAllFilter: () => {
+				setPanelHeadingBackgroundColor(undefined);
+				setAttributes({panelHeadingBackgroundColorValue: undefined});
+			},
+		},
+		{
+			value: panelContentColor.color || panelContentColorValue,
+			onChange: (colorValue) => {
+				setPanelContentColor(colorValue);
+				setAttributes({panelContentColorValue: colorValue});
+			},
+			label: __("Panel content color"),
+			resetAllFilter: () => {
+				setPanelContentColor(undefined);
+				setAttributes({panelContentColorValue: undefined});
+			},
+		},
+		{
+			value: panelContentBackgroundColor.color || panelContentBackgroundColorValue,
+			onChange: (colorValue) => {
+				setPanelContentBackgroundColor(colorValue);
+				setAttributes({panelContentBackgroundColorValue: colorValue});
+			},
+			label: __("Panel content background color"),
+			resetAllFilter: () => {
+				setPanelContentBackgroundColor(undefined);
+				setAttributes({panelContentBackgroundColorValue: undefined});
+			},
+		},
+	];
+
 	return (
 		<div {...blockProps} style={{"--ftfb-accordion-btn-icon": `${iconStyle}`}}>
 			<BlockControls>
@@ -89,25 +172,9 @@ export default function Edit(props) {
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody>
-					<PanelRow>
-						<ToggleControl
-							checked={collapse}
-							label="Allow collapse expanded panel"
-							onChange={x => setAttributes({collapse: x})}
-						/>
-					</PanelRow>
-					<PanelRow>
-						<ToggleControl
-							checked={showMultiple}
-							label="Show multiple elements at the same time"
-							onChange={x => setAttributes({showMultiple: x})}
-						/>
-					</PanelRow>
-				</PanelBody>
-				<PanelBody title="Panel Title Settings" initialOpen={false}>
+				<PanelBody title={__("Panel Title Settings")} initialOpen={false}>
 					<SelectControl
-						label="Title Tag"
+						label={__("Title Tag")}
 						onChange={x => setAttributes({panelTitleTag: x})}
 						value={panelTitleTag}
 						options={[
@@ -138,16 +205,16 @@ export default function Edit(props) {
 						]}
 					/>
 				</PanelBody>
-				<PanelBody title="Panel Icon Settings" initialOpen={false}>
+				<PanelBody title={__("Panel Icon Settings")} initialOpen={false}>
 					<PanelRow>
 						<ToggleControl
-							label="Show Icon"
+							label={__("Show Icon")}
 							checked={panelIconDisplay}
 							onChange={x => setAttributes({panelIconDisplay: x})}
 						/>
 					</PanelRow>
 					<BaseControl
-						label="Icon style"
+						label={__("Icon style")}
 					>
 						<FontIconPicker
 							icons={iconIds}
@@ -162,29 +229,63 @@ export default function Edit(props) {
 						/>
 					</BaseControl>
 					<SelectControl
-						label="Icon Position"
+						label={__("Icon Position")}
 						value={panelIconPosition}
 						onChange={x => setAttributes({panelIconPosition: x})}
 						options={[
 							{
-								label: 'Left',
-								value: 'left'
+								label: __("Left"),
+								value: "left"
 							},
 							{
-								label: 'Right',
+								label: __("Right"),
 								value: 'right'
 							},
 						]}
 					/>
 				</PanelBody>
 			</InspectorControls>
+			<InspectorControls __experimentalGroup="color">
+				{colorSettings.map(
+					({onChange, label, value, resetAllFilter}) => (
+						<ColorGradientSettingsDropdown
+							key={`accordion-panel-color-${label}`}
+							__experimentalIsRenderedInSidebar
+							settings={[
+								{
+									colorValue: value,
+									label,
+									onColorChange: onChange,
+									isShownByDefault: true,
+									resetAllFilter,
+									enableAlpha: true,
+								},
+							]}
+							panelId={clientId}
+							colors={useSetting('color.palette.default')}
+							disableCustomColors={!useSetting('color.custom')}
+							disableCustomGradients={!useSetting('color.customGradient')}
+						/>
+					)
+				)}
+
+			</InspectorControls>
 			<InnerBlocks
 				allowedBlocks={['fivetwofive-blocks/panel']}
 				template={[['fivetwofive-blocks/panel', {}]]}
 				renderAppender={() => (
-					<FTFBBlockAppender rootClientId={clientId} text="Add Panel"/>
+					<FTFBBlockAppender rootClientId={clientId} text={__("Add Panel")}/>
 				)}
 			/>
 		</div>
 	);
 }
+
+const panelColorAttributes = {
+	panelHeadingColor: 'panel-heading-color',
+	panelHeadingBackgroundColor: 'panel-heading-background-color',
+	panelContentColor: 'panel-content-color',
+	panelContentBackgroundColor: 'panel-content-background-color'
+};
+
+export default withColors(panelColorAttributes)(AccordionEdit);

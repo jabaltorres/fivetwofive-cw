@@ -21,8 +21,14 @@ import './editor.scss';
 export default function Edit(props) {
 
 	const {
-		attributes: {title}, setAttributes, context
+		attributes,
+		setAttributes,
+		context
 	} = props;
+
+	const {
+		title
+	} = attributes;
 	const saveTitle = (newValue) => {
 		setAttributes({title: newValue});
 	}

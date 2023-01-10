@@ -11,14 +11,6 @@
       "type": "string",
       "default": "left"
     },
-    "collapse": {
-      "type": "boolean",
-      "default": true
-    },
-    "showMultiple": {
-      "type": "boolean",
-      "default": false
-    },
     "panelTitleTag": {
       "type": "string",
       "default": "h3"
@@ -34,6 +26,30 @@
     "panelIconPosition": {
       "type": "string",
       "default": "right"
+    },
+    "panelHeadingColor": {
+      "type": "string"
+    },
+    "panelHeadingColorValue": {
+      "type": "string"
+    },
+    "panelHeadingBackgroundColor": {
+      "type": "string"
+    },
+    "panelHeadingBackgroundValue": {
+      "type": "string"
+    },
+    "panelContentColor": {
+      "type": "string"
+    },
+    "panelContentColorValue": {
+      "type": "string"
+    },
+    "panelContentBackgroundColor": {
+      "type": "string"
+    },
+    "panelContentBackgroundColorValue": {
+      "type": "string"
     }
   },
   "providesContext": {
@@ -44,7 +60,16 @@
     "html": false,
     "customClassName": true,
     "align": [ "center" ],
-    "anchor": true
+    "anchor": true,
+    "color": {
+      "enableContrastChecker": false,
+      "background": true,
+      "gradients": true,
+      "text": false,
+      "__experimentalDefaultControls": {
+        "background": false
+      }
+    }
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js",
