@@ -10,9 +10,7 @@ import {
 	BlockControls,
 	AlignmentToolbar,
 	InspectorControls,
-	withColors,
-	__experimentalColorGradientSettingsDropdown as ColorGradientSettingsDropdown,
-	useSetting,
+	useSetting
 } from '@wordpress/block-editor';
 
 import {__} from '@wordpress/i18n';
@@ -22,11 +20,13 @@ import {
 	PanelRow,
 	ToggleControl,
 	SelectControl,
-	BaseControl
+	BaseControl,
+	TabPanel
 } from '@wordpress/components';
 
-
-import FTFBBlockAppender from '../../components/Appender';
+import BlockAppender from '../../components/Appender';
+import BlockTitle from '../../components/blockTitle';
+import ColorSettingsDropdown from '../../components/ColorSettingsDropdown';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -44,19 +44,11 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-function AccordionEdit(props) {
+function Edit(props) {
 	const {
 		clientId,
 		attributes,
-		setAttributes,
-		panelHeadingColor,
-		panelHeadingBackgroundColor,
-		panelContentColor,
-		panelContentBackgroundColor,
-		setPanelHeadingColor,
-		setPanelHeadingBackgroundColor,
-		setPanelContentColor,
-		setPanelContentBackgroundColor
+		setAttributes
 	} = props;
 
 	const {
@@ -65,13 +57,144 @@ function AccordionEdit(props) {
 		panelIconStyle,
 		panelIconDisplay,
 		panelIconPosition,
-		panelHeadingColorValue,
-		panelHeadingBackgroundColorValue,
-		panelContentColorValue,
-		panelContentBackgroundColorValue
+		panelHeadingColor,
+		panelHeadingBackgroundColor,
+		panelHoverHeadingColor,
+		panelHoverHeadingBackgroundColor,
+		panelActiveHeadingColor,
+		panelActiveHeadingBackgroundColor,
+		panelContentColor,
+		panelContentBackgroundColor
 	} = attributes;
 
 	const blockName = `wp-block-${metadata.name.replace('/', '-')}`;
+
+	const panelTitleTags = [
+		{
+			label: 'DIV',
+			value: 'div'
+		},
+		{
+			label: 'H2',
+			value: 'h2'
+		},
+		{
+			label: 'H3',
+			value: 'h3'
+		},
+		{
+			label: 'H4',
+			value: 'h4'
+		},
+		{
+			label: 'H5',
+			value: 'h5'
+		},
+		{
+			label: 'H6',
+			value: 'h6'
+		}
+	];
+
+	const siteColorsSettings = {
+		colors: useSetting('color.palette.default'),
+		disableCustomColors: !useSetting('color.custom'),
+		disableCustomGradients: !useSetting('color.customGradient')
+	};
+
+	const headerColorSettingsTabs = [
+		{
+			name: "accordion-panel-normal",
+			title: "Normal"
+		},
+		{
+			name: "accordion-panel-hover",
+			title: "Hover"
+		},
+		{
+			name: "accordion-panel-active",
+			title: "Active"
+		},
+	];
+
+	const headerColorSettings = [
+		{
+			name: "accordion-panel-normal",
+			settings: [
+				{
+					// Use custom attribute as fallback to prevent loss of named color selection when
+					// switching themes to a new theme that does not have a matching named color.
+					value: panelHeadingColor,
+					onChange: (colorValue) => {
+						setAttributes({panelHeadingColor: colorValue});
+					},
+					label: __("Text"),
+				},
+				{
+					value: panelHeadingBackgroundColor,
+					onChange: (colorValue) => {
+						setAttributes({panelHeadingBackgroundColor: colorValue});
+					},
+					label: __("Background"),
+				}
+			]
+		},
+		{
+			name: "accordion-panel-hover",
+			settings: [
+				{
+					value: panelHoverHeadingColor,
+					onChange: (colorValue) => {
+						setAttributes({panelHoverHeadingColor: colorValue});
+					},
+					label: __("Text"),
+				},
+				{
+					value: panelHoverHeadingBackgroundColor,
+					onChange: (colorValue) => {
+						setAttributes({panelHoverHeadingBackgroundColor: colorValue});
+					},
+					label: __("Background"),
+				}
+			]
+		},
+		{
+			name: "accordion-panel-active",
+			settings: [
+				{
+					value: panelActiveHeadingColor,
+					onChange: (colorValue) => {
+						setAttributes({panelActiveHeadingColor: colorValue});
+					},
+					label: __("Text"),
+				},
+				{
+					value: panelActiveHeadingBackgroundColor,
+					onChange: (colorValue) => {
+						setAttributes({panelActiveHeadingBackgroundColor: colorValue});
+					},
+					label: __("Background"),
+				}
+			]
+		}
+	];
+
+	const contentColorSettings = [
+		{
+			value: panelContentColor,
+			onChange: (colorValue) => {
+				setAttributes({panelContentColor: colorValue});
+			},
+			label: __("Text"),
+		},
+		{
+			value: panelContentBackgroundColor,
+			onChange: (colorValue) => {
+				setAttributes({panelContentBackgroundColor: colorValue});
+			},
+			label: __("Background"),
+		}
+	];
 
 	const iconIds = [
 		'ftfb_accordion_icon_chevron',
@@ -88,9 +211,11 @@ function AccordionEdit(props) {
 		blockAttributesClasses.push(`${blockName}--icon-position-${panelIconPosition}`);
 	}
 
-	let iconStyle = '';
+	let style = {};
 
 	if (panelIconDisplay && panelIconStyle) {
+		let iconStyle = '';
+
 		switch (panelIconStyle) {
 			case 'ftfb_accordion_icon_chevron_circle':
 				iconStyle = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z'/%3E%3C/svg%3E")`;
@@ -104,67 +229,49 @@ function AccordionEdit(props) {
 			default:
 				iconStyle = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z'/%3E%3C/svg%3E")`;
 		}
+
+		style['--ftfb-accordion-btn-icon'] = iconStyle;
+	}
+
+	if (panelHeadingColor) {
+		style['--ftfb-accordion-btn-color'] = panelHeadingColor;
+	}
+
+	if (panelHeadingBackgroundColor) {
+		style['--ftfb-accordion-btn-bg'] = panelHeadingBackgroundColor;
+	}
+
+	if (panelHoverHeadingColor) {
+		style['--ftfb-accordion-btn-hover-color'] = panelHoverHeadingColor;
+	}
+
+	if (panelHoverHeadingBackgroundColor) {
+		style['--ftfb-accordion-btn-hover-bg'] = panelHoverHeadingBackgroundColor;
+	}
+
+	if (panelActiveHeadingColor) {
+		style['--ftfb-accordion-active-color'] = panelActiveHeadingColor;
+	}
+
+	if (panelActiveHeadingBackgroundColor) {
+		style['--ftfb-accordion-active-bg'] = panelActiveHeadingBackgroundColor;
+	}
+
+	if (panelContentColor) {
+		style['--ftfb-accordion-content-color'] = panelContentColor;
+	}
+
+	if (panelContentBackgroundColor) {
+		style['--ftfb-accordion-content-bg'] = panelContentBackgroundColor;
 	}
 
 	const blockProps = useBlockProps({
-		className: blockAttributesClasses
+		className: blockAttributesClasses,
+		style
 	});
 
-	const colorSettings = [
-		{
-			// Use custom attribute as fallback to prevent loss of named color selection when
-			// switching themes to a new theme that does not have a matching named color.
-			value: panelHeadingColor.color || panelHeadingColorValue,
-			onChange: (colorValue) => {
-				setPanelHeadingColor(colorValue);
-				setAttributes({panelHeadingColorValue: colorValue});
-			},
-			label: __("Panel heading color"),
-			resetAllFilter: () => {
-				setPanelHeadingColor(undefined);
-				setAttributes({panelHeadingColorValue: undefined});
-			},
-		},
-		{
-			value: panelHeadingBackgroundColor.color || panelHeadingBackgroundColorValue,
-			onChange: (colorValue) => {
-				setPanelHeadingBackgroundColor(colorValue);
-				setAttributes({panelHeadingBackgroundColorValue: colorValue});
-			},
-			label: __("Panel heading background color"),
-			resetAllFilter: () => {
-				setPanelHeadingBackgroundColor(undefined);
-				setAttributes({panelHeadingBackgroundColorValue: undefined});
-			},
-		},
-		{
-			value: panelContentColor.color || panelContentColorValue,
-			onChange: (colorValue) => {
-				setPanelContentColor(colorValue);
-				setAttributes({panelContentColorValue: colorValue});
-			},
-			label: __("Panel content color"),
-			resetAllFilter: () => {
-				setPanelContentColor(undefined);
-				setAttributes({panelContentColorValue: undefined});
-			},
-		},
-		{
-			value: panelContentBackgroundColor.color || panelContentBackgroundColorValue,
-			onChange: (colorValue) => {
-				setPanelContentBackgroundColor(colorValue);
-				setAttributes({panelContentBackgroundColorValue: colorValue});
-			},
-			label: __("Panel content background color"),
-			resetAllFilter: () => {
-				setPanelContentBackgroundColor(undefined);
-				setAttributes({panelContentBackgroundColorValue: undefined});
-			},
-		},
-	];
-
 	return (
-		<div {...blockProps} style={{"--ftfb-accordion-btn-icon": `${iconStyle}`}}>
+		<div {...blockProps}>
 			<BlockControls>
 				<AlignmentToolbar
 					value={textAlignment}
@@ -172,40 +279,40 @@ function AccordionEdit(props) {
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody title={__("Panel Title Settings")} initialOpen={false}>
+				<PanelBody initialOpen={true}>
 					<SelectControl
 						label={__("Title Tag")}
 						onChange={x => setAttributes({panelTitleTag: x})}
 						value={panelTitleTag}
-						options={[
-							{
-								label: 'DIV',
-								value: 'div'
-							},
-							{
-								label: 'H2',
-								value: 'h2'
-							},
-							{
-								label: 'H3',
-								value: 'h3'
-							},
-							{
-								label: 'H4',
-								value: 'h4'
-							},
-							{
-								label: 'H5',
-								value: 'h5'
-							},
-							{
-								label: 'H6',
-								value: 'h6'
-							},
-						]}
+						options={panelTitleTags}
 					/>
 				</PanelBody>
-				<PanelBody title={__("Panel Icon Settings")} initialOpen={false}>
+				<PanelBody title={__("Header Color")} initialOpen={true}>
+					<TabPanel
+						className="ftfb-tab-panel components-tab-panel"
+						tabs={headerColorSettingsTabs}
+					>
+						{tab => {
+							const tabContent = headerColorSettings.filter(colorSetting => colorSetting.name === tab.name);
+							return (
+								<div className={`ftfb-${tab.name}-tab`}>
+									{
+										tabContent.length > 0 && tabContent[0]["settings"].map((setting, index) => {
+											return (
+												<ColorSettingsDropdown
+													key={index}
+													{...siteColorsSettings}
+													{...setting}
+												/>
+											)
+										})
+									}
+								</div>
+							)
+						}}
+					</TabPanel>
+				</PanelBody>
+				<PanelBody title={__("Header Icon")} initialOpen={false}>
 					<PanelRow>
 						<ToggleControl
 							label={__("Show Icon")}
@@ -214,7 +321,7 @@ function AccordionEdit(props) {
 						/>
 					</PanelRow>
 					<BaseControl
-						label={__("Icon style")}
+						label={__("Icon Style")}
 					>
 						<FontIconPicker
 							icons={iconIds}
@@ -244,48 +351,28 @@ function AccordionEdit(props) {
 						]}
 					/>
 				</PanelBody>
+				<PanelBody title={__("Content Color")} initialOpen={false}>
+					{contentColorSettings.map((setting, index) => {
+						return (
+							<ColorSettingsDropdown
+								key={index}
+								{...siteColorsSettings}
+								{...setting}
+							/>
+						)
+					})}
+				</PanelBody>
 			</InspectorControls>
-			<InspectorControls __experimentalGroup="color">
-				{colorSettings.map(
-					({onChange, label, value, resetAllFilter}) => (
-						<ColorGradientSettingsDropdown
-							key={`accordion-panel-color-${label}`}
-							__experimentalIsRenderedInSidebar
-							settings={[
-								{
-									colorValue: value,
-									label,
-									onColorChange: onChange,
-									isShownByDefault: true,
-									resetAllFilter,
-									enableAlpha: true,
-								},
-							]}
-							panelId={clientId}
-							colors={useSetting('color.palette.default')}
-							disableCustomColors={!useSetting('color.custom')}
-							disableCustomGradients={!useSetting('color.customGradient')}
-						/>
-					)
-				)}
-
-			</InspectorControls>
+			<BlockTitle title={metadata.title} />
 			<InnerBlocks
 				allowedBlocks={['fivetwofive-blocks/panel']}
 				template={[['fivetwofive-blocks/panel', {}]]}
 				renderAppender={() => (
-					<FTFBBlockAppender rootClientId={clientId} text={__("Add Panel")}/>
+					<BlockAppender rootClientId={clientId} text={__("Add Panel")}/>
 				)}
 			/>
 		</div>
 	);
 }
 
-const panelColorAttributes = {
-	panelHeadingColor: 'panel-heading-color',
-	panelHeadingBackgroundColor: 'panel-heading-background-color',
-	panelContentColor: 'panel-content-color',
-	panelContentBackgroundColor: 'panel-content-background-color'
-};
-
-export default withColors(panelColorAttributes)(AccordionEdit);
+export default Edit;

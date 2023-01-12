@@ -1,0 +1,11 @@
+.ftfb-tab-panel.components-tab-panel {
+  .components-tab-panel__tabs {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 16px;
+
+    &-item {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

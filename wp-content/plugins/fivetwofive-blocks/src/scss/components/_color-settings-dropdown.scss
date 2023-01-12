@@ -1,0 +1,25 @@
+.ftfb-color-settings-dropdown {
+  &__dropdown {
+    display: block;
+
+    & + & &-toggle {
+      border-top: 0;
+    }
+  }
+
+  &__dropdown-toggle {
+    display: flex;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: auto;
+  }
+
+  &__color-indicator {
+    background: linear-gradient(-45deg, transparent 48%, #ddd 48%, #ddd 52%, transparent 52%);
+  }
+}

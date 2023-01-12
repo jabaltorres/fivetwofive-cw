@@ -1,11 +1,12 @@
 @use '../../scss/variables' as var;
 
-.wp-admin .wp-block-fivetwofive-blocks-accordion {
-  padding: 15px;
-  border: 1px dashed hsl(220, 13%, 91%);
+@forward '../../scss/components/tab-panel';
+@forward '../../scss/components/block-title';
 
+.wp-admin .wp-block-fivetwofive-blocks-accordion {
   .wp-block-fivetwofive-blocks-panel {
     margin: 0;
+    overflow: hidden;
   }
 
   > .block-editor-inner-blocks > [class*="block-editor-block-list__"] > .block-list-appender {
@@ -22,9 +23,12 @@
 
   .ftfb-panel-title {
     padding: var(--ftfb-accordion-btn-padding-y) var(--ftfb-accordion-btn-padding-x);
+    background-color: var(--ftfb-accordion-btn-bg);
+    color: var(--ftfb-accordion-btn-color);
     position: relative;
     display: flex;
     align-items: center;
+    transition: var(--ftfb-accordion-transition);
 
     &:after {
       content: "";
@@ -32,21 +36,34 @@
       width: var(--ftfb-accordion-btn-icon-width);
       height: var(--ftfb-accordion-btn-icon-width);
       margin-left: auto;
-      background-image: var(--ftfb-accordion-btn-icon);
-      background-repeat: no-repeat;
-      background-size: var(--ftfb-accordion-btn-icon-width);
+      background-color: var(--ftfb-accordion-btn-color);
       transition: var(--ftfb-accordion-btn-icon-transition);
+      -webkit-mask-image: var(--ftfb-accordion-btn-icon);
+      mask-image: var(--ftfb-accordion-btn-icon);
+      -webkit-mask-size: 100%;
+      mask-size: 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: var(--ftfb-accordion-btn-hover-color);
+      background-color: var(--ftfb-accordion-hover-btn-bg);
     }
   }
 
   .ftfb-panel-body {
     display: none;
+    color: var(--ftfb-accordion-content-color);
+    background-color: var(--ftfb-accordion-content-bg);
   }
 
   .wp-block-fivetwofive-blocks-panel.is-selected,
   .wp-block-fivetwofive-blocks-panel.has-child-selected {
     > .ftfb-panel-title {
       box-shadow: inset 0 calc(-1 * var(--ftfb-accordion-border-width)) 0 var(--ftfb-accordion-border-color);
+      background-color: var(--ftfb-accordion-active-bg);
+      color: var(--ftfb-accordion-active-color);
     }
 
     > .ftfb-panel-collapse > .ftfb-panel-body {
@@ -59,10 +76,14 @@
     border-bottom-right-radius: var(--ftfb-accordion-border-radius);
   }
 
+  > .block-editor-inner-blocks > [class*="block-editor-block-list__"] > .block-list-appender {
+    display: inline-flex;
+    margin-top: 20px;
+  }
+
   .ftfb-block-appender.has-icon {
     padding-left: 6px;
     padding-right: 12px;
-    margin-top: 20px;
   }
 
   &--icon-position-left {

@@ -30,25 +30,25 @@
     "panelHeadingColor": {
       "type": "string"
     },
-    "panelHeadingColorValue": {
-      "type": "string"
-    },
     "panelHeadingBackgroundColor": {
-      "type": "string"
-    },
-    "panelHeadingBackgroundValue": {
       "type": "string"
     },
     "panelContentColor": {
       "type": "string"
     },
-    "panelContentColorValue": {
-      "type": "string"
-    },
     "panelContentBackgroundColor": {
       "type": "string"
     },
-    "panelContentBackgroundColorValue": {
+    "panelHoverHeadingColor": {
+      "type": "string"
+    },
+    "panelHoverHeadingBackgroundColor": {
+      "type": "string"
+    },
+    "panelActiveHeadingColor": {
+      "type": "string"
+    },
+    "panelActiveHeadingBackgroundColor": {
       "type": "string"
     }
   },
@@ -60,16 +60,7 @@
     "html": false,
     "customClassName": true,
     "align": [ "center" ],
-    "anchor": true,
-    "color": {
-      "enableContrastChecker": false,
-      "background": true,
-      "gradients": true,
-      "text": false,
-      "__experimentalDefaultControls": {
-        "background": false
-      }
-    }
+    "anchor": true
   },
   "textdomain": "fivetwofive-blocks",
   "editorScript": "file:./index.js",
