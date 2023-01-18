@@ -28,28 +28,40 @@
       "default": "right"
     },
     "panelHeadingColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#212529"
     },
     "panelHeadingBackgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#ffffff"
     },
-    "panelContentColor": {
-      "type": "string"
+    "panelHeadingBorderColor": {
+      "type": "string",
+      "default": "#dee2e6"
     },
-    "panelContentBackgroundColor": {
-      "type": "string"
-    },
-    "panelHoverHeadingColor": {
-      "type": "string"
-    },
-    "panelHoverHeadingBackgroundColor": {
-      "type": "string"
+    "panelHeadingBorderRadius": {
+      "type": "integer",
+      "default": 4
     },
     "panelActiveHeadingColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#004ce1"
     },
     "panelActiveHeadingBackgroundColor": {
-      "type": "string"
+      "type": "string",
+      "default": "#e7f1ff"
+    },
+    "panelActiveHeadingBorderColor": {
+      "type": "string",
+      "default": "#004ce1"
+    },
+    "panelContentColor": {
+      "type": "string",
+      "default": "#212529"
+    },
+    "panelContentBackgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
     }
   },
   "providesContext": {

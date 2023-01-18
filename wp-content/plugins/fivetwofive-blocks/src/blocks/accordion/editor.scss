@@ -45,11 +45,6 @@
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
     }
-
-    &:hover {
-      color: var(--ftfb-accordion-btn-hover-color);
-      background-color: var(--ftfb-accordion-hover-btn-bg);
-    }
   }
 
   .ftfb-panel-body {
@@ -60,10 +55,14 @@
 
   .wp-block-fivetwofive-blocks-panel.is-selected,
   .wp-block-fivetwofive-blocks-panel.has-child-selected {
+    --ftfb-accordion-border-color: var(--ftfb-accordion-border-active-color);
+    --ftfb-accordion-btn-color: var(--ftfb-accordion-active-color);
+    --ftfb-accordion-btn-bg: var(--ftfb-accordion-active-bg);
+    border-top: 1px solid var(--ftfb-accordion-border-color);
+    margin-top: -1px;
+
     > .ftfb-panel-title {
       box-shadow: inset 0 calc(-1 * var(--ftfb-accordion-border-width)) 0 var(--ftfb-accordion-border-color);
-      background-color: var(--ftfb-accordion-active-bg);
-      color: var(--ftfb-accordion-active-color);
     }
 
     > .ftfb-panel-collapse > .ftfb-panel-body {
@@ -99,6 +98,10 @@
         display: none;
     }
   }
+}
+
+.ftfb-inspector-spacer {
+  margin-bottom: 24px;
 }
 
 .rfip.rfip--ftfb-accordion {

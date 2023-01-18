@@ -21,7 +21,9 @@ import {
 	ToggleControl,
 	SelectControl,
 	BaseControl,
-	TabPanel
+	TabPanel,
+	__experimentalBorderBoxControl as BorderBoxControl,
+	RangeControl as RangeControl
 } from '@wordpress/components';
 
 import BlockAppender from '../../components/Appender';
@@ -59,10 +61,11 @@ function Edit(props) {
 		panelIconPosition,
 		panelHeadingColor,
 		panelHeadingBackgroundColor,
-		panelHoverHeadingColor,
-		panelHoverHeadingBackgroundColor,
+		panelHeadingBorderColor,
+		panelHeadingBorderRadius,
 		panelActiveHeadingColor,
 		panelActiveHeadingBackgroundColor,
+		panelActiveHeadingBorderColor,
 		panelContentColor,
 		panelContentBackgroundColor
 	} = attributes;
@@ -102,14 +105,15 @@ function Edit(props) {
 		disableCustomGradients: !useSetting('color.customGradient')
 	};
 
+	const siteBorderSettings = {
+		colors: useSetting('color.palette.default'),
+		disableCustomColors: !useSetting('color.custom'),
+	};
+
 	const headerColorSettingsTabs = [
 		{
 			name: "accordion-panel-normal",
 			title: "Normal"
-		},
-		{
-			name: "accordion-panel-hover",
-			title: "Hover"
 		},
 		{
 			name: "accordion-panel-active",
@@ -136,25 +140,13 @@ function Edit(props) {
 						setAttributes({panelHeadingBackgroundColor: colorValue});
 					},
 					label: __("Background"),
-				}
-			]
-		},
-		{
-			name: "accordion-panel-hover",
-			settings: [
-				{
-					value: panelHoverHeadingColor,
-					onChange: (colorValue) => {
-						setAttributes({panelHoverHeadingColor: colorValue});
-					},
-					label: __("Text"),
 				},
 				{
-					value: panelHoverHeadingBackgroundColor,
+					value: panelHeadingBorderColor,
 					onChange: (colorValue) => {
-						setAttributes({panelHoverHeadingBackgroundColor: colorValue});
+						setAttributes({panelHeadingBorderColor: colorValue});
 					},
-					label: __("Background"),
+					label: __("Border"),
 				}
 			]
 		},
@@ -174,6 +166,13 @@ function Edit(props) {
 						setAttributes({panelActiveHeadingBackgroundColor: colorValue});
 					},
 					label: __("Background"),
+				},
+				{
+					value: panelActiveHeadingBorderColor,
+					onChange: (colorValue) => {
+						setAttributes({panelActiveHeadingBorderColor: colorValue});
+					},
+					label: __("Border"),
 				}
 			]
 		}
@@ -241,12 +240,12 @@ function Edit(props) {
 		style['--ftfb-accordion-btn-bg'] = panelHeadingBackgroundColor;
 	}
 
-	if (panelHoverHeadingColor) {
-		style['--ftfb-accordion-btn-hover-color'] = panelHoverHeadingColor;
+	if (panelHeadingBorderColor) {
+		style['--ftfb-accordion-border-color'] = panelHeadingBorderColor;
 	}
 
-	if (panelHoverHeadingBackgroundColor) {
-		style['--ftfb-accordion-btn-hover-bg'] = panelHoverHeadingBackgroundColor;
+	if (panelHeadingBorderRadius || 0 === panelHeadingBorderRadius) {
+		style['--ftfb-accordion-border-radius'] = `${panelHeadingBorderRadius}px`;
 	}
 
 	if (panelActiveHeadingColor) {
@@ -255,6 +254,10 @@ function Edit(props) {
 
 	if (panelActiveHeadingBackgroundColor) {
 		style['--ftfb-accordion-active-bg'] = panelActiveHeadingBackgroundColor;
+	}
+
+	if (panelActiveHeadingBorderColor) {
+		style['--ftfb-accordion-border-active-color'] = panelActiveHeadingBorderColor;
 	}
 
 	if (panelContentColor) {
@@ -279,7 +282,7 @@ function Edit(props) {
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody initialOpen={true}>
+				<PanelBody title={__("Header Settings")}>
 					<SelectControl
 						label={__("Title Tag")}
 						onChange={x => setAttributes({panelTitleTag: x})}
@@ -287,30 +290,35 @@ function Edit(props) {
 						options={panelTitleTags}
 					/>
 				</PanelBody>
-				<PanelBody title={__("Header Color")} initialOpen={true}>
+				<PanelBody title={__("Header Color")} initialOpen={false}>
 					<TabPanel
 						className="ftfb-tab-panel components-tab-panel"
 						tabs={headerColorSettingsTabs}
 					>
 						{tab => {
-							const tabContent = headerColorSettings.filter(colorSetting => colorSetting.name === tab.name);
+							const tabColorContent = headerColorSettings.filter(setting => setting.name === tab.name);
 							return (
 								<div className={`ftfb-${tab.name}-tab`}>
-									{
-										tabContent.length > 0 && tabContent[0]["settings"].map((setting, index) => {
-											return (
-												<ColorSettingsDropdown
-													key={index}
-													{...siteColorsSettings}
-													{...setting}
-												/>
-											)
-										})
-									}
+									{tabColorContent.length > 0 && tabColorContent[0]["settings"].map((setting, index) => {
+										return (
+											<ColorSettingsDropdown
+												key={index}
+												{...siteColorsSettings}
+												{...setting}
+											/>
+										)
+									})}
 								</div>
 							)
 						}}
 					</TabPanel>
+				</PanelBody>
+				<PanelBody title={__("Header Border")} initialOpen={false}>
+					<RangeControl
+						label={__("Border Radius (PX)")}
+						value={panelHeadingBorderRadius}
+						onChange={radius => setAttributes({panelHeadingBorderRadius: radius})}
+					/>
 				</PanelBody>
 				<PanelBody title={__("Header Icon")} initialOpen={false}>
 					<PanelRow>
@@ -363,7 +371,7 @@ function Edit(props) {
 					})}
 				</PanelBody>
 			</InspectorControls>
-			<BlockTitle title={metadata.title} />
+			<BlockTitle title={metadata.title}/>
 			<InnerBlocks
 				allowedBlocks={['fivetwofive-blocks/panel']}
 				template={[['fivetwofive-blocks/panel', {}]]}
