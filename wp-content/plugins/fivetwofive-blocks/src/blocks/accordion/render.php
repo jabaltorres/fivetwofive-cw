@@ -61,7 +61,7 @@ if ( isset( $attributes['panelHeadingBorderColor'] ) && $attributes['panelHeadin
 }
 
 if ( isset( $attributes['panelHeadingBorderRadius'] ) && $attributes['panelHeadingBorderRadius'] ) {
-	$block_style[] = sprintf( '--ftfb-accordion-border-radius: %1$s', $attributes['panelHeadingBorderRadius'] );
+	$block_style[] = sprintf( '--ftfb-accordion-border-radius: %1$spx', $attributes['panelHeadingBorderRadius'] );
 }
 
 if ( isset( $attributes['panelActiveHeadingColor'] ) && $attributes['panelActiveHeadingColor'] ) {
