@@ -1,4 +1,6 @@
-import { RichText, InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import {RichText, InnerBlocks, useBlockProps} from '@wordpress/block-editor';
+
+import { __ } from '@wordpress/i18n';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -17,24 +19,37 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
+
 	const {
-		attributes: { title },
+		attributes,
 		setAttributes,
+		context
 	} = props;
 
+	const {
+		title
+	} = attributes;
 	const saveTitle = (newValue) => {
-		setAttributes({ title: newValue });
+		setAttributes({title: newValue});
 	}
 
-	const panelTemplate = [
-		[ 'core/paragraph', { placeholder: 'Enter panel content here..' } ],
-	];
+	const panelTemplate = [['core/paragraph', {}]];
 
 	return (
-		<div { ...useBlockProps() }>
-			<RichText className="ftfb-panel-title" placeholder="Enter panel title here.." tagName="h3" value={title} onChange={saveTitle}/>
-			<div className="ftfb-panel-content">
-				<InnerBlocks template={ panelTemplate } />
+		<div {...useBlockProps()}>
+			<RichText
+				className="ftfb-panel-title"
+				placeholder={ __( 'Enter panel title here..' ) }
+				tagName={context["fivetwofive-blocks/accordion/panelTitleTag"]}
+				value={title}
+				onChange={saveTitle}
+			/>
+			<div className="ftfb-panel-collapse">
+				<div className="ftfb-panel-body">
+					<InnerBlocks
+						template={panelTemplate}
+					/>
+				</div>
 			</div>
 		</div>
 	);
