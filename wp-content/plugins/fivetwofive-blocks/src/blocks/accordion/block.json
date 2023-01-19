@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fivetwofive-blocks/accordion",
+  "version": "0.1.0",
+  "title": "Accordion",
+  "category": "fivetwofive-blocks",
+  "icon": "admin-page",
+  "attributes": {
+    "textAlignment": {
+      "type": "string",
+      "default": "left"
+    },
+    "panelTitleTag": {
+      "type": "string",
+      "default": "h3"
+    },
+    "panelIconStyle": {
+      "type": "string",
+      "default": "ftfb_accordion_icon_chevron"
+    },
+    "panelIconDisplay": {
+      "type": "boolean",
+      "default": true
+    },
+    "panelIconPosition": {
+      "type": "string",
+      "default": "right"
+    },
+    "panelHeadingColor": {
+      "type": "string",
+      "default": "#212529"
+    },
+    "panelHeadingBackgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "panelHeadingBorderColor": {
+      "type": "string",
+      "default": "#dee2e6"
+    },
+    "panelHeadingBorderRadius": {
+      "type": "integer",
+      "default": 4
+    },
+    "panelActiveHeadingColor": {
+      "type": "string",
+      "default": "#004ce1"
+    },
+    "panelActiveHeadingBackgroundColor": {
+      "type": "string",
+      "default": "#e7f1ff"
+    },
+    "panelActiveHeadingBorderColor": {
+      "type": "string",
+      "default": "#004ce1"
+    },
+    "panelContentColor": {
+      "type": "string",
+      "default": "#212529"
+    },
+    "panelContentBackgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    }
+  },
+  "providesContext": {
+    "fivetwofive-blocks/accordion/panelTitleTag": "panelTitleTag"
+  },
+  "description": "Accordions are useful when you want to toggle between hiding and showing large amount of content",
+  "supports": {
+    "html": false,
+    "customClassName": true,
+    "align": [ "center" ],
+    "anchor": true
+  },
+  "textdomain": "fivetwofive-blocks",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js",
+  "style": "file:./style-index.css"
+}

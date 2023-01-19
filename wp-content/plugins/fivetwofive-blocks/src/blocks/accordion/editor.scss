@@ -1,0 +1,190 @@
+@use '../../scss/variables' as var;
+
+@forward '../../scss/components/tab-panel';
+@forward '../../scss/components/block-title';
+
+.wp-admin .wp-block-fivetwofive-blocks-accordion {
+  .wp-block-fivetwofive-blocks-panel {
+    margin: 0;
+    overflow: hidden;
+  }
+
+  > .block-editor-inner-blocks > [class*="block-editor-block-list__"] > .block-list-appender {
+    position: initial;
+  }
+
+  .ftfb-panel-body .block-editor-inner-blocks > [class*="block-editor-block-list__"] > *:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .ftfb-panel-body .block-editor-inner-blocks > [class*="block-editor-block-list__"] > *:first-of-type {
+    margin-top: 0;
+  }
+
+  .ftfb-panel-title {
+    padding: var(--ftfb-accordion-btn-padding-y) var(--ftfb-accordion-btn-padding-x);
+    background-color: var(--ftfb-accordion-btn-bg);
+    color: var(--ftfb-accordion-btn-color);
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: var(--ftfb-accordion-transition);
+
+    &:after {
+      content: "";
+      flex-shrink: 0;
+      width: var(--ftfb-accordion-btn-icon-width);
+      height: var(--ftfb-accordion-btn-icon-width);
+      margin-left: auto;
+      background-color: var(--ftfb-accordion-btn-color);
+      transition: var(--ftfb-accordion-btn-icon-transition);
+      -webkit-mask-image: var(--ftfb-accordion-btn-icon);
+      mask-image: var(--ftfb-accordion-btn-icon);
+      -webkit-mask-size: 100%;
+      mask-size: 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+  }
+
+  .ftfb-panel-body {
+    display: none;
+    color: var(--ftfb-accordion-content-color);
+    background-color: var(--ftfb-accordion-content-bg);
+  }
+
+  .wp-block-fivetwofive-blocks-panel.is-selected,
+  .wp-block-fivetwofive-blocks-panel.has-child-selected {
+    --ftfb-accordion-border-color: var(--ftfb-accordion-border-active-color);
+    --ftfb-accordion-btn-color: var(--ftfb-accordion-active-color);
+    --ftfb-accordion-btn-bg: var(--ftfb-accordion-active-bg);
+    border-top: 1px solid var(--ftfb-accordion-border-color);
+    margin-top: -1px;
+
+    > .ftfb-panel-title {
+      box-shadow: inset 0 calc(-1 * var(--ftfb-accordion-border-width)) 0 var(--ftfb-accordion-border-color);
+    }
+
+    > .ftfb-panel-collapse > .ftfb-panel-body {
+      display: block;
+    }
+  }
+
+  > .block-editor-inner-blocks > [class*="block-editor-block-list__"] > div:nth-last-child(2) {
+    border-bottom-left-radius: var(--ftfb-accordion-border-radius);
+    border-bottom-right-radius: var(--ftfb-accordion-border-radius);
+  }
+
+  > .block-editor-inner-blocks > [class*="block-editor-block-list__"] > .block-list-appender {
+    display: inline-flex;
+    margin-top: 20px;
+  }
+
+  .ftfb-block-appender.has-icon {
+    padding-left: 6px;
+    padding-right: 12px;
+  }
+
+  &--icon-position-left {
+    .ftfb-panel-title:after {
+      order: -1;
+      margin-left: 0;
+      margin-right: 15px;
+    }
+  }
+
+  &--icon-display-hidden {
+    .ftfb-panel-title:after {
+        display: none;
+    }
+  }
+}
+
+.ftfb-inspector-spacer {
+  margin-bottom: 24px;
+}
+
+.rfip.rfip--ftfb-accordion {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.rfipbtn.rfipbtn--ftfb-accordion {
+  width: 100%;
+  border: 1px solid var.$border-color-primary;
+
+  .rfipbtn__button {
+    border-left: 1px solid var.$border-color-primary;
+    background-color: var.$background-color-primary;
+
+    &:hover,
+    &:focus {
+      background-color: var.$background-color-secondary;
+    }
+  }
+
+  .rfipbtn__current {
+    flex-basis: 150px;
+  }
+
+  .rfipbtn__icon {
+    width: 100px;
+    border: 1px solid var.$border-color-secondary;
+  }
+
+  .rfipbtn__elm {
+    width: 100%;
+  }
+
+  .rfipbtn__del {
+    border: 1px solid var.$border-color-secondary;
+    background-color: var.$background-color-primary;
+    padding: 2px;
+
+    &:hover,
+    &:focus {
+      background-color: var.$background-color-secondary;
+    }
+  }
+}
+
+.rfipdropdown.rfipdropdown--ftfb-accordion {
+  background-color: var.$color-light;
+  border: 1px solid var.$border-color-primary;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  border-radius: 2px;
+
+  .rfipicons__pager {
+    display: none;
+  }
+
+  .rfipicons__selector {
+    gap: 5px;
+  }
+
+  .rfipicons__icon {
+    width: 100%;
+    background-color: var.$background-color-primary;
+
+    &--selected,
+    &:hover,
+    &:focus {
+      background-color: var(--wp-admin-theme-color);
+    }
+  }
+
+  .rfipicons__ibox {
+    color: var.$text-color;
+
+    > svg {
+      fill: currentColor;
+    }
+  }
+
+  .rfipicons__icon--selected > .rfipicons__ibox svg,
+  .rfipicons__ibox:hover > svg {
+    transform: scale(1.3);
+    color: var.$color-light;
+  }
+}

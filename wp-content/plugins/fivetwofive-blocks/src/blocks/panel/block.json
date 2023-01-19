@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "fivetwofive-blocks/panel",
+  "version": "0.1.0",
+  "title": "Panel",
+  "category": "fivetwofive-blocks",
+  "icon": "welcome-add-page",
+  "parent": [
+    "fivetwofive-blocks/accordion"
+  ],
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "titleTag": {
+      "type": "string",
+      "default": "h3"
+    }
+  },
+  "usesContext": [
+    "fivetwofive-blocks/accordion/panelTitleTag"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "textdomain": "fivetwofive-blocks",
+  "editorScript": "file:./index.js"
+}
