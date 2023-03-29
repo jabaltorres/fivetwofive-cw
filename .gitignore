@@ -31,6 +31,7 @@ wp-content/themes/*
 !wp-content/themes/genesis-fivetwofive
 !wp-content/themes/fivetwofive-theme
 !wp-content/themes/fivetwofive-theme-child
+!wp-content/themes/fivetwofive-block-theme
 
 # always ignore node_modules folders
 **/node_modules
