@@ -1,0 +1,19 @@
+/* Quote
+--------------------------------------------- */
+
+.wp-block-quote:before {
+    content: "“";
+    display: block;
+    line-height: 1;
+    font-size: var(--wp--preset--font-size--max-72);
+    color: currentColor;
+}
+
+.wp-block-quote.is-style-plain {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.wp-block-quote > *:last-child {
+    margin-bottom: 0;
+}

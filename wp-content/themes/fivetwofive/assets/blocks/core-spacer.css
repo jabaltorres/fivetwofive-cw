@@ -1,0 +1,6 @@
+/* Spacer
+--------------------------------------------- */
+
+.wp-block-spacer + * {
+    margin-top: 0 !important;
+}
