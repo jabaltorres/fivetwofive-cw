@@ -8,5 +8,6 @@
 ?>
 <!-- wp:pattern {"slug":"fivetwofive/general-hero-two-columns"} /-->
 <!-- wp:pattern {"slug":"fivetwofive/general-hero-three-columns"} /-->
+<!-- wp:pattern {"slug":"fivetwofive/query-recent"} /-->
 <!-- wp:pattern {"slug":"fivetwofive/general-testimonials"} /-->
 <!-- wp:pattern {"slug":"fivetwofive/general-cta-stacked-contrast-background"} /-->
