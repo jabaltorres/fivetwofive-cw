@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: List of posts in one column.
+ * Title: List of posts in three column.
  * Slug: fivetwofive/query-default
  * Categories: fivetwofive-query
  * Viewport Width: 1280
