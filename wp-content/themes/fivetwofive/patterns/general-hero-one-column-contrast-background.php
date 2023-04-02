@@ -10,8 +10,8 @@
 	<figure class="wp-block-image size-full"><img src="<?php echo esc_url( get_theme_file_uri() ) . '/assets/images/sample-white_1920x1200.jpg'; ?>" alt="Sample Image" class="wp-image-3482"/></figure>
 	<!-- /wp:image -->
 
-	<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|large"}}},"fontSize":"x-large"} -->
-	<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="image-heading-text-buttons" style="margin-top:var(--wp--preset--spacing--large)">Image, heading, text, buttons.</h2>
+	<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|large"}}},"fontSize":"max-48"} -->
+	<h2 class="wp-block-heading has-text-align-center has-max-48-font-size" id="image-heading-text-buttons" style="margin-top:var(--wp--preset--spacing--large)">Image, heading, text, buttons.</h2>
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center"} -->

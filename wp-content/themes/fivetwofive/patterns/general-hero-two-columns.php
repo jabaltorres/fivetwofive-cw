@@ -7,10 +7,10 @@
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|x-large","bottom":"var:preset|spacing|x-large","right":"30px","left":"30px"}}},"backgroundColor":"base","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--x-large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--x-large);padding-left:30px"><!-- wp:columns {"verticalAlignment":null,"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|medium","left":"var:preset|spacing|medium"}}}} -->
+<div class="wp-block-group alignfull has-base-background-color has-background" style="padding-top:var(--wp--preset--spacing--x-large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--x-large);padding-left:30px"><!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|medium","left":"var:preset|spacing|medium"}}}} -->
 	<div class="wp-block-columns alignwide"><!-- wp:column {"verticalAlignment":"center"} -->
-		<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"fontSize":"max-48"} -->
-			<h2 class="wp-block-heading has-max-48-font-size" id="text-on-left-image-on-right"><strong>Text on left, media on right.</strong></h2>
+		<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"level":1,"fontSize":"max-60"} -->
+			<h1 class="wp-block-heading has-max-60-font-size" id="text-on-left-image-on-right"><strong>Text on left, media on right.</strong></h1>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph -->

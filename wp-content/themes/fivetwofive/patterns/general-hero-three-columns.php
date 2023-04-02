@@ -1,23 +1,19 @@
 <?php
 /**
- * Title: Section with image, text, button.
+ * Title: Section three columns
  * Slug: fivetwofive/general-hero-three-columns
  * Categories: fivetwofive-general
  * Viewport Width: 1280
  */
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"margin":{"top":"0px"},"padding":{"top":"var:preset|spacing|x-large","right":"30px","bottom":"var:preset|spacing|x-large","left":"30px"}}},"layout":{"inherit":true,"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="margin-top:0px;padding-top:var(--wp--preset--spacing--x-large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--x-large);padding-left:30px"><!-- wp:heading {"textAlign":"center","fontSize":"x-large"} -->
-	<h2 class="wp-block-heading has-text-align-center has-x-large-font-size" id="image-heading-text-button-1">Image, heading, text, button.</h2>
+<div class="wp-block-group alignfull" style="margin-top:0px;padding-top:var(--wp--preset--spacing--x-large);padding-right:30px;padding-bottom:var(--wp--preset--spacing--x-large);padding-left:30px"><!-- wp:heading {"textAlign":"center","fontSize":"max-48"} -->
+	<h2 class="wp-block-heading has-text-align-center has-max-48-font-size" id="image-heading-text-button-1">Image, heading, text, button.</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:paragraph {"align":"center"} -->
-	<p class="has-text-align-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|medium"}}}} -->
+	<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--medium)">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 	<!-- /wp:paragraph -->
-
-	<!-- wp:spacer {"height":"40px"} -->
-	<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-	<!-- /wp:spacer -->
 
 	<!-- wp:columns {"align":"wide"} -->
 	<div class="wp-block-columns alignwide"><!-- wp:column -->

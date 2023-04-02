@@ -376,7 +376,7 @@
           }
         },
         "typography": {
-          "fontWeight": "var(--wp--custom--font-weight--regular)",
+          "fontWeight": "var(--wp--custom--font-weight--medium)",
           "lineHeight": "var(--wp--custom--line-height--heading)"
         }
       },
@@ -455,8 +455,7 @@
         "border": {
           "color": "var(--wp--preset--color--neutral)",
           "style": "solid",
-          "width": "1px",
-          "radius": "8px"
+          "width": "1px"
         },
         "spacing": {
           "margin": {
