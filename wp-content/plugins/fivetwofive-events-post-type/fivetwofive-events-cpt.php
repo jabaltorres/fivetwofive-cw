@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive - Events Custom Post Type
+ * Plugin Name: Events Custom Post Type
  * Plugin URI: https://fivetwofive.com/
  * Description: A simple plug in that adds an event custom post type
  * Version: 0.1

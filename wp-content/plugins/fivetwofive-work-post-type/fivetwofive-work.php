@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive - Work Custom Post Type
+ * Plugin Name: Work Custom Post Type
  * Plugin URI: https://fivetwofive.com/
  * Description: A simple plug in that adds a Work custom post type
  * Version: 0.1

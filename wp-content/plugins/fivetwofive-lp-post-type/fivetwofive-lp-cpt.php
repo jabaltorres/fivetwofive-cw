@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive - Landing Page Custom Post Type
+ * Plugin Name: Landing Page Custom Post Type
  * Plugin URI: https://fivetwofive.com/
  * Description: A simple plug in that adds an lp custom post type
  * Version: 0.1
