@@ -34,7 +34,7 @@ $post_categories = get_the_terms( $post_item_id, $post_taxonomy );
 ?>
 
 <article id="card-<?php echo esc_attr( $post_item_id ); ?>" <?php post_class( 'card', $post_item_id ); ?>>
-    <a href="<?php echo esc_url( get_permalink( $post_item_id ) ); ?>">
+
         <div class="card__top">
             <?php if ( $post_categories ) : ?>
                 <ul class="card__categories">
@@ -64,7 +64,7 @@ $post_categories = get_the_terms( $post_item_id, $post_taxonomy );
         <div class="card__bottom">
             <header class="card__header m-0">
                 <?php fivetwofive_theme_post_meta( $post_item_id ); ?>
-                <h3 class="card__title mt-2"><?php echo esc_html( get_the_title( $post_item_id ) ); ?></h3>
+                <h3 class="card__title mt-2"><a href="<?php echo esc_url( get_permalink( $post_item_id ) ); ?>"><?php echo esc_html( get_the_title( $post_item_id ) ); ?></a></h3>
 
                 <?php if ( $post_tags_taxonomy ) : ?>
                     <?php echo get_the_term_list( get_the_ID(), $post_tags_taxonomy, '<p class="card__tags"><strong>Tags:</strong> ', ', ', '</p>' ); ?>
@@ -77,5 +77,5 @@ $post_categories = get_the_terms( $post_item_id, $post_taxonomy );
                 </div>
             <?php endif; ?>
         </div>
-    </a>
+
 </article><!-- #card-<?php echo esc_html( $post_item_id ); ?> -->

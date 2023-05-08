@@ -8,9 +8,14 @@
  */
 
 $creative = get_field( 'ftf_resource_creative' );
+$banner_bg = '';
+
+if ( has_post_thumbnail() ) {
+	$banner_bg = sprintf( 'background-image: url(%1$s);', esc_url( get_the_post_thumbnail_url() ) );
+}
 ?>
 
-<header class="ftf-resource__header bg-gray py-4 py-sm-6 text-center">
+<header class="ftf-resource__header bg-gray py-4 py-sm-6 text-center" style="<?php echo esc_attr( $banner_bg ); ?>">
 	<div class="container">
 		<?php the_title( '<h1 class="ftf-resource__title">', '</h1>' ); ?>
 
