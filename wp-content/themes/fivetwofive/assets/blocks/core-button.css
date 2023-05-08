@@ -1,0 +1,39 @@
+/* Button - Fill
+--------------------------------------------- */
+
+.wp-block-button.is-style-fill .wp-element-button:hover,
+.wp-block-button.is-style-fill .wp-element-button:focus,
+.wp-block-button.is-style-fill .wp-element-button:active {
+    background-color: var(--wp--preset--color--primary-shade);
+    border-color: var(--wp--preset--color--primary-shade);
+}
+
+/* Button - Fill Base
+--------------------------------------------- */
+
+.wp-block-button.is-style-fill-base .wp-element-button {
+    background-color: var(--wp--preset--color--base);
+    border: 1px solid var(--wp--preset--color--base);
+    color: var(--wp--preset--color--contrast);
+}
+
+/* Button - Outline
+--------------------------------------------- */
+
+.wp-block-button.is-style-outline .wp-element-button {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: currentColor;
+    color: var(--wp--preset--color--contrast);
+    padding: 15px 30px;
+}
+
+/* Button - Outline Base
+--------------------------------------------- */
+
+.wp-block-button.is-style-outline-base .wp-element-button {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: var(--wp--preset--color--base);
+    color: var(--wp--preset--color--base);
+}

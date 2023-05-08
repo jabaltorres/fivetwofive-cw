@@ -1,0 +1,334 @@
+/*
+Theme Name: Fivetwofive
+Theme URI: https://github.com/capitalJT/fivetwofive-cw
+Author: Fivetwofive creative team
+Author URI: https://fivetwofive.com/
+Description: 
+Requires at least: 5.8
+Tested up to: 5.9
+Requires PHP: 7.4
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Template: 
+Text Domain: fivetwofive
+Tags: one-column, wide-blocks, accessibility-ready, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, full-site-editing, template-editing, threaded-comments, translation-ready
+*/
+
+/* Defaults
+---------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+a,
+button,
+input:focus,
+input[type="button"],
+input[type="submit"],
+textarea:focus,
+.wp-element-button {
+	transition: all 0.2s ease-in-out;
+}
+
+a,
+a:not(.wp-element-button),
+a:focus,
+a:hover {
+	text-decoration-thickness: 1px;
+}
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+b,
+strong {
+	font-weight: var(--wp--custom--font-weight--medium);
+}
+
+blockquote {
+	margin: 0;
+}
+
+/* Elements
+---------------------------------------------------------------------------- */
+a {
+    text-underline-offset: 4px;
+}
+
+mark {
+    background: linear-gradient(90deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-shade) 100%) repeat-x 0 85%;
+    background-size: 100% 15%;
+}
+
+ul > li,
+ol > li {
+    margin-bottom: 10px;
+}
+
+/* Blocks
+---------------------------------------------------------------------------- */
+
+/* Button
+--------------------------------------------- */
+input[type="button"],
+input[type="submit"],
+[class*="is-style-button"],
+.wp-block-post-comments input[type=submit],
+.wp-block-search__button {
+    cursor: pointer;
+    font-size: var(--wp--preset--font-size--small);
+    font-weight: var(--wp--custom--font-weight--medium);
+    padding: 15px 30px;
+    text-decoration: none;
+    white-space: normal;
+    width: auto;
+    border-radius: 50px;
+    transition: background-color, color, transform 300ms ease-in-out;
+}
+
+/* Elements that don't have color settings */
+input[type="button"],
+input[type="submit"],
+.wp-block-post-comments input[type=submit],
+.wp-block-search__button {
+    border: 1px solid var(--wp--preset--color--contrast);
+    background-color: var(--wp--preset--color--contrast);
+    color: var(--wp--preset--color--base);
+}
+
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+.wp-block-post-comments input[type=submit]:hover,
+.wp-block-post-comments input[type=submit]:focus,
+[class*="is-style-button"]:hover,
+[class*="is-style-button"]:focus,
+.wp-block-search__button:hover,
+.wp-block-search__button:focus,
+.wp-block-button .wp-element-button:hover,
+.wp-block-button .wp-element-button:focus {
+    transform: translateY(-2px);
+    filter: brightness(85%);
+}
+
+/* Add default styles and prevent overriding element's color settings */
+[class*="is-style-button"]:not(.has-background) {
+    background-color: var(--wp--preset--color--contrast);
+}
+
+[class*="is-style-button"]:not(.has-text-color) {
+    color: var(--wp--preset--color--base);
+}
+
+/* Calendar
+--------------------------------------------- */
+
+.wp-block-calendar table caption,
+.wp-block-calendar table tbody {
+	color: var(--wp--preset--color--contrast);
+}
+
+.wp-block-calendar table th {
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+}
+
+.wp-block-calendar tbody td,
+.wp-block-calendar th {
+	border: 1px solid var(--wp--preset--color--contrast);
+	padding: 10px;
+}
+
+/* Code
+--------------------------------------------- */
+
+.wp-block-code code {
+	overflow-wrap: normal;
+	overflow-x: scroll;
+	tab-size: 4;
+	white-space: pre !important;
+}
+
+*:not(.wp-block-code) > code,
+kbd {
+	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--base);
+	font-size: var(--wp--preset--font-size--small);
+	padding: 5px 8px;
+	position: relative;
+	top: -1px;
+}
+
+/*
+ * When inline code is selected, the Editor applies contextual styling. Since
+ * our code color is near white, we need to reset to the default text color.
+ */
+.rich-text:focus > code[data-rich-text-format-boundary],
+.rich-text:focus > kbd[data-rich-text-format-boundary] {
+	color: currentColor;
+}
+
+/* Comments
+--------------------------------------------- */
+
+.wp-block-comment-template li {
+	margin-left: 0;
+}
+
+.wp-block-post-comments-form input:not([type=submit]),
+.wp-block-post-comments-form textarea {
+	border-color: var(--wp--preset--color--contrast);
+}
+
+.wp-block-post-comments-form input[type=submit] {
+	border: 1px solid var(--wp--preset--color--contrast);
+}
+
+.wp-block-post-comments-form .form-submit {
+	margin-bottom: 0;
+}
+
+/* Group
+--------------------------------------------- */
+
+.wp-block-group.is-style-full-height {
+    align-items: center;
+    display: grid;
+    min-height: 100vh;
+}
+
+/* Heading
+--------------------------------------------- */
+
+.wp-block-post-content .wp-block-heading + * {
+	margin-top: 20px;
+}
+
+/* Image
+--------------------------------------------- */
+
+.wp-block-image.aligncenter {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.wp-block-image.alignleft {
+	margin-right: 30px !important;
+}
+
+.wp-block-image.alignright {
+	margin-left: 30px !important;
+}
+
+/* List
+--------------------------------------------- */
+
+ol li:where(:not([class*='block'])),
+ul li:where(:not([class*='block'])),
+.wp-block-list li {
+	margin-left: 30px;
+}
+
+.is-style-no-disc li {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+/* Paragraph
+--------------------------------------------- */
+
+p.has-background {
+	padding: 20px 30px;
+}
+
+/* Preformatted
+--------------------------------------------- */
+
+.wp-block-preformatted {
+	overflow-wrap: normal;
+	overflow-x: scroll;
+	white-space: pre;
+}
+
+/* Pullquote
+--------------------------------------------- */
+
+.wp-block-pullquote > *:last-child {
+	margin-bottom: 0;
+}
+
+/* Custom
+---------------------------------------------------------------------------- */
+
+/* Forms
+--------------------------------------------- */
+
+input,
+select,
+textarea,
+.wp-block-search__input {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--contrast);
+	border-radius: 0;
+	color: var(--wp--preset--color--contrast);
+	font-family: var(--wp--preset--font-family--primary);
+	font-size: var(--wp--preset--font-size--medium);
+	font-weight: var(--wp--custom--font-weight--light);
+	line-height: var(--wp--custom--line-height--body);
+	padding: 10px 20px;
+	width: 100%;
+}
+
+input[type="checkbox"],
+input[type="image"],
+input[type="radio"] {
+	width: auto;
+}
+
+input[type="button"],
+input[type="email"],
+input[type="search"],
+input[type="submit"],
+input[type="text"],
+textarea {
+	-webkit-appearance: none;
+}
+
+::placeholder {
+	color: var(--wp--preset--color--contrast);
+	font-size: var(--wp--preset--font-size--small);
+	opacity: 0.6;
+}
+
+/* Media Queries
+---------------------------------------------------------------------------- */
+
+@media only screen and (min-width: 800px) {
+
+	/* Pullquote
+	--------------------------------------------- */
+
+	.wp-block-pullquote.alignleft,
+	.wp-block-pullquote.alignright {
+		max-width: 300px;
+	}
+
+	.wp-block-pullquote.alignleft {
+		float: left;
+		margin-right: 30px !important;
+	}
+
+	.wp-block-pullquote.alignright {
+		float: right;
+		margin-left: 30px !important;
+	}
+
+}
