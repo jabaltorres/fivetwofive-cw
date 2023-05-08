@@ -12,7 +12,7 @@
 !wp-content
 
 wp-content/*
-!wp-content/mu-plugins
+#!wp-content/mu-plugins
 !wp-content/plugins
 !wp-content/themes
 
@@ -25,11 +25,6 @@ wp-content/plugins/*
 !wp-content/plugins/fivetwofive-blocks
 
 wp-content/themes/*
-!wp-content/themes/twentytwenty
-!wp-content/themes/genesis
-!wp-content/themes/altitude-pro
-!wp-content/themes/ftf-altitude-pro
-!wp-content/themes/genesis-fivetwofive
 !wp-content/themes/fivetwofive-theme
 !wp-content/themes/fivetwofive-theme-child
 
@@ -42,8 +37,6 @@ sftp-config
 Thumbs.db
 .htaccess
 sftp-config.json
-Thumbs.db
-.DS_Store
 .svn
 .cvs
 .sass-cache
