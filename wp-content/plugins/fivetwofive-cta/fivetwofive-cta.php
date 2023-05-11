@@ -8,7 +8,7 @@
  * @license           GPL-2.0-or-later
  *
  * @fivetwofive-cta
- * Plugin Name:       FiveTwoFive - CTA
+ * Plugin Name:       Call To Action
  * Plugin URI:        https://fivetwofive.com/
  * Description:       Add call to action shortcode with menu options.
  * Version:           1.0.2

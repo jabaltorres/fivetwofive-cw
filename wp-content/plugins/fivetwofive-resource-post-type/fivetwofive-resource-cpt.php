@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: FiveTwoFive - Resource Custom Post Type
+ * Plugin Name: Resource Custom Post Type
  * Plugin URI: https://fivetwofive.com/
  * Description: A simple plug in that adds an resources custom post type
  * Version: 0.1

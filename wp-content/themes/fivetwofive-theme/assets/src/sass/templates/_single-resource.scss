@@ -1,0 +1,34 @@
+.ftf-resource {
+  &__header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    color: $color__white;
+
+    &:after {
+      content: '';
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.5);
+      inset: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ftf-avatar {
+      text-align: left;
+
+      &__name a {
+        color: $color__white;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__title {
+    color: $color__white;
+  }
+}
