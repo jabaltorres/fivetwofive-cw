@@ -146,11 +146,15 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 							<div class="col-12 col-md-10">
 								<?php if ( $message ) : ?>
-									<div class="testimonial__message"><?php echo wp_kses( $message, fivetwofive_kses_extended_ruleset() ); ?></div>
+									<div class="testimonial__message">
+                                        <blockquote>
+                                            <?php echo wp_kses( $message, fivetwofive_kses_extended_ruleset() ); ?>
+                                        </blockquote>
+                                    </div>
 								<?php endif; ?>
 
 								<?php if ( $author ) : ?>
-									<h3 class="testimonial__author"><?php echo esc_html( $testimonial_author ); ?></h3>
+                                    <cite><h3 class="testimonial__author"><?php echo esc_html( $testimonial_author ); ?></h3></cite>
 								<?php endif; ?>
 							</div>
 						</div>
