@@ -119,6 +119,7 @@ function ftf_work_register_cpt() {
 		'hierarchical'      => true,
 		'labels'            => $labels,
 		'show_ui'           => true,
+		'show_in_rest'      => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
 		'rewrite'           => array( 'slug' => 'work-category' ),
