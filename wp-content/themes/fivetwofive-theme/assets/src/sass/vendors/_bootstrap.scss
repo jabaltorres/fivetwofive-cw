@@ -1,13 +1,8 @@
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
-
-@import "../../../node_modules/bootstrap/scss/mixins/lists";
-@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../../../node_modules/bootstrap/scss/mixins/container";
-@import "../../../node_modules/bootstrap/scss/mixins/grid";
-@import "../../../node_modules/bootstrap/scss/mixins/utilities";
-
-@import "../../../node_modules/bootstrap/scss/vendor/rfs";
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
 
 //
 // Headings
@@ -48,6 +43,7 @@
 .list-inline {
   @include list-unstyled();
 }
+
 .list-inline-item {
   display: inline-block;
 
@@ -111,7 +107,8 @@ $utilities: map-get-multiple(
     "padding-top",
     "padding-end",
     "padding-bottom",
-    "padding-start"
+    "padding-start",
+    "color"
   )
 );
 
