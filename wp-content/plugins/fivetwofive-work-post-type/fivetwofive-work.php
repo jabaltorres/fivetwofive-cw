@@ -175,3 +175,29 @@ function ftf_work_theme_setup() {
 	add_image_size( 'fivetwofive-work-thumbnail', 600, 450, true );
 }
 add_action( 'after_setup_theme', 'ftf_work_theme_setup' );
+
+
+/**
+ * Enqueue plugin assets on the gutenberg editor.
+ *
+ * @return void
+ */
+function ftf_work_block_editor_assets() {
+	wp_enqueue_script(
+		'ftf-work-block-variations',
+		plugins_url( 'blocks/variations.js', __FILE__ ),
+		array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+		filemtime( plugin_dir_path( __FILE__ ) . '/blocks/variations.js' )
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'ftf_work_block_editor_assets' );
+
+function ftf_work_block_styles() {
+	wp_enqueue_style(
+		'ftf-work-style-work-archive-cards',
+		plugins_url( 'css/style-work-archive-cards.css', __FILE__ ),
+		array(),
+		filemtime( plugin_dir_path( __FILE__ ) . '/css/style-work-archive-cards.css' )
+	);
+}
+add_action( 'enqueue_block_assets', 'ftf_work_block_styles' );
