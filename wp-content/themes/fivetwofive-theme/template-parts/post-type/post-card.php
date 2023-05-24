@@ -29,17 +29,17 @@ if ( array_key_exists( 'tags', $args ) && isset( $args['tags'] ) ) {
 	$post_tags_taxonomy = $args['tags'];
 }
 
-$post_categories = get_the_terms( $post_item_id, $post_taxonomy );
+$post_terms = get_the_terms( $post_item_id, $post_taxonomy );
 
 ?>
 
 <article id="card-<?php echo esc_attr( $post_item_id ); ?>" <?php post_class( 'card', $post_item_id ); ?>>
 
         <div class="card__top">
-            <?php if ( $post_categories ) : ?>
-                <ul class="card__categories">
-                    <?php foreach ( $post_categories as $post_category ) : ?>
-                        <li><a href="<?php echo esc_url( get_category_link( $post_category->term_id ) ); ?>"><?php echo esc_html( $post_category->name ); ?></a></li>
+            <?php if ( $post_terms ) : ?>
+                <ul class="card__categories list-inline">
+                    <?php foreach ( $post_terms as $post_term ) : ?>
+                        <li class="list-inline-item"><a class="badge d-block text-uppercase text-black bg-primary" href="<?php echo esc_url( get_category_link( $post_term->term_id ) ); ?>"><?php echo esc_html( $post_term->name ); ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             <?php endif; ?>

@@ -12,6 +12,7 @@ wp_enqueue_style( 'fivetwofive-theme-fancybox' );
 
 // Contents.
 $module_title              = get_sub_field( 'title' );
+$module_title_heading_tag  = get_sub_field( 'title_heading_tag' );
 $module_subtitle           = get_sub_field( 'subtitle' );
 $module_description        = get_sub_field( 'description' );
 $module_button             = get_sub_field( 'button' );
@@ -26,6 +27,10 @@ $media_alignment           = '';
 
 if ( $module_media_alignment && ( 'right' === $module_media_alignment ) ) {
 	$media_alignment = 'order-md-last';
+}
+
+if ( ! $module_title_heading_tag ) {
+	$module_title_heading_tag = 'h2';
 }
 
 // Styles.
@@ -141,12 +146,14 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			<?php endif; ?>
 			<?php if ( $module_title || $module_subtitle || $module_description || $module_button ) : ?>
 				<div class="col-12 col-md-6 ftf-module-content-and-media__content">
-					<?php if ( $module_title ) : ?>
-						<h2 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
-					<?php endif; ?>
+					<?php
+					if ( $module_title ) :
+						echo sprintf( '<%1$s class="ftf-module__title" style="%2$s">%3$s</%1$s>', esc_attr( $module_title_heading_tag ), esc_attr( $text_color_inline_style ), esc_html( $module_title ) );
+					endif;
+					?>
 
 					<?php if ( $module_subtitle ) : ?>
-						<p class="ftf-module__subtitle h3" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
+						<p class="ftf-module__subtitle h5" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_subtitle ); ?></p>
 					<?php endif; ?>
 
 					<?php if ( $module_description ) : ?>
