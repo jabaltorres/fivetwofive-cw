@@ -4152,6 +4152,36 @@
                             "maxlength": ""
                         },
                         {
+                            "key": "field_646d6ebd2d6cf",
+                            "label": "Title Heading Tag",
+                            "name": "title_heading_tag",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "h1": "Heading level 1",
+                                "h2": "Heading level 2",
+                                "h3": "Heading level 3",
+                                "h4": "Heading level 4",
+                                "h5": "Heading level 5",
+                                "h6": "Heading level 6"
+                            },
+                            "default_value": "h2",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_60ed0991795be",
                             "label": "Subtitle",
                             "name": "subtitle",
@@ -7138,5 +7168,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684892324
+    "modified": 1684893412
 }
