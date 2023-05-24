@@ -101,7 +101,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 <section class="ftf-module ftf-module-testimonials-carousel <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $styles ); ?>" id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle ) : ?>
-			<header class="ftf-module__header text-md-center mb-md-6">
+			<header class="ftf-module__header text-md-center">
 				<?php if ( $module_title ) : ?>
 					<h2 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>

@@ -138,7 +138,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 		 data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="ftf-module__header mb-md-6">
+			<header class="ftf-module__header">
 				<?php
 					if ( $module_title ) :
 						echo sprintf( '<%1$s class="ftf-module__title" style="%2$s">%3$s</%1$s>', esc_attr( $module_title_heading_tag ), esc_attr( $text_color_inline_style ), esc_html( $module_title ) );

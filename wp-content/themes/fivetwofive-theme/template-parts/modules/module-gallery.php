@@ -106,7 +106,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 <section class="ftf-module ftf-module-gallery <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>" id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="ftf-module__header mb-md-5">
+			<header class="ftf-module__header">
 				<?php if ( $module_title ) : ?>
 					<h2 class="ftf-module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>

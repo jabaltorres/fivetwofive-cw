@@ -125,7 +125,7 @@ $pagination_links = fivetwofive_get_paginated_links( $resources_query );
 <section id="<?php echo esc_attr( $module_id ); ?>" data-item-per-page="<?php echo esc_attr( $posts_per_page ); ?>" data-current-page="1" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-resources <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
-			<header class="ftf-module__header mb-3 mb-md-5">
+			<header class="ftf-module__header">
 
 				<?php if ( $module_title ) : ?>
 					<h2 class="ftf-module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
