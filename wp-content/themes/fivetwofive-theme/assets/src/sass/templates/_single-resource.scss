@@ -2,13 +2,14 @@
   &__header {
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     position: relative;
     color: $color__white;
 
     &:after {
       content: '';
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       inset: 0;
       z-index: 0;
     }
