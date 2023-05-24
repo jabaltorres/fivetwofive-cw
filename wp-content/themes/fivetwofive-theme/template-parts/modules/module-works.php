@@ -71,7 +71,8 @@ if ( get_sub_field( 'module_classes' ) ) {
 
 if ( $background_toggle ) {
 	if ( $background_image ) {
-		$module_styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;', esc_url( wp_get_attachment_image_url( $background_image, 'full' ) ) );
+		$module_styles .= sprintf( 'background: url(\'%1$s\') center center no-repeat; background-size:cover;',
+			esc_url( wp_get_attachment_image_url( $background_image, 'full' ) ) );
 	}
 } else {
 	if ( $background_color ) {
@@ -80,7 +81,7 @@ if ( $background_toggle ) {
 }
 
 if ( $module_text_color ) {
-	$module_styles    .= sprintf( 'color:%1$s;', $module_text_color );
+	$module_styles     .= sprintf( 'color:%1$s;', $module_text_color );
 	$inline_text_color = sprintf( 'color:%1$s;', $module_text_color );
 }
 
@@ -94,12 +95,16 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>" data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>" class="ftf-module ftf-module-works <?php echo esc_attr( $module_classes ); ?>" style="<?php echo esc_attr( $module_styles ); ?>">
+<section id="<?php echo esc_attr( $module_id ); ?>"
+		 data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>"
+		 class="ftf-module ftf-module-works <?php echo esc_attr( $module_classes ); ?>"
+		 style="<?php echo esc_attr( $module_styles ); ?>">
 	<div class="container">
 		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
 			<header class="ftf-module__header mb-md-5">
 				<?php if ( $module_title ) : ?>
-					<h2 class="ftf-module__title" style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
+					<h2 class="ftf-module__title"
+						style="<?php echo esc_attr( $inline_text_color ); ?>"><?php echo esc_html( $module_title ); ?></h2>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
@@ -107,7 +112,8 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
+					<div class="ftf-module_description"><?php echo wp_kses( $module_description,
+							fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
@@ -118,18 +124,25 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 			if ( 'grid' === $module_display ) :
 				?>
-					<div class="row">
-				<?php
+				<div class="row">
+			<?php
 			endif;
 
 			foreach ( $module_works as $post ) :
 				setup_postdata( $post );
 
 				if ( 'stacked-alternate' === $module_display ) {
-					$event_counter++;
+					$event_counter ++;
 
 					if ( 0 !== $event_counter % 2 ) {
-						get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
+						get_template_part(
+							'template-parts/post-type/post-item',
+							null,
+							array(
+								'id'       => get_the_ID(),
+								'taxonomy' => 'ftf_work_category',
+							)
+						);
 					} else {
 						get_template_part(
 							'template-parts/post-type/post-item',
@@ -137,23 +150,40 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 							array(
 								'id'                 => get_the_ID(),
 								'thumbnail-position' => 'right',
+								'taxonomy'           => 'ftf_work_category',
 							)
 						);
 					}
 				}
 
 				if ( 'stacked' === $module_display ) {
-					get_template_part( 'template-parts/post-type/post-item', null, array( 'id' => get_the_ID() ) );
+					get_template_part(
+						'template-parts/post-type/post-item',
+						null,
+						array(
+							'id'       => get_the_ID(),
+							'taxonomy' => 'ftf_work_category',
+						)
+					);
 				}
 
 				if ( 'grid' === $module_display ) :
 					?>
 
 					<div class="col-md-4 mb-3 mb-md-5">
-						<?php get_template_part( 'template-parts/post-type/post-card', null, array( 'id' => get_the_ID() ) ); ?>
+						<?php
+						get_template_part(
+							'template-parts/post-type/post-card',
+							null,
+							array(
+								'id'       => get_the_ID(),
+								'taxonomy' => 'ftf_work_category',
+							)
+						);
+						?>
 					</div>
 
-					<?php
+				<?php
 				endif;
 
 			endforeach;
@@ -162,8 +192,8 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 			if ( 'grid' === $module_display ) :
 				?>
-					</div>
-				<?php
+				</div>
+			<?php
 			endif;
 		endif;
 		?>
