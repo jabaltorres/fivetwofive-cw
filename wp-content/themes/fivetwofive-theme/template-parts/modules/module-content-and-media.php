@@ -157,7 +157,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					<?php endif; ?>
 
 					<?php if ( $module_description ) : ?>
-						<div class="ftf-module_description" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
+						<div class="ftf-module__content" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 					<?php endif; ?>
 
 					<?php
