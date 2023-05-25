@@ -23,11 +23,12 @@ $module_column_count   = get_sub_field( 'column_count' );
 $module_classes        = '';
 $module_styles         = '';
 $inline_text_color     = '';
-$module_id             = uniqid( 'ftf-module', true );
-$module_id_field       = get_sub_field( 'module_id' );
+
+$module_id                   = uniqid( 'ftf-module-resources' );
+$module_id_field             = get_sub_field( 'module_id' );
 
 if ( $module_id_field ) {
-	$module_id = $module_id_field;
+    $module_id = $module_id_field;
 }
 
 if ( get_sub_field( 'module_classes' ) ) {
@@ -60,7 +61,6 @@ if ( $module_text_alignment ) {
 }
 
 // Animations.
-$module_id                 = uniqid( 'ftf-module-gallery' );
 $module_animation_desktop  = get_sub_field( 'animation_desktop' );
 $module_animation_mobile   = get_sub_field( 'animation_mobile' );
 $module_animation_reset    = get_sub_field( 'animation_reset' );
