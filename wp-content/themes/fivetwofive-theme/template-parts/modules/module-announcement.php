@@ -37,7 +37,7 @@ if ( $background_toggle ) {
 if ( $border_color ) {
 	$module_border = 'border-top:2px ' . $border_color . ' solid;border-bottom:2px ' . $border_color . ' solid;';
 } else {
-	$module_border = 'none;';
+	$module_border = 'border: none;';
 }
 
 // Animations.
@@ -105,23 +105,23 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 		<?php if ( $module_button ) : ?>
 			<div class="row align-items-center">
-				<div class="col-12 col-sm-9">
+				<div class="col-12 col-md-8 col-lg-9">
 					<?php if ( $module_title ) : ?>
-						<h2 class="ftf-module__title mb-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h2>
+						<h3 class="ftf-module__title mb-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo esc_html( $module_title ); ?></h3>
 					<?php endif; ?>
 
 					<?php if ( $module_content ) : ?>
 						<div class="ftf-module__content mb-4 mb-md-0" style="color:<?php echo esc_attr( $text_color ); ?>;"><?php echo wp_kses( $module_content, fivetwofive_kses_extended_ruleset() ); ?></div>
 					<?php endif; ?>
 				</div>
-				<div class="col-12 col-sm-3">
+				<div class="col-12 col-md-4 col-lg-3">
 					<?php
 					if ( $module_button ) :
 						$link_url    = $module_button['url'];
 						$link_title  = $module_button['title'];
 						$link_target = $module_button['target'] ? $module_button['target'] : '_self';
 						?>
-						<a class="button button--block module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<a class="button d-inline-block module__button" role="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 					<?php endif; ?>
 				</div>
 			</div>
