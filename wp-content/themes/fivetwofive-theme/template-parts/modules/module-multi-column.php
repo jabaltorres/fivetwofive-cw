@@ -180,7 +180,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				$column_dimension         = get_sub_field( 'image_dimension' );
 				$column_title             = get_sub_field( 'title' );
 				$column_title_heading_tag = get_sub_field( 'title_heading_tag' );
-				$column_text              = get_sub_field( 'text',false, false );
+				$column_text              = get_sub_field( 'text' );
 				$column_button            = get_sub_field( 'button' );
 				$column_width             = get_sub_field( 'width' );
 				$column_classes           = get_sub_field( 'column_classes' );
