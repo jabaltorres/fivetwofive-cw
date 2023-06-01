@@ -7,9 +7,12 @@
  * @package FiveTwoFive_Theme
  */
 
+wp_enqueue_script( 'fivetwofive-theme-module-works' );
+
 $module_title          = get_sub_field( 'title' );
 $module_subtitle       = get_sub_field( 'subtitle' );
 $module_description    = get_sub_field( 'description' );
+$search_and_filter     = get_sub_field( 'search_and_filter' );
 $background_toggle     = get_sub_field( 'background_toggle' );
 $background_color      = get_sub_field( 'background_color' );
 $background_image      = get_sub_field( 'background_image' );
@@ -95,12 +98,14 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 ?>
 
-<section id="<?php echo esc_attr( $module_id ); ?>"
-		 data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>"
-		 class="ftf-module ftf-module-works <?php echo esc_attr( $module_classes ); ?>"
-		 style="<?php echo esc_attr( $module_styles ); ?>">
+<section
+	id="<?php echo esc_attr( $module_id ); ?>"
+	data-animation="<?php echo esc_attr( wp_json_encode( $module_animation_options ) ); ?>"
+	class="ftf-module ftf-module-works <?php echo esc_attr( $module_classes ); ?>"
+	style="<?php echo esc_attr( $module_styles ); ?>"
+>
 	<div class="container">
-		<?php if ( $module_title || $module_subtitle || $module_description ) : ?>
+		<?php if ( $module_title || $module_subtitle || $module_description || $search_and_filter ) : ?>
 			<header class="ftf-module__header">
 				<?php if ( $module_title ) : ?>
 					<h2 class="ftf-module__title"
@@ -115,6 +120,45 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					<div class="ftf-module_description"><?php echo wp_kses( $module_description,
 							fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
+
+				<?php if ( $search_and_filter ) : ?>
+					<form class="ftf-form mb-5">
+
+						<div class="row justify-content-md-center">
+
+							<fieldset class="ftf-fieldset col-md-3">
+								<input
+									type="search"
+									class="ftf-input ftf-input--search"
+									name="ftf-search-work"
+									placeholder="<?php echo esc_html__( 'Search works', 'fivetwofive-theme' ); ?>"
+									aria-label="<?php echo esc_html__( 'Search works', 'fivetwofive-theme' ); ?>"
+								>
+							</fieldset>
+
+							<fieldset class="ftf-fieldset col-md-3">
+								<?php
+								wp_dropdown_categories(
+									array(
+										'show_option_all' => __( 'All Categories', 'fivetwofive-theme' ),
+										'orderby'         => 'name',
+										'class'           => 'ftf-select',
+										'name'            => 'ftf-work-category',
+										'value_field'     => 'term_id',
+										'taxonomy'        => 'ftf_work_category',
+									)
+								);
+								?>
+							</fieldset>
+
+							<fieldset class="ftf-fieldset col-md-auto">
+								<input type="submit" class="ftf-button" value="<?php echo esc_html__( 'Search', 'fivetwofive-theme' ); ?>">
+							</fieldset>
+
+						</div>
+
+					</form>
+				<?php endif; ?>
 			</header>
 		<?php endif; ?>
 
@@ -123,13 +167,10 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			$event_counter = 0;
 
 			if ( 'grid' === $module_display ) :
-				?>
-				<div class="row">
-			<?php
+				echo '<div class="ftf-module-works__grid">';
 			endif;
 
-			foreach ( $module_works as $post ) :
-				setup_postdata( $post );
+			foreach ( $module_works as $module_work ) :
 
 				if ( 'stacked-alternate' === $module_display ) {
 					$event_counter ++;
@@ -139,7 +180,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 							'template-parts/post-type/post-item',
 							null,
 							array(
-								'id'       => get_the_ID(),
+								'id'       => $module_work,
 								'taxonomy' => 'ftf_work_category',
 							)
 						);
@@ -148,7 +189,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 							'template-parts/post-type/post-item',
 							null,
 							array(
-								'id'                 => get_the_ID(),
+								'id'                 => $module_work,
 								'thumbnail-position' => 'right',
 								'taxonomy'           => 'ftf_work_category',
 							)
@@ -161,39 +202,29 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 						'template-parts/post-type/post-item',
 						null,
 						array(
-							'id'       => get_the_ID(),
+							'id'       => $module_work,
 							'taxonomy' => 'ftf_work_category',
 						)
 					);
 				}
 
 				if ( 'grid' === $module_display ) :
-					?>
 
-					<div class="col-md-4 mb-3 mb-md-5">
-						<?php
-						get_template_part(
-							'template-parts/post-type/post-card',
-							null,
-							array(
-								'id'       => get_the_ID(),
-								'taxonomy' => 'ftf_work_category',
-							)
-						);
-						?>
-					</div>
+					get_template_part(
+						'template-parts/post-type/post-card',
+						null,
+						array(
+							'id'       => $module_work,
+							'taxonomy' => 'ftf_work_category',
+						)
+					);
 
-				<?php
 				endif;
 
 			endforeach;
 
-			wp_reset_postdata();
-
 			if ( 'grid' === $module_display ) :
-				?>
-				</div>
-			<?php
+				echo '</div>';
 			endif;
 		endif;
 		?>
