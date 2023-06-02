@@ -167,6 +167,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 			$event_counter = 0;
 
 			if ( 'grid' === $module_display ) :
+				echo sprintf( '<p class="ftf-module-works__empty-results" style="display: none;">%1$s</p>', __( 'There are no work found using your request, please try again.', 'fivetwofive' ) );
 				echo '<div class="ftf-module-works__grid">';
 			endif;
 

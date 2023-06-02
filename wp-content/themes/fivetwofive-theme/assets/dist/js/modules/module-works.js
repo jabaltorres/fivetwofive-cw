@@ -54,7 +54,14 @@
 
         var term = parseInt(_this.find('select[name="ftf-work-category"]').val());
         hideItems(module.find('.ftf_work'));
-        animateItems(filterWorks(search, term, module), module);
+        var filteredWorks = filterWorks(search, term, module);
+
+        if (filteredWorks.length > 0) {
+          hideEmptyMessage(module);
+          animateItems(filteredWorks, module);
+        } else {
+          showEmptyMessage(module);
+        }
       });
     };
 
@@ -97,6 +104,14 @@
           $item.fadeIn(400);
         }, 300 * i);
       });
+    };
+
+    var showEmptyMessage = function showEmptyMessage(module) {
+      module.find('.ftf-module-works__empty-results').fadeIn();
+    };
+
+    var hideEmptyMessage = function hideEmptyMessage(module) {
+      module.find('.ftf-module-works__empty-results').fadeOut();
     };
 
     return {
