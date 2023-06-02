@@ -5513,6 +5513,26 @@
                             "delay": 0
                         },
                         {
+                            "key": "field_6476880b33c1b",
+                            "label": "Search and Filter",
+                            "name": "search_and_filter",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "ui": 1
+                        },
+                        {
                             "key": "field_6154fb7f89b84",
                             "label": "Works",
                             "name": "works",
@@ -7168,5 +7188,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1684893412
+    "modified": 1685489744
 }

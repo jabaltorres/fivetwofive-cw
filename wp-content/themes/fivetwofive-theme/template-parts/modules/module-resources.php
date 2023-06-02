@@ -139,7 +139,7 @@ $pagination_links = fivetwofive_get_paginated_links( $resources_query );
 					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 
-				<form class="ftf-form">
+				<form class="ftf-form mb-5">
 
 					<fieldset class="ftf-fieldset">
 						<input type="search" class="ftf-input ftf-input--search" name="ftf-search-resource" placeholder="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>" aria-label="<?php echo esc_html__( 'Search resources', 'fivetwofive-theme' ); ?>">

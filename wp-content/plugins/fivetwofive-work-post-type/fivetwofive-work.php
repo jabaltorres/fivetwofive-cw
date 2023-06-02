@@ -122,7 +122,10 @@ function ftf_work_register_cpt() {
 		'show_in_rest'      => true,
 		'show_admin_column' => true,
 		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'work-category' ),
+		'rewrite'           => array(
+			'slug'       => 'work-category',
+			'with_front' => false,
+		),
 	);
 
 	register_taxonomy( 'ftf_work_category', 'ftf_work', $args );
