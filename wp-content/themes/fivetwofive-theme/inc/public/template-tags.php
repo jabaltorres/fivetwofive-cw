@@ -58,6 +58,42 @@ if ( ! function_exists( 'fivetwofive_theme_posted_by' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'fivetwofive_theme_category_links' ) ) :
+	/**
+	 * Prints the post categories
+	 */
+	function fivetwofive_theme_category_links( $post_id ) {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type( $post_id ) ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'fivetwofive-theme' ), '', $post_id );
+
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'fivetwofive-theme' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'fivetwofive_theme_tag_links' ) ) :
+	/**
+	 * Prints the post tags
+	 */
+	function fivetwofive_theme_tag_links( $post_id ) {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type( $post_id ) ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', '', '', $post_id );
+
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<span class="tags-links">' . esc_html__( 'Tags: %1$s', 'fivetwofive-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+	}
+endif;
+
 if ( ! function_exists( 'fivetwofive_theme_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
@@ -65,19 +101,8 @@ if ( ! function_exists( 'fivetwofive_theme_entry_footer' ) ) :
 	function fivetwofive_theme_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'fivetwofive-theme' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'fivetwofive-theme' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
-
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'fivetwofive-theme' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'fivetwofive-theme' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
+			fivetwofive_theme_category_links( get_the_ID() );
+			fivetwofive_theme_tag_links( get_the_ID() );
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -197,6 +222,8 @@ if ( ! function_exists( 'fivetwofive_theme_post_meta' ) ) :
 		if ( 'post' === $post_type ) {
 			fivetwofive_theme_posted_on( $post_item_id );
 			fivetwofive_theme_posted_by( get_post_field( 'post_author', $post_item_id ) );
+			fivetwofive_theme_category_links( get_the_ID() );
+			fivetwofive_theme_tag_links( get_the_ID() );
 		}
 
 		do_action( 'fivetwofive_theme_after_post_meta', $post_item_id, $post_type );
