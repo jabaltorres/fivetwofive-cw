@@ -108,9 +108,9 @@ if ( ! function_exists( 'fivetwofive_enable_sidebar' ) ) :
 	 */
 	function fivetwofive_enable_sidebar() {
 		$show_sidebar = false;
-		if ( is_home() || is_archive() || is_singular( array( 'post' ) ) ) {
-			$show_sidebar = true;
-		}
+//		if ( is_singular( array( 'post' ) ) ) {
+//			$show_sidebar = true;
+//		}
 		return apply_filters( 'fivetwofive_theme_enable_sidebar', $show_sidebar );
 	}
 endif;
@@ -195,3 +195,16 @@ if ( ! function_exists( 'fivetwofive_theme_archive_title' ) ) :
 	}
 endif;
 add_filter( 'get_the_archive_title', 'fivetwofive_theme_archive_title' );
+
+
+/**
+ * Add badge class to post tag links
+ *
+ * @param $links
+ *
+ * @return array|string|string[]
+ */
+function fivetwofive_theme_tag_class($links) {
+	return str_replace('<a href="', '<a class="badge d-inline-block text-uppercase text-black bg-primary" href="', $links);
+}
+add_filter( 'term_links-post_tag', 'fivetwofive_theme_tag_class');

@@ -1,0 +1,21 @@
+.single-post {
+  overflow-x: hidden;
+
+  .content-sidebar-wrap {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 50px;
+
+    .ftf-post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .entry-content {
+      max-width: 768px;
+      margin-inline: auto;
+    }
+  }
+}
