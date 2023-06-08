@@ -13,9 +13,11 @@
       justify-content: center;
     }
 
+    .entry-footer,
     .entry-content {
       max-width: 768px;
       margin-inline: auto;
+      margin-bottom: 30px;
     }
   }
 }
