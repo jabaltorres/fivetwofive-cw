@@ -222,8 +222,11 @@ if ( ! function_exists( 'fivetwofive_theme_post_meta' ) ) :
 		if ( 'post' === $post_type ) {
 			fivetwofive_theme_posted_on( $post_item_id );
 			fivetwofive_theme_posted_by( get_post_field( 'post_author', $post_item_id ) );
-			fivetwofive_theme_category_links( get_the_ID() );
-			fivetwofive_theme_tag_links( get_the_ID() );
+
+			if ( is_singular( 'post' ) ) {
+				fivetwofive_theme_category_links( get_the_ID() );
+				fivetwofive_theme_tag_links( get_the_ID() );
+			}
 		}
 
 		do_action( 'fivetwofive_theme_after_post_meta', $post_item_id, $post_type );

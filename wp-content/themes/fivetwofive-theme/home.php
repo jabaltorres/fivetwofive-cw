@@ -4,9 +4,9 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package ShotSpotter
- * @subpackage ShotSpotter
- * @since ShotSpotter 1.4.2
+ * @package FiveTwoFive Theme
+ * @subpackage FiveTwoFive Theme
+ * @since FiveTwoFive Theme 0.9.1
  */
 global $wp;
 
