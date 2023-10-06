@@ -27,50 +27,52 @@
 	along with this program. If not, see someone who cares.
 */
 
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+
 /**
- * Register FiveTwoFive LP custom post type.
+ * Register Landing Pages custom post type.
  *
  * @return void
  */
 function fivetwofive_lp_cpt() {
 
 	/**
-	 * Post Type: FiveTwoFive LPs.
+	 * Post Type: Landing Pages.
 	 */
 
 	$labels = array(
-		'name'                  => __( 'FiveTwoFive LPs', 'ftf-lps' ),
-		'singular_name'         => __( 'FiveTwoFive LP', 'ftf-lps' ),
-		'menu_name'             => __( 'FiveTwoFive LPs', 'ftf-lps' ),
-		'all_items'             => __( 'All FiveTwoFive LPs', 'ftf-lps' ),
-		'add_new'               => __( 'Add New FiveTwoFive LP', 'ftf-lps' ),
-		'add_new_item'          => __( 'Add New FiveTwoFive LP', 'ftf-lps' ),
-		'edit_item'             => __( 'Edit FiveTwoFive LP', 'ftf-lps' ),
-		'new_item'              => __( 'New FiveTwoFive LP', 'ftf-lps' ),
-		'view_item'             => __( 'View FiveTwoFive LP', 'ftf-lps' ),
-		'view_items'            => __( 'View FiveTwoFive LPs', 'ftf-lps' ),
-		'search_items'          => __( 'Search FiveTwoFive LP', 'ftf-lps' ),
-		'not_found'             => __( 'FiveTwoFive LP Not Found', 'ftf-lps' ),
-		'not_found_in_trash'    => __( 'No FiveTwoFive LPs found in trash', 'ftf-lps' ),
-		'parent_item_colon'     => __( 'Parent FiveTwoFive LP', 'ftf-lps' ),
-		'featured_image'        => __( 'Featured image for this FiveTwoFive LP', 'ftf-lps' ),
-		'set_featured_image'    => __( 'Set featured image for this FiveTwoFive LP', 'ftf-lps' ),
-		'remove_featured_image' => __( 'Remove featured image for this FiveTwoFive LP', 'ftf-lps' ),
-		'use_featured_image'    => __( 'Use featured image for this FiveTwoFive LP', 'ftf-lps' ),
-		'archives'              => __( 'FiveTwoFive LP archives', 'ftf-lps' ),
-		'insert_into_item'      => __( 'Insert into FiveTwoFive LP', 'ftf-lps' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this FiveTwoFive LP', 'ftf-lps' ),
-		'filter_items_list'     => __( 'Filter FiveTwoFive LPs list', 'ftf-lps' ),
-		'items_list_navigation' => __( 'FiveTwoFive LPs list navigation', 'ftf-lps' ),
-		'items_list'            => __( 'FiveTwoFive LPs list', 'ftf-lps' ),
-		'attributes'            => __( 'FiveTwoFive LPs Attributes', 'ftf-lps' ),
-		'parent_item_colon'     => __( 'Parent FiveTwoFive LP', 'ftf-lps' ),
+		'name'                  => __( 'Landing Pages', 'ftf-lps' ),
+		'singular_name'         => __( 'Landing Pages', 'ftf-lps' ),
+		'menu_name'             => __( 'Landing Pages', 'ftf-lps' ),
+		'all_items'             => __( 'All Landing Pages', 'ftf-lps' ),
+		'add_new'               => __( 'Add New Landing Pages', 'ftf-lps' ),
+		'add_new_item'          => __( 'Add New Landing Pages', 'ftf-lps' ),
+		'edit_item'             => __( 'Edit Landing Pages', 'ftf-lps' ),
+		'new_item'              => __( 'New Landing Pages', 'ftf-lps' ),
+		'view_item'             => __( 'View Landing Pages', 'ftf-lps' ),
+		'view_items'            => __( 'View Landing Pages', 'ftf-lps' ),
+		'search_items'          => __( 'Search Landing Pages', 'ftf-lps' ),
+		'not_found'             => __( 'Landing Pages Not Found', 'ftf-lps' ),
+		'not_found_in_trash'    => __( 'No Landing Pages found in trash', 'ftf-lps' ),
+		'featured_image'        => __( 'Featured image for this Landing Pages', 'ftf-lps' ),
+		'set_featured_image'    => __( 'Set featured image for this Landing Pages', 'ftf-lps' ),
+		'remove_featured_image' => __( 'Remove featured image for this Landing Pages', 'ftf-lps' ),
+		'use_featured_image'    => __( 'Use featured image for this Landing Pages', 'ftf-lps' ),
+		'archives'              => __( 'Landing Pages archives', 'ftf-lps' ),
+		'insert_into_item'      => __( 'Insert into Landing Pages', 'ftf-lps' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this Landing Pages', 'ftf-lps' ),
+		'filter_items_list'     => __( 'Filter Landing Pages list', 'ftf-lps' ),
+		'items_list_navigation' => __( 'Landing Pages list navigation', 'ftf-lps' ),
+		'items_list'            => __( 'Landing Pages list', 'ftf-lps' ),
+		'attributes'            => __( 'Landing Pages Attributes', 'ftf-lps' ),
+		'parent_item_colon'     => __( 'Parent Landing Pages', 'ftf-lps' ),
 	);
 
 	$args = array(
-		'label'               => __( 'FiveTwoFive LPs', 'ftf-lps' ),
+		'label'               => __( 'Landing Pages', 'ftf-lps' ),
 		'labels'              => $labels,
-		'description'         => __( 'FiveTwoFive LP Description', 'ftf-lps' ),
+		'description'         => __( 'Landing Pages Description', 'ftf-lps' ),
 		'public'              => true,
 		'publicly_queryable'  => true,
 		'show_ui'             => true,
@@ -94,74 +96,63 @@ function fivetwofive_lp_cpt() {
 	register_post_type( 'fivetwofive-lp', $args );
 }
 
-add_action( 'init', 'fivetwofive_lp_cpt' );
-
+// Attach the custom post type function to WordPress's 'init' action hook.
+add_action('init', 'fivetwofive_lp_cpt');
 
 /**
- * Register custom post type on plugin activation.
+ * Actions to perform upon plugin activation.
  *
- * @return void
+ * When the plugin is activated, this function ensures the custom post type
+ * is registered and that rewrite rules are properly flushed to take account of it.
  */
 function ftf_setup_fivetwofive_lp_custom_post_type() {
-	fivetwofive_lp_cpt();
-	flush_rewrite_rules();
+    fivetwofive_lp_cpt();
+    flush_rewrite_rules();
 }
-register_activation_hook( __FILE__, 'ftf_setup_fivetwofive_lp_custom_post_type' );
+// Attach the activation function to WordPress's plugin activation hook.
+register_activation_hook(__FILE__, 'ftf_setup_fivetwofive_lp_custom_post_type');
 
 /**
- * Unregister custom post type on plugin deactivation.
+ * Actions to perform upon plugin deactivation.
  *
- * @link https://core.trac.wordpress.org/ticket/42563
- * @return void
+ * When the plugin is deactivated, this function ensures the custom post type
+ * is unregistered and that rewrite rules are flushed to reflect this change.
  */
 function ftf_unregister_fivetwofive_lp_custom_post_type() {
-	unregister_post_type( 'fivetwofive-lp' );
-	flush_rewrite_rules();
+    unregister_post_type('fivetwofive-lp');
+    flush_rewrite_rules();
 }
-register_deactivation_hook( __FILE__, 'ftf_unregister_fivetwofive_lp_custom_post_type' );
+// Attach the deactivation function to WordPress's plugin deactivation hook.
+register_deactivation_hook(__FILE__, 'ftf_unregister_fivetwofive_lp_custom_post_type');
 
 /**
- * Don't support content editor if modules template is used in landing pages.
+ * Modifies the post editor depending on the chosen template.
  *
- * @link https://developer.wordpress.org/reference/functions/remove_post_type_support/
- * @return void
+ * For landing pages that use a specific template, the default content editor might not be
+ * applicable or necessary. This function checks the template of a landing page and, if it
+ * matches a specific template, removes the content editor.
  */
 function ftf_remove_editor_init() {
-    // If not in the admin, return.
-    if ( ! is_admin() ) {
-       return;
-    }
- 
-    // Get the post ID on edit post with filter_input super global inspection.
-    $current_post_id = filter_input( INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT );
-    // Get the post ID on update post with filter_input super global inspection.
-    $update_post_id = filter_input( INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT );
- 
-    // Check to see if the post ID is set, else return.
-    if ( isset( $current_post_id ) ) {
-       $post_id = absint( $current_post_id );
-    } else if ( isset( $update_post_id ) ) {
-       $post_id = absint( $update_post_id );
-    } else {
-       return;
-    }
- 
-    // Don't do anything unless there is a post_id.
-    if ( ! isset( $post_id ) ) {
-		return;
+    // Check if we're in the admin dashboard; if not, exit.
+    if (!is_admin()) {
+        return;
     }
 
-	// make sure the post type is correct.
-	if ( 'fivetwofive-lp' !== get_post_type( $post_id ) ) {
-		return;
-	}
+    // Retrieve the post ID.
+    $post_id = filter_input(INPUT_GET, 'post', FILTER_SANITIZE_NUMBER_INT) ?: filter_input(INPUT_POST, 'post_ID', FILTER_SANITIZE_NUMBER_INT);
 
-	// Get the template of the current post.
-	$template_file = get_post_meta( $post_id, '_wp_page_template', true );
+    // If there's no post ID, or the post type isn't our custom type, exit.
+    if (!$post_id || 'fivetwofive-lp' !== get_post_type($post_id)) {
+        return;
+    }
 
-	// Example of removing page editor for page-templates/template-module.php template.
-	if (  'page-templates/template-module.php' === $template_file ) {
-		remove_post_type_support( 'fivetwofive-lp', 'editor' );
-	}
+    // Fetch the template associated with the post.
+    $template_file = get_post_meta($post_id, '_wp_page_template', true);
+
+    // If the template matches our target template, remove the content editor.
+    if ('page-templates/template-module.php' === $template_file) {
+        remove_post_type_support('fivetwofive-lp', 'editor');
+    }
 }
-add_action( 'init', 'ftf_remove_editor_init' );
+// Attach the function to the 'admin_init' hook, ensuring it runs in the admin dashboard.
+add_action('admin_init', 'ftf_remove_editor_init');
