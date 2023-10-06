@@ -7,24 +7,33 @@
  * @since FiveTwoFive Theme 1.0.0
  */
 
+// Include the header template
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+    <?php
+    while (have_posts()) :
+        the_post();
 
-			while ( have_rows( 'modules' ) ) :
-				the_row();
-				get_template_part( 'template-parts/modules/module', str_replace( 'module-', '', get_row_layout() ) );
-			endwhile;
+        // Loop through the 'modules' repeater field
+        while (have_rows('modules')) :
+            the_row();
 
-		endwhile; // End of the loop.
-		?>
+            // Get the layout of the current module
+            $module_layout = str_replace('module-', '', get_row_layout());
 
-	</main><!-- #main -->
+            // Include the module template based on the layout
+            get_template_part('template-parts/modules/module', $module_layout);
+        endwhile;
+
+    endwhile; // End of the loop.
+    ?>
+
+</main><!-- #main -->
 
 <?php
+// Include the footer template
 get_footer();
+?>
