@@ -79,6 +79,8 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 						array(
 							'id'       => get_the_ID(),
 							'taxonomy' => 'post_tag',
+                            'excerpt'  => 'true',
+
 						)
 					);
 				?>
