@@ -22,8 +22,9 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 <?php if ( ! empty( single_post_title( '', false ) ) ) : ?>
 	<header class="page-header" style="<?php echo esc_attr( $header_styles ); ?>">
 		<div class="container">
-			<h1 class="page-header__title mb-3 mb-sm-4">Blog</h1>
+            <h1 class="page-header__title mb-3 mb-sm-4"><?php echo get_the_title($blog_page_id); ?></h1>
 
+            <div class="excerpt mb-3"><?php echo get_the_excerpt($blog_page_id); ?></div>
 
 			<form role="search" method="get" class="search-form row g-3 justify-content-center align-items-center" action="<?php echo esc_url( home_url( '/blog' ) ); ?>">
 

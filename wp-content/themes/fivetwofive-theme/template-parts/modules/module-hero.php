@@ -142,7 +142,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 
 			<div class="col-12 <?php echo esc_attr( $hero_content_class ); ?>">
 				<?php if ( $module_title ) : ?>
-					<h1 class="ftf-module__title" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h1>
+					<h1 class="ftf-module__title mb-0" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_title ); ?></h1>
 				<?php endif; ?>
 
 				<?php if ( $module_subtitle ) : ?>
