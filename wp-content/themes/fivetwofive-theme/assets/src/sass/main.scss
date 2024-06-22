@@ -117,3 +117,37 @@
     border-color: rgba(200, 200, 200, 0.4);
   }
 }
+
+.type-music {
+  audio {
+    width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Music Archive
+--------------------------------------------------------------*/
+.post-type-archive-music{
+  .page-header:before{
+    z-index: -1;
+  }
+  .page-title{
+    color: $color__primary;
+  }
+  .categories{
+    //border: solid thin green;
+    .heading{
+      display: inline-block;
+      margin-right: 20px;
+    }
+    ul{
+      display: inline-block;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    }
+  }
+}
