@@ -6,8 +6,9 @@
             "key": "field_6675c0d80c45c",
             "label": "Music File",
             "name": "music_file",
+            "aria-label": "",
             "type": "file",
-            "instructions": "",
+            "instructions": "Follow your own drum beat",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -39,5 +40,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1718994552
+    "show_in_rest": 0,
+    "modified": 1719016751
 }
