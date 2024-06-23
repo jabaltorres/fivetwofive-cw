@@ -18,21 +18,21 @@
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <div class="card text-center">
                             <div class="h5 mb-0">
-                                <a href="/music-type/beats/" class="d-block p-4">Beats</a>
+                                <a href="/music-type/beats/" class="d-block p-4 fw-bold">Beats</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <div class="card text-center">
                             <div class="h5 mb-0">
-                                <a href="/the-jump-off-vol-1/" class="d-block p-4">The Jump Off Vol. 1</a>
+                                <a href="/the-jump-off-vol-1/" class="d-block p-4 fw-bold">The Jump Off Vol. 1</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-4 mb-4 mb-md-0">
                         <div class="card text-center">
                             <div class="h5 mb-0">
-                                <a href="/music-type/songs/" class="d-block p-4">Songs</a>
+                                <a href="/music-type/songs/" class="d-block p-4 fw-bold">Songs</a>
                             </div>
                         </div>
                     </div>

@@ -134,6 +134,21 @@
   .page-title{
     color: $color__primary;
   }
+  .featured {
+    .card{
+      &:hover{
+        border: none;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+  .featured a{
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    &:hover{
+      background-color: $color__gray;
+      color: $color__text-main;
+    }
+  }
   .categories{
     //border: solid thin green;
     .heading{
