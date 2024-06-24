@@ -13,58 +13,62 @@
                 </header><!-- .entry-header -->
 
                 <div class="container">
-                    <?php if ( has_post_thumbnail() ) : ?>
-                        <figure class="entry-thumbnail text-center mb-4">
-                            <?php the_post_thumbnail('medium_large'); ?>
-                        </figure>
-                    <?php endif; ?>
-
-                    <div class="entry-content">
-                        <?php if ( $music_file ) : ?>
-                            <div class="music-file mb-4">
-                                <audio controls>
-                                    <source src="<?php echo esc_url( $music_file['url'] ); ?>" type="audio/mpeg">
-                                    <?php esc_html_e( 'Your browser does not support the audio element.', 'fivetwofive-theme' ); ?>
-                                </audio>
-                            </div><!-- .music-file -->
-                        <?php endif; ?>
-
-                        <div class="music-meta mb-4">
-                            <span class="posted-on"><?php echo get_the_date(); ?></span>
-                            <span class="byline"> <?php _e('by', 'fivetwofive-theme'); ?> <?php the_author_posts_link(); ?></span>
-
-                            <?php
-                            $genres = get_the_terms( get_the_ID(), 'music_genre' );
-                            if ( $genres && ! is_wp_error( $genres ) ) :
-                                $genre_links = array_map( function( $genre ) {
-                                    return '<a href="' . esc_url( get_term_link( $genre ) ) . '">' . esc_html( $genre->name ) . '</a>';
-                                }, $genres );
-                                $genres_list = join( ', ', $genre_links );
-                                ?>
-                                <span class="music-genres"> | <?php _e('Genres:', 'fivetwofive-theme'); ?> <?php echo $genres_list; ?></span>
+                    <div class="row justify-content-md-center">
+                        <div class="col-12 col-lg-8">
+                            <?php if ( has_post_thumbnail() ) : ?>
+                                <figure class="entry-thumbnail text-center mb-4">
+                                    <?php the_post_thumbnail('medium_large'); ?>
+                                </figure>
                             <?php endif; ?>
 
-                            <?php
-                            $music_types = get_the_terms( get_the_ID(), 'music_type' );
-                            if ( $music_types && ! is_wp_error( $music_types ) ) :
-                                $music_type_links = array_map( function( $music_type ) {
-                                    return '<a href="' . esc_url( get_term_link( $music_type ) ) . '">' . esc_html( $music_type->name ) . '</a>';
-                                }, $music_types );
-                                $music_types_list = join( ', ', $music_type_links );
+                            <div class="entry-content">
+                                <?php if ( $music_file ) : ?>
+                                    <div class="music-file mb-4">
+                                        <audio controls>
+                                            <source src="<?php echo esc_url( $music_file['url'] ); ?>" type="audio/mpeg">
+                                            <?php esc_html_e( 'Your browser does not support the audio element.', 'fivetwofive-theme' ); ?>
+                                        </audio>
+                                    </div><!-- .music-file -->
+                                <?php endif; ?>
+
+                                <div class="music-meta mb-4">
+                                    <span class="posted-on"><?php echo get_the_date(); ?></span>
+                                    <span class="byline"> <?php _e('by', 'fivetwofive-theme'); ?> <?php the_author_posts_link(); ?></span>
+
+                                    <?php
+                                    $genres = get_the_terms( get_the_ID(), 'music_genre' );
+                                    if ( $genres && ! is_wp_error( $genres ) ) :
+                                        $genre_links = array_map( function( $genre ) {
+                                            return '<a href="' . esc_url( get_term_link( $genre ) ) . '">' . esc_html( $genre->name ) . '</a>';
+                                        }, $genres );
+                                        $genres_list = join( ', ', $genre_links );
+                                        ?>
+                                        <span class="music-genres"> | <?php _e('Genres:', 'fivetwofive-theme'); ?> <?php echo $genres_list; ?></span>
+                                    <?php endif; ?>
+
+                                    <?php
+                                    $music_types = get_the_terms( get_the_ID(), 'music_type' );
+                                    if ( $music_types && ! is_wp_error( $music_types ) ) :
+                                        $music_type_links = array_map( function( $music_type ) {
+                                            return '<a href="' . esc_url( get_term_link( $music_type ) ) . '">' . esc_html( $music_type->name ) . '</a>';
+                                        }, $music_types );
+                                        $music_types_list = join( ', ', $music_type_links );
+                                        ?>
+                                        <span class="music-types"> | <?php _e('Type:', 'fivetwofive-theme'); ?> <?php echo $music_types_list; ?></span>
+                                    <?php endif; ?>
+                                </div><!-- .music-meta -->
+
+                                <?php the_content(); ?>
+
+                                <?php
+                                wp_link_pages( array(
+                                    'before' => '<div class="page-links">' . __( 'Pages:', 'fivetwofive-theme' ),
+                                    'after'  => '</div>',
+                                ) );
                                 ?>
-                                <span class="music-types"> | <?php _e('Type:', 'fivetwofive-theme'); ?> <?php echo $music_types_list; ?></span>
-                            <?php endif; ?>
-                        </div><!-- .music-meta -->
-
-                        <?php the_content(); ?>
-
-                        <?php
-                        wp_link_pages( array(
-                            'before' => '<div class="page-links">' . __( 'Pages:', 'fivetwofive-theme' ),
-                            'after'  => '</div>',
-                        ) );
-                        ?>
-                    </div><!-- .entry-content -->
+                            </div><!-- .entry-content -->
+                        </div>
+                    </div>
                 </div>
 
                 <footer class="entry-footer">
