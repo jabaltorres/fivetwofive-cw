@@ -4,7 +4,10 @@
     <main class="site-main">
 
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php $music_file = get_field( 'music_file' ); ?>
+            <?php
+                $music_file = get_field( 'music_file' );
+                $bpm = get_field( 'bpm' );
+            ?>
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -32,7 +35,7 @@
                                 <?php endif; ?>
 
                                 <div class="music-meta mb-4">
-                                    <span class="posted-on"><?php echo get_the_date(); ?></span>
+                                    <span class="posted-on">Posted on: <?php echo get_the_date(); ?></span>
                                     <span class="byline"> <?php _e('by', 'fivetwofive-theme'); ?> <?php the_author_posts_link(); ?></span>
 
                                     <?php
@@ -56,9 +59,15 @@
                                         ?>
                                         <span class="music-types"> | <?php _e('Type:', 'fivetwofive-theme'); ?> <?php echo $music_types_list; ?></span>
                                     <?php endif; ?>
+
+                                    <?php if ( $bpm ) : ?>
+                                        <span class="bpm"> | <?php _e('BPM:', 'fivetwofive-theme'); ?> <?php echo esc_html( $bpm ); ?></span>
+                                    <?php endif; ?>
                                 </div><!-- .music-meta -->
 
-                                <?php the_content(); ?>
+                                <div class="music-content">
+                                    <?php the_content(); ?>
+                                </div><!-- .music-content -->
 
                                 <?php
                                 wp_link_pages( array(
@@ -84,10 +93,10 @@
                         <nav class="post-navigation">
                             <div class="nav-links">
                                 <div class="nav-previous">
-                                    <?php previous_post_link( '%link', __( 'Previous Post: %title', 'fivetwofive-theme' ) ); ?>
+                                    <?php previous_post_link( '%link', __( 'Previous Track: %title', 'fivetwofive-theme' ) ); ?>
                                 </div>
                                 <div class="nav-next">
-                                    <?php next_post_link( '%link', __( 'Next Post: %title', 'fivetwofive-theme' ) ); ?>
+                                    <?php next_post_link( '%link', __( 'Next Track: %title', 'fivetwofive-theme' ) ); ?>
                                 </div>
                             </div><!-- .nav-links -->
                         </nav><!-- .post-navigation -->
