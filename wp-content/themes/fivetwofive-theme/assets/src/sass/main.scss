@@ -166,3 +166,28 @@
     }
   }
 }
+
+
+/*--------------------------------------------------------------
+# Quotes Archive
+--------------------------------------------------------------*/
+.post-type-archive-daily_quote{
+  .page-header:before{
+    z-index: -1;
+  }
+  .page-title{
+    color: $color__primary;
+  }
+  .card {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      background-color: #fbfbfb;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.125);
+    }
+  }
+  .entry-content {
+    .quote {
+      font-size: 1.25em;
+    }
+  }
+}
