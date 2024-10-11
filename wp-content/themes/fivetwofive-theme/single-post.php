@@ -61,6 +61,12 @@ get_header();
 					);
 					?>
 				</div><!-- .entry-content -->
+                
+                <?php if ( is_active_sidebar( 'primary-sidebar' ) ) : ?>
+                    <div class="sidebar-wrapper">
+	                    <?php get_sidebar(); ?>
+                    </div><!-- .sidebar -->
+                <?php endif; ?>
 
 				<footer class="entry-footer">
 					<?php fivetwofive_theme_entry_footer(); ?>
