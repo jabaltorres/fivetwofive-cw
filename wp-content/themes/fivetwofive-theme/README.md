@@ -302,9 +302,82 @@ Below code is an example of showing the youtube icon from the social group with 
 
 Close the repo to an existing WordPress installation.
 Go to `wp-content/themes/fivetwofive-theme` and run `npm install` in the command line.
-Then initialize the theme’s task runner (gulp) by running `gulp` in the command line.
+Then initialize the theme's task runner (gulp) by running `gulp` in the command line.
 
 ## Contribute
 
 - Issue Tracker: https://github.com/capitalJT/fivetwofive-cw/issues
 - Source Code: https://github.com/capitalJT/fivetwofive-cw
+
+# Development Setup
+
+## Prerequisites
+- Node.js (v14 or higher)
+- Local by Flywheel or similar local WordPress development environment
+- Composer (for PHP dependencies)
+
+## Local Development Setup
+1. Install Local by Flywheel
+2. Create a new WordPress site
+3. Navigate to the theme directory:
+```bash
+cd app/public/wp-content/themes/fivetwofive-theme
+```
+4. Install dependencies:
+```bash
+npm install
+composer install
+```
+5. Copy the sample config file:
+```bash
+cp gulpfile-config-sample.js gulpfile-config.js
+```
+6. Start the development server:
+```bash
+gulp
+```
+
+## Database Access
+To access the database in Local by Flywheel:
+1. Open Local and select your site
+2. Go to the Database tab
+3. Click "Open Adminer" for database management
+4. Default credentials:
+   - Username: root
+   - Password: root
+   - Database: local
+
+# Theme Structure
+```
+fivetwofive-theme/
+├── assets/                 # Compiled assets and source files
+│   ├── dist/              # Compiled files
+│   └── src/               # Source files (JS, SASS, images)
+├── inc/                   # Theme PHP includes
+├── template-parts/        # Reusable template parts
+├── modules/               # Module template files
+├── functions.php          # Theme functions
+├── gulpfile.js           # Gulp configuration
+└── package.json          # Node dependencies
+```
+
+# Module Development
+Instructions for creating new modules:
+1. Create a new file in `template-parts/modules/`
+2. Register the module in ACF
+3. Follow the existing module structure for consistency
+
+# Troubleshooting
+Common issues and solutions:
+- If gulp watch isn't detecting changes, try restarting gulp
+- For database connection issues, verify Local by Flywheel is running
+- Clear browser cache if style changes aren't appearing
+
+# Deployment
+Instructions for deploying to production:
+1. Run production build: `gulp build`
+2. Ensure all ACF field groups are exported
+3. Test all modules and customizer settings
+
+# Support
+For internal support, contact the development team at info@fivetwofive.com

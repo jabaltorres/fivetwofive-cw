@@ -1,0 +1,20 @@
+{
+  "name": "fivetwofive-theme-child",
+  "version": "1.0.0",
+  "description": "Child theme for FiveTwoFive",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build",
+    "watch": "gulp watch"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "dotenv": "^16.3.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.83.4"
+  }
+}
