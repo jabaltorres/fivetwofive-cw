@@ -136,7 +136,7 @@ $pagination_links = fivetwofive_get_paginated_links( $resources_query );
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
+					<div class="ftf-module__description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 
 				<form class="ftf-form mb-5">

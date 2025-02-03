@@ -110,7 +110,7 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 				<?php endif; ?>
 
 				<?php if ( $module_description ) : ?>
-					<div class="ftf-module_description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
+					<div class="ftf-module__description"><?php echo wp_kses( $module_description, fivetwofive_kses_extended_ruleset() ); ?></div>
 				<?php endif; ?>
 			</header>
 		<?php endif; ?>
