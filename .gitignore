@@ -55,3 +55,8 @@ config.json
 *.sql
 *.bak
 *.swp
+
+node_modules/
+.DS_Store
+*.map
+.env
