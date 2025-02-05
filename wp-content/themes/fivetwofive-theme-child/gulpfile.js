@@ -5,12 +5,18 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const browserSync = require('browser-sync').create();
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 // Paths
 const paths = {
     styles: {
         src: 'assets/src/sass/**/*.scss',
         dest: 'assets/dist/css'
+    },
+    scripts: {
+        src: 'assets/src/js/**/*.js',
+        dest: 'assets/dist/js'
     }
 };
 
@@ -41,6 +47,17 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
+// Add JavaScript processing function
+function scripts() {
+    return gulp.src(paths.scripts.src)
+        .pipe(sourcemaps.init())
+        .pipe(concat('animations.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(paths.scripts.dest))
+        .pipe(browserSync.stream());
+}
+
 // Watch files
 function watch() {
     gulp.watch(paths.styles.src, styles);
@@ -49,11 +66,13 @@ function watch() {
 // Watch files with browserSync
 function watchFiles() {
     gulp.watch(paths.styles.src, styles);
+    gulp.watch(paths.scripts.src, scripts);
     gulp.watch('**/*.php').on('change', browserSync.reload);
 }
 
 // Define tasks
 exports.styles = styles;
+exports.scripts = scripts;
 exports.watch = watch;
-exports.build = gulp.series(styles);
-exports.default = gulp.series(styles, browserSyncInit, watchFiles); 
+exports.build = gulp.series(styles, scripts);
+exports.default = gulp.series(styles, scripts, browserSyncInit, watchFiles); 
