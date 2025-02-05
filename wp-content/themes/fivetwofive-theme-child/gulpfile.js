@@ -17,6 +17,13 @@ const paths = {
     scripts: {
         src: 'assets/src/js/**/*.js',
         dest: 'assets/dist/js'
+    },
+    vendor: {
+        src: [
+            'node_modules/gsap/dist/gsap.min.js',
+            'node_modules/gsap/dist/ScrollTrigger.min.js'
+        ],
+        dest: 'assets/dist/js/vendor'
     }
 };
 
@@ -58,6 +65,12 @@ function scripts() {
         .pipe(browserSync.stream());
 }
 
+// Add vendor copy function
+function vendor() {
+    return gulp.src(paths.vendor.src)
+        .pipe(gulp.dest(paths.vendor.dest));
+}
+
 // Watch files
 function watch() {
     gulp.watch(paths.styles.src, styles);
@@ -73,6 +86,7 @@ function watchFiles() {
 // Define tasks
 exports.styles = styles;
 exports.scripts = scripts;
+exports.vendor = vendor;
 exports.watch = watch;
-exports.build = gulp.series(styles, scripts);
-exports.default = gulp.series(styles, scripts, browserSyncInit, watchFiles); 
+exports.build = gulp.series(styles, scripts, vendor);
+exports.default = gulp.series(styles, scripts, vendor, browserSyncInit, watchFiles); 

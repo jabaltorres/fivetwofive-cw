@@ -54,17 +54,17 @@ function fivetwofive_child_enqueue_styles() {
     // Enqueue GSAP core library
     wp_enqueue_script(
         'gsap',
-        get_stylesheet_directory_uri() . '/node_modules/gsap/dist/gsap.min.js',
-        array(), // No dependencies
+        get_stylesheet_directory_uri() . '/assets/dist/js/vendor/gsap.min.js',
+        array(),
         '3.12.7',
-        true    // Load in footer
+        true
     );
 
     // Enqueue GSAP ScrollTrigger plugin
     wp_enqueue_script(
         'gsap-scrolltrigger',
-        get_stylesheet_directory_uri() . '/node_modules/gsap/dist/ScrollTrigger.min.js',
-        array('gsap'), // Depends on GSAP core
+        get_stylesheet_directory_uri() . '/assets/dist/js/vendor/ScrollTrigger.min.js',
+        array('gsap'),
         '3.12.7',
         true
     );
@@ -80,7 +80,7 @@ function fivetwofive_child_enqueue_styles() {
     wp_enqueue_script(
         'fivetwofive-animations',
         get_stylesheet_directory_uri() . '/assets/dist/js/animations.js',
-        array('gsap'), // Depends on GSAP core
+        array('gsap', 'gsap-scrolltrigger'), // Ensure both GSAP dependencies are loaded first
         $theme->get('Version'),
         true
     );

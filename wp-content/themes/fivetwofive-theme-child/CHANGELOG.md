@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2024-02-04
+
+### Changed
+- Moved GSAP files from node_modules to dist/js/vendor
+- Updated build process to handle vendor files
+- Improved dependency management best practices
+
+### Fixed
+- GSAP file loading issues
+- Script dependency order
+
 ## [1.1.0] - 2025-02-04
 
 ### Added
