@@ -25,6 +25,18 @@ function fivetwofive_child_enqueue_styles() {
         true
     );
 
+    // Enqueue GSAP ScrollTrigger plugin
+    wp_enqueue_script(
+        'gsap-scrolltrigger',
+        get_stylesheet_directory_uri() . '/node_modules/gsap/dist/ScrollTrigger.min.js',
+        array('gsap'),
+        '3.12.7',
+        true
+    );
+
+    // Register ScrollTrigger plugin
+    wp_add_inline_script('gsap-scrolltrigger', 'gsap.registerPlugin(ScrollTrigger);', 'after');
+
     // Enqueue custom animations
     wp_enqueue_script(
         'fivetwofive-animations',
