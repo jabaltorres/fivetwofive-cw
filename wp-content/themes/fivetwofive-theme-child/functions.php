@@ -15,4 +15,22 @@ function fivetwofive_child_enqueue_styles() {
         array( $parenthandle ),
         $theme->get( 'Version' ) // This only works if you have Version defined in the style header.
     );
+
+    // Enqueue GSAP
+    wp_enqueue_script(
+        'gsap',
+        get_stylesheet_directory_uri() . '/node_modules/gsap/dist/gsap.min.js',
+        array(),
+        '3.12.7',
+        true
+    );
+
+    // Enqueue custom animations
+    wp_enqueue_script(
+        'fivetwofive-animations',
+        get_stylesheet_directory_uri() . '/assets/dist/js/animations.js',
+        array('gsap'),
+        $theme->get('Version'),
+        true
+    );
 }
