@@ -39,7 +39,7 @@ class FiveTwoFive_CTA {
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	private string $plugin_name;
 
 	/**
 	 * The current version of the plugin.
@@ -48,7 +48,7 @@ class FiveTwoFive_CTA {
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
-	protected $version;
+	private string $version;
 
 	/**
 	 * The single instance of the class.
@@ -56,7 +56,7 @@ class FiveTwoFive_CTA {
 	 * @var FiveTwoFive_CTA
 	 * @since 2.1
 	 */
-	protected static $_instance = null;
+	private static ?self $_instance = null;
 
 	/**
 	 * Main FiveTwoFive_CTA Instance.
@@ -68,8 +68,8 @@ class FiveTwoFive_CTA {
 	 * @see FiveTwoFive_CTA()
 	 * @return FiveTwoFive_CTA - Main instance.
 	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
+	public static function instance(): self {
+		if (is_null(self::$_instance)) {
 			self::$_instance = new self();
 		}
 		return self::$_instance;

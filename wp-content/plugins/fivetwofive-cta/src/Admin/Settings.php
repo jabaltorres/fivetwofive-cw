@@ -133,7 +133,20 @@ class Settings {
 		register_setting(
 			$this->plugin_name,
 			$this->plugin_name . '_options',
-			array( $this, 'sanitize_fields' )
+			array(
+				'sanitize_callback' => array($this, 'sanitize_fields'),
+				'default' => $this->default_settings()
+			)
+		);
+		
+		// Add nonce field
+		add_settings_field(
+			'settings_nonce',
+			'',
+			function() {
+				wp_nonce_field('fivetwofive_cta_settings', 'fivetwofive_cta_nonce');
+			},
+			$this->plugin_name
 		);
 
 		$this->register_content_settings();

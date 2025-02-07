@@ -1,19 +1,26 @@
 .ftf-cta {
-    padding: 30px 20px 40px;
+    /* Add CSS custom properties for easy customization */
+    --ftf-cta-padding: 30px 20px 40px;
+    --ftf-cta-max-width: 880px;
+    --ftf-cta-title-size: 26px;
+    --ftf-cta-btn-min-width: 150px;
+    
+    padding: var(--ftf-cta-padding);
     display: block;
-    color: #000000;
+    color: inherit;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: all 0.3s ease;
 }
 
 .ftf-cta__inner {
-    max-width: 880px;
+    max-width: var(--ftf-cta-max-width);
     margin: 0 auto;
 }
 
 .ftf-cta__title {
-    font-size: 26px;
+    font-size: var(--ftf-cta-title-size);
     line-height: 1em;
     margin: 0 0 15px 0;
 }
@@ -23,9 +30,15 @@
 }
 
 .ftf-cta__btn {
-    min-width: 150px;
+    min-width: var(--ftf-cta-btn-min-width);
     text-decoration: none;
     text-align: center;
+    transition: all 0.2s ease;
+}
+
+.ftf-cta__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 @media screen and (min-width: 639px) {
@@ -45,5 +58,13 @@
 
     .ftf-cta__column-2 {
         padding: 0 0 0 40px;
+    }
+}
+
+/* Add print styles */
+@media print {
+    .ftf-cta {
+        background-image: none !important;
+        border: 1px solid #000;
     }
 }
