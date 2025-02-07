@@ -111,32 +111,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
     /**
      * Testimonials Section Animations
-     * Two-part animation for avatars and testimonial text
+     * Fade in section on scroll and animate messages on carousel change
      */
     
-    // Avatar animation with bounce effect
-    gsap.from('.testimonial__avatar', {
-        duration: 0.6,
-        scale: 0.5,        // Start at half size
-        opacity: 0,
-        ease: 'back.out(1.7)', // Bouncy effect on scale up
-        scrollTrigger: {
-            trigger: '.testimonial__avatar',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse'
-        }
-    });
-
-    // Testimonial text animation
-    gsap.from('.testimonial__message', {
-        duration: 0.8,
-        y: 30,
+    // Fade in the entire testimonials section
+    gsap.from('.ftf-module-testimonials-carousel', {
+        duration: 1,
         opacity: 0,
         ease: 'power2.out',
         scrollTrigger: {
-            trigger: '.testimonial__message',
+            trigger: '.ftf-module-testimonials-carousel',
             start: 'top 80%',
-            toggleActions: 'play none none reverse'
+            toggleActions: 'play none none none'
+        }
+    });
+
+    // Function to animate testimonial content
+    function animateTestimonialContent(message) {
+        gsap.fromTo(message,
+            { 
+                opacity: 0,
+                y: 30,
+                scale: 0.95
+            },
+            {
+                duration: 0.8,
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                ease: 'back.out(1.2)',
+                clearProps: 'scale' // Clean up scale after animation
+            }
+        );
+    }
+
+    // Initialize testimonial animations using jQuery to match parent theme
+    jQuery(document).ready(function($) {
+        const $swiperContainer = $('.ftf-module-testimonials-carousel .swiper-container');
+        
+        if ($swiperContainer.length) {
+            // Wait a short moment for Swiper to be fully initialized
+            setTimeout(() => {
+                const swiper = $swiperContainer[0].swiper;
+                if (swiper) {
+                    // Animate initial slide
+                    const $initialMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
+                    if ($initialMessage.length) {
+                        animateTestimonialContent($initialMessage[0]);
+                    }
+
+                    // Add event listener for slide changes
+                    swiper.on('slideChangeTransitionStart', function() {
+                        const $activeMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
+                        if ($activeMessage.length) {
+                            animateTestimonialContent($activeMessage[0]);
+                        }
+                    });
+                }
+            }, 500); // Increased timeout to ensure Swiper is ready
         }
     });
 
