@@ -2,3 +2,9 @@
 .site-footer {
   border-top: solid thin #efefef;
 }
+
+/* Special case for work cards since they have their own animation */
+.ftf-module-works .card {
+  opacity: 0;
+  transform: translateY(30px);
+}

@@ -1,216 +1,283 @@
 /**
+ * Animation Constants
+ * Global configuration for all animations
+ */
+const ANIMATION_CONFIG = {
+    duration: 0.3,
+    stagger: 0.1,
+    ease: 'power2.inOut',
+    fadeFrom: {
+        y: 30,
+        opacity: 0
+    },
+    scrollTrigger: {
+        start: 'top 75%',
+        toggleActions: 'play none none none'
+    }
+};
+
+/**
  * Main animation initialization
- * Waits for DOM to be fully loaded before running animations
+ * Determines page type and initializes appropriate animations
  */
 document.addEventListener('DOMContentLoaded', function() {
-    /**
-     * Hero Section Animations
-     * Animates the hero section elements with a staggered entrance
-     */
+    const isHomepage = document.body.classList.contains('home');
     
-    // Animate the main title
-    gsap.from('.banner__title', {
-        duration: 1,        // Animation takes 1 second
-        y: 30,             // Starts 30px below final position
-        opacity: 0,        // Fades in from transparent
-        ease: 'power3.out' // Smooth easing, fast at start, slow at end
-    });
+    if (isHomepage) {
+        initHomePageAnimations();
+    } else {
+        initInnerPageAnimations();
+    }
 
-    // Animate the subtitle text with a slight delay
-    gsap.from('.banner__text', {
-        duration: 1,
+    initGlobalAnimations();
+});
+
+/**
+ * Homepage-specific animations
+ * Handles hero, services, works, and CTA sections
+ */
+function initHomePageAnimations() {
+    // Hero Section
+    const heroTl = gsap.timeline();
+    
+    heroTl.from('.banner__title', {
+        duration: ANIMATION_CONFIG.duration,
         y: 30,
         opacity: 0,
-        delay: 0.3,        // Waits 0.3 seconds after title animation starts
-        ease: 'power3.out'
-    });
-
-    // Animate the banner image with a scale effect
-    gsap.from('#banner-image', {
-        duration: 1.2,
-        scale: 0.8,        // Starts at 80% of final size
+        ease: ANIMATION_CONFIG.ease
+    })
+    .from('.banner__text', {
+        duration: ANIMATION_CONFIG.duration,
+        y: 30,
         opacity: 0,
-        delay: 0.2,
-        ease: 'power3.out'
-    });
+        ease: ANIMATION_CONFIG.ease
+    }, '-=0.5')
+    .from('#banner-image', {
+        duration: ANIMATION_CONFIG.duration,
+        scale: 0.95,
+        opacity: 0,
+        ease: ANIMATION_CONFIG.ease
+    }, '-=0.5');
 
-    /**
-     * Services Section Animations
-     * Triggered when services section comes into view
-     */
+    // Services Section
     gsap.from('.services-col', {
-        duration: 0.8,
-        y: 50,
+        duration: ANIMATION_CONFIG.duration,
+        y: 30,
         opacity: 0,
-        stagger: 0.2,      // Each column animates 0.2 seconds after the previous
-        ease: 'power2.out',
+        stagger: ANIMATION_CONFIG.stagger,
+        ease: ANIMATION_CONFIG.ease,
         scrollTrigger: {
             trigger: '.services-col',
-            start: 'top 80%',    // Starts animation when element is 80% from top of viewport
-            toggleActions: 'play none none reverse' // Play on enter, reverse on leave
-        }
-    });
-
-    /**
-     * Recent Works Animations
-     * Staggered animations for portfolio items with different elements
-     */
-    const workItems = gsap.utils.toArray('.ftf-post-item');
-    workItems.forEach((item, index) => {
-        // Create a timeline for each work item
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse'
-            }
-        });
-
-        // Get elements within the work item
-        const thumbnail = item.querySelector('.ftf-post-item__thumbnail');
-        const title = item.querySelector('.ftf-post-item__title');
-        const excerpt = item.querySelector('.ftf-post-item__excerpt');
-        const terms = item.querySelector('.ftf-post-item__terms');
-        const button = item.querySelector('.ftf-post-item__button');
-
-        // Alternate animation direction based on item index
-        const direction = index % 2 === 0 ? -1 : 1;
-
-        // Build the animation sequence
-        tl.from(thumbnail, {
-            duration: 0.8,
-            x: 50 * direction,
-            opacity: 0,
-            ease: 'power2.out'
-        })
-        .from(title, {
-            duration: 0.6,
-            y: 20,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=0.4')
-        .from(excerpt, {
-            duration: 0.6,
-            y: 20,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=0.4')
-        .from(terms, {
-            duration: 0.6,
-            y: 20,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=0.4')
-        .from(button, {
-            duration: 0.6,
-            y: 20,
-            opacity: 0,
-            ease: 'power2.out'
-        }, '-=0.4');
-    });
-
-    /**
-     * Testimonials Section Animations
-     * Fade in section on scroll and animate messages on carousel change
-     */
-    
-    // Fade in the entire testimonials section
-    gsap.from('.ftf-module-testimonials-carousel', {
-        duration: 1,
-        opacity: 0,
-        ease: 'power2.out',
-        scrollTrigger: {
-            trigger: '.ftf-module-testimonials-carousel',
             start: 'top 80%',
             toggleActions: 'play none none none'
         }
     });
 
-    // Function to animate testimonial content
-    function animateTestimonialContent(message) {
-        gsap.fromTo(message,
-            { 
-                opacity: 0,
-                y: 30,
-                scale: 0.95
-            },
-            {
-                duration: 0.8,
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                ease: 'back.out(1.2)',
-                clearProps: 'scale' // Clean up scale after animation
+    // Recent Works
+    gsap.utils.toArray('.ftf-post-item').forEach((item, index) => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                toggleActions: 'play none none none'
             }
-        );
-    }
+        });
 
-    // Initialize testimonial animations using jQuery to match parent theme
-    jQuery(document).ready(function($) {
-        const $swiperContainer = $('.ftf-module-testimonials-carousel .swiper-container');
-        
-        if ($swiperContainer.length) {
-            // Wait a short moment for Swiper to be fully initialized
-            setTimeout(() => {
-                const swiper = $swiperContainer[0].swiper;
-                if (swiper) {
-                    // Animate initial slide
-                    const $initialMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
-                    if ($initialMessage.length) {
-                        animateTestimonialContent($initialMessage[0]);
-                    }
+        const direction = index % 2 === 0 ? -1 : 1;
+        const elements = [
+            item.querySelector('.ftf-post-item__thumbnail'),
+            item.querySelector('.ftf-post-item__title'),
+            item.querySelector('.ftf-post-item__excerpt'),
+            item.querySelector('.ftf-post-item__terms'),
+            item.querySelector('.ftf-post-item__button')
+        ];
 
-                    // Add event listener for slide changes
-                    swiper.on('slideChangeTransitionStart', function() {
-                        const $activeMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
-                        if ($activeMessage.length) {
-                            animateTestimonialContent($activeMessage[0]);
-                        }
-                    });
-                }
-            }, 500); // Increased timeout to ensure Swiper is ready
-        }
+        tl.from(elements[0], {
+            duration: ANIMATION_CONFIG.duration,
+            x: 50 * direction,
+            opacity: 0,
+            ease: ANIMATION_CONFIG.ease
+        })
+        .from(elements.slice(1), {
+            duration: ANIMATION_CONFIG.duration,
+            y: 20,
+            opacity: 0,
+            stagger: ANIMATION_CONFIG.stagger,
+            ease: ANIMATION_CONFIG.ease
+        }, '-=0.4');
     });
 
-    /**
-     * Call-to-Action Animation
-     * Subtle entrance animation for the CTA section
-     */
+    // Testimonials Section
+    initTestimonialAnimations();
+
+    // CTA Section
     gsap.from('.ftf-cta', {
-        duration: 1,
+        duration: ANIMATION_CONFIG.duration,
         y: 30,
         opacity: 0,
-        ease: 'power2.out',
+        ease: ANIMATION_CONFIG.ease,
         scrollTrigger: {
             trigger: '.ftf-cta',
             start: 'top 80%',
-            toggleActions: 'play none none reverse'
+            toggleActions: 'play none none none'
         }
     });
+}
 
-    /**
-     * Button Hover Animations
-     * Interactive animations for all buttons
-     * Scales up on hover and back to normal on mouse leave
-     */
-    const buttons = document.querySelectorAll('.button');
+/**
+ * Inner pages animations
+ * Handles all module types including work cards and multi-column layouts
+ */
+function initInnerPageAnimations() {
+    const modules = gsap.utils.toArray('.ftf-module');
+    const viewportHeight = window.innerHeight;
+
+    modules.forEach((module, index) => {
+        const moduleTop = module.getBoundingClientRect().top;
+        const isAboveFold = moduleTop < viewportHeight;
+        
+        if (module.classList.contains('ftf-module-works')) {
+            initWorkCardsAnimation(module);
+        } 
+        else if (module.classList.contains('ftf-module-multi-column')) {
+            initMultiColumnAnimation(module, index, isAboveFold);
+        }
+        else {
+            initStandardModuleAnimation(module, index, isAboveFold);
+        }
+    });
+}
+
+/**
+ * Work Cards Animation
+ * Handles the sequential animation of work card items
+ */
+function initWorkCardsAnimation(module) {
+    const cards = gsap.utils.toArray(module.querySelectorAll('.card'));
+    
+    gsap.to(cards, {
+        duration: ANIMATION_CONFIG.duration,
+        y: 0,
+        opacity: 1,
+        stagger: ANIMATION_CONFIG.stagger,
+        ease: ANIMATION_CONFIG.ease,
+        scrollTrigger: {
+            trigger: module,
+            ...ANIMATION_CONFIG.scrollTrigger
+        }
+    });
+}
+
+/**
+ * Multi-Column Animation
+ * Handles columns within modules
+ */
+function initMultiColumnAnimation(module, index, isAboveFold) {
+    const columns = module.querySelectorAll('.column');
+    const moduleTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: module,
+            start: isAboveFold ? 'top 100%' : ANIMATION_CONFIG.scrollTrigger.start,
+            toggleActions: ANIMATION_CONFIG.scrollTrigger.toggleActions
+        },
+        delay: index * ANIMATION_CONFIG.stagger
+    });
+
+    moduleTl.from(columns, {
+        duration: ANIMATION_CONFIG.duration,
+        ...ANIMATION_CONFIG.fadeFrom,
+        stagger: ANIMATION_CONFIG.stagger,
+        ease: ANIMATION_CONFIG.ease
+    });
+}
+
+/**
+ * Standard Module Animation
+ * Default animation for regular modules
+ */
+function initStandardModuleAnimation(module, index, isAboveFold) {
+    gsap.from(module, {
+        duration: ANIMATION_CONFIG.duration,
+        ...ANIMATION_CONFIG.fadeFrom,
+        ease: ANIMATION_CONFIG.ease,
+        delay: index * ANIMATION_CONFIG.stagger,
+        scrollTrigger: {
+            trigger: module,
+            start: isAboveFold ? 'top 100%' : ANIMATION_CONFIG.scrollTrigger.start,
+            toggleActions: ANIMATION_CONFIG.scrollTrigger.toggleActions
+        }
+    });
+}
+
+/**
+ * Global animations
+ */
+function initGlobalAnimations() {
+    // Button hover animations
+    const buttons = document.querySelectorAll('.button, a');
     buttons.forEach(button => {
-        // Mouse enter animation
         button.addEventListener('mouseenter', () => {
             gsap.to(button, {
-                scale: 1.05,     // Increase size by 5%
-                duration: 0.3,    // Quick animation
-                ease: 'power2.out'
+                scale: 1.05,
+                duration: 0.3,
+                ease: ANIMATION_CONFIG.ease
             });
         });
         
-        // Mouse leave animation
         button.addEventListener('mouseleave', () => {
             gsap.to(button, {
-                scale: 1,        // Return to original size
+                scale: 1,
                 duration: 0.3,
-                ease: 'power2.in'
+                ease: ANIMATION_CONFIG.ease
             });
         });
     });
-}); 
+}
+
+/**
+ * Testimonial carousel animations
+ */
+function initTestimonialAnimations() {
+    jQuery(document).ready(function($) {
+        const $swiperContainer = $('.ftf-module-testimonials-carousel .swiper-container');
+        
+        if (!$swiperContainer.length) return;
+
+        setTimeout(() => {
+            const swiper = $swiperContainer[0].swiper;
+            if (!swiper) return;
+
+            function animateMessage(message) {
+                gsap.fromTo(message,
+                    { 
+                        opacity: 0,
+                        y: 30,
+                        scale: 0.95
+                    },
+                    {
+                        duration: ANIMATION_CONFIG.duration,
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        ease: ANIMATION_CONFIG.ease,
+                        clearProps: 'scale'
+                    }
+                );
+            }
+
+            // Initial animation
+            const $initialMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
+            if ($initialMessage.length) {
+                animateMessage($initialMessage[0]);
+            }
+
+            // Slide change animation
+            swiper.on('slideChangeTransitionStart', function() {
+                const $activeMessage = $(swiper.slides[swiper.activeIndex]).find('.testimonial__message');
+                if ($activeMessage.length) {
+                    animateMessage($activeMessage[0]);
+                }
+            });
+        }, 500);
+    });
+} 

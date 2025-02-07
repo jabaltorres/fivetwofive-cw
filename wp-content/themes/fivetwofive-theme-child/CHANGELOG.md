@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.2] - 2024-02-06
+
+### Changed
+- Refactored animations.js for better organization and performance
+  - Added centralized ANIMATION_CONFIG for consistent animation settings
+  - Split animation logic into separate specialized functions
+  - Improved documentation with detailed function descriptions
+  - Optimized work cards animation sequence
+  - Enhanced inner page module animations
+  - Standardized animation timing and easing
+
+### Fixed
+- Sequential animation issues on inner pages
+- Work cards animation visibility
+- Above-fold content animation timing
+- Module animation consistency across different page types
+
 ## [1.1.1] - 2024-02-04
 
 ### Changed
