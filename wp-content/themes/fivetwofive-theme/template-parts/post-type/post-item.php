@@ -27,7 +27,7 @@ if ( array_key_exists( 'taxonomy', $args ) && isset( $args['taxonomy'] ) ) {
 $post_terms = get_the_terms( $post_item_id, $post_taxonomy );
 ?>
 
-<article class="ftf-post-item row mb-4 align-items-center">
+<article class="ftf-post-item row mb-5 align-items-center">
 
 	<?php if ( has_post_thumbnail( $post_item_id ) ) : ?>
 		<div class="col-12 col-md-7 ftf-post-item__thumbnail-col <?php echo esc_attr( $thumbnail_col_position_class ); ?>">

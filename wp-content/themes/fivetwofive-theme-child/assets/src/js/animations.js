@@ -60,17 +60,43 @@ function initHomePageAnimations() {
     }, '-=0.5');
 
     // Services Section
-    gsap.from('.services-col', {
-        duration: ANIMATION_CONFIG.duration,
-        y: 30,
-        opacity: 0,
-        stagger: ANIMATION_CONFIG.stagger,
-        ease: ANIMATION_CONFIG.ease,
+    const servicesTl = gsap.timeline({
         scrollTrigger: {
-            trigger: '.services-col',
+            trigger: '.ftf-module-multi-column',
             start: 'top 80%',
             toggleActions: 'play none none none'
         }
+    });
+
+    servicesTl
+        .from('.ftf-module__title', {
+            duration: ANIMATION_CONFIG.duration,
+            y: 30,
+            opacity: 0,
+            ease: ANIMATION_CONFIG.ease
+        })
+        .from('.ftf-module__description', {
+            duration: ANIMATION_CONFIG.duration,
+            y: 30,
+            opacity: 0,
+            ease: ANIMATION_CONFIG.ease
+        }, '-=0.1');
+
+    // Animate each service column and its contents
+    document.querySelectorAll('.services-col').forEach((col, index) => {
+        const elements = [
+            col.querySelector('.column-image'),
+            col.querySelector('.column-title'),
+            col.querySelector('.column-text')
+        ];
+
+        servicesTl.from(elements, {
+            duration: ANIMATION_CONFIG.duration,
+            y: 30,
+            opacity: 0,
+            stagger: ANIMATION_CONFIG.stagger,
+            ease: ANIMATION_CONFIG.ease
+        }, index === 0 ? '-=0.1' : '-=0.2');
     });
 
     // Recent Works
