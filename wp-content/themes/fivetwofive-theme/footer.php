@@ -55,8 +55,10 @@ $fivetwofive_theme_mods = fivetwofive_theme_mods();
 <?php wp_footer(); ?>
 
 <?php
-if ( ! empty( $fivetwofive_theme_mods['scripts_head_opening'] ) ) {
-	echo wp_kses( $fivetwofive_theme_mods['scripts_body_closing'], fivetwofive_kses_extended_ruleset() );
+
+// Output any custom closing body scripts from theme mods, after sanitizing through extended kses ruleset
+if (isset($fivetwofive_theme_mods['scripts_body_closing']) && $fivetwofive_theme_mods['scripts_body_closing'] !== '') {
+    echo wp_kses($fivetwofive_theme_mods['scripts_body_closing'], fivetwofive_kses_extended_ruleset());
 }
 ?>
 
