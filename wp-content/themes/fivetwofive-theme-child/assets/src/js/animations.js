@@ -136,18 +136,37 @@ function initHomePageAnimations() {
     // Testimonials Section
     initTestimonialAnimations();
 
-    // CTA Section
-    gsap.from('.ftf-cta', {
-        duration: ANIMATION_CONFIG.duration,
-        y: 30,
-        opacity: 0,
-        ease: ANIMATION_CONFIG.ease,
-        scrollTrigger: {
-            trigger: '.ftf-cta',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        }
-    });
+    // Updated CTA Section Animation
+    const ctaElement = document.querySelector('.ftf-cta');
+    if (ctaElement) {
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+            
+            const ctaTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ctaElement,
+                    start: 'top 85%',
+                    end: 'bottom 20%',
+                    toggleActions: 'restart none none reverse',
+                    markers: false
+                }
+            });
+
+            ctaTl.fromTo(ctaElement,
+                {
+                    opacity: 0,
+                    y: 30
+                },
+                {
+                    duration: ANIMATION_CONFIG.duration,
+                    opacity: 1,
+                    y: 0,
+                    ease: ANIMATION_CONFIG.ease,
+                    clearProps: 'transform'
+                }
+            );
+        }, 100); // Small delay to ensure proper initialization
+    }
 }
 
 /**
