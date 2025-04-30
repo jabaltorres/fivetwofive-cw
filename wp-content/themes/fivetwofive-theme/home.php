@@ -56,19 +56,6 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 					</button>
 				</div>
 			</form>
-
-			<div class="view-toggle mt-4">
-				<button class="view-toggle__btn view-toggle__btn--grid active" data-view="grid" aria-label="Grid View">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M3 3h7v7H3zm11 0h7v7h-7zm0 11h7v7h-7zM3 14h7v7H3z"/>
-					</svg>
-				</button>
-				<button class="view-toggle__btn view-toggle__btn--list" data-view="list" aria-label="List View">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/>
-					</svg>
-				</button>
-			</div>
 		</div>
 	</header><!-- .page-header -->
 <?php endif; ?>
@@ -77,7 +64,20 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 	<?php
 	if ( have_posts() ) : ?>
 		<div class="container">
-			<div class="posts-container view-grid">
+			<div class="view-toggle mt-2">
+				<button class="view-toggle__btn view-toggle__btn--grid" data-view="grid" aria-label="Grid View">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M3 3h7v7H3zm11 0h7v7h-7zm0 11h7v7h-7zM3 14h7v7H3z"/>
+					</svg>
+				</button>
+				<button class="view-toggle__btn view-toggle__btn--list active" data-view="list" aria-label="List View">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/>
+					</svg>
+				</button>
+			</div>
+
+			<div class="posts-container view-list">
 				<div class="row">
 					<?php
 					/* Start the Loop */
@@ -85,7 +85,7 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 						the_post();
 						?>
 
-						<div class="col-lg-4 col-md-6 col-sm-6 mb-3 mb-sm-4 grid-item">
+						<div class="post-item col-lg-4 col-md-6 col-sm-6 mb-3 mb-sm-4">
 							<?php
 								get_template_part(
 									'template-parts/post-type/post-card',
@@ -94,19 +94,6 @@ if ( has_post_thumbnail( $blog_page_id ) ) {
 										'id'       => get_the_ID(),
 										'taxonomy' => 'post_tag',
 										'excerpt'  => 'true',
-									)
-								);
-							?>
-						</div>
-
-						<div class="col-12 list-item" style="display: none;">
-							<?php
-								get_template_part(
-									'template-parts/post-type/post-list',
-									null,
-									array(
-										'id'       => get_the_ID(),
-										'taxonomy' => 'post_tag',
 									)
 								);
 							?>
