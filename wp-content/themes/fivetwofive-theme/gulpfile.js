@@ -27,6 +27,9 @@ const paths = {
   images:{
     src: "assets/src/images/*",
     dest: "assets/dist/images"
+  },
+  php: {
+    src: "**/*.php"  // Watch all PHP files in the theme
   }
 };
 
@@ -105,10 +108,7 @@ const serve = () => {
 
     watch(paths.styles.src, styles);
     watch(paths.scripts.src, series(lint, scripts));
-    // We should tell gulp which files to watch to trigger the reload
-    // This can be html or whatever you're using to develop your website
-    // Note -- you can obviously add the path to the Paths object
-    // gulp.watch("path/to/html/*.html", reload);
+    watch(paths.php.src).on('change', browserSync.reload); // Add PHP file watching
     log('Watch function completed');
 }
 

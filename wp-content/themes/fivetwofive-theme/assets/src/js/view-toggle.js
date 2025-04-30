@@ -6,6 +6,8 @@
         const viewToggleButtons = document.querySelectorAll('.view-toggle__btn');
         const postsContainer = document.querySelector('.posts-container');
         
+        if (!postsContainer || !viewToggleButtons.length) return;
+
         // Get the saved view preference from localStorage
         const savedView = localStorage.getItem('blogViewPreference') || 'grid';
         
