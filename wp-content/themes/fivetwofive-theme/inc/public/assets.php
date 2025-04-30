@@ -2,20 +2,33 @@
 /**
  * Define all the assets related functions here.
  *
+ * This file handles all asset (scripts and styles) related functionality including:
+ * - Google Fonts integration
+ * - Theme styles and scripts enqueuing
+ * - Module-specific assets
+ * - Asset optimization (defer loading)
+ *
  * @package FiveTwoFive_Theme
+ * @since 1.0.0
  */
 
 /**
  * Generate the Google fonts URL from the passed fonts.
  *
- * @param array $fonts Array of google fonts.
- * @return string $google_fonts_url Google fonts URL.
+ * Constructs a valid Google Fonts API URL with proper font variants and display settings.
+ * Handles both regular and italic font variants appropriately.
+ *
+ * @since 1.0.0
+ *
+ * @param array $fonts Array of google fonts. Each font should be an array with 'name' and 'variants' keys.
+ *                     Example: [['name' => 'Open Sans', 'variants' => ['400', '400italic', '700']]]
+ * @return string|bool $google_fonts_url Google fonts URL or false if invalid input.
  */
 function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 	$google_fonts_url = 'https://fonts.googleapis.com/css2';
 	$font_args        = array();
 
-	// Make sure we are dealing with an array.
+	// Make sure we are dealing with a valid array.
 	if ( ! is_array( $fonts ) && empty( $fonts ) ) {
 		return false;
 	}
@@ -24,7 +37,7 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 		$font_uri_variants = array();
 		$has_italic        = false;
 
-		// check if there is an italic.
+		// Check if any variants include italic style
 		foreach ( $font['variants'] as $font_weight ) {
 			if ( strpos( $font_weight, 'italic' ) !== false ) {
 				$has_italic = true;
@@ -32,12 +45,14 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 			}
 		}
 
+		// Handle fonts with italic variants differently from those without
 		if ( $has_italic ) {
 			$font_uri = wp_sprintf(
 				'family=%s:ital,wght@',
 				rawurlencode( $font['name'] )
 			);
 
+			// Process each variant and separate italic from regular weights
 			foreach ( $font['variants'] as $variant ) {
 				if ( strpos( $variant, 'italic' ) === false ) {
 					$font_uri_variants[] = '0,' . $variant;
@@ -63,6 +78,7 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 		$font_args[] = $font_uri;
 	}
 
+	// Construct final URL with display swap for better performance
 	$google_fonts_url .= '?' . implode( '&', $font_args );
 	$google_fonts_url .= '&display=swap';
 
@@ -70,8 +86,12 @@ function fivetwofive_theme_generate_google_fonts_url( $fonts ) {
 }
 
 /**
- * Get the theme mods typography settings and generate the google fonts URL.
- * see fivetwofive_theme_generate_google_fonts_url.
+ * Get the theme typography settings and generate the Google fonts URL.
+ *
+ * Retrieves typography settings from theme mods and generates a Google Fonts URL
+ * for both body and heading fonts with their respective variants.
+ *
+ * @since 1.0.0
  *
  * @return string Google fonts URL.
  */
@@ -93,14 +113,37 @@ function fivetwofive_theme_fonts_url() {
 }
 
 /**
- * Enqueue scripts and styles.
+ * Enqueue all theme scripts and styles.
+ *
+ * This function handles the loading of all theme assets including:
+ * - Main theme styles
+ * - Google Fonts
+ * - Navigation scripts
+ * - Template-specific assets
+ * - Third-party dependencies
+ * - Custom module styles and scripts
+ *
+ * @since 1.0.0
  */
 function fivetwofive_theme_assets() {
+	// Main theme style
+	wp_enqueue_style( 'fivetwofive-theme-style', get_stylesheet_uri(), array(), FIVETWOFIVE_THEME_VERSION );
+	wp_style_add_data( 'fivetwofive-theme-style', 'rtl', 'replace' );
+
+	// Google Fonts
 	wp_enqueue_style( 'fivetwofive-theme-fonts', fivetwofive_theme_fonts_url(), array(), null );
 	wp_enqueue_style( 'fivetwofive-theme-main', get_template_directory_uri() . '/assets/dist/css/main.css', array( 'fivetwofive-theme-fonts' ), FIVETWOFIVE_THEME_VERSION );
+	
+	// Core scripts
 	wp_register_script( 'fivetwofive-theme-popperjs', 'https://unpkg.com/@popperjs/core@2', array(), FIVETWOFIVE_THEME_VERSION, true );
 	wp_enqueue_script( 'fivetwofive-theme-navigation', get_template_directory_uri() . '/assets/dist/js/navigation.js', array(), FIVETWOFIVE_THEME_VERSION, true );
 
+	// Blog pages view toggle functionality
+	if ( is_home() || is_archive() ) {
+		wp_enqueue_script( 'fivetwofive-view-toggle', get_template_directory_uri() . '/assets/dist/js/view-toggle.js', array(), FIVETWOFIVE_THEME_VERSION, true );
+	}
+
+	// Custom post type specific styles
 	if ( is_singular( 'ftf_event' ) ) {
 		wp_enqueue_style( 'fivetwofive-theme-single-event', get_template_directory_uri() . '/assets/dist/css/single-event.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
 	}
@@ -109,39 +152,37 @@ function fivetwofive_theme_assets() {
 		wp_enqueue_style( 'fivetwofive-theme-single-resource', get_template_directory_uri() . '/assets/dist/css/single-resource.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
 	}
 
-    if ( is_singular( 'music' ) ) {
-        wp_enqueue_style( 'fivetwofive-theme-single-music', get_template_directory_uri() . '/assets/dist/css/single-music.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
-    }
+	if ( is_singular( 'music' ) ) {
+		wp_enqueue_style( 'fivetwofive-theme-single-music', get_template_directory_uri() . '/assets/dist/css/single-music.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
+	}
 
+	// Single post specific scripts
 	if ( is_singular( 'post' ) ) {
 		wp_enqueue_script( 'fivetwofive-theme-single-post', get_template_directory_uri() . '/assets/dist/js/single-post.js', array( 'fivetwofive-theme-popperjs' ), FIVETWOFIVE_THEME_VERSION, true );
 	}
 
+	// Module template specific assets
 	if ( is_page_template( 'page-templates/template-module.php' ) || is_singular( 'ftf_event' ) ) {
-		// Register 3rd party modules dependencies.
+		// Register third-party dependencies
 		wp_register_style( 'fivetwofive-theme-fancybox', get_template_directory_uri() . '/assets/dist/js/plugins/fancybox/jquery.fancybox.min.css', array(), FIVETWOFIVE_THEME_VERSION );
 		wp_register_style( 'fivetwofive-theme-swiper', get_template_directory_uri() . '/assets/dist/js/plugins/swiper/swiper-bundle.min.css', array(), FIVETWOFIVE_THEME_VERSION );
 		wp_register_script( 'fivetwofive-theme-fancybox', get_template_directory_uri() . '/assets/dist/js/plugins/fancybox/jquery.fancybox.min.js', array( 'jquery' ), FIVETWOFIVE_THEME_VERSION, true );
 		wp_register_script( 'fivetwofive-theme-swiper', get_template_directory_uri() . '/assets/dist/js/plugins/swiper/swiper-bundle.min.js', array( 'jquery' ), FIVETWOFIVE_THEME_VERSION, true );
 		wp_enqueue_script( 'fivetwofive-theme-scrollreveal', 'https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js', array(), FIVETWOFIVE_THEME_VERSION, false );
 
-		// Announcement module.
+		// Register module-specific scripts
 		wp_register_script( 'fivetwofive-theme-module-announcement', get_template_directory_uri() . '/assets/dist/js/modules/module-announcement.min.js', array( 'jquery' ), FIVETWOFIVE_THEME_VERSION, true );
-		// Testimonials Carousel module.
 		wp_register_script( 'fivetwofive-theme-module-testimonials-carousel', get_template_directory_uri() . '/assets/dist/js/modules/module-testimonials-carousel.min.js', array( 'jquery', 'fivetwofive-theme-swiper' ), FIVETWOFIVE_THEME_VERSION, true );
-		// Accordion Carousel module.
 		wp_register_script( 'fivetwofive-theme-module-accordion', get_template_directory_uri() . '/assets/dist/js/modules/module-accordion.min.js', array( 'jquery', 'jquery-ui-accordion' ), FIVETWOFIVE_THEME_VERSION, true );
-		// Resources module.
 		wp_register_script( 'fivetwofive-theme-module-resources', get_template_directory_uri() . '/assets/dist/js/modules/module-resource.min.js', array( 'jquery', 'fivetwofive-theme-scrollreveal' ), FIVETWOFIVE_THEME_VERSION, true );
 		wp_add_inline_script( 'fivetwofive-theme-module-resources', 'const FiveTwoFive = ' . wp_json_encode( array( 'restBase' => get_rest_url( null, 'wp/v2/ftf-resources' ) ) ), 'before' );
-		// Works module.
 		wp_register_script( 'fivetwofive-theme-module-works', get_template_directory_uri() . '/assets/dist/js/modules/module-works.min.js', array( 'jquery', 'fivetwofive-theme-scrollreveal' ), FIVETWOFIVE_THEME_VERSION, true );
 
-		// Enqueue module style and script.
+		// Enqueue module template assets
 		wp_enqueue_style( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/css/template-modules.css', array( 'fivetwofive-theme-main' ), FIVETWOFIVE_THEME_VERSION );
 		wp_enqueue_script( 'fivetwofive-theme-template-module', get_template_directory_uri() . '/assets/dist/js/template-modules.min.js', array( 'jquery', 'fivetwofive-theme-scrollreveal' ), FIVETWOFIVE_THEME_VERSION, true );
 
-		// module custom styles.
+		// Handle custom module styles and scripts
 		$current_page_id       = get_queried_object_id();
 		$module_custom_styles  = get_field( 'ftf_custom_styles', $current_page_id );
 		$module_styles         = get_field( 'ftf_module_styles', $current_page_id );
@@ -157,10 +198,12 @@ function fivetwofive_theme_assets() {
 		}
 	}
 
+	// Comments functionality
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
+	// Optimize performance by removing dashicons for non-logged-in users
 	if ( ! is_user_logged_in() ) {
 		wp_dequeue_style( 'dashicons' );
 	}
@@ -168,9 +211,12 @@ function fivetwofive_theme_assets() {
 add_action( 'wp_enqueue_scripts', 'fivetwofive_theme_assets' );
 
 /**
- * Add preconnect urls to the head.
+ * Add preconnect for Google Fonts.
  *
- * @return void
+ * Adds resource hints to header for performance optimization.
+ * This improves loading time for Google Fonts.
+ *
+ * @since 1.0.0
  */
 function fivetwofive_theme_preconnect() {
 	$preconnect_urls = array( 'https://fonts.gstatic.com' );
@@ -181,12 +227,25 @@ function fivetwofive_theme_preconnect() {
 }
 add_action( 'wp_head', 'fivetwofive_theme_preconnect', 5 );
 
+/**
+ * Add defer attribute to specific scripts.
+ *
+ * Improves page load performance by deferring the loading of non-critical scripts.
+ * Only applies to frontend and specific script handles.
+ *
+ * @since 1.0.0
+ *
+ * @param string $tag    The script tag.
+ * @param string $handle The script handle.
+ * @param string $src    The script source.
+ * @return string Modified script tag.
+ */
 function fivetwofive_theme_defer_scripts( $tag, $handle, $src ) {
 	if ( is_admin() ) {
 		return $tag;
 	}
 
-	// The handles of the enqueued scripts we want to defer.
+	// Scripts to be deferred
 	$defer_scripts = array(
 		'fivetwofive-theme-template-module',
 		'fivetwofive-theme-swiper',
