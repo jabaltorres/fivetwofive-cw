@@ -1,3 +1,7 @@
 .ftf-module-cta {
   text-align: center;
+  &__logo {
+    max-width: 250px;
+    margin: 0 auto;
+  }
 }

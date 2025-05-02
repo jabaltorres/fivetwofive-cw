@@ -1,6 +1,11 @@
 .site-header {
     padding: 0.9375rem 0;
     position: relative;
+    .site-branding__logo {
+        a {
+            max-width: 200px;
+        }
+    }
 }
 
 .custom-logo-link{
@@ -9,7 +14,6 @@
 }
 
 #site-navigation{
-    //border: solid thin red;
     margin-top: -49px;
 }
 
@@ -18,6 +22,9 @@ ul#mega-menu-primary_menu{
     margin-top: 10px !important;
 }
 
+@media only screen and (max-width: 753px) {
+
+}
 
 @media only screen and (min-width: 753px) {
     #site-navigation{
