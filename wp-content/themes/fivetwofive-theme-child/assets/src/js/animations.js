@@ -178,6 +178,10 @@ function initInnerPageAnimations() {
     const viewportHeight = window.innerHeight;
 
     modules.forEach((module, index) => {
+        // Skip modules with both 'ftf-module-code' and 'cta-shortcode'
+        if (module.classList.contains('ftf-module-code') && module.classList.contains('cta-shortcode')) {
+            return; // Skip this module
+        }
         const moduleTop = module.getBoundingClientRect().top;
         const isAboveFold = moduleTop < viewportHeight;
         
