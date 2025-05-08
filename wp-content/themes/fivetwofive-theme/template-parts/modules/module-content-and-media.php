@@ -11,6 +11,7 @@ wp_enqueue_script( 'fivetwofive-theme-fancybox' );
 wp_enqueue_style( 'fivetwofive-theme-fancybox' );
 
 // Contents.
+$module_eyebrow            = get_sub_field( 'eyebrow' );;
 $module_title              = get_sub_field( 'title' );
 $module_title_heading_tag  = get_sub_field( 'title_heading_tag' );
 $module_subtitle           = get_sub_field( 'subtitle' );
@@ -144,8 +145,13 @@ if ( $module_animation_desktop || $module_animation_mobile ) {
 					?>
 				</div>
 			<?php endif; ?>
-			<?php if ( $module_title || $module_subtitle || $module_description || $module_button ) : ?>
+			<?php if ( $module_eyebrow || $module_title || $module_subtitle || $module_description || $module_button ) : ?>
 				<div class="col-12 col-md-6 ftf-module-content-and-media__content">
+
+                    <?php if ( $module_eyebrow ) : ?>
+                        <p class="ftf-module__eyebrow small" style="<?php echo esc_attr( $text_color_inline_style ); ?>"><?php echo esc_html( $module_eyebrow ); ?></p>
+                    <?php endif; ?>
+
 					<?php
 					if ( $module_title ) :
 						echo sprintf( '<%1$s class="ftf-module__title" style="%2$s">%3$s</%1$s>', esc_attr( $module_title_heading_tag ), esc_attr( $text_color_inline_style ), esc_html( $module_title ) );

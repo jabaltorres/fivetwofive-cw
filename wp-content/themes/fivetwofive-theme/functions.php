@@ -61,3 +61,17 @@ require get_template_directory() . '/inc/public/share-buttons.php';
  * WP Rest API
  */
 require get_template_directory() . '/inc/public/rest-api.php';
+
+
+/**
+ * Force ACF to save/load JSON in the parent theme's acf-json directory.
+ */
+add_filter('acf/settings/save_json', function($path) {
+    return get_template_directory() . '/acf-json';
+});
+
+add_filter('acf/settings/load_json', function($paths) {
+    unset($paths[0]);
+    $paths[] = get_template_directory() . '/acf-json';
+    return $paths;
+});
