@@ -1,8 +1,3 @@
-// This is a test
-.site-footer {
-  border-top: solid thin #efefef;
-}
-
 /* Special case for work cards since they have their own animation */
 .ftf-module-works .card {
   opacity: 0;
@@ -11,4 +6,17 @@
 
 .ftf-post-item__thumbnail:hover {
   box-shadow:  0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ftf-module-hero {
+  .container {
+    max-width: 960px;
+  }
+}
+
+.ftf-module.ftf-module-cta {
+  .ftf-module__subtitle {
+    font-weight: 400;
+    font-size: 1.75rem;
+  }
 }

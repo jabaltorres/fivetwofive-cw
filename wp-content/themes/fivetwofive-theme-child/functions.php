@@ -2,53 +2,37 @@
 /**
  * FiveTwoFive Child Theme Functions
  *
- * This file contains the main functions for the FiveTwoFive child theme.
- * It handles style and script enqueuing, including GSAP animations.
- *
  * @package FiveTwoFive
  * @subpackage FiveTwoFive_Child
  * @since 1.1.0
  */
 
 /**
- * Enqueue child theme styles and scripts
+ * Enqueue child theme styles and GSAP scripts
  *
  * This function handles:
- * 1. Child theme stylesheet enqueuing
- * 2. SASS-generated styles
- * 3. GSAP library and plugins
- * 4. Custom animation scripts
- *
- * @since 1.0.0
- * @since 1.1.0 Added GSAP and animation scripts
+ * - SASS-generated child styles
+ * - GSAP library and plugins
+ * - Custom animation scripts
  */
-add_action( 'wp_enqueue_scripts', 'fivetwofive_child_enqueue_styles' );
-function fivetwofive_child_enqueue_styles() {
-    $parenthandle = 'fivetwofive-theme';
-    $theme        = wp_get_theme();
+add_action( 'wp_enqueue_scripts', 'fivetwofive_child_enqueue_assets' );
+function fivetwofive_child_enqueue_assets() {
+    $theme = wp_get_theme();
 
-    // Enqueue main child theme stylesheet
-    wp_enqueue_style( 
-        'fivetwofive-theme-child', 
-        get_stylesheet_uri(), 
-        array(), 
-        $theme->parent()->get( 'Version' ) 
-    );
-
-    // Enqueue SASS-generated styles
-    wp_enqueue_style( 
-        'fivetwofive-theme-child-sass',
-        get_stylesheet_directory_uri() . '/assets/dist/css/style.css', 
-        array(),  
-        $theme->parent()->get( 'Version' )
-    );
-
-    // Enqueue child theme styles with parent dependency
-    wp_enqueue_style( 
-        'fivetwofive-theme-child-style',
+    // Enqueue child theme style.css (for metadata and light overrides)
+    wp_enqueue_style(
+        'fivetwofive-theme-style',
         get_stylesheet_uri(),
-        array( $parenthandle ),
-        $theme->get( 'Version' ) // Uses version from style header
+        array( 'fivetwofive-theme-main', 'fivetwofive-theme-template-module' ),
+        $theme->get( 'Version' )
+    );
+
+    // Enqueue compiled SASS stylesheet, dependent on child theme style.css
+    wp_enqueue_style(
+        'fivetwofive-theme-child-sass-css',
+        get_stylesheet_directory_uri() . '/assets/dist/css/style.css',
+        array( 'fivetwofive-theme-style' ),
+        $theme->get( 'Version' )
     );
 
     // Enqueue GSAP core library
@@ -64,24 +48,24 @@ function fivetwofive_child_enqueue_styles() {
     wp_enqueue_script(
         'gsap-scrolltrigger',
         get_stylesheet_directory_uri() . '/assets/dist/js/vendor/ScrollTrigger.min.js',
-        array('gsap'),
+        array( 'gsap' ),
         '3.12.7',
         true
     );
 
     // Register ScrollTrigger plugin with GSAP
     wp_add_inline_script(
-        'gsap-scrolltrigger', 
-        'gsap.registerPlugin(ScrollTrigger);', 
+        'gsap-scrolltrigger',
+        'gsap.registerPlugin(ScrollTrigger);',
         'after'
     );
 
-    // Enqueue custom animations
+    // Enqueue custom animation scripts
     wp_enqueue_script(
         'fivetwofive-animations',
         get_stylesheet_directory_uri() . '/assets/dist/js/animations.js',
-        array('gsap', 'gsap-scrolltrigger'), // Ensure both GSAP dependencies are loaded first
-        $theme->get('Version'),
+        array( 'gsap', 'gsap-scrolltrigger' ),
+        $theme->get( 'Version' ),
         true
     );
 }
