@@ -1,3 +1,5 @@
+$color_primary : #ffcb05;
+
 /* Special case for work cards since they have their own animation */
 .ftf-module-works .card {
   opacity: 0;
@@ -18,5 +20,65 @@
   .ftf-module__subtitle {
     font-weight: 400;
     font-size: 1.75rem;
+  }
+}
+
+// Blog Post with Sidebar Styles
+.site-main.has-sidebar {
+  ul.wp-block-latest-posts {
+    li {
+      margin-bottom: 0.75rem;
+
+      a {
+        display: block;
+
+        //&:visited {
+        //  color: red;
+        //}
+
+        &:visited:hover {
+          color: $color_primary;
+        }
+      }
+    }
+  }
+
+  // Active Campaign Form Styles
+  ._form {
+    border: 1px solid #ccc !important;
+  }
+
+  @media (min-width: 768px) {
+    .entry-sidebar-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .entry-content {
+      flex: 0 1 calc(70% - 1rem); // half of the gap
+      max-width: calc(70% - 1rem);
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 30px 0;
+    }
+
+    .sidebar-wrapper {
+      flex: 0 1 calc(30% - 1rem);
+      max-width: calc(30% - 1rem);
+    }
+  }
+}
+
+.view-list {
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .post-item:hover {
+    .card {
+      transform: translateY(-5px) scale(1);
+      box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    }
   }
 }

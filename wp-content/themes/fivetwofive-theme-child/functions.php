@@ -29,7 +29,7 @@ function fivetwofive_child_enqueue_assets() {
 
     // Enqueue compiled SASS stylesheet, dependent on child theme style.css
     wp_enqueue_style(
-        'fivetwofive-theme-child-sass-css',
+        'fivetwofive-theme-child-sass',
         get_stylesheet_directory_uri() . '/assets/dist/css/style.css',
         array( 'fivetwofive-theme-style' ),
         $theme->get( 'Version' )
