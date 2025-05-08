@@ -10,7 +10,9 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<?php $main_class = is_active_sidebar( 'primary-sidebar' ) ? 'site-main has-sidebar' : 'site-main'; ?>
+
+    <main id="primary" class="<?php echo esc_attr( $main_class ); ?>">
 
 		<?php
 		while ( have_posts() ) :
@@ -34,39 +36,41 @@ get_header();
 					</div>
 				</header>
 
-				<div class="entry-content">
-					<?php
-					if ( is_single() ) {
-						the_content(
-							sprintf(
-								wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-									__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'fivetwofive-theme' ),
-									array(
-										'span' => array(
-											'class' => array(),
-										),
-									)
-								),
-								wp_kses_post( get_the_title() )
-							)
-						);
-					}
+                <div class="entry-sidebar-wrapper">
+                    <div class="entry-content">
+                        <?php
+                        if ( is_single() ) {
+                            the_content(
+                                sprintf(
+                                    wp_kses(
+                                    /* translators: %s: Name of current post. Only visible to screen readers */
+                                        __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'fivetwofive-theme' ),
+                                        array(
+                                            'span' => array(
+                                                'class' => array(),
+                                            ),
+                                        )
+                                    ),
+                                    wp_kses_post( get_the_title() )
+                                )
+                            );
+                        }
 
-					wp_link_pages(
-						array(
-							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fivetwofive-theme' ),
-							'after'  => '</div>',
-						)
-					);
-					?>
-				</div><!-- .entry-content -->
-                
-                <?php if ( is_active_sidebar( 'primary-sidebar' ) ) : ?>
-                    <div class="sidebar-wrapper">
-	                    <?php get_sidebar(); ?>
-                    </div><!-- .sidebar -->
-                <?php endif; ?>
+                        wp_link_pages(
+                            array(
+                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'fivetwofive-theme' ),
+                                'after'  => '</div>',
+                            )
+                        );
+                        ?>
+                    </div><!-- .entry-content -->
+
+                    <?php if ( is_active_sidebar( 'primary-sidebar' ) ) : ?>
+                        <div class="sidebar-wrapper">
+                            <?php get_sidebar(); ?>
+                        </div><!-- .sidebar -->
+                    <?php endif; ?>
+                </div>
 
 				<footer class="entry-footer">
 					<?php fivetwofive_theme_entry_footer(); ?>

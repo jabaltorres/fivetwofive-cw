@@ -208,7 +208,7 @@ function fivetwofive_theme_assets() {
 		wp_dequeue_style( 'dashicons' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'fivetwofive_theme_assets' );
+add_action( 'wp_enqueue_scripts', 'fivetwofive_theme_assets', 5 );
 
 /**
  * Add preconnect for Google Fonts.
