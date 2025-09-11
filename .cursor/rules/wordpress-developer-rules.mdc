@@ -1,0 +1,158 @@
+---
+alwaysApply: true
+---
+# WordPress Development Rules for Blackthorn
+
+### Version Control
+
+- Only track changes in the silicon-child theme repository.
+- Keep edits limited to the theme — avoid modifying core, plugins, or parent theme files.
+- Write clear, detailed commit messages that explain the what and why.
+- Follow consistent commit prefixes (e.g., feat, fix, docs, chore) to make history easier to scan.
+
+### Local Dev Environment
+
+- This website runs locally using LocalWP (https://localwp.com/)
+
+## Theme-Specific Guidelines
+
+### Custom Post Types
+
+- Create dedicated classes for each custom post type with single responsibility principle
+- Use comprehensive registration arguments including all necessary labels for better UX
+- Implement custom admin columns with sortable and filterable functionality
+- Always include `show_in_rest => true` for Gutenberg and REST API compatibility
+- Register associated taxonomies within the same class for logical organization
+- Use meaningful, SEO-friendly slugs with `with_front => false` for clean URLs
+- Implement version control for CPT changes using option versioning
+- Add custom image sizes specific to the post type's display requirements
+- Create dedicated template files following WordPress naming conventions
+- Use proper capability checks and security measures in admin interfaces
+- Implement URL rewrite rules for custom permalink structures when needed
+- Add admin notices and user feedback for better developer experience
+- Use translation functions for all user-facing strings and labels
+- Handle cache management and flush rewrite rules appropriately
+- Provide fallback values and graceful degradation for missing data
+
+### File Organization
+
+- Organize custom functionality in `/inc/` directory with logical subdirectories
+- Group related classes in dedicated folders (e.g., `/inc/post-types/`, `/inc/acf/`)
+- Keep template parts in `/template-parts/` with descriptive naming
+- Store SCSS files in `/assets/scss/` with component-based organization
+- Maintain documentation in `/docs/` directory for complex implementations
+
+### Naming Conventions
+
+- Use `silicon_child_` prefix for all custom functions to avoid conflicts
+- Class names use PascalCase (e.g., `Events_Post_Type`, `Silicon_Child_ACF`)
+- File names use lowercase with hyphens (e.g., `event-image-helpers.php`)
+- Hook names use underscores (e.g., `silicon_child_enqueue_styles`)
+- CSS classes follow BEM methodology where applicable
+
+## WordPress Best Practices
+
+### Security
+
+- Always use `esc_html()`, `esc_attr()`, and `esc_url()` for output escaping
+- Sanitize user input with `sanitize_text_field()` and related functions
+- Use `wp_kses_post()` for rich content that allows safe HTML
+- Check for `ABSPATH` constant at the top of PHP files: `if (!defined('ABSPATH')) { exit; }`
+- Implement proper capability checks for admin functions
+
+### Database Operations
+
+- Use ACF's `get_field()` and `update_field()` for custom field operations
+- Leverage WordPress options API with `get_option()` and `update_option()`
+- Implement version control for database changes using option versioning
+- Use `WP_Query` or `get_posts()` instead of direct database queries
+- Always prepare database queries when using `$wpdb` directly
+
+### Performance
+
+- Implement proper caching strategies using ACF cache deletion methods
+- Use `wp_enqueue_script()` and `wp_enqueue_style()` with proper dependencies
+- Register custom image sizes for optimized media delivery
+- Implement conditional loading for admin-only styles and scripts
+- Use transients for expensive operations that don't change frequently
+
+### Code Structure
+
+- Use object-oriented programming with proper class constructors
+- Implement dependency injection and avoid global variables
+- Group related functionality into logical classes and methods
+- Use early returns to reduce nesting levels
+- Follow single responsibility principle for functions and classes
+
+### Template Hierarchy
+
+- Override parent theme templates by copying to child theme
+- Use `get_template_part()` for reusable template components
+- Implement proper template part naming with context
+- Leverage WordPress conditional tags (`is_home()`, `is_single()`, etc.)
+- Create custom page templates when needed with proper headers
+
+### Custom Fields and Meta
+
+- Use ACF field groups with JSON sync for version control
+- Implement field group loading through dedicated classes
+- Use field group versioning to handle updates and cache clearing
+- Group related fields logically with proper field group organization
+- Always provide fallback values for custom fields
+
+### JavaScript and AJAX
+
+- Enqueue JavaScript files properly with dependencies and versioning
+- Use WordPress AJAX API (`admin-ajax.php`) or REST API for dynamic content
+- Implement proper error handling and user feedback
+- Use vanilla JavaScript or jQuery (already loaded by WordPress)
+- Add debugging console logs for development (remove in production)
+
+### CSS and Styling
+
+- Use SCSS with proper component-based architecture
+- Import parent theme styles appropriately in child theme
+- Implement CSS custom properties (CSS variables) for theming
+- Use responsive design principles with mobile-first approach
+- Follow consistent naming conventions for CSS classes
+- Use Bootstrap 5 utility classes over writing custom CSS classes
+
+### Error Handling
+
+- Implement proper error checking for required plugins (ACF, etc.)
+- Use WordPress admin notices for user feedback
+- Provide graceful fallbacks when dependencies are missing
+- Log errors appropriately using WordPress debug logging
+- Handle edge cases in template files with proper conditionals
+
+### Hooks and Filters
+
+- Use WordPress hooks system extensively for modularity
+- Prefer `add_action()` and `add_filter()` over direct function calls
+- Remove parent theme hooks when overriding functionality
+- Use proper hook priorities to control execution order
+- Document hook usage and dependencies clearly
+
+### Image Handling
+
+- Register custom image sizes for specific use cases
+- Implement helper functions for consistent image output
+- Use proper image attributes with alt text and responsive sizing
+- Leverage WordPress image optimization features
+- Provide fallback images for missing media
+
+### Accessibility
+
+- Use semantic HTML elements appropriately
+- Implement proper ARIA labels and roles where needed
+- Ensure keyboard navigation compatibility
+- Provide sufficient color contrast ratios
+- Use descriptive link text and button labels
+
+### Testing
+
+- Test all custom post types and taxonomies thoroughly
+- Validate ACF field configurations and dependencies
+- Test responsive design across multiple devices
+- Verify plugin compatibility and graceful degradation
+- Implement proper debugging tools for development

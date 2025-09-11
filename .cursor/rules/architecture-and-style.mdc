@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Architecture & Style
+
+- Keep business logic in classes/services; keep templates thin.
+- Prefer composition over inheritance; isolate side effects.
+- Keep responses concise and technical; include accurate PHP examples when requested.
+- Reuse patterns; avoid duplication; refactor to modules.

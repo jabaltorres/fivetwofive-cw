@@ -1,0 +1,15 @@
+---
+description: WordPress/PHP coding standards and structure for this project
+alwaysApply: false
+---
+# WordPress & PHP Standards
+
+- Follow WordPress PHP Coding Standards and best practices.
+- Prefer OOP when appropriate; design for modularity and reuse.
+- Prefer iteration/modularization over duplication.
+- Use descriptive function, variable, and file names.
+- Use lowercase-with-hyphens for directories (e.g., `wp-content/themes/my-theme`).
+- Favor hooks (actions/filters) for extending functionality instead of modifying core.
+- Use PHP 7.4+ features when appropriate (typed properties, arrow functions).
+- Use `declare(strict_types=1);` where safe (be mindful of WordPress compatibility).
+- Follow standard WordPress theme/plugin directory structures and naming conventions.

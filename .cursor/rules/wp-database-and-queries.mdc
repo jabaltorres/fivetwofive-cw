@@ -1,0 +1,10 @@
+---
+description: Guidance for `$wpdb`, schema changes, and query patterns
+alwaysApply: false
+---
+# Database & Queries
+
+- Use `$wpdb` for direct queries; prefer `WP_Query` for posts and tax queries.
+- Secure every query with `$wpdb->prepare()`.
+- For schema changes, use `dbDelta()` and versioned migrations.
+- Implement pagination using `paginate_links()` or `WP_Query` args (`paged`, `posts_per_page`).

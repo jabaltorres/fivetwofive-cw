@@ -9,6 +9,9 @@
 /*
 !.gitignore
 !robots.txt
+
+!.cursor/
+
 !wp-content
 
 wp-content/*

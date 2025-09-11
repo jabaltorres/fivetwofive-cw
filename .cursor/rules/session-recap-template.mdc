@@ -1,0 +1,30 @@
+---
+description: Template for documenting significant development sessions
+alwaysApply: false
+---
+# Session Recap Template
+
+Use this when wrapping a substantial session. Save to your knowledge base.
+
+**Path suggestion:** `/Users/jabaltorres/Obsidian-Vaults/Dev/Session-Recaps/`  
+**Filename:** `YYYY-MM-DD-Project-Topic-Brief.md`
+
+## Overview
+- Goal & context
+- Scope of changes
+
+## Implementation
+- Key decisions (bullets)
+- Notable snippets (code blocks)
+
+## Challenges Resolved
+- Problem → Fix
+- Tradeoffs
+
+## Key Learnings
+- Reusable patterns
+
+## Next Steps
+- TODOs / follow-ups
+- Links `[[related-notes]]`  
+- Tags: `#gulp #browsersync #linting #wordpress #development`

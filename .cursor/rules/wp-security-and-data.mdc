@@ -1,0 +1,14 @@
+---
+description: Security, validation, and data-handling rules for WordPress
+alwaysApply: false
+---
+# Security, Validation, Data
+
+- Always validate and sanitize input using WordPress helpers (`sanitize_text_field`, `esc_url_raw`, etc.).
+- Escape on output (`esc_html`, `esc_attr`, `esc_url`, etc.).
+- Use nonces for all state-changing actions and form submissions.
+- Use `$wpdb->prepare()` for SQL; never interpolate variables directly.
+- Prefer the REST API or `admin-ajax.php` for AJAX; enforce capability checks.
+- Use options API for configuration; prefer `register_setting()` for typed/validated options.
+- Use transients API for lightweight caching; define sensible expirations.
+- Log expected exceptions; handle with `try/catch` when needed and use WP’s debug logging.

@@ -1,0 +1,9 @@
+---
+description: Asset loading and build conventions
+alwaysApply: false
+---
+# Assets & Build
+
+- Always enqueue via `wp_enqueue_script()` / `wp_enqueue_style()` with proper deps and versioning.
+- Load assets conditionally only where needed; avoid global bloat.
+- Respect script localization via `wp_localize_script()`/`wp_add_inline_script()` for config.
