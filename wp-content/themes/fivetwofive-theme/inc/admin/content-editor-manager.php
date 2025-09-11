@@ -9,8 +9,8 @@
  * 
  * Features:
  * - Multiple template detection methods for reliability
- * - CSS fallback to ensure editor is hidden
  * - Works with both admin_init and current_screen hooks
+ * - Uses WordPress native remove_post_type_support() function
  * 
  * @package FiveTwoFive_Theme
  * @since 1.0.0
@@ -85,50 +85,3 @@ function fivetwofive_hide_editor_on_modules_template() {
 }
 add_action('current_screen', 'fivetwofive_hide_editor_on_modules_template');
 
-/**
- * CSS fallback to hide content editor when using Modules Template
- * This ensures the editor is hidden even if the PHP method doesn't work
- */
-function fivetwofive_hide_editor_css() {
-	$screen = get_current_screen();
-	
-	// Only run on page edit screens
-	if (!$screen || 'page' !== $screen->post_type || 'post' !== $screen->base) {
-		return;
-	}
-	
-	// Get the current post ID from the URL
-	$post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
-	
-	if (!$post_id) {
-		return;
-	}
-	
-	// Get current template
-	$template = get_post_meta($post_id, '_wp_page_template', true);
-	
-	// Check for multiple possible template values
-	$is_modules_template = (
-		'page-templates/template-module.php' === $template ||
-		'Modules Template' === $template ||
-		'template-module.php' === $template
-	);
-	
-	// If using Modules Template, add CSS to hide the editor
-	if ($is_modules_template) {
-		echo '<style>
-			#postdivrich,
-			#post-body-content #postdivrich,
-			.wp-editor-wrap,
-			#content_ifr,
-			#content-tmce,
-			#content-html {
-				display: none !important;
-			}
-			#post-body-content .wp-editor-wrap {
-				display: none !important;
-			}
-		</style>';
-	}
-}
-add_action('admin_head', 'fivetwofive_hide_editor_css');
