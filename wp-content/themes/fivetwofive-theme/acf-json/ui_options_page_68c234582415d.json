@@ -1,0 +1,23 @@
+{
+    "key": "ui_options_page_68c234582415d",
+    "title": "Company Options",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Company Options",
+    "menu_slug": "company-options",
+    "parent_slug": "none",
+    "advanced_configuration": false,
+    "icon_url": "",
+    "menu_title": "",
+    "position": null,
+    "redirect": false,
+    "description": "",
+    "menu_icon": [],
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": false,
+    "modified": 1757557848
+}
