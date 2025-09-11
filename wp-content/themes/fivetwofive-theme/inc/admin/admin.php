@@ -5,6 +5,9 @@
  * @package FiveTwoFive_Theme
  */
 
+// Include content editor manager
+require_once get_template_directory() . '/inc/admin/content-editor-manager.php';
+
 /**
  * Enqueue Admin stylesheet.
  */
