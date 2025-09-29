@@ -17,6 +17,7 @@ $module_content    = get_sub_field( 'content' );
 $module_button     = get_sub_field( 'button' );
 $module_text_color = '';
 $module_classes    = '';
+$background        = ''; // Initialize background variable to prevent undefined variable warning
 
 if ( get_sub_field( 'module_classes' ) ) {
 	$module_classes = implode( ' ', explode( ',', get_sub_field( 'module_classes' ) ) );
