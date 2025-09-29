@@ -23,11 +23,11 @@ const ANIMATION_CONFIG = {
 document.addEventListener('DOMContentLoaded', function() {
     const isHomepage = document.body.classList.contains('home');
     
-    if (isHomepage) {
-        initHomePageAnimations();
-    } else {
-        initInnerPageAnimations();
-    }
+    // if (isHomepage) {
+    //     initHomePageAnimations();
+    // } else {
+    //     initInnerPageAnimations();
+    // }
 
     initGlobalAnimations();
 });
