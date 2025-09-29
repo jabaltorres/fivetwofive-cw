@@ -155,23 +155,3 @@ function fivetwofive_get_paginated_links( $query ) {
 	);
 }
 
-/**
- * Remove content editor for pages using the Modules Template
- */
-function fivetwofive_remove_modules_template_editor() {
-	global $post;
-	
-	// If not in admin or no post object, return
-	if (!is_admin() || !$post) {
-		return;
-	}
-	
-	// Get current template
-	$template = get_post_meta($post->ID, '_wp_page_template', true);
-	
-	// If using Modules Template, remove the editor
-	if ('page-templates/template-module.php' === $template) {
-		remove_post_type_support('page', 'editor');
-	}
-}
-add_action('admin_init', 'fivetwofive_remove_modules_template_editor');
