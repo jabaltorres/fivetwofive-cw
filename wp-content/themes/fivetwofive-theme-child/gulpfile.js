@@ -58,7 +58,7 @@ function styles() {
 function scripts() {
     return gulp.src(paths.scripts.src)
         .pipe(sourcemaps.init())
-        .pipe(concat('animations.js'))
+        .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(paths.scripts.dest))

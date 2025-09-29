@@ -60,14 +60,13 @@ function fivetwofive_child_enqueue_assets() {
         'after'
     );
 
-    // TODO: Uncomment this when we fix the animations
-    // Enqueue custom animation scripts
-    // wp_enqueue_script(
-    //     'fivetwofive-animations',
-    //     get_stylesheet_directory_uri() . '/assets/dist/js/animations.js',
-    //     array( 'gsap', 'gsap-scrolltrigger' ),
-    //     $theme->get( 'Version' ),
-    //     true
-    // );
+    // Enqueue custom scripts (includes animations and copy-code functionality)
+    wp_enqueue_script(
+        'fivetwofive-main',
+        get_stylesheet_directory_uri() . '/assets/dist/js/main.js',
+        array( 'gsap', 'gsap-scrolltrigger' ),
+        $theme->get( 'Version' ),
+        true
+    );
 }
 
