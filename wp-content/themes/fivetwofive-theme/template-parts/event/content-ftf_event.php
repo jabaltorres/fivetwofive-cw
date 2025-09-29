@@ -10,7 +10,7 @@ $event_start_time  = get_field( 'ftf_event_start_time' );
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'mb-3 mb-md-5' ); ?>>
-	<header class="entry-header text-center bg-secondary py-md-6 mb-md-3 mb-md-5">
+	<header class="entry-header text-center py-md-6 mb-md-3 mb-md-5">
 		<div class="container">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			<div class="entry-excerpt">
